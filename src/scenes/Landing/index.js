@@ -85,7 +85,7 @@ const Landing = () => {
   return (
     <div className="Landing">
       <h1>Product List</h1>
-      <div class="Landing__main-container">
+      <div className="Landing__main-container">
         {
           productData.map((product) => (
             <ProductCard
