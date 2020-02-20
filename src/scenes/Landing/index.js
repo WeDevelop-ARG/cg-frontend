@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import './Landing.scss';
+import './Landing.scss'
 
 // components
-import ProductCard from '../../components/ProductCard';
+import ProductCard from '../../components/ProductCard'
 
 // TODO this must come from a service
 const productData = [
@@ -13,7 +13,7 @@ const productData = [
     marketPrice: 60,
     price: 20,
     totalSales: 15,
-    totalSold: 7,
+    totalSold: 7
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const productData = [
     marketPrice: 70,
     price: 50,
     totalSales: 40,
-    totalSold: 1,
+    totalSold: 1
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const productData = [
     marketPrice: 55,
     price: 30,
     totalSales: 11,
-    totalSold: 5,
+    totalSold: 5
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const productData = [
     marketPrice: 11,
     price: 3,
     totalSales: 30,
-    totalSold: 13,
+    totalSold: 13
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const productData = [
     marketPrice: 55,
     price: 20,
     totalSales: 30,
-    totalSold: 5,
+    totalSold: 5
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ const productData = [
     marketPrice: 70,
     price: 25,
     totalSales: 40,
-    totalSold: 33,
+    totalSold: 33
   },
   {
     id: 7,
@@ -61,7 +61,7 @@ const productData = [
     marketPrice: 66,
     price: 21,
     totalSales: 39,
-    totalSold: 2,
+    totalSold: 2
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ const productData = [
     marketPrice: 7,
     price: 3,
     totalSales: 8,
-    totalSold: 1,
+    totalSold: 1
   },
   {
     id: 9,
@@ -77,15 +77,15 @@ const productData = [
     marketPrice: 30,
     price: 10,
     totalSales: 28,
-    totalSold: 10,
-  },
-];
+    totalSold: 10
+  }
+]
 
 const Landing = () => {
   return (
-    <div className="Landing">
+    <div className='Landing'>
       <h1>Product List</h1>
-      <div className="Landing__main-container">
+      <div className='Landing__main-container'>
         {
           productData.map((product) => (
             <ProductCard
@@ -99,13 +99,13 @@ const Landing = () => {
           ))
         }
       </div>
-      <div className="Landing__wantsales">
-        <button type="button" name="want-sales">
+      <div className='Landing__wantsales'>
+        <button type='button' name='want-sales'>
           Quiero vender
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Landing;
+export default Landing

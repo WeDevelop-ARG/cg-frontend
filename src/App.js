@@ -1,10 +1,10 @@
-import React from 'react';
-import Landing from './scenes/Landing';
+import React from 'react'
+import Landing from './scenes/Landing'
 
-function App() {
+function App () {
   return (
     <Landing />
-  );
+  )
 }
 
-export default App;
+export default App
