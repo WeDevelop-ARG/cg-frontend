@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ubuntu/cg-frontend
+
+hooks:
+  ApplicationStop:
+    - location: codedeploy/app-stop.sh
+      runas: ubuntu
+  BeforeInstall:
+    - location: codedeploy/cleanup.sh
+  AfterInstall:
+    - location: codedeploy/setup-perms.sh
+      runas: ubuntu
+  ApplicationStart:
+    - location: codedeploy/app-start.sh
+      runas: ubuntu
