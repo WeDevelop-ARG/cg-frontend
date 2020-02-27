@@ -12,7 +12,7 @@ phases:
 
 artifacts:
   files:
-    - 'build/**/*'
+    - 'dist/**/*'
     - 'appspec.yml'
     - 'codedeploy/**/*'
     - 'package.json'
