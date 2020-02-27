@@ -22,6 +22,7 @@ const Landing = () => {
               price={product.price}
               totalSales={product.totalSales}
               totalSold={product.totalSold}
+              productId={product.id}
             />
           ))
         }

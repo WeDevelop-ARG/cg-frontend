@@ -2,9 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.scss'
 import App from './App'
+import { initialize as initializeMercadoPago } from './Mercadopago'
 
 import { ApolloProvider } from 'react-apollo'
 import client from './apollo/configurations/client'
+
+initializeMercadoPago()
 
 const Root = () => (
   <ApolloProvider client={client}>

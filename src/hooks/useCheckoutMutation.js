@@ -11,7 +11,7 @@ function useCheckoutMutation () {
     called,
     response: data,
     checkoutPayment: async ({ productId, paymentMethod }) => {
-      const { data } = await mutate({ variables: { productId, paymentMethod } })
+      const { data } = await mutate({ variables: { checkoutInput: { productId, paymentMethod } } })
 
       return data
     }

@@ -34,7 +34,10 @@
   &--sales {
     display: flex;
     flex-direction: column;
-    padding-right: 1.5em;
     text-align: right;
+  }
+
+  &--button {
+    padding-right: 1.5em;
   }
 }

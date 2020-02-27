@@ -1,10 +1,10 @@
 import { ApolloClient } from 'apollo-client'
-import { InMemoryCache as cache } from 'apollo-cache-inmemory'
+import { InMemoryCache } from 'apollo-cache-inmemory'
 import httpLink from './httpLink'
 
 const client = new ApolloClient({
   link: httpLink,
-  cache
+  cache: new InMemoryCache()
 })
 
 export default client
