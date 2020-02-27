@@ -6,7 +6,7 @@ import './Landing.scss'
 import ProductCard from '../../components/ProductCard'
 
 // TODO this must come from a service
-import productData from './productData'
+import productData from './../../utils/productData'
 
 const Landing = () => {
   return (

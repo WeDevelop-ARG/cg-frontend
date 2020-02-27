@@ -1,0 +1,17 @@
+.Checkout {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+
+  img {
+    max-width: 50%;
+  }
+
+  &__EndCheckout {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+}
