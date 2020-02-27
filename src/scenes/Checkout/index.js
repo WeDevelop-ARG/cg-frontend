@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useCheckoutMutation from '../../hooks/useCheckoutMutation'
-import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../Mercadopago'
+import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../MercadoPago'
 import { useParams, Redirect } from 'react-router-dom'
 import products from '../../utils/productData'
 
