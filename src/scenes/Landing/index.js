@@ -1,27 +1,27 @@
 import React from 'react'
 
 import './Landing.scss'
+import useGetProductsQuery from '../../hooks/useGetProductsQuery'
 
 // components
 import ProductCard from '../../components/ProductCard'
 
-// TODO this must come from a service
-import productData from './../../utils/productData'
-
 const Landing = () => {
+  const { products } = useGetProductsQuery()
+
   return (
     <div className='Landing'>
       <h1>Product List</h1>
       <div className='Landing__main-container'>
         {
-          productData.map((product) => (
+          products.map((product) => (
             <ProductCard
               key={product.id}
-              productPicture={product.productPicture}
+              productPicture={product.photoUrl}
               marketPrice={product.marketPrice}
               price={product.price}
-              totalSales={product.totalSales}
-              totalSold={product.totalSold}
+              totalSales={20}
+              totalSold={1}
               productId={product.id}
             />
           ))
