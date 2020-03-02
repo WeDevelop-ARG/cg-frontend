@@ -1,13 +1,13 @@
 import React from 'react'
 
 import './Landing.scss'
-import useGetProductsQuery from '../../hooks/useGetProductsQuery'
+import useProductsQuery from '../../hooks/useProductsQuery'
 
 // components
 import ProductCard from '../../components/ProductCard'
 
 const Landing = () => {
-  const { products } = useGetProductsQuery()
+  const { products } = useProductsQuery()
 
   return (
     <div className='Landing'>

@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  query products {
-    getProducts {
+  query product($id: ID!) {
+    product(id: $id) {
       id
       photoUrl
       name

@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import useCheckoutMutation from '../../hooks/useCheckoutMutation'
+import useProductQuery from '../../hooks/useProductQuery'
 import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../MercadoPago'
 import { useParams, Redirect } from 'react-router-dom'
-import products from '../../utils/productData'
 
 import EndCheckout from './EndCheckout'
 
 import './Checkout.scss'
 
 const Checkout = () => {
+  const { productId } = useParams()
+  const { product, loading } = useProductQuery(productId)
   const { checkoutPayment } = useCheckoutMutation()
+
   const [mercadoPagoPaymentMethod, setMercadoPagoPaymentMethod] = useState()
   const [email, setEmail] = useState('')
   const [endCheckout, setEndCheckout] = useState(false)
-  const { productId } = useParams()
 
-  const product = products.find((product) => product.id === +productId)
-
-  if (!product) return <Redirect path='/' />
+  if (!product && !loading) return <Redirect path='/' />
 
   // used in some fields events for security precautions
   // like onCopy, onPaste, onCut, etc
@@ -52,10 +52,18 @@ const Checkout = () => {
 
   if (endCheckout) return <EndCheckout product={product} />
 
+  if (loading) {
+    return (
+      <div>
+        <h1>... Loading</h1>
+      </div>
+    )
+  }
+
   return (
     <div className='Checkout'>
       <h1>{`${product.name} $${product.price}`}</h1>
-      <img src={product.productPicture} alt={product.name} />
+      <img src={product.photoUrl} alt={product.name} />
       <h2>{product.description}</h2>
       <form onSubmit={onSubmit} id='mercadopagoCheckoutForm'>
         <div>
