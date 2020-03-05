@@ -5,11 +5,11 @@ import './GroupCard.scss'
 
 const time = '00:02:00'
 
-const GroupCard = ({ productPicture, price, marketPrice, minParticipants , actualParticipants, productId }) => {
+const GroupCard = ({ productPicture, price, marketPrice, minParticipants, actualParticipants, productId, groupId }) => {
   const history = useHistory()
 
   const goToCheckout = () => {
-    history.push(`/checkout/${productId}`)
+    history.push(`/checkout/${productId}/${groupId}`)
   }
 
   return (

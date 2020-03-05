@@ -11,7 +11,7 @@ function App () {
         <Route path='/' exact>
           <Landing />
         </Route>
-        <Route path='/checkout/:productId' exact>
+        <Route path='/checkout/:productId/:groupId' exact>
           <Checkout />
         </Route>
       </Switch>
