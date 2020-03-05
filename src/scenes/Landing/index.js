@@ -21,7 +21,7 @@ const Landing = () => {
               marketPrice={group.product.marketPrice}
               price={group.product.price}
               minParticipants={group.minParticipants}
-              actualParticipants={0}
+              actualParticipants={group.participantsCount}
               productId={group.product.id}
             />
           ))

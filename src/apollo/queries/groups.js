@@ -15,6 +15,7 @@ const GET_GROUPS = gql`
       type
       minParticipants
       maxParticipants
+      participantsCount
       expiresAt
     }
   }
