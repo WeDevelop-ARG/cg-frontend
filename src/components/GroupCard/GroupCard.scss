@@ -1,0 +1,43 @@
+.GroupCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  max-height: 220px;
+
+  &--image {
+    width: 45%;
+    margin-top: 5px;
+  }
+
+  &--details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  &--prices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1em;
+    padding-left: 1em;
+    font-size: 15px;
+
+    &__market {
+      text-decoration: line-through;
+    }
+  }
+
+  &--sales {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  &--button {
+    padding-right: 1.5em;
+  }
+}

@@ -1,28 +1,28 @@
 import React from 'react'
 
 import './Landing.scss'
-import useProductsQuery from '../../hooks/useProductsQuery'
+import useGroupsQuery from '../../hooks/useGroupsQuery'
 
 // components
-import ProductCard from '../../components/ProductCard'
+import GroupCard from '../../components/GroupCard'
 
 const Landing = () => {
-  const { products } = useProductsQuery()
+  const { groups } = useGroupsQuery()
 
   return (
     <div className='Landing'>
-      <h1>Product List</h1>
+      <h1>Group List</h1>
       <div className='Landing__main-container'>
         {
-          products.map((product) => (
-            <ProductCard
-              key={product.id}
-              productPicture={product.photoUrl}
-              marketPrice={product.marketPrice}
-              price={product.price}
-              totalSales={20}
-              totalSold={1}
-              productId={product.id}
+          groups.map((group) => (
+            <GroupCard
+              key={group.id}
+              productPicture={group.product.photoUrl}
+              marketPrice={group.product.marketPrice}
+              price={group.product.price}
+              minParticipants={group.minParticipants}
+              actualParticipants={0}
+              productId={group.product.id}
             />
           ))
         }
