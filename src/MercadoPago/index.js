@@ -6,7 +6,7 @@ import createTokenHandlePromise from './createTokenHandlePromise'
 import createTokenByDOM from './createTokenByDOM'
 
 const initialize = () => {
-  MercadoPago.setPublishableKey(process.env.REACT_APP_MP_PUBLIC_KEY || 'TEST-14dcb83d-1fcc-4fb3-867c-2e59aadcdee7')
+  MercadoPago.setPublishableKey(process.env.MP_PUBLIC_KEY || 'TEST-14dcb83d-1fcc-4fb3-867c-2e59aadcdee7')
 }
 
 const getMercadoPagoInfo = async (payerInfo) => {
