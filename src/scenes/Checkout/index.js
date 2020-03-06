@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 // import useCheckoutMutation from '../../hooks/useCheckoutMutation'
 import useGroupQuery from '../../hooks/useGroupQuery'
 import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
-// import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../MercadoPago'
-import { useParams, Redirect, useHistory } from 'react-router-dom'
+import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../MercadoPago'
+import { useParams, Redirect } from 'react-router-dom'
 
 import EndCheckout from './EndCheckout'
 
@@ -11,13 +11,11 @@ import './Checkout.scss'
 
 const Checkout = () => {
   const { groupId } = useParams()
-  // const history = useHistory()
   const { group, loading } = useGroupQuery(groupId)
-  // const { checkoutPayment } = useCheckoutMutation()
   const { subscribeToGroup } = useSubscribeToGroup()
 
-  // const [mercadoPagoPaymentMethod, setMercadoPagoPaymentMethod] = useState()
-  // const [email, setEmail] = useState('')
+  const [mercadoPagoPaymentMethod, setMercadoPagoPaymentMethod] = useState()
+  const [email, setEmail] = useState('')
   const [endCheckout, setEndCheckout] = useState(false)
 
   if (!group && !loading) return <Redirect to='/' />
@@ -26,11 +24,10 @@ const Checkout = () => {
 
   // used in some fields events for security precautions
   // like onCopy, onPaste, onCut, etc
-  // const disableAction = (e) => e.preventDefault()
+  const disableAction = (e) => e.preventDefault()
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    /*
     const token = await createTokenByDOM({ paymentMethodId: mercadoPagoPaymentMethod })
 
     const paymentMethod = {
@@ -39,24 +36,13 @@ const Checkout = () => {
       token
     }
 
-    await checkoutPayment({ productId: product.id, paymentMethod })
+    const userId = '9c3859b0-5efe-11ea-bc55-0242ac130003'
+
+    await subscribeToGroup({ groupId, userId, paymentMethod })
 
     setEndCheckout(true)
-    */
-
-    const subscription = {
-      userId: '9c3859b0-5efe-11ea-bc55-0242ac130003',
-      groupId
-    }
-
-    const data = await subscribeToGroup(subscription)
-
-    if (data) {
-      setEndCheckout(true)
-    }
   }
 
-  /*
   const onChangeCreditCardNumber = async (number = '') => {
     if (number.length >= 6) {
       const { id: paymentMethod } = await getPaymentMethodPromise({ bin: number.substring(0, 6) })
@@ -64,13 +50,10 @@ const Checkout = () => {
       setMercadoPagoPaymentMethod(paymentMethod)
     }
   }
-  */
 
-  /*
   useEffect(() => {
     MercadoPago.getIdentificationTypes()
   }, [])
-  */
 
   if (endCheckout) return <EndCheckout product={product} />
 
@@ -87,7 +70,6 @@ const Checkout = () => {
       <img src={product.photoUrl} alt={product.name} />
       <h2>{product.description}</h2>
       <form onSubmit={onSubmit} id='mercadopagoCheckoutForm' style={{ display: 'hidden' }}>
-        {/*
         <div>
           <label htmlFor='email'>Email:</label>
           <input
@@ -183,7 +165,6 @@ const Checkout = () => {
         </div>
         <input type='hidden' name='amount' id='amount' value={product.price} />
         <input type='hidden' name='description' />
-        */}
         <input type='submit' value='Pay!' />
       </form>
     </div>

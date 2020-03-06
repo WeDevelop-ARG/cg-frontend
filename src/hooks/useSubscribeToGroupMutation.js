@@ -10,8 +10,8 @@ function useCheckoutMutation () {
     error,
     called,
     response: data,
-    subscribeToGroup: async ({ userId, groupId }) => {
-      const { data } = await mutate({ variables: { groupSubscriptionInput: { userId, groupId } } })
+    subscribeToGroup: async ({ userId, groupId, paymentMethod }) => {
+      const { data } = await mutate({ variables: { groupSubscriptionInput: { userId, groupId, paymentMethod } } })
 
       return data
     }
