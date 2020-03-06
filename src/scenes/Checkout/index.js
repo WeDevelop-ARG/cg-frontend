@@ -19,9 +19,8 @@ const Checkout = () => {
   // const [mercadoPagoPaymentMethod, setMercadoPagoPaymentMethod] = useState()
   // const [email, setEmail] = useState('')
   const [endCheckout, setEndCheckout] = useState(false)
-  const [redirectToLanding, setRedirectToLanding] = useState(false)
 
-  if ((!group && !loading) || redirectToLanding) return <Redirect to='/' />
+  if (!group && !loading) return <Redirect to='/' />
 
   const product = group && group.product
 
@@ -53,7 +52,7 @@ const Checkout = () => {
     const data = await subscribeToGroup(subscription)
 
     if (data) {
-      setRedirectToLanding(true)
+      setEndCheckout(true)
     }
   }
 
