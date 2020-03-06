@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import useCheckoutMutation from '../../hooks/useCheckoutMutation'
-import useProductQuery from '../../hooks/useProductQuery'
+import useGroupQuery from '../../hooks/useGroupQuery'
 import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
 // import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../MercadoPago'
 import { useParams, Redirect, useHistory } from 'react-router-dom'
@@ -10,17 +10,20 @@ import EndCheckout from './EndCheckout'
 import './Checkout.scss'
 
 const Checkout = () => {
-  const { productId, groupId } = useParams()
-  const history = useHistory()
-  const { product, loading } = useProductQuery(productId)
+  const { groupId } = useParams()
+  // const history = useHistory()
+  const { group, loading } = useGroupQuery(groupId)
   // const { checkoutPayment } = useCheckoutMutation()
   const { subscribeToGroup } = useSubscribeToGroup()
 
   // const [mercadoPagoPaymentMethod, setMercadoPagoPaymentMethod] = useState()
   // const [email, setEmail] = useState('')
   const [endCheckout, setEndCheckout] = useState(false)
+  const [redirectToLanding, setRedirectToLanding] = useState(false)
 
-  if (!product && !loading) return <Redirect path='/' />
+  if ((!group && !loading) || redirectToLanding) return <Redirect to='/' />
+
+  const product = group && group.product
 
   // used in some fields events for security precautions
   // like onCopy, onPaste, onCut, etc
@@ -50,8 +53,7 @@ const Checkout = () => {
     const data = await subscribeToGroup(subscription)
 
     if (data) {
-      console.log(data)
-      history.push('/')
+      setRedirectToLanding(true)
     }
   }
 
@@ -80,7 +82,6 @@ const Checkout = () => {
       </div>
     )
   }
-
   return (
     <div className='Checkout'>
       <h1>{`${product.name} $${product.price}`}</h1>
