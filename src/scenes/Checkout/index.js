@@ -27,17 +27,19 @@ const Checkout = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    const token = await createTokenByDOM({ paymentMethodId: mercadoPagoPaymentMethod })
+    // const token = await createTokenByDOM({ paymentMethodId: mercadoPagoPaymentMethod })
 
+    /*
     const paymentMethod = {
-      accountEmail: email,
-      paymentMethod: mercadoPagoPaymentMethod,
-      token
+      accountEmail: 'email',
+      paymentMethod: 'mercadoPagoPaymentMethod',
+      token: 'token'
     }
+    */
 
     const userId = '9c3859b0-5efe-11ea-bc55-0242ac130003'
 
-    await subscribeToGroup({ groupId, userId, paymentMethod })
+    await subscribeToGroup({ groupId, userId })
 
     setEndCheckout(true)
   }
@@ -50,9 +52,11 @@ const Checkout = () => {
     }
   }
 
+  /*
   useEffect(() => {
     MercadoPago.getIdentificationTypes()
   }, [])
+  */
 
   if (endCheckout) return <EndCheckout product={product} />
 
@@ -69,6 +73,7 @@ const Checkout = () => {
       <img src={product.photoUrl} alt={product.name} />
       <h2>{product.description}</h2>
       <form onSubmit={onSubmit} id='mercadopagoCheckoutForm' style={{ display: 'hidden' }}>
+        {/*
         <div>
           <label htmlFor='email'>Email:</label>
           <input
@@ -164,6 +169,7 @@ const Checkout = () => {
         </div>
         <input type='hidden' name='amount' id='amount' value={product.price} />
         <input type='hidden' name='description' />
+        */}
         <input type='submit' value='Pay!' />
       </form>
     </div>
