@@ -9,8 +9,6 @@ import GroupCard from '../../components/GroupCard'
 const Landing = () => {
   const { groups } = useGroupsQuery()
 
-  console.log(groups)
-
   return (
     <div className='Landing'>
       <h1>Group List</h1>

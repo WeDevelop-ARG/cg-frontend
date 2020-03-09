@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import useCheckoutMutation from '../../hooks/useCheckoutMutation'
 import useGroupQuery from '../../hooks/useGroupQuery'
 import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
 import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../MercadoPago'
