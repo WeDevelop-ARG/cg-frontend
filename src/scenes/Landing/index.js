@@ -23,6 +23,7 @@ const Landing = () => {
               minParticipants={group.minParticipants}
               actualParticipants={group.participantsCount}
               productId={group.product.id}
+              groupId={group.id}
             />
           ))
         }

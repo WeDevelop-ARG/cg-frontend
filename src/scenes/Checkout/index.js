@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import useCheckoutMutation from '../../hooks/useCheckoutMutation'
-import useProductQuery from '../../hooks/useProductQuery'
+import useGroupQuery from '../../hooks/useGroupQuery'
+import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
 import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../MercadoPago'
 import { useParams, Redirect } from 'react-router-dom'
 
@@ -9,15 +9,17 @@ import EndCheckout from './EndCheckout'
 import './Checkout.scss'
 
 const Checkout = () => {
-  const { productId } = useParams()
-  const { product, loading } = useProductQuery(productId)
-  const { checkoutPayment } = useCheckoutMutation()
+  const { groupId } = useParams()
+  const { group, loading } = useGroupQuery(groupId)
+  const { subscribeToGroup } = useSubscribeToGroup()
 
   const [mercadoPagoPaymentMethod, setMercadoPagoPaymentMethod] = useState()
   const [email, setEmail] = useState('')
   const [endCheckout, setEndCheckout] = useState(false)
 
-  if (!product && !loading) return <Redirect path='/' />
+  if (!group && !loading) return <Redirect to='/' />
+
+  const product = group && group.product
 
   // used in some fields events for security precautions
   // like onCopy, onPaste, onCut, etc
@@ -33,7 +35,9 @@ const Checkout = () => {
       token
     }
 
-    await checkoutPayment({ productId: product.id, paymentMethod })
+    const userId = '9c3859b0-5efe-11ea-bc55-0242ac130003'
+
+    await subscribeToGroup({ groupId, userId, paymentMethod })
 
     setEndCheckout(true)
   }
@@ -59,13 +63,12 @@ const Checkout = () => {
       </div>
     )
   }
-
   return (
     <div className='Checkout'>
       <h1>{`${product.name} $${product.price}`}</h1>
       <img src={product.photoUrl} alt={product.name} />
       <h2>{product.description}</h2>
-      <form onSubmit={onSubmit} id='mercadopagoCheckoutForm'>
+      <form onSubmit={onSubmit} id='mercadopagoCheckoutForm' style={{ display: 'hidden' }}>
         <div>
           <label htmlFor='email'>Email:</label>
           <input
