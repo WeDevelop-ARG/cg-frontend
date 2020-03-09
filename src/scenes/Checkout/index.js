@@ -29,19 +29,22 @@ const Checkout = () => {
     e.preventDefault()
     // const token = await createTokenByDOM({ paymentMethodId: mercadoPagoPaymentMethod })
 
-    /*
     const paymentMethod = {
-      accountEmail: 'email',
-      paymentMethod: 'mercadoPagoPaymentMethod',
+      accountEmail: 'test@wedevelop.me',
+      paymentMethod: 'visa',
       token: 'token'
     }
-    */
 
     const userId = '9c3859b0-5efe-11ea-bc55-0242ac130003'
 
-    await subscribeToGroup({ groupId, userId })
+    try {
+      await subscribeToGroup({ groupId, userId, paymentMethod })
 
-    setEndCheckout(true)
+      setEndCheckout(true)
+    } catch (error) {
+      const [err] = error.graphQLErrors
+      window.alert(err.message)
+    }
   }
 
   const onChangeCreditCardNumber = async (number = '') => {
