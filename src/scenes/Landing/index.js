@@ -24,6 +24,7 @@ const Landing = () => {
               actualParticipants={group.participantsCount}
               productId={group.product.id}
               groupId={group.id}
+              isSubscribed={group.isSubscribed}
             />
           ))
         }

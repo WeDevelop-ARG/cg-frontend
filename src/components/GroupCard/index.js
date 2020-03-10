@@ -5,7 +5,9 @@ import './GroupCard.scss'
 
 const time = '00:02:00'
 
-const GroupCard = ({ productPicture, price, marketPrice, minParticipants, actualParticipants, groupId }) => {
+const GroupCard = ({
+  productPicture, price, marketPrice, minParticipants, actualParticipants, groupId, isSubscribed
+}) => {
   const history = useHistory()
 
   const goToCheckout = () => {
@@ -25,7 +27,7 @@ const GroupCard = ({ productPicture, price, marketPrice, minParticipants, actual
           <span>{time}</span>
         </div>
         <div className='GroupCard--button'>
-          <button type='button' onClick={() => goToCheckout()}>Compre Ahora</button>
+          <button disabled={isSubscribed} type='button' onClick={() => goToCheckout()}>Compre Ahora</button>
         </div>
       </div>
     </div>
