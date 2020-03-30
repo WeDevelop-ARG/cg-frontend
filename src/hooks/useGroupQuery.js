@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/react-hooks'
 import groupQuery from '../apollo/queries/group'
 
-function useProductQuery (id) {
+function useGroupQuery (id) {
   const { loading, error, data, refetch } = useQuery(groupQuery, { variables: { id } })
 
   return {
@@ -12,4 +12,4 @@ function useProductQuery (id) {
   }
 }
 
-export default useProductQuery
+export default useGroupQuery

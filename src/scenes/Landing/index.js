@@ -7,9 +7,8 @@ import { useHistory } from 'react-router-dom'
 // components
 import GroupCard from '../../components/GroupCard'
 import Status from '../../components/Auth/Status'
-import { Account } from '../../components/Auth/Accounts'
 
-const Landing = () => {
+const Landing = (props) => {
   const { groups } = useGroupsQuery()
 
   const history = useHistory()
@@ -25,9 +24,7 @@ const Landing = () => {
   return (
     <div className='Landing'>
       <div className='Landing__wantsales'>
-        <Account>
-          <Status />
-        </Account>
+        <Status />
         <br />
         <button type='button' name='signin' onClick={() => goToSignin()}>
         SignIn
