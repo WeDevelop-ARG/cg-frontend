@@ -15,20 +15,23 @@ const GroupCard = ({
   }
 
   return (
-    <div className='GroupCard'>
+    <div className='GroupCard' onClick={() => goToCheckout()}>
       <img src={productPicture} className='GroupCard--image' alt='group' />
+      <div className='GroupCard--prices'>
+        <span className='GroupCard--prices__market'>${marketPrice}</span>
+        <span className='GroupCard--prices__price'>${price}</span>
+      </div>
       <div className='GroupCard--details'>
-        <div className='GroupCard--prices'>
-          <span className='GroupCard--prices__market'>${marketPrice}</span>
-          <span className='GroupCard--prices__price'>${price}</span>
-        </div>
-        <div className='GroupCard--sales'>
-          <span>{`${actualParticipants}/${minParticipants}`}</span>
-          <span>{time}</span>
-        </div>
-        <div className='GroupCard--button'>
-          <button disabled={isSubscribed} type='button' onClick={() => goToCheckout()}>Compre Ahora</button>
-        </div>
+        <p className='GroupCard--details__detail'>
+          "Lorem ipsum dolor sit amet, consectetaur adipisicing elit, 
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        </p>
+        <p className='GroupCard--details__qualities'>
+          "Lorem ipsum dolor sit amet"
+        </p>
+      </div>
+      <div className='GroupCard--sales'>
+        <span>{`${actualParticipants}/${minParticipants}`}</span>
       </div>
     </div>
   )

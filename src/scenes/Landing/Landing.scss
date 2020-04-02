@@ -8,8 +8,8 @@
   &__main-container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 3em;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 2em;
     grid-row-gap: 2.5em;
     padding: 0.5em;
   }
