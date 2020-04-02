@@ -1,12 +1,22 @@
 import React from 'react'
+
+import GroupProgress from '../GroupProgress'
+import currency from '../../utils/currency'
 import { useHistory } from 'react-router-dom'
 
-import './GroupCard.scss'
-
-const time = '00:02:00'
+import './styles.scss'
 
 const GroupCard = ({
-  productPicture, price, marketPrice, minParticipants, actualParticipants, groupId, isSubscribed
+  productPicture,
+  price,
+  marketPrice,
+  minParticipants = 0,
+  currentParticipants = 0,
+  groupId,
+  isSubscribed,
+  title = '',
+  description = '',
+  colors = []
 }) => {
   const history = useHistory()
 
@@ -15,23 +25,25 @@ const GroupCard = ({
   }
 
   return (
-    <div className='GroupCard' onClick={() => goToCheckout()}>
-      <img src={productPicture} className='GroupCard--image' alt='group' />
-      <div className='GroupCard--prices'>
-        <span className='GroupCard--prices__market'>${marketPrice}</span>
-        <span className='GroupCard--prices__price'>${price}</span>
+    <div className='group-card' onClick={() => goToCheckout()}>
+      <div className='group-card__pic'>
+        <img src={productPicture} className='GroupCard--image' alt='group' />
       </div>
-      <div className='GroupCard--details'>
-        <p className='GroupCard--details__detail'>
-          "Lorem ipsum dolor sit amet, consectetaur adipisicing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        </p>
-        <p className='GroupCard--details__qualities'>
-          "Lorem ipsum dolor sit amet"
-        </p>
-      </div>
-      <div className='GroupCard--sales'>
-        <span>{`${actualParticipants}/${minParticipants}`}</span>
+      <div className='group-card__detail'>
+        <div className='group-card__detail--amount'>
+          <span className='group-card__detail--amount--old-price'>{currency.ARS(marketPrice)}</span>
+          <span className='group-card__detail--amount--price'>{currency.ARS(price)}</span>
+        </div>
+        <div className='group-card__detail--description'>
+          <p className='group-card__detail--description--title'>{title}</p>
+          <p className='group-card__detail--description--title'>{description}</p>
+        </div>
+        <div className='group-card__detail--color'>
+          <span>Colors: {colors.join(', ')}</span>
+        </div>
+        <div className='group-card__detail--group-progress'>
+          <GroupProgress currentParticipants={currentParticipants} minParticipants={minParticipants} />
+        </div>
       </div>
     </div>
   )

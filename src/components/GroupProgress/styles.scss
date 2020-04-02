@@ -1,0 +1,41 @@
+.group-progress {
+  width: 155px;
+  height: 42px;
+
+  &__units {
+    width: 100%;
+    margin: 8px 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__unit {
+    align-self: center;
+  }
+
+  &__percent-detail {
+    width: 100%;
+    display: flex;
+    margin: 8px 0px;
+  
+    &--total {
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 13px;
+      color: #EB5433;
+      margin-right: 8px;
+    }
+
+    &--minmax {
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 12px;
+
+      color: #A0ACAF;
+    }
+  }
+}

@@ -21,6 +21,8 @@ const Landing = (props) => {
     history.push('/auth/signup')
   }
 
+  console.log(groups)
+
   return (
     <div className='Landing'>
       <div className='Landing__wantsales'>
@@ -43,10 +45,13 @@ const Landing = (props) => {
               marketPrice={group.product.marketPrice}
               price={group.product.price}
               minParticipants={group.minParticipants}
-              actualParticipants={group.participantsCount}
+              currentParticipants={group.participantsCount}
               productId={group.product.id}
               groupId={group.id}
               isSubscribed={group.isSubscribed}
+              colors={['Azul', 'Rojo', 'Negro']} // TODO this must come from backend
+              title={group.product.name}
+              description={group.product.description}
             />
           ))
         }

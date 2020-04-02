@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: local('DM Sans'), url(./fonts/DMSans-Regular.ttf) format('truetype');
+}
+
 html, body, #root {
   height: 100%;
   display: flex;
