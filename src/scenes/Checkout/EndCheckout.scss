@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+.EndCheckout {
+  height: 65%;
+  width: 70%;
+  padding: 2em 6em;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-family: 'DM Sans', sans-serif;
+  background: #FFFFFF;
+
+  h1 {
+    font-weight: 500;
+    font-size: 31px;
+  }
+
+  h2{
+    font-weight: normal;
+    font-size: 18px;
+  }
+
+  h4 {
+    font-weight: normal;
+    font-size: 14px;
+    color: #A0ACAF;
+  }
+  
+  span {
+    font-size: 14px;
+  }
+
+  &__checkout-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    &__image{
+      margin-top: 1em;
+      margin-right: 1em;
+      width: 130px;
+      width: 100px;
+      flex-shrink: 0;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+    }
+
+    &__price {
+      display: grid;
+      align-items: baseline;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 1em;
+      
+      .market {
+        color: #A0ACAF;
+        font-weight: normal;
+        font-size: 20px;
+        text-decoration: line-through;
+      }
+
+      .price{
+        font-weight: bold;
+        font-size: 26px;
+      }
+    }
+  }
+
+  &__progress-info{
+    p {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+
+  &__share {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .sharebox {
+      /* Rectangle 156 */
+      width: 540px;
+      display: flex;
+      padding-left: 1em;
+      font-weight: normal;
+      font-size: 16px;
+    
+      /* Grayscale/White */
+      background: #FFFFFF;
+      /* Grayscale/Dark */
+      border: 1px solid #A0ACAF;
+      box-sizing: border-box;
+      border-radius: 6px;
+    }
+
+    .sharebutton {
+      background: #1A2224;
+      border-radius: 32px;
+    }
+  }
+
+}
