@@ -22,7 +22,7 @@ const GroupCard = ({
   const history = useHistory()
 
   const goToCheckout = () => {
-    history.push(`/checkout/${groupId}`)
+    history.push(`/product-detail/${groupId}`)
   }
 
   return (

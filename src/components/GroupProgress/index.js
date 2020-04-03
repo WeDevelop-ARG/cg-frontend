@@ -5,7 +5,7 @@ import Unit from './Unit'
 import './styles.scss'
 
 const GroupProgress = ({ minParticipants = 0, currentParticipants = 0 }) => {
-  const percent = (currentParticipants / minParticipants) * 100
+  const percent = minParticipants && Math.round((currentParticipants / minParticipants) * 100)
   const getUnitQuantity = () => {
     if (percent < 10) return 0
     if (percent >= 100) return 10

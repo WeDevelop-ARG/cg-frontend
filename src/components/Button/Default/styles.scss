@@ -1,0 +1,58 @@
+.button-default {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  border: none;
+  /* identical to box height */
+
+
+  &--reset {
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+  }
+  /* Grayscale/White */
+
+  color: #FFFFFF;
+
+  &:hover,
+  &:focus {
+      @extend .button-default--reset;
+  }
+
+
+  &:active {
+    @extend .button-default--reset;
+  }
+
+  &__orange {
+    @extend .button-default;
+    display: flex;
+    flex-direction: row;
+    padding: 17px 45px;
+
+    position: relative;
+
+    /* Primary/orange */
+
+    background: #EB5433;
+    border-radius: 4px;
+  }
+
+  &__black {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 45px;
+
+    position: relative;
+    width: 122px;
+    height: 45px;
+
+    /* Primary/Black */
+
+    background: #1A2224;
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,238 @@
+.product-detail__descriptions {
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  margin-top: 85px;
+  grid-column: 8 / 13;
+
+  &__banner {
+    display: flex;
+    padding: 8px 20px;
+    justify-content: space-between;
+
+    width: 384px;
+    height: 38px;
+
+    /* Grayscale/White */
+
+    background: #FFFFFF;
+    /* Primary/orange */
+
+    border: 1px solid #EB5433;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  
+    &--icon {
+    }
+
+    &--message {
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+      /* identical to box height, or 137% */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.01em;
+
+      /* Primary/orange */
+
+      color: #EB5433;
+
+      /* Inside Auto Layout */
+
+      align-self: center;
+      margin: 8px 0px;
+    }
+
+    &--time {
+      width: 70px;
+
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 22px;
+      /* identical to box height, or 122% */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.01em;
+
+      /* Primary/orange */
+
+      color: #EB5433;
+
+      /* Inside Auto Layout */
+      align-self: center;
+      margin: 8px 0px;
+    }
+  }
+
+  &__title {
+    width: 327px;
+    height: 78px;
+
+    /* Page titles */
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 39px;
+
+    /* Primary/Black */
+
+    color: #1A2224;
+    margin-bottom: 27px;
+  }
+
+  &__costs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid #A0ACAF;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+
+    &--price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &--old {
+        width: 66px;
+        margin-right: 23px;
+
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 22px;
+        /* identical to box height, or 110% */
+
+        text-decoration-line: line-through;
+
+        color: #A0ACAF;
+      }
+
+      &--current {
+        width: 109px;
+        height: 42px;
+
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 42px;
+        /* identical to box height */
+
+
+        color: #1A2224;
+      }
+    }
+
+    &--delivery {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: space-between;
+      text-align: right;
+      border: 1px solid #3561D1;
+      box-sizing: border-box;
+      border-radius: 34px;
+      padding: 1px 16px;
+      /* Counters */
+
+      img {
+        margin-right: 10px;
+      }
+
+
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      /* identical to box height, or 157% */
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      /* Accent/Blue */
+
+      color: #3561D1;
+
+      /* Inside Auto Layout */
+
+      flex: none;
+      order: 0;
+      align-self: center;
+      margin: 12px 0px;
+    }
+  }
+
+  &__label {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    /* identical to box height, or 143% */
+
+
+    /* Primary/Black */
+
+    color: #1A2224;
+
+    &--title {
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      /* identical to box height, or 143% */
+
+
+      /* Primary/Black */
+
+      color: #1A2224;
+    }
+  }
+  &__label-line {
+    display: flex;
+
+    &--label {
+      @extend .product-detail__descriptions__label;
+      margin-right: 8px;
+    }
+
+    &--title {
+      @extend .product-detail__descriptions__label--title;
+    }
+  }
+
+  &__rest-participants {
+    &--rest {
+      width: 315px;
+
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      /* identical to box height, or 157% */
+
+      /* Primary/Black */
+
+      color: #1A2224;
+    }
+  }
+}
