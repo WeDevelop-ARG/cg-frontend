@@ -2,38 +2,19 @@ import React from 'react'
 
 import './Landing.scss'
 import useGroupsQuery from '../../hooks/useGroupsQuery'
-import { useHistory } from 'react-router-dom'
 
 // components
 import GroupCard from '../../components/GroupCard'
-import Status from '../../components/Auth/Status'
+import Navbar from '../../components/Navbar'
 
 const Landing = (props) => {
   const { groups } = useGroupsQuery()
 
-  const history = useHistory()
-
-  const goToSignin = () => {
-    history.push('/auth/signin')
-  }
-
-  const goToSignup = () => {
-    history.push('/auth/signup')
-  }
-
   return (
     <div className='Landing'>
       <div className='Landing__wantsales'>
-        <Status />
-        <br />
-        <button type='button' name='signin' onClick={() => goToSignin()}>
-        SignIn
-        </button>
-        <button type='button' name='signup' onClick={() => goToSignup()}>
-        SignUp
-        </button>
+        <Navbar />
       </div>
-      <h1>Group List</h1>
       <div className='Landing__main-container'>
         {
           groups.map((group) => (
