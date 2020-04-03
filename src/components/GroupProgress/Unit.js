@@ -1,15 +1,15 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMale } from '@fortawesome/free-solid-svg-icons'
+import MaleSolid from '../../vectors/male-solid.svg'
+import MaleOutline from '../../vectors/male-outline.svg'
 
 const Unit = ({ isFull = false }) => {
-  const getColorType = () => {
-    if (!isFull) return '#FA9079'
+  const getIcon = () => {
+    if (!isFull) return MaleOutline
 
-    return '#EB5433'
+    return MaleSolid
   }
 
-  return <FontAwesomeIcon color={getColorType()} className='group-progress__unit' icon={faMale} />
+  return <img src={getIcon()} alt='badget' />
 }
 
 export default Unit

@@ -3,6 +3,7 @@ import React from 'react'
 import GroupProgress from '../GroupProgress'
 import currency from '../../utils/currency'
 import { useHistory } from 'react-router-dom'
+import { Small as DiscountBadget } from '../../components/DiscountBadget'
 
 import './styles.scss'
 
@@ -26,6 +27,14 @@ const GroupCard = ({
 
   return (
     <div className='group-card' onClick={() => goToCheckout()}>
+      <DiscountBadget
+        oldPrice={marketPrice}
+        price={price}
+        topPosition='44.42%'
+        rightPosition='6.49%'
+        bottomPosition='45.12'
+        leftPosition='77.27%'
+      />
       <div className='group-card__pic'>
         <img src={productPicture} className='GroupCard--image' alt='group' />
       </div>

@@ -21,8 +21,6 @@ const Landing = (props) => {
     history.push('/auth/signup')
   }
 
-  console.log(groups)
-
   return (
     <div className='Landing'>
       <div className='Landing__wantsales'>
