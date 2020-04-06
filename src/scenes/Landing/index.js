@@ -5,16 +5,12 @@ import useGroupsQuery from '../../hooks/useGroupsQuery'
 
 // components
 import GroupCard from '../../components/GroupCard'
-import Navbar from '../../components/Navbar'
 
 const Landing = (props) => {
   const { groups } = useGroupsQuery()
 
   return (
     <div className='Landing'>
-      <div className='Landing__wantsales'>
-        <Navbar />
-      </div>
       <div className='Landing__main-container'>
         {
           groups.map((group) => (

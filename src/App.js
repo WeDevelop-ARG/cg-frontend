@@ -4,12 +4,14 @@ import Checkout from './scenes/Checkout'
 import Signin from './scenes/Signin'
 import Signup from './scenes/Signup'
 import ProductDetail from './scenes/ProductDetail'
+import NavBar from './components/Navbar'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App () {
   return (
     <Router>
+      <NavBar />
       <Switch>
         <Route path='/' exact>
           <Landing />

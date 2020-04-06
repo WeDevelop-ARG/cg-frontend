@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Status from '../../components/Auth/Status'
 
-import './index.scss'
+import './Navbar.scss'
 
 const Navbar = () => {
   const history = useHistory()
@@ -16,21 +16,21 @@ const Navbar = () => {
   }
 
   return (
-    <ul className='navbar'>
-      <li className='navbar__option'>
-        <button type='button' name='signin' onClick={() => goToSignin()}>
-          SignIn
-        </button>
-      </li>
-      <li className='navbar__option'>
-        <button type='button' name='signup' onClick={() => goToSignup()}>
-          SignUp
-        </button>
-      </li>
-      <li className='navbar__option--left'>
-        <Status />
-      </li>
-    </ul> 
+    <nav className='navbar'>
+      <Status />
+      <ul className='navbar__nav-links'>
+        <li className='navbar__nav-links--item'>
+          <button type='button' name='signup' onClick={() => goToSignin()}>
+            Creá tu cuenta
+          </button>
+        </li>
+        <li className='navbar__nav-links--item'>
+          <button type='button' name='signup' onClick={() => goToSignup()}>
+            Ingresá
+          </button>
+        </li>
+      </ul>
+    </nav>
   )
 }
 

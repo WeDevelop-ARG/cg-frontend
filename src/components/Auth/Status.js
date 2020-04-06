@@ -23,7 +23,7 @@ export default () => {
           Hi {currentUser.name} .
           <button onClick={handleLogout}>Logout</button>
         </div>
-      ) : 'Please login below.'}
+      ) : 'Please login.'}
     </div>
   )
 }
