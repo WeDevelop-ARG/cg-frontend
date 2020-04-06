@@ -13,7 +13,7 @@ const EndCheckout = ({ product, group }) => {
   }
 
   const leftParticipants = group.minParticipants - group.participantsCount
-  const discount = getDiscount(product.marketPrice,product.price)
+  const discount = getDiscount(product.marketPrice, product.price)
 
   return (
     <>
@@ -49,23 +49,21 @@ const EndCheckout = ({ product, group }) => {
         <div className='EndCheckout__progress-info'>
           <GroupProgress currentParticipants={group.participantsCount} minParticipants={group.minParticipants}/>
           <p>
-            <b>Faltan {leftParticipants} compradores para completar el grupo!</b><br/>
+            <b>Faltan {leftParticipants} compradores para completar el grupo!</b><br />
             Compartí y suma gente para acceder más rápido a tu producto
           </p>
         </div>
         <div className='EndCheckout__share'>
           <div className='EndCheckout__share--sharebox'>
-            <p>http://comprasgrupales.com/{(product.name).replace(/ /g,'-').toLowerCase()}</p>
+            <p>http://comprasgrupales.com/{(product.name).replace(/ /g, '-').toLowerCase()}</p>
           </div>
           <button className='EndCheckout__share--sharebutton'>
             &#128222;
           </button>
-          
         </div>
       </div>
     </>
   )
 }
-
 
 export default EndCheckout

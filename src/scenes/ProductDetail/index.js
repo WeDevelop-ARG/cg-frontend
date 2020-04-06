@@ -51,7 +51,7 @@ const ProductDetail = () => {
   }
 
   const {
-    title = '',
+    name = '',
     marketPrice: oldPrice = 0,
     price = 0,
     brand = 'Best brand',
@@ -85,7 +85,7 @@ const ProductDetail = () => {
           />
         </div>
         <Descriptions
-          title={title}
+          title={name}
           oldPrice={oldPrice}
           price={price}
           brand={brand}
