@@ -5,7 +5,7 @@ import './EndCheckout.scss'
 import GroupProgress from '../../components/GroupProgress'
 import getDiscount from '../../components/DiscountBadget/getPercent'
 
-const EndCheckout = ({ product, group }) => {
+const EndCheckout = ({ group: { product, ...group } } = {}) => {
   const history = useHistory()
 
   const goToHome = () => {
@@ -47,7 +47,7 @@ const EndCheckout = ({ product, group }) => {
           </div>
         </div>
         <div className='EndCheckout__progress-info'>
-          <GroupProgress currentParticipants={group.participantsCount} minParticipants={group.minParticipants}/>
+          <GroupProgress currentParticipants={group.participantsCount} minParticipants={group.minParticipants} />
           <p>
             <b>Faltan {leftParticipants} compradores para completar el grupo!</b><br />
             Compartí y suma gente para acceder más rápido a tu producto

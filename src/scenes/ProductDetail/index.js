@@ -40,7 +40,7 @@ const ProductDetail = () => {
     }
   }
 
-  if (endCheckout) return <EndCheckout product={product} />
+  if (endCheckout) return <EndCheckout group={group} />
 
   if (loading) {
     return (
