@@ -4,6 +4,7 @@ import Checkout from './scenes/Checkout'
 import Signin from './scenes/Signin'
 import Signup from './scenes/Signup'
 import ProductDetail from './scenes/ProductDetail'
+import WannaSell from './scenes/WannaSell'
 import NavBar from './components/Navbar'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -27,6 +28,9 @@ function App () {
         </Route>
         <Route path='/product-detail/:groupId' exact>
           <ProductDetail />
+        </Route>
+        <Route path='/quiero-vender' exact>
+          <WannaSell />
         </Route>
       </Switch>
     </Router>
