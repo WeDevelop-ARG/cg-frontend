@@ -1,0 +1,27 @@
+.Timer {
+  display: flex;
+  flex-direction: row;
+  padding: 1px 16px;
+  align-items: center;
+  text-align: center;
+
+  color: #F3CA61;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+
+  position: absolute;
+  width: 101px;
+  height: 28px;
+  left: 187px;
+  top: 12px;  
+  
+  background: rgba(26, 34, 36, 0.8);
+  border-radius: 15px;
+
+  &__icon {
+    margin-right: .6rem;
+  }
+}

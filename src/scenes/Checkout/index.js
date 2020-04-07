@@ -61,7 +61,7 @@ const Checkout = () => {
   }, [])
   */
 
-  if (endCheckout) return <EndCheckout product={product} group={group}/>
+  if (endCheckout) return <EndCheckout product={product} group={group} />
 
   if (loading) {
     return (

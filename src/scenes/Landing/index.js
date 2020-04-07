@@ -21,6 +21,7 @@ const Landing = (props) => {
               price={group.product.price}
               minParticipants={group.minParticipants}
               currentParticipants={group.participantsCount}
+              expiresAt={group.expiresAt}
               productId={group.product.id}
               groupId={group.id}
               isSubscribed={group.isSubscribed}
