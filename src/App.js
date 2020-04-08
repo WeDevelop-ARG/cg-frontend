@@ -6,6 +6,7 @@ import Signup from './scenes/Signup'
 import ProductDetail from './scenes/ProductDetail'
 import WannaSell from './scenes/WannaSell'
 import NavBar from './components/Navbar'
+import MyProducts from './scenes/MyProducts'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -31,6 +32,9 @@ function App () {
         </Route>
         <Route path='/quiero-vender' exact>
           <WannaSell />
+        </Route>
+        <Route path='/mis-productos' exact>
+          <MyProducts />
         </Route>
       </Switch>
     </Router>

@@ -20,12 +20,12 @@ const Navbar = () => {
       <Status />
       <ul className='navbar__nav-links'>
         <li className='navbar__nav-links--item'>
-          <button type='button' name='signup' onClick={() => goToSignin()}>
+          <button type='button' name='signup' onClick={() => goToSignup()}>
             Creá tu cuenta
           </button>
         </li>
         <li className='navbar__nav-links--item'>
-          <button type='button' name='signup' onClick={() => goToSignup()}>
+          <button type='button' name='signup' onClick={() => goToSignin()}>
             Ingresá
           </button>
         </li>
