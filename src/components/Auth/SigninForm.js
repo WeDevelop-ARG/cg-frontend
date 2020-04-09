@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom'
 import useLogin from '../../hooks/useLoginMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
 
+import './styles.scss'
+
 export default () => {
   const { handleAuth } = useContext(AuthContext)
   const [email, setEmail] = useState('')
@@ -22,7 +24,7 @@ export default () => {
   }
 
   return (
-    <div>
+    <div className='SignForm'>
       <form onSubmit={onSubmit}>
         <input
           value={email}
@@ -36,7 +38,7 @@ export default () => {
           onChange={event => setPassword(event.target.value)}
         />
 
-        <button type='submit'>Signin</button>
+        <button type='submit'>Sign In</button>
       </form>
     </div>
   )

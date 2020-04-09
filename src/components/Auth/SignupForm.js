@@ -1,7 +1,10 @@
+
 import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import useSignup from '../../hooks/useSignupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
+
+import './styles.scss'
 
 export default () => {
   const { handleAuth } = useContext(AuthContext)
@@ -12,6 +15,12 @@ export default () => {
 
   const history = useHistory()
 
+  const queryParams = () => {
+    return new URLSearchParams(useLocation().search)
+  }
+
+  const redirectTo = queryParams().get('redirectTo')
+
   const onSubmit = async event => {
     event.preventDefault()
 
@@ -19,31 +28,29 @@ export default () => {
 
     handleAuth(token)
 
-    await history.push('/')
+    await history.push(redirectTo || '/')
   }
 
   return (
-    <div>
+    <div className='SignForm'>
       <form onSubmit={onSubmit}>
         <input
-          value={name}
-          id='name'
-          onChange={event => setName(event.target.value)}
-        />
-
-        <input
+          type='email'
           value={email}
+          placeholder='Email'
           id='email'
           onChange={event => setEmail(event.target.value)}
         />
 
         <input
+          type='password'
           value={password}
+          placeholder='Password'
           id='password'
           onChange={event => setPassword(event.target.value)}
         />
 
-        <button type='submit'>Signup</button>
+        <button type='submit'>Sign Up</button>
       </form>
     </div>
   )
