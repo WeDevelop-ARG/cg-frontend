@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import AuthContext from '../../Contexts/AuthContext/context'
 
 const WannaSell = () => {
-  // /my-products
+  const { status: isLogged } = useContext(AuthContext)
   return (
     <div>
       <h1>Esta será la landing</h1>
-      <Link to='/auth/signup?redirectTo=my-products'>
-        <button type='button'>Registrate</button>
-      </Link>
+      {
+        !isLogged && (
+          <Link to='/auth/signup?redirectTo=/mis-productos'>
+            <button type='button'>Registrate</button>
+          </Link>
+        )
+      }
     </div>
   )
 }

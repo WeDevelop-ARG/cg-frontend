@@ -1,6 +1,6 @@
 
 import React, { useState, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import useSignup from '../../hooks/useSignupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
 
@@ -8,7 +8,6 @@ import './styles.scss'
 
 export default () => {
   const { handleAuth } = useContext(AuthContext)
-  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { signup } = useSignup()
@@ -24,7 +23,7 @@ export default () => {
   const onSubmit = async event => {
     event.preventDefault()
 
-    const { token } = await signup({ name, email, password })
+    const { token } = await signup({ name: 'USUARIO', email, password })
 
     handleAuth(token)
 

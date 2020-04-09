@@ -5,7 +5,7 @@ export default () => {
   const { currentUser, handleLogout, status, loading } = useContext(AuthContext)
   return (
     <div>
-      {status && !loading ? (
+      {status && !loading && currentUser ? (
         <div>
           Hi {currentUser.name} .
           <button onClick={handleLogout}>Logout</button>

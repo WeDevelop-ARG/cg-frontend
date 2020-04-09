@@ -14,8 +14,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App () {
   return (
-    <AuthContextProvider>
-      <Router>
+    <Router>
+      <AuthContextProvider>
         <NavBar />
         <Switch>
           <Route path='/' exact>
@@ -43,8 +43,8 @@ function App () {
             <PublishProduct />
           </Route>
         </Switch>
-      </Router>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </Router>
   )
 }
 
