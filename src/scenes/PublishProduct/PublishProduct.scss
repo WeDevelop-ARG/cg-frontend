@@ -1,0 +1,89 @@
+.Publish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: auto;
+  font-family: DM Sans;
+
+  form {
+    width: 70vh;
+    padding: 4rem 4rem;
+    background-color:#FFFFFF;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  input {
+    outline: none;
+    width: 100%;
+    padding: 22px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+    font-size: large;
+
+    &:focus{
+      border: 3px solid rgb(153, 153, 153);
+    }
+  }
+
+  &--group-select {
+    display: flex;
+    font-size: large;
+    justify-content: center;
+
+    select {
+      margin-left: 1rem;
+    }
+  }
+
+  &--expireDate {
+    display: flex;
+    font-size: large;
+    justify-content: center;
+    align-items: baseline;
+
+  }
+
+  &--button-group {
+    display: flex;
+    box-sizing: border-box;
+
+    button {
+      margin: 0 1rem;
+    }
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 2rem 2rem;
+  }
+
+  &__End {
+    background-color: #FFFFFF;
+    
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    right: 25%;
+      
+    margin: auto;
+    padding: 4rem;
+
+    h1 {
+      font-family: DM Sans;
+      font-weight: 600;
+      font-size: 48px;
+    }
+
+    button {
+      display: block;
+      padding: 2rem 2rem;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+}

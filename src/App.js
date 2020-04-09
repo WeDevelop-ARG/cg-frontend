@@ -6,6 +6,7 @@ import Signup from './scenes/Signup'
 import ProductDetail from './scenes/ProductDetail'
 import WannaSell from './scenes/WannaSell'
 import NavBar from './components/Navbar'
+import PublishProduct from './scenes/PublishProduct'
 import MyProducts from './scenes/MyProducts'
 import AuthContextProvider from './Contexts/AuthContext/provider'
 
@@ -37,6 +38,9 @@ function App () {
           </Route>
           <Route path='/mis-productos' exact>
             <MyProducts />
+          </Route>
+          <Route path='/mis-productos/nuevo' exact>
+            <PublishProduct />
           </Route>
         </Switch>
       </Router>
