@@ -1,24 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import useCurrentUser from '../../hooks/useCurrentUserQuery'
-import useLogout from '../../hooks/useLogoutMutation'
+import React, { useContext } from 'react'
+import AuthContext from '../../Contexts/AuthContext/context'
 
 export default () => {
-  const { currentUser } = useCurrentUser()
-  const { logout } = useLogout()
-  const [status, setStatus] = useState(false)
-
-  const handleLogout = async () => {
-    await logout()
-    await setStatus(false)
-  }
-
-  useEffect(() => {
-    setStatus(!!currentUser)
-  }, [currentUser])
-
+  const { currentUser, handleLogout, status, loading } = useContext(AuthContext)
   return (
     <div>
-      {status ? (
+      {status && !loading ? (
         <div>
           Hi {currentUser.name} .
           <button onClick={handleLogout}>Logout</button>

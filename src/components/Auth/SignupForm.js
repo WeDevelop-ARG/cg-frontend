@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import useSignup from '../../hooks/useSignupMutation'
+import AuthContext from '../../Contexts/AuthContext/context'
 
 export default () => {
+  const { handleAuth } = useContext(AuthContext)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -13,7 +15,9 @@ export default () => {
   const onSubmit = async event => {
     event.preventDefault()
 
-    await signup({ name, email, password })
+    const { token } = await signup({ name, email, password })
+
+    handleAuth(token)
 
     await history.push('/')
   }

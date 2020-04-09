@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import Status from '../../components/Auth/Status'
+import AuthContext from '../../Contexts/AuthContext/context'
 
 import './Navbar.scss'
 
 const Navbar = () => {
+  const { status } = useContext(AuthContext)
+
   const history = useHistory()
 
   const goToSignin = () => {
@@ -19,16 +22,19 @@ const Navbar = () => {
     <nav className='navbar'>
       <Status />
       <ul className='navbar__nav-links'>
-        <li className='navbar__nav-links--item'>
-          <button type='button' name='signup' onClick={() => goToSignup()}>
-            Creá tu cuenta
-          </button>
-        </li>
-        <li className='navbar__nav-links--item'>
-          <button type='button' name='signup' onClick={() => goToSignin()}>
-            Ingresá
-          </button>
-        </li>
+        {!status &&
+          <>
+            <li className='navbar__nav-links--item'>
+              <button type='button' name='signup' onClick={() => goToSignup()}>
+                Creá tu cuenta
+              </button>
+            </li>
+            <li className='navbar__nav-links--item'>
+              <button type='button' name='signup' onClick={() => goToSignin()}>
+                Ingresá
+              </button>
+            </li>
+          </>}
       </ul>
     </nav>
   )

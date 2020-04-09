@@ -13,7 +13,7 @@ function useSignupMutation () {
     signup: async ({ name, email, password }) => {
       const { data } = await mutate({ variables: { userInput: { name, email, password } } })
 
-      return data
+      return data && data.signup
     }
   }
 }

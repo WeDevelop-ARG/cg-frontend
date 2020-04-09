@@ -11,9 +11,9 @@ function useLoginMutation () {
     called,
     response: data,
     login: async ({ email, password }) => {
-      const { data } = await mutate({ variables: { userInput: { name: '', email, password } } })
+      const { data } = await mutate({ variables: { userInput: { email, password } } })
 
-      return data
+      return data && data.login
     }
   }
 }
