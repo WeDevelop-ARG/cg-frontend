@@ -1,0 +1,29 @@
+@import '../base/variables.scss';
+
+@mixin for-phone-only {
+  @media screen and (max-device-width: $mobileWidth) { @content; }
+}
+
+@mixin for-small-tablet-only {
+  @media screen and (max-device-width: $smallTabletWidth) { @content; }
+}
+
+@mixin for-large-tablet-only {
+  @media screen and (max-device-width: $largeTabletWidth) { @content; }
+}
+
+@mixin for-large-tablet-up {
+  @media screen and (min-device-width: $largeTabletWidth) { @content; }
+}
+
+@mixin for-small-desktop-up {
+  @media screen and (min-device-width: $smallDesktopWidth) { @content; }
+}
+
+@mixin for-medium-desktop-up {
+  @media screen and (min-width: $mediumDesktopWidth) { @content; }
+}
+
+@mixin for-large-desktop-up {
+  @media screen and (min-width: $largeDesktopWidth) { @content; }
+}
