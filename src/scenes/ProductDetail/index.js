@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import useGroupQuery from '../../hooks/useGroupQuery'
 import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
+import AuthContext from '../../Contexts/AuthContext/context'
 
-import { Link, useParams, Redirect } from 'react-router-dom'
+import { Link, useParams, Redirect, useHistory } from 'react-router-dom'
 
 import EndCheckout from '../Checkout/EndCheckout'
 
@@ -12,26 +13,30 @@ import Descriptions from './Descriptions'
 import { Big as DiscountBadget } from '../../components/DiscountBadget'
 
 const ProductDetail = () => {
+  const { status: isLogged, currentUser } = useContext(AuthContext)
   const { groupId } = useParams()
   const { group, loading } = useGroupQuery(groupId)
   const { subscribeToGroup } = useSubscribeToGroup()
   const [endCheckout, setEndCheckout] = useState(false)
+  const history = useHistory()
 
   if (!group && !loading) return <Redirect to='/' />
 
   const product = group && group.product
 
   const onSubmit = async () => {
+    if (!isLogged) {
+      return history.push(`/auth/signup?redirectTo=/product-detail/${groupId}`)
+    }
+
     const paymentMethod = {
-      accountEmail: 'test@wedevelop.me',
+      accountEmail: currentUser.email,
       paymentMethod: 'visa',
       token: 'token'
     }
 
-    const userId = '9c3859b0-5efe-11ea-bc55-0242ac130003'
-
     try {
-      await subscribeToGroup({ groupId, userId, paymentMethod })
+      await subscribeToGroup({ groupId, paymentMethod })
 
       setEndCheckout(true)
     } catch (error) {
