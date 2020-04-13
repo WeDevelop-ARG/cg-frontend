@@ -39,6 +39,20 @@
     }
   }
 
+  &--image-upload {
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      height: 120px;
+      max-width: 50%;
+      border-radius: 8px;
+    }
+    
+  }
+
   &--expireDate {
     display: flex;
     font-size: large;

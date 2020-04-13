@@ -19,6 +19,19 @@ const ProductForm = (props) => {
     props.nextStep()
   }
 
+  const encodeImage = event => {
+    const reader = new FileReader()
+    reader.onloadend = function () {
+      setPhoto(reader.result)
+    }
+    const file = event.target.files[0]
+    if (file) {
+      reader.readAsDataURL(file)
+    } else {
+      setPhoto('')
+    }
+  }
+
   return (
     <div className='Publish'>
       <form onSubmit={handleSubmit}>
@@ -40,14 +53,16 @@ const ProductForm = (props) => {
           onChange={event => setDescription(event.target.value)}
         />
 
-        <input
-          type='text'
-          value={photoUrl}
-          placeholder='URL de la foto'
-          id='photo'
-          onChange={event => setPhoto(event.target.value)}
-          required
-        />
+        <div className='Publish--image-upload'>
+          {photoUrl && <img src={photoUrl} />}
+          <input
+            type='file'
+            placeholder='URL de la foto'
+            id='photo'
+            onChange={encodeImage}
+            required
+          />
+        </div>
 
         <input
           type='text'
