@@ -15,6 +15,7 @@ const Landing = (props) => {
     <>
       <Banner />
       <div className='Landing'>
+        <h2 className='Landing--category-title'>Los más populares</h2>
         <div className='Landing__main-container'>
           {
             groups.map((group) => (

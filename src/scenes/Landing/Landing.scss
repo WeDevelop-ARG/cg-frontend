@@ -8,13 +8,23 @@
   height: 100%;
   background: #F7F8FA;
 
+  &--category-title {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 39px;
+  
+    color: #000000;
+    margin-bottom: 40px;
+  }
+
   &__main-container {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 18px;
     grid-row-gap: 2.5em;
-    padding: 0.5em;
   }
 
   &__product {

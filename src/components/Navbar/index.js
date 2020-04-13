@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import Status from '../../components/Auth/Status'
 import AuthContext from '../../Contexts/AuthContext/context'
 
 import './Navbar.scss'
 
 const Navbar = () => {
-  const { status } = useContext(AuthContext)
+  const { status, handleLogout } = useContext(AuthContext)
 
   const history = useHistory()
 
@@ -20,21 +19,29 @@ const Navbar = () => {
 
   return (
     <nav className='navbar'>
-      <Status />
       <ul className='navbar__nav-links'>
-        {!status &&
-          <>
+        {
+          !status ? (
+            <>
+              <li className='navbar__nav-links--item'>
+                <button type='button' name='signup' onClick={() => goToSignup()}>
+                  Creá tu cuenta
+                </button>
+              </li>
+              <li className='navbar__nav-links--item'>
+                <button type='button' name='signup' onClick={() => goToSignin()}>
+                  Ingresá
+                </button>
+              </li>
+            </>
+          ) : (
             <li className='navbar__nav-links--item'>
-              <button type='button' name='signup' onClick={() => goToSignup()}>
-                Creá tu cuenta
+              <button type='button' name='signup' onClick={handleLogout}>
+                Logout
               </button>
             </li>
-            <li className='navbar__nav-links--item'>
-              <button type='button' name='signup' onClick={() => goToSignin()}>
-                Ingresá
-              </button>
-            </li>
-          </>}
+          )
+        }
       </ul>
     </nav>
   )
