@@ -4,12 +4,15 @@
   padding: 0.5em;
   display: flex;
   flex-direction: column;
+  padding: 0px 75px;
+  height: 100%;
+  background: #F7F8FA;
 
   &__main-container {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 2em;
+    grid-column-gap: 18px;
     grid-row-gap: 2.5em;
     padding: 0.5em;
   }
