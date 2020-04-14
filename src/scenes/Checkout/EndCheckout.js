@@ -2,6 +2,9 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 import './EndCheckout.scss'
+import PriceTag from '../../vectors/price-tag.svg'
+import CopyLink from '../../vectors/copy-link.svg'
+
 import GroupProgress from '../../components/GroupProgress'
 import getDiscount from '../../components/DiscountBadget/getPercent'
 
@@ -35,7 +38,9 @@ const EndCheckout = ({ group: { product, ...group } } = {}) => {
             <div className='EndCheckout__checkout-info--product--description'>
               <h4>Descripción</h4>
               <h2>{product.description}</h2>
-              <span><b>%{discount} ahorro</b></span>
+              <span>
+                <img src={PriceTag} alt='' /> {discount}% ahorro
+              </span>
             </div>
           </div>
           <div>
@@ -56,6 +61,7 @@ const EndCheckout = ({ group: { product, ...group } } = {}) => {
         <div className='EndCheckout__share'>
           <div className='EndCheckout__share--sharebox'>
             <p>http://comprasgrupales.com/{(product.name).replace(/ /g, '-').toLowerCase()}</p>
+            <img src={CopyLink} alt='' />
           </div>
           <button className='EndCheckout__share--sharebutton'>
             &#128222;
