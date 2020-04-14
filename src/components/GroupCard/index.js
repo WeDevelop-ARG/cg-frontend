@@ -2,7 +2,7 @@ import React from 'react'
 
 import GroupProgress from '../GroupProgress'
 import currency from '../../utils/currency'
-import Timer from '../Timer'
+import { CardTimer } from '../Timer'
 import { useHistory } from 'react-router-dom'
 import { Small as DiscountBadget } from '../../components/DiscountBadget'
 
@@ -29,7 +29,7 @@ const GroupCard = ({
 
   return (
     <div className='group-card' onClick={() => goToCheckout()}>
-      <Timer expiresAt={expiresAt} />
+      <CardTimer expiresAt={expiresAt} />
       <DiscountBadget
         oldPrice={marketPrice}
         price={price}

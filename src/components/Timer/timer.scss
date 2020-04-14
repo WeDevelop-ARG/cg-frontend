@@ -1,4 +1,4 @@
-.Timer {
+.CardTimer {
   display: flex;
   flex-direction: row;
   padding: 1px 16px;
@@ -10,10 +10,10 @@
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 16px;
 
   position: absolute;
-  width: 101px;
+  width: 110px;
   height: 28px;
   left: 187px;
   top: 12px;  
@@ -22,6 +22,15 @@
   border-radius: 15px;
 
   &__icon {
-    margin-right: .6rem;
+    height: 13.5px;
+    width: 13.5px;
+    align-self: center;
+    margin-bottom: 1px;
+    margin-right: 8px;
   }
+
+  span {
+    margin-top: 1px;
+  }
+
 }
