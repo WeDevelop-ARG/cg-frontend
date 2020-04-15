@@ -5,12 +5,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
-  background: #FFFFFF url('../../vectors/banner-bg.svg');
+
+  background:url('../../assets/img/HomeBanner/Vector.png');
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: cover;
+  background-size: contain;
 
+  &--container {
+    background: #FFFFFF url('../../assets/img/HomeBanner/Group.svg') no-repeat;
+    background-position: 62%;
+  }
+  
+
+  
   h1 {
     font-family: DM Sans;
     font-style: normal;
