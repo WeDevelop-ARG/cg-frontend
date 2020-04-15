@@ -19,6 +19,9 @@ export default gql`
           photoUrl
           marketPrice
           price
+          photos {
+            url
+          }
         }
       }
     }
