@@ -9,26 +9,4 @@
     height: 100%;
     background: #F7F8FA;
   }
-
-  &__pictures {
-    position: relative;
-    grid-column: 1 / 8;
-
-    &__img {
-      margin-top: 32px;
-      border-radius: 4px;
-      height: 509px;
-      background-size: cover;
-      background-position: top;
-    }
-
-    &__home-link {
-      margin-top: 35px;
-      display: flex;
-      text-decoration: none;
-      :last-child {
-        margin-left: 12px;
-      }
-    }
-  }
 }

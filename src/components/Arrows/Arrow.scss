@@ -1,0 +1,33 @@
+.Arrow {
+  display: flex;
+  flex-direction: row;
+  padding: 12px;
+
+  width: 44px;
+  height: 44px;
+  border: none;
+
+
+  box-shadow: 0px 4px 4px rgba(26, 34, 36, 0.1);
+  border-radius: 4px;
+
+  &--yellow {
+    @extend .Arrow;
+    background: #F3CA61;
+
+    &:active {
+      outline: none;
+      border: none;
+    }
+  }
+
+  &--black {
+    @extend .Arrow;
+    background: #1A2224;
+
+    &:active {
+      outline: none;
+      border: none;
+    }
+  }
+}

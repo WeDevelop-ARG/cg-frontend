@@ -6,6 +6,8 @@ import GroupProgress from '../../../components/GroupProgress'
 import Banner from './Banner'
 import Costs from './Costs'
 
+import { FaceBook, Instagram, Twitter } from '../../../components/SocialMediaIcons'
+
 import './styles.scss'
 
 const Descriptions = ({
@@ -17,13 +19,14 @@ const Descriptions = ({
   description = '',
   currentParticipants = 0,
   minParticipants = 0,
+  expiresAt,
   onBuy
 }) => {
   const restOfParticipants = minParticipants - currentParticipants
 
   return (
     <div className='product-detail__descriptions'>
-      <Banner time='02:14:10' />
+      <Banner expiresAt={expiresAt} />
       <div className='product-detail__descriptions__title'>
         <span>{title}</span>
       </div>
@@ -56,12 +59,19 @@ const Descriptions = ({
       <GroupProgress currentParticipants={currentParticipants} minParticipants={minParticipants} />
       {restOfParticipants > 0 && (
         <div className='product-detail__descriptions__rest-participants'>
-          <span className='product-detail__descriptions__rest-participants--rest'>
-            {`Faltan ${restOfParticipants} compradores para completar el grupo!`}
-          </span>
-          <p className='product-detail__descriptions__rest-share'>
-            Compartí y sumá gente para acceder más rapido a tu producto
-          </p>
+          <div>
+            <span className='product-detail__descriptions__rest-participants--rest'>
+              {`Faltan ${restOfParticipants} compradores para completar el grupo!`}
+            </span>
+            <p className='product-detail__descriptions__rest-share'>
+              Compartí y sumá gente para acceder más rapido a tu producto
+            </p>
+          </div>
+          <div className='product-detail__descriptions__rest-participants--socialmedia'>
+            <FaceBook />
+            <Instagram />
+            <Twitter />
+          </div>
         </div>
       )}
       <p className='product-detail__descriptions__advertise'>

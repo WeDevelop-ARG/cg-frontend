@@ -3,14 +3,13 @@ import useGroupQuery from '../../hooks/useGroupQuery'
 import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
 
-import { Link, useParams, Redirect, useHistory } from 'react-router-dom'
+import { useParams, Redirect, useHistory } from 'react-router-dom'
 
 import EndCheckout from '../Checkout/EndCheckout'
 
 import './ProductDetail.scss'
 import Descriptions from './Descriptions'
-
-import { Big as DiscountBadget } from '../../components/DiscountBadget'
+import Pictures from './Pictures'
 
 const ProductDetail = () => {
   const { status: isLogged, currentUser } = useContext(AuthContext)
@@ -67,28 +66,14 @@ const ProductDetail = () => {
 
   const {
     participantsCount: currentParticipants = 0,
-    minParticipants = 0
+    minParticipants = 0,
+    expiresAt
   } = group
 
   return (
     <div className='product-detail--container'>
       <div className='product-detail'>
-        <div className='product-detail__pictures'>
-          <DiscountBadget
-            oldPrice={oldPrice}
-            price={price}
-            topPosition='116px'
-            leftPosition='-18px'
-          />
-          <Link to='/' className='product-detail__pictures__home-link'>
-            <span>{'<'}</span>
-            <span>Volver a la página principal</span>
-          </Link>
-          <div
-            className='product-detail__pictures__img'
-            style={{ backgroundImage: `url(${photoUrl})` }}
-          />
-        </div>
+        <Pictures oldPrice={oldPrice} price={price} photoUrls={[photoUrl, photoUrl, photoUrl, photoUrl]} />
         <Descriptions
           title={name}
           oldPrice={oldPrice}
@@ -99,6 +84,7 @@ const ProductDetail = () => {
           currentParticipants={currentParticipants}
           minParticipants={minParticipants}
           onBuy={onSubmit}
+          expiresAt={expiresAt}
         />
       </div>
     </div>

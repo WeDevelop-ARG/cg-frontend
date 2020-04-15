@@ -1,8 +1,9 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
+import { TextTimer } from '../../../components/Timer'
 
-const Banner = ({ time }) => {
+const Banner = ({ expiresAt }) => {
   return (
     <div className='product-detail__descriptions__banner'>
       <FontAwesomeIcon
@@ -18,7 +19,7 @@ const Banner = ({ time }) => {
         Apurate! esta oferta termina en
       </span>
       <span className='product-detail__descriptions__banner--time'>
-        {time}
+        <TextTimer expiresAt={expiresAt} />
       </span>
     </div>
   )
