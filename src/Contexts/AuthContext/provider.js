@@ -8,7 +8,7 @@ const Provider = (props) => {
   const { logout } = useLogout()
   const [hasToken, setHasToken] = useState(!!window.localStorage.getItem('token'))
   const [status, setStatus] = useState(false)
-  const { currentUser, loading } = useCurrentUser()
+  const { currentUser, loading, refetch } = useCurrentUser()
   const history = useHistory()
 
   const handleLogout = async () => {
@@ -26,6 +26,7 @@ const Provider = (props) => {
   useEffect(() => {
     if (hasToken) {
       setStatus(true)
+      refetch()
     } else {
       window.localStorage.removeItem('token')
       setStatus(false)
