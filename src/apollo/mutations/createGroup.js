@@ -11,6 +11,9 @@ export default gql`
         photoUrl
         price
         marketPrice
+        photos {
+          url
+        }
       }
       type
       minParticipants
