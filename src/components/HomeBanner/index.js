@@ -12,12 +12,12 @@ const HomeBanner = () => {
       <div className='home-banner'>
         <div className='home-banner__top'>
           <h1>¡Hay equipo!</h1>
-          <h2>¿Como funciona?</h2>
+          <h2>¿Cómo funciona?</h2>
         </div>
         <div className='home-banner__bottom'>
           <div className='home-banner__bottom--item'>
             <img src={group8} style={{ height: '68px' }} />
-            <p>Elejí el producto que más te guste</p>
+            <p>Elegí el producto que más te guste</p>
           </div>
           <div className='home-banner__bottom--item'>
             <img src={group114} style={{ height: '64px' }} />

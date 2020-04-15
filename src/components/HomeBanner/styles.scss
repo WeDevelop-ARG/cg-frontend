@@ -1,7 +1,6 @@
 .home-banner {
   height: 40vh;
   min-height: 380px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,8 +15,6 @@
     background-position: 62%;
   }
   
-
-  
   h1 {
     font-family: DM Sans;
     font-style: normal;
@@ -25,7 +22,6 @@
     font-size: 45px;
     line-height: 59px;
     margin-bottom: 0;
-
     color: #3561D1;
   }
 
@@ -34,8 +30,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 31px;
-   
+    line-height: 31px;   
     color: #5C6163;
   }
 
@@ -44,15 +39,13 @@
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 24px;
-   
+    line-height: 24px;   
     color: #5C6163;
   }
 
   &__top {
     position: relative;
-    left: 5%;
-    
+    left: 5%;    
   }
 
   &__bottom {
@@ -74,6 +67,5 @@
         margin-left: 20px;
       }
     }
-  }  
-
+  }
 }
