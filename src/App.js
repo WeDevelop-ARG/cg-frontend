@@ -1,5 +1,5 @@
 import React from 'react'
-import Landing from './scenes/Landing'
+import Home from './scenes/Home'
 import Checkout from './scenes/Checkout'
 import Signin from './scenes/Signin'
 import Signup from './scenes/Signup'
@@ -19,7 +19,7 @@ function App () {
         <NavBar />
         <Switch>
           <Route path='/' exact>
-            <Landing />
+            <Home />
           </Route>
           <Route path='/checkout/:groupId' exact>
             <Checkout />

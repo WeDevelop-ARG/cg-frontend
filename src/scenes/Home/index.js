@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import './Landing.scss'
 import useGroupsQuery from '../../hooks/useGroupsQuery'
@@ -36,13 +35,6 @@ const Landing = (props) => {
               />
             ))
           }
-        </div>
-        <div className='Landing__wantsales'>
-          <Link to='/quiero-vender'>
-            <button type='button' name='want-sales'>
-            Quiero vender
-            </button>
-          </Link>
         </div>
       </div>
     </>

@@ -13,15 +13,51 @@
   font-size: 16px;
   line-height: 16px;
 
+  &__dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 174px;
+    height: 169px;
+    padding: 30px 20px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(160, 172, 175, 0.15);
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    /* identical to box height, or 100% */
+
+
+    /* Primary/Black */
+
+    color: #1A2224;
+
+    &--item {
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
   &__nav-links {
     list-style-type: none;
     display:flex;
     justify-content: flex-start;
 
     &--item {
+      position: relative;
       display: inline-block;
       padding: 10px 15px;
       text-decoration: none;
+
+      &--arrow {
+        margin-left: 10px;
+      }
 
       button {
         border: none;
