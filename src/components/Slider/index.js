@@ -13,7 +13,7 @@ const Slider = ({ currentIndex, maxLength }) => {
   }
 
   const dots = []
-  for (let i = 0; i <= length; i += 1) {
+  for (let i = 0; i < length; i += 1) {
     dots.push(currentIndex === i ? 'DotSelected' : 'DotUnSelected')
   }
 

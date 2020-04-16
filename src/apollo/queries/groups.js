@@ -11,6 +11,9 @@ const GET_GROUPS = gql`
         description
         price
         marketPrice
+        photos {
+          url
+        }
       }
       type
       minParticipants

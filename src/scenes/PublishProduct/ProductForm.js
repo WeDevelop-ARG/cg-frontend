@@ -16,7 +16,14 @@ const ProductForm = (props) => {
     const price = parseFloat(priceString)
     const marketPrice = parseFloat(marketPriceString)
 
-    props.product({ productPhotosUrls, name, description, price, marketPrice })
+    props.product({
+      photoUrl: '',
+      productPhotosUrls: productPhotosUrls.filter((photo) => photo), // remove the last empty string
+      name,
+      description,
+      price,
+      marketPrice
+    })
     props.nextStep()
   }
 
@@ -59,6 +66,7 @@ const ProductForm = (props) => {
               photoIndex={index}
               handleSetPhoto={handlePhotos}
               photo={photo}
+              isRequired={productPhotosUrls.length < 2}
             />
           ))
         }

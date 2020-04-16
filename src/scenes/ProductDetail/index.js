@@ -61,7 +61,8 @@ const ProductDetail = () => {
     brand = 'Best brand',
     colors = ['Rojo', 'Azul', 'Blancos'],
     description = '',
-    photoUrl = ''
+    photoUrl = '',
+    photos
   } = product
 
   const {
@@ -70,10 +71,13 @@ const ProductDetail = () => {
     expiresAt
   } = group
 
+  const getUrls = ({ url }) => url
+  const photosUrls = photoUrl ? [photoUrl, ...photos.map(getUrls)] : photos.map(getUrls)
+
   return (
     <div className='product-detail--container'>
       <div className='product-detail'>
-        <Pictures oldPrice={oldPrice} price={price} photoUrls={[photoUrl, photoUrl, photoUrl, photoUrl]} />
+        <Pictures oldPrice={oldPrice} price={price} photoUrls={photosUrls} />
         <Descriptions
           title={name}
           oldPrice={oldPrice}

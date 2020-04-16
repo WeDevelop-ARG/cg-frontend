@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LoadPhoto = ({ handleSetPhoto, photoIndex, photo = '' }) => {
+const LoadPhoto = ({ handleSetPhoto, photoIndex, photo = '', isRequired = true }) => {
   const encodeImage = event => {
     const reader = new window.FileReader()
     reader.onloadend = function () {
@@ -22,7 +22,7 @@ const LoadPhoto = ({ handleSetPhoto, photoIndex, photo = '' }) => {
         placeholder='URL de la foto'
         id='photo'
         onChange={encodeImage}
-        required
+        required={isRequired}
       />
     </div>
   )

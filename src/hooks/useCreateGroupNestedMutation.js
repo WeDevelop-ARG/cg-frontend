@@ -10,38 +10,11 @@ function useCreateGroupMutation () {
     error,
     called,
     response: data,
-    createGroup: async (
-      {
-        product: {
-          photoUrl,
-          name,
-          description,
-          price,
-          marketPrice
-        },
-        type,
-        minParticipants,
-        maxParticipants,
-        discount,
-        expiresAt
-      }) => {
+    createGroup: async (groupInput) => {
       const { data } = await mutate(
         {
           variables: {
-            groupInput: {
-              product: {
-                photoUrl,
-                name,
-                description,
-                price,
-                marketPrice
-              },
-              type,
-              minParticipants,
-              maxParticipants,
-              discount,
-              expiresAt
-            }
+            groupInput
           }
         }
       )
