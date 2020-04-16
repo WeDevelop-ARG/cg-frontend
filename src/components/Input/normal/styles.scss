@@ -1,0 +1,95 @@
+.input__normal {
+  /* Grayscale/White */
+  min-height: 45px;
+
+  background: #FFFFFF;
+  /* Grayscale/Medium */
+
+  border: 1px solid #F1F3F3;
+  box-sizing: border-box;
+  border-radius: 6px;
+
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 14px;
+  /* identical to box height, or 87% */
+
+  align-items: center;
+  letter-spacing: 0.01em;
+
+  /* Primary/Black */
+
+  color: #1A2224;
+
+  &__placeholder {
+    width: 177px;
+    bottom: 33.33%;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 14px;
+    /* identical to box height, or 87% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+
+    /* Grayscale/Dark */
+
+    color: #A0ACAF;
+  }
+
+  &--focused {
+    @extend .input__normal;
+    border: 1px solid #3561D1;
+    box-sizing: border-box;
+    border-radius: 6px;
+  }
+
+  &--error {
+    @extend .input__normal;
+    border: 1px solid #FF4F4F;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 2px rgba(255, 79, 79, 0.2);
+    border-radius: 6px;
+  }
+
+  &::-webkit-input-placeholder { /* Edge */
+    @extend .input__normal__placeholder;
+  }
+  
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    @extend .input__normal__placeholder;
+  }
+  
+  &::placeholder {
+    @extend .input__normal__placeholder;
+  }
+
+  &__error-text {
+    position: absolute;
+    width: 100px;
+    height: 14px;
+    left: 0px;
+    top: 55px;
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 14px;
+    /* identical to box height, or 108% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+
+    /* Error/red */
+
+    color: #FF4F4F;
+  }
+}
