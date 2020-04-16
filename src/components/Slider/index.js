@@ -6,7 +6,7 @@ import DotUnSelected from './DotUnSelected'
 import './Slider.scss'
 
 const Slider = ({ currentIndex, maxLength }) => {
-  const length = maxLength < 4 ? maxLength : 3
+  const length = maxLength <= 4 ? maxLength : 3
 
   const dotInstance = {
     DotSelected, DotUnSelected
