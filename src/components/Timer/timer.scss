@@ -13,9 +13,8 @@
   line-height: 16px;
 
   position: absolute;
-  width: 110px;
   height: 28px;
-  left: 187px;
+  right: 12px;
   top: 12px;  
   
   background: rgba(26, 34, 36, 0.8);
@@ -30,6 +29,8 @@
   }
 
   span {
+    align-self: center;
+    justify-self: center;
     margin-top: 1px;
   }
 
