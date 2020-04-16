@@ -242,6 +242,8 @@
     
     p {
       margin-top: 3px !important;
+      margin-bottom: 8px !important;
+      margin-right: 15px;
       width: 359px;
       height: 40px;
 
@@ -276,9 +278,6 @@
     }
   }
 
-  &__rest-share {
-    margin-bottom: 8px !important;
-  }
 
   &__advertise {
     font-family: DM Sans;
