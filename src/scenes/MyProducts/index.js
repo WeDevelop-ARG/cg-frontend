@@ -2,6 +2,8 @@ import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import usePublishedGroupsQuery from '../../hooks/usePublishedGroupsQuery'
 
+import EmptyProductList from './NoProducts'
+
 const MyProducts = () => {
   const { loading, currentUser } = usePublishedGroupsQuery()
 
@@ -19,19 +21,19 @@ const MyProducts = () => {
 
   return (
     <div className='MyProducts'>
-      <h1>Publicaciones</h1>
-      <Link to='/mis-productos/nuevo'>
-        <button>Publicar más</button>
+      <Link to='/' className='MyProducts__go-home'>
+        &#60;  Volver a la pagina principal
       </Link>
-      <hr />
+      <h1>Mis publicaciones</h1>
       {
-        !!publishedGroups.length && (
+        publishedGroups.length ? (
           <ul>
             {publishedGroups.map(({ id, product: { name } }) => (
               <li key={id}>{name}</li>
             ))}
           </ul>
         )
+          : <EmptyProductList />
       }
     </div>
   )
