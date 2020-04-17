@@ -31,19 +31,23 @@ const MyProducts = () => {
         &#60;  Volver a la pagina principal
       </Link>
       <h1>Mis publicaciones</h1>
-      {
-        publishedGroups.length ? (
-          <div className='MyProducts__data'>
-            <div className='MyProducts__data--status'>
-              <p>{publishedGroups.length} Publicaciones activas</p>
-              <Button onClick={goPublishProducts}>
-                Publicá tu producto
-              </Button>
-            </div>
-            <ProductList groups={publishedGroups} />
-          </div>
-        ) : <EmptyProductList />
-      }
+      <div className='MyProducts__List--container'>
+        {
+          publishedGroups.length ? (
+            <>
+              <div className='MyProducts__data'>
+                <div className='MyProducts__data--status'>
+                  <p>{publishedGroups.length} Publicaciones activas</p>
+                  <Button onClick={goPublishProducts}>
+                    Publicá tu producto
+                  </Button>
+                </div>
+              </div>
+              <ProductList groups={publishedGroups} />
+            </>
+          ) : <EmptyProductList />
+        }
+      </div>
     </div>
   )
 }
