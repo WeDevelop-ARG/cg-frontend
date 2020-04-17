@@ -27,12 +27,50 @@
     display: flex;
     flex-direction: column;
 
+    &__links {
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      color: #3561D1;
+      text-decoration: none;
+      margin-bottom: 50px;
+
+      &:active, &::selection {
+        color: #3561D1;
+        text-decoration: none;
+      }
+    }
+
+    &__new {
+      text-align: center;
+      margin-top: 32px;
+      font-family: DM Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      /* identical to box height, or 150% */
+
+
+      /* Primary/Black */
+
+      color: #1A2224;
+      margin-bottom: 185px;
+
+      a {
+        margin-left: 8px;
+      }
+    }
+
     .input__normal, .input__normal--focused, .input__normal--error {
       width: 526px;
     }
 
     &--container {
-      width: 90%;
+      padding-left: 75px;
+      width: 100%;
       margin: 0 auto;
       height: 100%;
       display: flex;

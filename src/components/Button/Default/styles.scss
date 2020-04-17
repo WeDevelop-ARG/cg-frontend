@@ -31,6 +31,8 @@
     @extend .button-default;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     padding: 17px 45px;
 
     position: relative;
