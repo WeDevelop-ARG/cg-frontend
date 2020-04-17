@@ -18,10 +18,24 @@
 
   align-items: center;
   letter-spacing: 0.01em;
+  padding: 0 16.65px;
 
   /* Primary/Black */
 
   color: #1A2224;
+
+  &--container {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  &__eye {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 12px;
+    right: 21px;
+  }
 
   &__placeholder {
     width: 177px;
@@ -72,11 +86,8 @@
 
   &__error-text {
     position: absolute;
-    width: 100px;
-    height: 14px;
     left: 0px;
     top: 55px;
-
     font-family: DM Sans;
     font-style: normal;
     font-weight: normal;
@@ -84,8 +95,6 @@
     line-height: 14px;
     /* identical to box height, or 108% */
 
-    display: flex;
-    align-items: center;
     letter-spacing: 0.01em;
 
     /* Error/red */
