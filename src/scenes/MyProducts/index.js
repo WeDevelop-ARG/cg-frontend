@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect, Link } from 'react-router-dom'
 import usePublishedGroupsQuery from '../../hooks/usePublishedGroupsQuery'
 
+import ProductListItem from './ProductItem'
 import EmptyProductList from './NoProducts'
 
 const MyProducts = () => {
@@ -28,8 +29,10 @@ const MyProducts = () => {
       {
         publishedGroups.length ? (
           <ul>
-            {publishedGroups.map(({ id, product: { name } }) => (
-              <li key={id}>{name}</li>
+            {publishedGroups.map(group => (
+              <li key={group.id}>
+                <ProductListItem group={group} />
+              </li>
             ))}
           </ul>
         )

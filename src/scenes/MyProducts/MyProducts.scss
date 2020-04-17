@@ -1,10 +1,22 @@
+body {
+  background:#F7F8FA;
+}
+
+@mixin flex-center () {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+}
+
+
 .MyProducts {
   padding: 35px 5%;
   height: 72vh;
-
+  font-family: DM Sans;
+  
   h1 {
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 26px;
     line-height: 34px;
@@ -12,11 +24,21 @@
     margin-bottom: 35px;
   }
 
+  p {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+    border: 1px solid #F1F3F3; 
+  }
+
   &__go-home {
     text-decoration: none;
     font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 18px;
     color: #1A2224;
@@ -24,7 +46,62 @@
       color: rgb(82, 102, 102); 
     }
   }
+  
+  &__List {
+    &--item {
+      background-color: white;
+      display: flex;
 
+      &--description {
+        display: flex;
+        span{
+          color: #A0ACAF;
+        }
+      }
+      &--image {
+        height: 136px;
+        max-width: 136px;
+
+        img {
+          height: inherit;
+          width: inherit;
+        }
+      }
+      &--info {
+        padding: 6% 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      &--price {
+        @include flex-center();
+        span{
+          color: #A0ACAF;
+          text-decoration: line-through;
+        }
+      }
+      &--discount {
+        @include flex-center();
+      }
+      &--participants {
+        @include flex-center();
+      }
+      &--expireDate {
+        @include flex-center();
+      }
+      &--more{
+        @include flex-center();
+        button {
+          font-size: 26px;
+          padding: 0;
+          border: none;
+          background: none;
+          outline: none;
+        }
+      }
+
+    }
+  }
   &__empty {
     display: flex;
     flex-direction: column;
@@ -32,8 +109,6 @@
     align-items: center;
     height: 100%;
     background: #FFFFFF;
-
-    font-family: DM Sans;
     h2 {
       font-weight: 500;
       font-size: 26px;
