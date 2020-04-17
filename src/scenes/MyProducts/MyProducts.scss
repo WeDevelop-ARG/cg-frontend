@@ -7,7 +7,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 50px;
 }
 
 
@@ -26,14 +25,18 @@ body {
 
   p {
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 20px;
   }
 
   ul {
     padding: 0;
-    list-style: none;
-    border: 1px solid #F1F3F3; 
+    list-style: none
+  }
+
+  li {
+    border-top: 1px solid #F1F3F3; 
+    border-bottom: 1px solid #F1F3F3; 
   }
 
   &__go-home {
@@ -47,10 +50,49 @@ body {
     }
   }
   
-  &__List {
+  &__data {
+    background:#FFFFFF;
+    padding: 30px;
+    &--status {
+      max-height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      p {
+        font-weight: 500;
+        font-size: 19px;
+      }
+      button {
+        padding-top: 12px;
+        height: 45px;
+      }
+    }
+  }
+
+  &__List {    
+    &--headers {
+      padding-top: 20px;
+      display: grid;
+      grid-template-columns: 2.5fr repeat(3,1fr) 1.5fr 0.5fr;
+      grid-column-gap: 5px;
+      p {
+        @include flex-center();
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        &:first-child {
+          align-items: flex-start;
+        }
+      }
+    }
+
     &--item {
       background-color: white;
-      display: flex;
+      height: 150px;
+      display: grid;
+      grid-template-columns: 2.5fr repeat(3,1fr)  1.5fr 0.5fr;
 
       &--description {
         display: flex;
@@ -59,12 +101,13 @@ body {
         }
       }
       &--image {
-        height: 136px;
-        max-width: 136px;
-
+        width: 160px;
+        padding: 12px 0px;
+        
         img {
-          height: inherit;
-          width: inherit;
+          border-radius: 4px;
+          height: 126px;
+          width: 136px;
         }
       }
       &--info {

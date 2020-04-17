@@ -1,8 +1,9 @@
 import React from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect, Link, useHistory } from 'react-router-dom'
 import usePublishedGroupsQuery from '../../hooks/usePublishedGroupsQuery'
+import Button from '../../components/Button/Default/Orange'
 
-import ProductListItem from './ProductItem'
+import ProductList from './ProductList'
 import EmptyProductList from './NoProducts'
 
 const MyProducts = () => {
@@ -17,8 +18,12 @@ const MyProducts = () => {
   }
 
   if (!currentUser) return <Redirect to='/' />
-
   const { publishedGroups } = currentUser
+  const history = useHistory()
+
+  const goPublishProducts = () => {
+    history.push('/mis-productos/nuevo')
+  }
 
   return (
     <div className='MyProducts'>
@@ -28,15 +33,16 @@ const MyProducts = () => {
       <h1>Mis publicaciones</h1>
       {
         publishedGroups.length ? (
-          <ul>
-            {publishedGroups.map(group => (
-              <li key={group.id}>
-                <ProductListItem group={group} />
-              </li>
-            ))}
-          </ul>
-        )
-          : <EmptyProductList />
+          <div className='MyProducts__data'>
+            <div className='MyProducts__data--status'>
+              <p>{publishedGroups.length} Publicaciones activas</p>
+              <Button onClick={goPublishProducts}>
+                Publicá tu producto
+              </Button>
+            </div>
+            <ProductList groups={publishedGroups} />
+          </div>
+        ) : <EmptyProductList />
       }
     </div>
   )
