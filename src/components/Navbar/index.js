@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import AuthContext from '../../Contexts/AuthContext/context'
 import AngleUp from '../../vectors/angle-up.svg'
@@ -10,7 +10,29 @@ const Navbar = () => {
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   const { status, handleLogout, currentUser } = useContext(AuthContext)
 
+  const dropdownRef = useRef(null)
+  const dropdownButtonRef = useRef(null)
+
+  const verifyClick = (e) => {
+    if (!dropdownRef.current.contains(e.target) && !dropdownButtonRef.current.contains(e.target)) {
+      setIsDropdownOpened(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', verifyClick, false)
+
+    return () => {
+      document.removeEventListener('click', verifyClick, false)
+    }
+  }, [])
+
   const history = useHistory()
+
+  const logout = () => {
+    setIsDropdownOpened(false)
+    handleLogout()
+  }
 
   const goToSignin = () => {
     history.push('/auth/signin')
@@ -18,6 +40,11 @@ const Navbar = () => {
 
   const goToSignup = () => {
     history.push('/auth/signup')
+  }
+
+  const goTo = (path) => {
+    setIsDropdownOpened(false)
+    history.push(path)
   }
 
   return (
@@ -49,8 +76,9 @@ const Navbar = () => {
               <button
                 type='button'
                 onClick={() => setIsDropdownOpened(!isDropdownOpened)}
+                ref={dropdownButtonRef}
               >
-                {currentUser && currentUser.name}
+                {currentUser && (currentUser.name || currentUser.email)}
                 <img
                   className='navbar__nav-links--item--arrow'
                   src={isDropdownOpened ? AngleUp : AngleDown}
@@ -59,12 +87,10 @@ const Navbar = () => {
               </button>
               {
                 isDropdownOpened && (
-                  <div className='navbar__dropdown'>
-                    <span className='navbar__dropdown--item'>Mis compras</span>
-                    <Link to='/mis-productos' className='navbar__dropdown--item'>
-                      <span>Mis publicaciones</span>
-                    </Link>
-                    <span className='navbar__dropdown--item' onClick={handleLogout}>Salir</span>
+                  <div className='navbar__dropdown' ref={dropdownRef}>
+                    <span onClick={() => goTo('#')} className='navbar__dropdown--item'>Mis compras</span>
+                    <span onClick={() => goTo('/mis-productos')} className='navbar__dropdown--item'>Mis publicaciones</span>
+                    <span onClick={logout} className='navbar__dropdown--item'>Salir</span>
                   </div>
                 )
               }

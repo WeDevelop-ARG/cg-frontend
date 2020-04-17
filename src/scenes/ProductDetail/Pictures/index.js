@@ -32,6 +32,10 @@ const Pictures = ({ oldPrice = 0, price = 0, photoUrls = [] }) => {
     return thumnailClass
   }
 
+  const handleGoToIndex = (index) => {
+    setCurrentIndex(index)
+  }
+
   return (
     <div className='product-detail__pictures'>
       <DiscountBadget
@@ -64,6 +68,7 @@ const Pictures = ({ oldPrice = 0, price = 0, photoUrls = [] }) => {
             if (index > 3) return undefined // just render until four photos
             return (
               <img
+                onClick={() => handleGoToIndex(index)}
                 className={isImageSelected(index)}
                 src={value} key={`photoUrl-${index}`}
               />
