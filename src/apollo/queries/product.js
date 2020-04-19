@@ -1,17 +1,11 @@
 import gql from 'graphql-tag'
+import productFragment from '../fragments/product'
 
 export default gql`
   query product($id: ID!) {
     product(id: $id) {
-      id
-      photoUrl
-      name
-      description
-      price
-      marketPrice
-      photos {
-        url
-      }
+      ...product
     }
   }
+  ${productFragment}
 `

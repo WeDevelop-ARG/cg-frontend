@@ -20,7 +20,7 @@ const Landing = (props) => {
             groups.map((group) => (
               <GroupCard
                 key={group.id}
-                productPicture={group.product.photoUrl || group.product.photos[0].url}
+                productPicture={group.product.photoUrl || (group.product.photos[0] && group.product.photos[0].url)}
                 marketPrice={group.product.marketPrice}
                 price={group.product.price}
                 minParticipants={group.minParticipants}
