@@ -54,6 +54,7 @@ const Signin = () => {
             value={formik.values.email}
             errors={formik.errors}
             touched={formik.touched}
+            placeholder='Ingresá tu email'
           />
           <label className='signin__form--labels'>Contraseña</label>
           <Input
@@ -64,6 +65,7 @@ const Signin = () => {
             value={formik.values.password}
             errors={formik.errors}
             touched={formik.touched}
+            placeholder='Ingresá al menos 8 caracteres'
           />
           <Link className='signin__form__links'>
             Olvidaste tu contraseña?
