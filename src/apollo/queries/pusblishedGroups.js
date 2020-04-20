@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+import productFragment from '../fragments/product'
 
 export default gql`
   query {
@@ -12,15 +13,10 @@ export default gql`
         expiresAt
         isSubscribed
         product {
-          id
-          name
-          description
-          price
-          photoUrl
-          marketPrice
-          price
+          ...product
         }
       }
     }
   }
+  ${productFragment}
 `

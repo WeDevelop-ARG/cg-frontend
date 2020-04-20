@@ -8,6 +8,7 @@ import './styles.scss'
 
 const Pictures = ({ oldPrice = 0, price = 0, photoUrls = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const maxIndex = photoUrls.length <= 4 ? photoUrls.length - 1 : 3
 
   const handleBack = () => {
     if (currentIndex <= 0) return null
@@ -16,12 +17,10 @@ const Pictures = ({ oldPrice = 0, price = 0, photoUrls = [] }) => {
   }
 
   const handleNext = () => {
-    if (currentIndex >= 3) return null
+    if (currentIndex >= maxIndex) return null
 
     setCurrentIndex(currentIndex + 1)
   }
-
-  // product-detail__pictures__photos--container__img
 
   const isImageSelected = (index) => {
     const thumnailClass = 'product-detail__pictures__photos--container__img'

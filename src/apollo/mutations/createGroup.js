@@ -1,16 +1,12 @@
 import gql from 'graphql-tag'
+import productFragment from '../fragments/product'
 
 export default gql`
   mutation createGroup($groupInput: GroupInput!) {
     createGroup(input: $groupInput) {
       id
       product {
-        id
-        name
-        description
-        photoUrl
-        price
-        marketPrice
+        ...product
       }
       type
       minParticipants
@@ -19,4 +15,5 @@ export default gql`
       expiresAt
     }
   }
+  ${productFragment}
 `
