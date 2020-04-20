@@ -101,13 +101,13 @@
   &__shape {
     position: relative;
     width: 100%;
-    background-size: auto 100%;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: right bottom;
 
     &__woman-shape {
-      top: 39%;
-      right: 125px;
+      top: 33%;
+      right: 175px;
       height: 30%;
       position: absolute;
     }
