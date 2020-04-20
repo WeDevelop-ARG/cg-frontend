@@ -3,17 +3,13 @@ import { useField } from 'formik'
 import EyeOpen from '../../../vectors/eye.svg'
 import EyeOff from '../../../vectors/eye-off.svg'
 
+import classNames from 'classnames'
+
 import './styles.scss'
 
 const InputNormal = ({ type = 'text', ...props }) => {
   const [field, meta] = useField(props)
   const [isHidePassword, setIsHidePassword] = useState(true)
-
-  const isTouched = () => {
-    if (meta.touched) return 'input__normal--focused'
-
-    return 'input__normal'
-  }
 
   const isShowPassword = () => {
     if (isHidePassword) return 'password'
@@ -23,12 +19,16 @@ const InputNormal = ({ type = 'text', ...props }) => {
 
   const isPassword = type === 'password'
 
+  const inputClass = classNames({
+    'input__normal--error': meta.error,
+    'input__normal--focused': !meta.error && meta.touched,
+    input__normal: !meta.error
+  })
+
   return (
     <div className='input__normal--container'>
       <input
-        className={
-          meta.error ? 'input__normal--error' : isTouched()
-        }
+        className={inputClass}
         type={isPassword ? isShowPassword() : 'text'}
         {...field}
         {...props}
