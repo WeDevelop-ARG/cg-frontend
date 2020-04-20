@@ -1,6 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import Button from '../../components/Button/Default/Orange'
 
 import './MyProducts.scss'
 import ProductListItem from './ProductItem'

@@ -70,6 +70,7 @@
   &__List {   
     &--container {
       background: #FFFFFF;
+      margin-bottom: 70px;
     }
     &--headers {
       padding-left: 30px;
@@ -87,7 +88,7 @@
       }
     }
 
-    &--item {
+    &__item {
       padding-left: 30px;
       background-color: white;
       height: 150px;
@@ -141,6 +142,7 @@
           border: none;
           background: none;
           outline: none;
+          cursor: pointer;
         }
       }
 
@@ -151,8 +153,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 70vh;
-    margin-bottom: 40px;
+    height: 65vh;
+    margin-bottom: 10vh;
     background: #FFFFFF;
     h2 {
       font-weight: 500;
