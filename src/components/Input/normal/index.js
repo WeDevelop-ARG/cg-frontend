@@ -1,22 +1,16 @@
 import React, { useState } from 'react'
+import { useField } from 'formik'
 import EyeOpen from '../../../vectors/eye.svg'
 import EyeOff from '../../../vectors/eye-off.svg'
 
 import './styles.scss'
 
-const InputNormal = ({
-  name,
-  value = '',
-  touched = {},
-  errors = {},
-  isSubmitting = false,
-  isPassword = false,
-  ...props
-}) => {
+const InputNormal = ({ isPassword, ...props }) => {
+  const [field, meta] = useField(props)
   const [isHidePassword, setIsHidePassword] = useState(true)
 
   const isTouched = () => {
-    if (touched[name]) return 'input__normal--focused'
+    if (meta.touched) return 'input__normal--focused'
 
     return 'input__normal'
   }
@@ -31,16 +25,14 @@ const InputNormal = ({
     <div className='input__normal--container'>
       <input
         className={
-          errors[name] ? 'input__normal--error' : isTouched()
+          meta.error ? 'input__normal--error' : isTouched()
         }
-        name={name}
         type={isPassword ? isShowPassword() : 'text'}
-        value={value}
-        disabled={isSubmitting}
+        {...field}
         {...props}
       />
       {isPassword && <img onClick={() => setIsHidePassword(!isHidePassword)} className='input__normal__eye' src={isHidePassword ? EyeOff : EyeOpen} alt='' />}
-      {errors[name] && touched[name] && <div className='input__normal__error-text'>{errors[name]}</div>}
+      {meta.error && meta.touched && <div className='input__normal__error-text'>{meta.error}</div>}
     </div>
   )
 }

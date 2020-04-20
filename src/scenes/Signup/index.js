@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useFormik } from 'formik'
+import { Form, Formik } from 'formik'
 import Input from '../../components/Input'
 import * as Yup from 'yup'
 import ShapeAuth from '../../vectors/shape-auth.svg'
@@ -31,86 +31,66 @@ const Signup = () => {
       .required('El apellido es requerido')
   })
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-      firstName: '',
-      lastName: ''
-    },
-    onSubmit: async ({ email, password, firstName, lastName }) => {
-      const { token } = await signup({ email, password, name: `${firstName} ${lastName}` })
-
-      handleAuth(token)
-
-      await history.push('/')
-    },
-    validationSchema: SignupSchema
-  })
-
   return (
     <div className='signup--container'>
       <div className='signup__form--container'>
         <h2 className='signup--greetings'>Creá tu cuenta</h2>
-        <form className='signup__form' onSubmit={formik.handleSubmit}>
-          <div className='signup__form--inline'>
-            <div>
-              <label className='signup__form--labels'>Nombre</label>
-              <Input
-                name='firstName'
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.firstName}
-                errors={formik.errors}
-                touched={formik.touched}
-                placeholder='Ingresá tu nombre'
-              />
+        <Formik
+          initialValues={{
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: ''
+          }}
+          onSubmit={async ({ email, password, firstName, lastName }) => {
+            const { token } = await signup({ email, password, name: `${firstName} ${lastName}` })
+
+            handleAuth(token)
+
+            await history.push('/')
+          }}
+          validationSchema={SignupSchema}
+        >
+          <Form className='signup__form'>
+            <div className='signup__form--inline'>
+              <div>
+                <label className='signup__form--labels'>Nombre</label>
+                <Input
+                  name='firstName'
+                  placeholder='Ingresá tu nombre'
+                />
+              </div>
+              <div>
+                <label className='signup__form--labels'>Apellido</label>
+                <Input
+                  name='lastName'
+                  placeholder='Ingresá tu apellido'
+                />
+              </div>
             </div>
-            <div>
-              <label className='signup__form--labels'>Apellido</label>
-              <Input
-                name='lastName'
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.lastName}
-                errors={formik.errors}
-                touched={formik.touched}
-                placeholder='Ingresá tu apellido'
-              />
-            </div>
-          </div>
-          <label className='signup__form--labels'>Email</label>
-          <Input
-            name='email'
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-            errors={formik.errors}
-            touched={formik.touched}
-            placeholder='Ingresá tu email'
-          />
-          <label className='signup__form--labels'>Contraseña</label>
-          <Input
-            name='password'
-            isPassword
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-            errors={formik.errors}
-            touched={formik.touched}
-            placeholder='Ingresá al menos 8 caracteres'
-          />
-          <Button type='submit'>Ingresar</Button>
-          <span className='signup__form__terms'>
-            Al registrarme, declaro que soy mayor de edad y acepto los Términos y condiciones y las Políticas de privacidad.
-          </span>
-          <span className='signup__form__new'>
-            ¿Ya tenés una cuenta?
-            <Link className='signup__form__links' to='/auth/signin'>
-              Ingresá
-            </Link>
-          </span>
-        </form>
+            <label className='signup__form--labels'>Email</label>
+            <Input
+              name='email'
+              placeholder='Ingresá tu email'
+            />
+            <label className='signup__form--labels'>Contraseña</label>
+            <Input
+              name='password'
+              isPassword
+              placeholder='Ingresá al menos 8 caracteres'
+            />
+            <Button type='submit'>Ingresar</Button>
+            <span className='signup__form__terms'>
+              Al registrarme, declaro que soy mayor de edad y acepto los Términos y condiciones y las Políticas de privacidad.
+            </span>
+            <span className='signup__form__new'>
+              ¿Ya tenés una cuenta?
+              <Link className='signup__form__links' to='/auth/signin'>
+                Ingresá
+              </Link>
+            </span>
+          </Form>
+        </Formik>
       </div>
       <div className='signup__shape' style={{ backgroundImage: `url(${ShapeAuth})` }}>
         <img src={ManShape} className='signup__shape__man-shape' />

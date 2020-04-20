@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useFormik } from 'formik'
+import { Form, Formik } from 'formik'
 import Input from '../../components/Input'
 import * as Yup from 'yup'
 import ShapeAuth from '../../vectors/shape-auth.svg'
@@ -26,58 +26,48 @@ const Signin = () => {
       .required('El E-mail es requerido')
   })
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: ''
-    },
-    onSubmit: async ({ email, password }) => {
-      const { token } = await login({ email, password })
-
-      handleAuth(token)
-
-      await history.push('/')
-    },
-    validationSchema: SigninSchema
-  })
-
   return (
     <div className='signin--container'>
       <div className='signin__form--container'>
         <h2 className='signin--greetings'>¡HOLA!</h2>
-        <form className='signin__form' onSubmit={formik.handleSubmit}>
-          <label className='signin__form--labels'>Email</label>
-          <Input
-            name='email'
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-            errors={formik.errors}
-            touched={formik.touched}
-            placeholder='Ingresá tu email'
-          />
-          <label className='signin__form--labels'>Contraseña</label>
-          <Input
-            name='password'
-            isPassword
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-            errors={formik.errors}
-            touched={formik.touched}
-            placeholder='Ingresá al menos 8 caracteres'
-          />
-          <Link className='signin__form__links'>
-            Olvidaste tu contraseña?
-          </Link>
-          <Button type='submit'>Ingresar</Button>
-          <span className='signin__form__new'>
-            ¿Sos un usuario nuevo?
-            <Link className='signin__form__links' to='/auth/signup'>
-              Registrate
+        <Formik
+          initialValues={{
+            email: '',
+            password: ''
+          }}
+          validationSchema={SigninSchema}
+          onSubmit={async ({ email, password }) => {
+            const { token } = await login({ email, password })
+
+            handleAuth(token)
+
+            await history.push('/')
+          }}
+        >
+          <Form className='signin__form'>
+            <label className='signin__form--labels'>Email</label>
+            <Input
+              name='email'
+              placeholder='Ingresá tu email'
+            />
+            <label className='signin__form--labels'>Contraseña</label>
+            <Input
+              name='password'
+              isPassword
+              placeholder='Ingresá al menos 8 caracteres'
+            />
+            <Link className='signin__form__links'>
+              Olvidaste tu contraseña?
             </Link>
-          </span>
-        </form>
+            <Button type='submit'>Ingresar</Button>
+            <span className='signin__form__new'>
+              ¿Sos un usuario nuevo?
+              <Link className='signin__form__links' to='/auth/signup'>
+                Registrate
+              </Link>
+            </span>
+          </Form>
+        </Formik>
       </div>
       <div className='signin__shape' style={{ backgroundImage: `url(${ShapeAuth})` }}>
         <img src={WomanShape} className='signin__shape__woman-shape' />
