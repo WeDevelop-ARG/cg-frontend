@@ -7,14 +7,14 @@ import ManShape from '../../vectors/man.svg'
 import { Link, useHistory } from 'react-router-dom'
 import Button from '../../components/Button'
 
-import useLogin from '../../hooks/useLoginMutation'
+import useSignup from '../../hooks/useSignupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
 
 import './Signup.scss'
 
 const Signup = () => {
   const { handleAuth } = useContext(AuthContext)
-  const { login } = useLogin()
+  const { signup } = useSignup()
 
   const history = useHistory()
 
@@ -38,8 +38,8 @@ const Signup = () => {
       firstName: '',
       lastName: ''
     },
-    onSubmit: async ({ email, password }) => {
-      const { token } = await login({ email, password })
+    onSubmit: async ({ email, password, firstName, lastName }) => {
+      const { token } = await signup({ email, password, name: `${firstName} ${lastName}` })
 
       handleAuth(token)
 
