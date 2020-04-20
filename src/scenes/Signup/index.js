@@ -76,7 +76,7 @@ const Signup = () => {
             <label className='signup__form--labels'>Contraseña</label>
             <Input
               name='password'
-              isPassword
+              type='password'
               placeholder='Ingresá al menos 8 caracteres'
             />
             <Button type='submit'>Ingresar</Button>

@@ -5,7 +5,7 @@ import EyeOff from '../../../vectors/eye-off.svg'
 
 import './styles.scss'
 
-const InputNormal = ({ isPassword, ...props }) => {
+const InputNormal = ({ type = 'text', ...props }) => {
   const [field, meta] = useField(props)
   const [isHidePassword, setIsHidePassword] = useState(true)
 
@@ -20,6 +20,8 @@ const InputNormal = ({ isPassword, ...props }) => {
 
     return 'text'
   }
+
+  const isPassword = type === 'password'
 
   return (
     <div className='input__normal--container'>

@@ -53,7 +53,7 @@ const Signin = () => {
             <label className='signin__form--labels'>Contraseña</label>
             <Input
               name='password'
-              isPassword
+              type='password'
               placeholder='Ingresá al menos 8 caracteres'
             />
             <Link className='signin__form__links'>
