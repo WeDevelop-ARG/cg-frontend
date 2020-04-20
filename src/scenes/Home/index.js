@@ -11,16 +11,27 @@ const Landing = (props) => {
   const { groups } = useGroupsQuery()
 
   const SIZE_FILTER = 8
-  const parGroup = []
-  const smallGroup = []
-  const bigGroup = []
+  const categories = {
+    par: {
+      title: 'Compra en dúo',
+      group: []
+    },
+    small: {
+      title: 'Grupos pequeños',
+      group: []
+    },
+    big: {
+      title: 'Grupos grandes',
+      group: []
+    }
+  }
 
   groups.forEach(group => {
     if (group.type === 'GROUP') {
-      return group.minParticipants <= SIZE_FILTER ? smallGroup.push(group) : bigGroup.push(group)
+      return group.minParticipants <= SIZE_FILTER ? categories.small.group.push(group) : categories.big.group.push(group)
     }
 
-    return parGroup.push(group)
+    return categories.par.group.push(group)
   })
 
   const getGroupCard = (group) => {
@@ -47,24 +58,16 @@ const Landing = (props) => {
     <>
       <Banner />
       <div className='Landing'>
-        <h2 className='Landing--category-title'>Compra en dúo</h2>
-        <div className='Landing__main-container'>
-          {
-            parGroup.map(group => getGroupCard(group))
-          }
-        </div>
-        <h2 className='Landing--category-title'>Grupos pequeños</h2>
-        <div className='Landing__main-container'>
-          {
-            smallGroup.map(group => getGroupCard(group))
-          }
-        </div>
-        <h2 className='Landing--category-title'>Grupos grandes</h2>
-        <div className='Landing__main-container'>
-          {
-            bigGroup.map(group => getGroupCard(group))
-          }
-        </div>
+        {
+          Object.keys(categories).map((cat) => (
+            <div key={cat}>
+              <h2 className='Landing--category-title'>{categories[cat].title}</h2>
+              <div className='Landing__main-container'>
+                {categories[cat].group.map(group => getGroupCard(group))}
+              </div>
+            </div>
+          ))
+        }
       </div>
     </>
   )
