@@ -1,11 +1,41 @@
-import React from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 
 import './MyProducts.scss'
 import more from '../../vectors/more-vertical.svg'
+import myProductContext from './myProductContext'
+import useDeleteGroupMutation from '../../hooks/useDeleteGroupMutation'
 
 const ProductItem = ({ group }) => {
+  const { deleteGroup } = useDeleteGroupMutation()
+  const { refetchProducts } = useContext(myProductContext)
+  const [isToggle, setIsToggle] = useState(false)
   const product = group.product
   const expireDate = new Date(group.expiresAt).toLocaleString('es-AR')
+
+  const dropdownButtonRef = useRef(null)
+
+  const verifyClickProduct = (e) => {
+    if (dropdownButtonRef) {
+      if (!dropdownButtonRef.current) {
+        setIsToggle(false)
+      } else if (!dropdownButtonRef.current.contains(e.target)) {
+        setIsToggle(false)
+      }
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', verifyClickProduct, false)
+
+    return () => {
+      document.removeEventListener('click', verifyClickProduct, false)
+    }
+  }, [])
+
+  const deleteGroupHandler = async () => {
+    await deleteGroup(group.id)
+    return refetchProducts()
+  }
 
   return (
     <div className='MyProducts__List__item'>
@@ -33,7 +63,16 @@ const ProductItem = ({ group }) => {
         <p>{expireDate.slice(0, -3)} hs</p>
       </div>
       <div className='MyProducts__List__item--more'>
-        <button><img src={more} alt=':' /></button>
+        <button onClick={() => setIsToggle(!isToggle)} ref={dropdownButtonRef}>
+          <img src={more} alt=':' />
+          {
+            isToggle && (
+              <div className='MyProducts__List__item--more__dropdown'>
+                <span onClick={deleteGroupHandler}>Eliminar</span>
+              </div>
+            )
+          }
+        </button>
       </div>
     </div>
   )
