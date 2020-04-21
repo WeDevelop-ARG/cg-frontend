@@ -5,9 +5,11 @@ import Button from '../../components/Button/Default/Orange'
 
 import ProductList from './ProductList'
 import EmptyProductList from './NoProducts'
+import MyProductContext from './myProductContext'
 
 const MyProducts = () => {
-  const { loading, currentUser } = usePublishedGroupsQuery()
+  const { loading, currentUser, refetch } = usePublishedGroupsQuery()
+  const history = useHistory()
 
   if (loading) {
     return (
@@ -19,36 +21,39 @@ const MyProducts = () => {
 
   if (!currentUser) return <Redirect to='/' />
   const { publishedGroups } = currentUser
-  const history = useHistory()
 
   const goPublishProducts = () => {
     history.push('/mis-productos/nuevo')
   }
 
   return (
-    <div className='MyProducts'>
-      <Link to='/' className='MyProducts__go-home'>
+    <MyProductContext.Provider
+      value={{ refetchProducts: () => refetch() }}
+    >
+      <div className='MyProducts'>
+        <Link to='/' className='MyProducts__go-home'>
         &#60;  Volver a la pagina principal
-      </Link>
-      <h1>Mis publicaciones</h1>
-      <div className='MyProducts__List--container'>
-        {
-          publishedGroups.length ? (
-            <>
-              <div className='MyProducts__data'>
-                <div className='MyProducts__data--status'>
-                  <p>{publishedGroups.length} Publicaciones activas</p>
-                  <Button onClick={goPublishProducts}>
+        </Link>
+        <h1>Mis publicaciones</h1>
+        <div className='MyProducts__List--container'>
+          {
+            publishedGroups.length ? (
+              <>
+                <div className='MyProducts__data'>
+                  <div className='MyProducts__data--status'>
+                    <p>{publishedGroups.length} Publicaciones activas</p>
+                    <Button onClick={goPublishProducts}>
                     Publicá tu producto
-                  </Button>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-              <ProductList groups={publishedGroups} />
-            </>
-          ) : <EmptyProductList />
-        }
+                <ProductList groups={publishedGroups} />
+              </>
+            ) : <EmptyProductList />
+          }
+        </div>
       </div>
-    </div>
+    </MyProductContext.Provider>
   )
 }
 

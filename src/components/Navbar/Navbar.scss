@@ -14,6 +14,7 @@
   line-height: 16px;
 
   &__dropdown {
+    z-index: 999;
     position: absolute;
     display: flex;
     flex-direction: column;

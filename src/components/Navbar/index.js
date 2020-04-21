@@ -14,8 +14,12 @@ const Navbar = () => {
   const dropdownButtonRef = useRef(null)
 
   const verifyClick = (e) => {
-    if (!dropdownRef.current.contains(e.target) && !dropdownButtonRef.current.contains(e.target)) {
-      setIsDropdownOpened(false)
+    if (dropdownRef && dropdownButtonRef) {
+      if (!dropdownRef.current || !dropdownButtonRef.current) {
+        setIsDropdownOpened(false)
+      } else if (!dropdownRef.current.contains(e.target) && !dropdownButtonRef.current.contains(e.target)) {
+        setIsDropdownOpened(false)
+      }
     }
   }
 
