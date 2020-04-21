@@ -10,8 +10,7 @@ function useDeleteGroupMutation () {
     error,
     called,
     response: data,
-    deleteGroup: (id) => mutate({ variables: { id } }
-    )
+    deleteGroup: (id) => mutate({ variables: { id } })
   }
 }
 
