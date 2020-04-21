@@ -1,6 +1,10 @@
 import React from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect, Link, useHistory } from 'react-router-dom'
 import usePublishedGroupsQuery from '../../hooks/usePublishedGroupsQuery'
+import Button from '../../components/Button/Default/Orange'
+
+import ProductList from './ProductList'
+import EmptyProductList from './NoProducts'
 
 const MyProducts = () => {
   const { loading, currentUser } = usePublishedGroupsQuery()
@@ -14,25 +18,36 @@ const MyProducts = () => {
   }
 
   if (!currentUser) return <Redirect to='/' />
-
   const { publishedGroups } = currentUser
+  const history = useHistory()
+
+  const goPublishProducts = () => {
+    history.push('/mis-productos/nuevo')
+  }
 
   return (
     <div className='MyProducts'>
-      <h1>Publicaciones</h1>
-      <Link to='/mis-productos/nuevo'>
-        <button>Publicar más</button>
+      <Link to='/' className='MyProducts__go-home'>
+        &#60;  Volver a la pagina principal
       </Link>
-      <hr />
-      {
-        !!publishedGroups.length && (
-          <ul>
-            {publishedGroups.map(({ id, product: { name } }) => (
-              <li key={id}>{name}</li>
-            ))}
-          </ul>
-        )
-      }
+      <h1>Mis publicaciones</h1>
+      <div className='MyProducts__List--container'>
+        {
+          publishedGroups.length ? (
+            <>
+              <div className='MyProducts__data'>
+                <div className='MyProducts__data--status'>
+                  <p>{publishedGroups.length} Publicaciones activas</p>
+                  <Button onClick={goPublishProducts}>
+                    Publicá tu producto
+                  </Button>
+                </div>
+              </div>
+              <ProductList groups={publishedGroups} />
+            </>
+          ) : <EmptyProductList />
+        }
+      </div>
     </div>
   )
 }

@@ -1,16 +1,12 @@
 import gql from 'graphql-tag'
+import productFragment from '../fragments/product'
 
 export default gql`
   query group($id: ID!) {
     group(id: $id) {
       id
       product {
-        id
-        photoUrl
-        name
-        description
-        price
-        marketPrice
+        ...product
       }
       type
       minParticipants
@@ -19,4 +15,5 @@ export default gql`
       expiresAt
     }
   }
+  ${productFragment}
 `

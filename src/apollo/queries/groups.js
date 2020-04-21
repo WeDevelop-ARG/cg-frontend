@@ -1,16 +1,12 @@
 import gql from 'graphql-tag'
+import productFragment from '../fragments/product'
 
 const GET_GROUPS = gql`
   {
     groups {
       id
       product {
-        id
-        photoUrl
-        name
-        description
-        price
-        marketPrice
+        ...product
       }
       type
       minParticipants
@@ -20,6 +16,7 @@ const GET_GROUPS = gql`
       expiresAt
     }
   }
+  ${productFragment}
 `
 
 export default GET_GROUPS

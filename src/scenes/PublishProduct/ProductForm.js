@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import LoadPhoto from './LoadPhoto'
 
 import './PublishProduct.scss'
 
 const ProductForm = (props) => {
+  const [productPhotosUrls, setProductPhotosUrls] = useState([''])
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [photoUrl, setPhoto] = useState('')
   const [priceString, setPrice] = useState('')
   const [marketPriceString, setMarketPrice] = useState('')
 
@@ -15,21 +16,27 @@ const ProductForm = (props) => {
     const price = parseFloat(priceString)
     const marketPrice = parseFloat(marketPriceString)
 
-    props.product({ photoUrl, name, description, price, marketPrice })
+    props.product({
+      photoUrl: '',
+      productPhotosUrls: productPhotosUrls.filter((photo) => photo), // remove the last empty string
+      name,
+      description,
+      price,
+      marketPrice
+    })
     props.nextStep()
   }
 
-  const encodeImage = event => {
-    const reader = new FileReader()
-    reader.onloadend = function () {
-      setPhoto(reader.result)
-    }
-    const file = event.target.files[0]
-    if (file) {
-      reader.readAsDataURL(file)
+  const handlePhotos = ({ photo, photoIndex }) => {
+    const photosToModify = [...productPhotosUrls]
+
+    if (!photo) {
+      photosToModify.splice(photoIndex, 1)
     } else {
-      setPhoto('')
+      photosToModify[photoIndex] = photo
     }
+
+    return setProductPhotosUrls([...photosToModify.filter(item => item), ''])
   }
 
   return (
@@ -44,7 +51,6 @@ const ProductForm = (props) => {
           onChange={event => setName(event.target.value)}
           required
         />
-
         <input
           type='text'
           value={description}
@@ -52,18 +58,18 @@ const ProductForm = (props) => {
           id='description'
           onChange={event => setDescription(event.target.value)}
         />
-
-        <div className='Publish--image-upload'>
-          {photoUrl && <img src={photoUrl} />}
-          <input
-            type='file'
-            placeholder='URL de la foto'
-            id='photo'
-            onChange={encodeImage}
-            required
-          />
-        </div>
-
+        <label>Fotos</label>
+        {
+          productPhotosUrls.map((photo, index) => (
+            <LoadPhoto
+              key={`load-photo-${index}`}
+              photoIndex={index}
+              handleSetPhoto={handlePhotos}
+              photo={photo}
+              isRequired={productPhotosUrls.length < 2}
+            />
+          ))
+        }
         <input
           type='text'
           value={priceString}
@@ -72,7 +78,6 @@ const ProductForm = (props) => {
           onChange={event => setPrice(event.target.value)}
           required
         />
-
         <input
           type='text'
           value={marketPriceString}
@@ -81,7 +86,6 @@ const ProductForm = (props) => {
           onChange={event => setMarketPrice(event.target.value)}
           required
         />
-
         <button type='submit'>Siguiente</button>
       </form>
     </div>
