@@ -23,7 +23,7 @@ const Signin = () => {
       .required('La contraseña es requerida'),
     email: Yup.string()
       .email('E-mail inválido')
-      .required('El E-mail es requerido')
+      .required('El e-mail es requerido')
   })
 
   return (
