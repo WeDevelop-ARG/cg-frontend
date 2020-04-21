@@ -1,7 +1,17 @@
 @font-face {
   font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
   src: local('DM Sans'), url(./fonts/DMSans-Regular.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: bold;
+  src: local('DM Sans'), url(./fonts/DMSans-Bold.ttf) format('truetype');
+}
+
 
 html, body, #root {
   height: 100%;

@@ -1,7 +1,7 @@
 .product-detail__pictures {
   position: relative;
   grid-column: 1 / 8;
-
+  height: 93vh;
   &--selected {
     border: 3px solid #F3CA61;
     box-sizing: border-box;

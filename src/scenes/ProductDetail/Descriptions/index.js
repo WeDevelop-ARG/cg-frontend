@@ -48,22 +48,24 @@ const Descriptions = ({
         </span>
       </div>
       <div className='product-detail__descriptions__label'>
-        Description:
+        Descripción:
       </div>
       <p className='product-detail__descriptions__label--title'>
         {description}
       </p>
-      <Button onClick={() => onBuy()}>
-        Lo quiero
-      </Button>
+      <div className='product-detail__descriptions--button'>
+        <Button onClick={() => onBuy()}>
+          ¡Lo quiero!
+        </Button>
+      </div>
       <GroupProgress currentParticipants={currentParticipants} minParticipants={minParticipants} />
       {restOfParticipants > 0 && (
         <div className='product-detail__descriptions__rest-participants'>
           <div>
             <span className='product-detail__descriptions__rest-participants--rest'>
-              {`Faltan ${restOfParticipants} compradores para completar el grupo!`}
+              {`¡Faltan ${restOfParticipants} compradores para completar el grupo!`}
             </span>
-            <p className='product-detail__descriptions__rest-share'>
+            <p>
               Compartí y sumá gente para acceder más rapido a tu producto
             </p>
           </div>
