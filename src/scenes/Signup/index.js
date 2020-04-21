@@ -24,7 +24,7 @@ const Signup = () => {
       .min(8, 'Tu contraseña debe tener un mínimo de 8 caracteres'),
     email: Yup.string()
       .email('E-mail inválido')
-      .required('El E-mail es requerido'),
+      .required('El e-mail es requerido'),
     firstName: Yup.string()
       .required('El nombre es requerido'),
     lastName: Yup.string()
