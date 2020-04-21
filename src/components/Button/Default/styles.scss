@@ -30,9 +30,8 @@
   &__orange {
     @extend .button-default;
     display: flex;
-    justify-content: center;
-    width: 170px;
-    height: 45px;
+    flex-direction: row;
+    padding: 17px 45px;
 
     position: relative;
 

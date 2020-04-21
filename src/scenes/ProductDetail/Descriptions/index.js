@@ -53,9 +53,11 @@ const Descriptions = ({
       <p className='product-detail__descriptions__label--title'>
         {description}
       </p>
-      <Button onClick={() => onBuy()}>
-        ¡Lo quiero!
-      </Button>
+      <div className='product-detail__descriptions--button'>
+        <Button onClick={() => onBuy()}>
+          ¡Lo quiero!
+        </Button>
+      </div>
       <GroupProgress currentParticipants={currentParticipants} minParticipants={minParticipants} />
       {restOfParticipants > 0 && (
         <div className='product-detail__descriptions__rest-participants'>

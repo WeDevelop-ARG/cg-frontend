@@ -219,6 +219,14 @@
     }
   }
 
+  &--button {
+    button {
+      padding-top: 12px;
+      width: 170px;
+      height: 45px;
+    }
+  }
+
   &__rest-participants {
     margin-top: 9px;
     display: flex;
