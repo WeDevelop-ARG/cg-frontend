@@ -4,17 +4,23 @@ import Unit from './Unit'
 
 import './styles.scss'
 
-const GroupProgress = ({ minParticipants = 0, currentParticipants = 0 }) => {
+const GroupProgress = ({ minParticipants = 0, currentParticipants = 0, type }) => {
+  const isGroup = type === 'GROUP'
   const percent = minParticipants && Math.round((currentParticipants / minParticipants) * 100)
   const getUnitQuantity = () => {
-    if (percent < 10) return 0
-    if (percent >= 100) return 10
+    if (isGroup) {
+      if (percent < 10) return 0
+      if (percent >= 100) return 10
 
-    return Math.floor(percent / 10)
+      return Math.floor(percent / 10)
+    } else {
+      return currentParticipants
+    }
   }
 
+  const maxUnits = isGroup ? 10 : 2
   const fullUnits = new Array(getUnitQuantity()).fill({ isFull: true })
-  const blankUnits = new Array(10 - fullUnits.length).fill({ isFull: false })
+  const blankUnits = new Array(maxUnits - fullUnits.length).fill({ isFull: false })
 
   const units = [...fullUnits, ...blankUnits]
 

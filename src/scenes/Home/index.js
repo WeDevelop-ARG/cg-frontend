@@ -41,6 +41,7 @@ const Landing = (props) => {
         productPicture={group.product.photoUrl}
         marketPrice={group.product.marketPrice}
         price={group.product.price}
+        type={group.type}
         minParticipants={group.minParticipants}
         currentParticipants={group.participantsCount}
         expiresAt={group.expiresAt}

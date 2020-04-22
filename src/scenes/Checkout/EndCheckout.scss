@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
-
 .EndCheckout {
-
   margin: 7% 14% 0 14%;
   padding: 5% 9%;
   display: flex;
@@ -35,7 +32,7 @@
   }
 
   &__redirect {
-    position: fixed;
+    position: absolute;
     left: 90px;
     top: 110px;
     button{
@@ -154,7 +151,7 @@
       font-style: normal;
       font-weight: normal;
       font-size: 16px;
-      line-height: 14px;
+      line-height: 18px;
     
       /* Grayscale/White */
       background: #FFFFFF;

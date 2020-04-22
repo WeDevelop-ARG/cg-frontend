@@ -52,7 +52,11 @@ const EndCheckout = ({ group: { product, ...group } } = {}) => {
           </div>
         </div>
         <div className='EndCheckout__progress-info'>
-          <GroupProgress currentParticipants={group.participantsCount} minParticipants={group.minParticipants} />
+          <GroupProgress
+            currentParticipants={group.participantsCount}
+            minParticipants={group.minParticipants}
+            type={group.type}
+          />
           <p>
             <b>Faltan {leftParticipants} compradores para completar el grupo!</b><br />
             Compartí y suma gente para acceder más rápido a tu producto

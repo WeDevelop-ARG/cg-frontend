@@ -12,6 +12,7 @@ const GroupCard = ({
   productPicture,
   price,
   marketPrice,
+  type,
   minParticipants = 0,
   currentParticipants = 0,
   expiresAt,
@@ -54,7 +55,11 @@ const GroupCard = ({
           <span>Colors: {colors.join(', ')}</span>
         </div>
         <div className='group-card__detail--group-progress'>
-          <GroupProgress currentParticipants={currentParticipants} minParticipants={minParticipants} />
+          <GroupProgress
+            currentParticipants={currentParticipants}
+            minParticipants={minParticipants}
+            type={type}
+          />
         </div>
       </div>
     </div>
