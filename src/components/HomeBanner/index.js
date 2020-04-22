@@ -16,19 +16,19 @@ const HomeBanner = () => {
         </div>
         <div className='home-banner__bottom'>
           <div className='home-banner__bottom--item'>
-            <img src={group8} style={{ height: '68px' }} />
+            <img src={group8} style={{ height: '60px' }} />
             <p>Elegí el producto que más te guste</p>
           </div>
           <div className='home-banner__bottom--item'>
-            <img src={group114} style={{ height: '64px' }} />
+            <img src={group114} style={{ height: '56px' }} />
             <p>Sumate al grupo de compra</p>
           </div>
           <div className='home-banner__bottom--item'>
-            <img src={group116} style={{ height: '85px' }} />
+            <img src={group116} style={{ height: '77px' }} />
             <p>Compartí y sumá más compradores para completar el grupo y obtener el descuento</p>
           </div>
           <div className='home-banner__bottom--item'>
-            <img src={group111} style={{ height: '50px' }} />
+            <img src={group111} style={{ height: '46px' }} />
             <p>Una vez completo, tu compra se hace efectiva y recibís el producto en tu casa</p>
           </div>
         </div>

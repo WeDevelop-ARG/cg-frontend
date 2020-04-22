@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  background:url('../../assets/img/HomeBanner/Vector.png');
+  background: url('../../assets/img/HomeBanner/Vector.svg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
@@ -38,8 +38,8 @@
     font-family: DM Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 24px;   
+    font-size: 2vmin;
+    line-height: 20px;   
     color: #5C6163;
   }
 
@@ -49,22 +49,23 @@
   }
 
   &__bottom {
-    padding: 20px 20px 0px 70px;
+    padding: 20px 20px 0px 5%;
     display: grid;
-    grid-template-columns: 0.8fr 0.9fr 1.2fr 1.1fr;
+    grid-template-columns: 0.8fr 0.8fr 1.3fr 1.2fr;
+    grid-column-gap: 6px;
 
     &--item {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       padding-top: 40px;
-      padding-right: 40px;
+      margin-right: 12px;
      
       img {
         width: auto;
       }
       p {
-        margin-left: 20px;
+        margin-left: 2vmin;
       }
     }
   }
