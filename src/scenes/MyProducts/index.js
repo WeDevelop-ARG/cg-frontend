@@ -32,7 +32,7 @@ const MyProducts = () => {
     >
       <div className='MyProducts'>
         <Link to='/' className='MyProducts__go-home'>
-        &#60;  Volver a la pagina principal
+          &#60;  Volver a la pagina principal
         </Link>
         <h1>Mis publicaciones</h1>
         <div className='MyProducts__List--container'>

@@ -40,9 +40,15 @@ const ProductItem = ({ group }) => {
   return (
     <div className='MyProducts__List__item'>
       <div className='MyProducts__List__item--description'>
-        <div className='MyProducts__List__item--image'>
-          <img src={product.photoUrl} />
-        </div>
+        <div
+          className='MyProducts__List__item--image'
+          style={{
+            backgroundImage: `url(${product.photos[0].url})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center'
+          }}
+        />
         <div className='MyProducts__List__item--info'>
           <span>#{product.id.slice(0, 8)}</span>
           <p>{product.name}</p>

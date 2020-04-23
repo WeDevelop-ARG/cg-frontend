@@ -38,7 +38,7 @@ const Landing = (props) => {
     return (
       <GroupCard
         key={group.id}
-        productPicture={group.product.photoUrl}
+        productPicture={group.product.photoUrl || group.product.photos[0].url}
         marketPrice={group.product.marketPrice}
         price={group.product.price}
         type={group.type}
