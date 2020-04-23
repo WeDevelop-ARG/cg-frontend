@@ -25,8 +25,13 @@ const InputNormal = ({ type = 'text', ...props }) => {
     input__normal: !meta.error
   })
 
+  const containerClass = classNames({
+    'input__normal--container': !meta.error,
+    'input__normal--container--error': meta.error
+  })
+
   return (
-    <div className='input__normal--container'>
+    <div className={containerClass}>
       <input
         className={inputClass}
         type={isPassword ? isShowPassword() : 'text'}
