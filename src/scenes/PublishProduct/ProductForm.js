@@ -40,7 +40,7 @@ const ProductForm = (props) => {
   }
 
   return (
-    <div className='Publish'>
+    <div className='Publish__ms-form--container'>
       <form onSubmit={handleSubmit}>
         <h1>Informacion del Producto</h1>
         <input

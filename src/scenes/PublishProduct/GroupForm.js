@@ -5,8 +5,8 @@ import createGroupHandler from './createGroupHandler'
 
 const ProductForm = (props) => {
   const [type, setType] = useState('GROUP')
-  const [minParticipants, setMinParticipants] = useState(1)
-  const [maxParticipants, setMaxParticipants] = useState(0)
+  const [minParticipants, setMinParticipants] = useState(2)
+  const [maxParticipants, setMaxParticipants] = useState(2)
   const [discount, setDiscount] = useState(0)
   const [expiresAt, setExpiresAt] = useState('')
 
@@ -17,11 +17,12 @@ const ProductForm = (props) => {
 
     await createGroupHandler({ product, discount, expiresAt, maxParticipants, minParticipants, type })
 
+    props.group({ product, minParticipants, discount, expiresAt })
     props.nextStep()
   }
 
   return (
-    <div className='Publish'>
+    <div className='Publish__ms-form--container'>
       <form onSubmit={handleSubmit}>
         <h1>Informacion del Grupo</h1>
         <div className='Publish--group-select'>
