@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 
-import useCreateGroup from '../../hooks/useCreateGroupNestedMutation'
 import './PublishProduct.scss'
+import createGroupHandler from './createGroupHandler'
 
 const ProductForm = (props) => {
-  const { createGroup } = useCreateGroup()
   const [type, setType] = useState('GROUP')
   const [minParticipants, setMinParticipants] = useState(1)
   const [maxParticipants, setMaxParticipants] = useState(0)
@@ -16,7 +15,7 @@ const ProductForm = (props) => {
 
     const product = props.product
 
-    await createGroup({ product, type, minParticipants, maxParticipants, discount, expiresAt })
+    await createGroupHandler({ product, discount, expiresAt, maxParticipants, minParticipants, type })
 
     props.nextStep()
   }

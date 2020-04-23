@@ -25,6 +25,7 @@
     "apollo-client-preset": "^1.0.8",
     "apollo-link-context": "^1.0.19",
     "apollo-link-http": "^1.5.16",
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "components": "^0.1.0",
     "dayjs": "^1.8.23",
