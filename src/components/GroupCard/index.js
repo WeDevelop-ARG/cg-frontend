@@ -6,10 +6,10 @@ import { CardTimer } from '../Timer'
 import { useHistory } from 'react-router-dom'
 import { Small as DiscountBadget } from '../../components/DiscountBadget'
 
-import './styles.scss'
+import classes from './styles.module.scss'
 
 const GroupCard = ({
-  productPicture,
+  productPictureURL,
   price,
   marketPrice,
   type,
@@ -29,7 +29,10 @@ const GroupCard = ({
   }
 
   return (
-    <div className='group-card' onClick={() => goToCheckout()}>
+    <div
+      className={classes.container}
+      onClick={goToCheckout}
+    >
       <CardTimer expiresAt={expiresAt} />
       <DiscountBadget
         oldPrice={marketPrice}
@@ -39,22 +42,22 @@ const GroupCard = ({
         bottomPosition='45.12'
         leftPosition='77.27%'
       />
-      <div className='group-card__pic'>
-        <img src={productPicture} className='GroupCard--image' alt='group' />
+      <div className={classes.picture}>
+        <img src={productPictureURL} alt='group' />
       </div>
-      <div className='group-card__detail'>
-        <div className='group-card__detail--amount'>
-          <span className='group-card__detail--amount--old-price'>{currency.ARS(marketPrice)}</span>
-          <span className='group-card__detail--amount--price'>{currency.ARS(price)}</span>
+      <div className={classes.detail}>
+        <div className={classes.amount}>
+          <span className={classes.oldPrice}>{currency.ARS(marketPrice)}</span>
+          <span className={classes.price}>{currency.ARS(price)}</span>
         </div>
-        <div className='group-card__detail--description'>
-          <p className='group-card__detail--description--title'>{title}</p>
-          <p className='group-card__detail--description--title'>{description}</p>
+        <div className={classes.description}>
+          <p className={classes.title}>{title}</p>
+          <p className={classes.title}>{description}</p>
         </div>
-        <div className='group-card__detail--color'>
+        <div className={classes.color}>
           <span>Colors: {colors.join(', ')}</span>
         </div>
-        <div className='group-card__detail--group-progress'>
+        <div className={classes.groupProgress}>
           <GroupProgress
             currentParticipants={currentParticipants}
             minParticipants={minParticipants}
