@@ -17,7 +17,6 @@ const ProductForm = (props) => {
     const marketPrice = parseFloat(marketPriceString)
 
     props.product({
-      photoUrl: '',
       productPhotosUrls: productPhotosUrls.filter((photo) => photo), // remove the last empty string
       name,
       description,

@@ -33,7 +33,7 @@ const EndCheckout = ({ group: { product, ...group } } = {}) => {
         <div className='EndCheckout__checkout-info'>
           <div className='EndCheckout__checkout-info--product'>
             <div className='EndCheckout__checkout-info--product--image'>
-              <img src={product.photoUrl || product.photos[0].url} alt={product.name} />
+              <img src={product.photos[0].url} alt={product.name} />
             </div>
             <div className='EndCheckout__checkout-info--product--description'>
               <h4>Descripción</h4>

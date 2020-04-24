@@ -6,7 +6,6 @@ export default gql`
     name
     description
     price
-    photoUrl
     marketPrice
     price
     photos {

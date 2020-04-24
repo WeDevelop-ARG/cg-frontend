@@ -20,7 +20,7 @@ const CategoryDisplay = ({ title, groups }) => {
 const renderGroupCard = (group) => (
   <GroupCard
     key={group.id}
-    productPictureURL={group.product.photoUrl}
+    productPictureURL={group.product.photos[0].url}
     marketPrice={group.product.marketPrice}
     price={group.product.price}
     type={group.type}

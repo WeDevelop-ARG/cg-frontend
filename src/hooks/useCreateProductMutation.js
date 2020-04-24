@@ -10,12 +10,11 @@ function useCreateProductMutation () {
     error,
     called,
     response: data,
-    createProduct: async ({ name, photoUrl, description, price, marketPrice }) => {
+    createProduct: async ({ name, description, price, marketPrice }) => {
       const { data } = await mutate(
         {
           variables: {
             productInput: {
-              photoUrl,
               name,
               description,
               price,
