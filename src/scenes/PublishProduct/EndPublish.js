@@ -5,6 +5,8 @@ import Button from '../../components/Button/Default/Orange'
 
 const EndPublish = (props) => {
   const group = props.group
+  const photos = group.product.productPhotosUrls
+  const productPhoto = !photos ? '' : URL.createObjectURL(photos[0])
   const expireDate = new Date(group.expiresAt).toLocaleString('es-AR')
 
   return (
@@ -16,7 +18,7 @@ const EndPublish = (props) => {
           <div
             className='Publish__End__group-info--image'
             style={{
-              backgroundImage: `url(${group.product.productPhotosUrls[0]})`,
+              backgroundImage: `url(${productPhoto})`,
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center center'
