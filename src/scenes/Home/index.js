@@ -18,9 +18,9 @@ const Landing = () => {
       <Banner />
       <div className={classes.container}>
         {
-          categories.map((category, index) => (
+          categories.map((category) => (
             <CategoryDisplay
-              key={index}
+              key={category.key}
               title={category.title}
               groups={groups.filter(category.groupFilter)}
             />

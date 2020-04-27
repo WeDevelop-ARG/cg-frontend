@@ -15,12 +15,16 @@
   position: absolute;
   height: 28px;
   right: 12px;
-  top: 12px;  
+  top: 12px;
   
   background: rgba(26, 34, 36, 0.8);
   border-radius: 15px;
 
-  &__icon {
+  & > .message {
+    margin-right: 8px;
+  }
+
+  & > .icon {
     height: 13.5px;
     width: 13.5px;
     align-self: center;
@@ -33,5 +37,4 @@
     justify-self: center;
     margin-top: 1px;
   }
-
 }
