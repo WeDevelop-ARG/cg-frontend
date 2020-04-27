@@ -92,7 +92,7 @@ const Navbar = () => {
               {
                 isDropdownOpened && (
                   <div className='navbar__dropdown' ref={dropdownRef}>
-                    <span onClick={() => goTo('#')} className='navbar__dropdown--item'>Mis compras</span>
+                    <span onClick={() => goTo('/mis-compras')} className='navbar__dropdown--item'>Mis compras</span>
                     <span onClick={() => goTo('/mis-productos')} className='navbar__dropdown--item'>Mis publicaciones</span>
                     <span onClick={logout} className='navbar__dropdown--item'>Salir</span>
                   </div>

@@ -8,6 +8,7 @@ import WannaSell from './scenes/WannaSell'
 import NavBar from './components/Navbar'
 import PublishProduct from './scenes/PublishProduct'
 import MyProducts from './scenes/MyProducts'
+import MyPurchases from './scenes/MyPurchases'
 import AuthContextProvider from './Contexts/AuthContext/provider'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -41,6 +42,9 @@ function App () {
           </Route>
           <Route path='/mis-productos/nuevo' exact>
             <PublishProduct />
+          </Route>
+          <Route path='/mis-compras' exact>
+            <MyPurchases />
           </Route>
         </Switch>
       </AuthContextProvider>
