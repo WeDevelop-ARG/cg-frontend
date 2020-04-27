@@ -45,10 +45,11 @@ const EndPublish = (props) => {
       </div>
       <div className='Publish__End__links'>
         <Button onClick={() => props.reset()}>Cargar otro producto</Button>
-        <p>o</p>
-        <Link to='/mis-productos' className='Publish__End__links--my-products'>
-          Ir a Mis publicaciones &#62;
-        </Link>
+        <p>o
+          <Link to='/mis-productos' className='Publish__End__links--my-products'>
+            Ir a Mis publicaciones &#62;
+          </Link>
+        </p>
       </div>
     </div>
   )
