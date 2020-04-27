@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import './PublishProduct.scss'
 import createGroupHandler from './createGroupHandler'
+import Loading from '../../components/Loading'
 
 const ProductForm = (props) => {
   const [type, setType] = useState('GROUP')
@@ -9,17 +10,28 @@ const ProductForm = (props) => {
   const [maxParticipants, setMaxParticipants] = useState(2)
   const [discount, setDiscount] = useState(0)
   const [expiresAt, setExpiresAt] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async event => {
     event.preventDefault()
 
     const product = props.product
 
-    await createGroupHandler({ product, discount, expiresAt, maxParticipants, minParticipants, type })
+    setIsLoading(true)
 
-    props.group({ product, minParticipants, discount, expiresAt })
-    props.nextStep()
+    try {
+      await createGroupHandler({ product, discount, expiresAt, maxParticipants, minParticipants, type })
+
+      setIsLoading(false)
+
+      props.group({ product, minParticipants, discount, expiresAt })
+      props.nextStep()
+    } catch {
+      setIsLoading(false)
+    }
   }
+
+  if (isLoading) return <Loading />
 
   return (
     <div className='Publish__ms-form--container'>

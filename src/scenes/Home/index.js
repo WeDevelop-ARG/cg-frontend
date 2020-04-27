@@ -7,11 +7,14 @@ import CategoryDisplay from '../../components/CategoryDisplay'
 
 import classes from './styles.module.scss'
 import categories from './categories'
+import Loading from '../../components/Loading'
 
 const Landing = () => {
-  const { groups } = useGroupsQuery()
+  const { groups, loading } = useGroupsQuery()
 
   if (!groups) return undefined
+
+  if (loading) return <Loading />
 
   return (
     <>

@@ -9,12 +9,13 @@ import Button from '../../components/Button'
 
 import useLogin from '../../hooks/useLoginMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
+import Loading from '../../components/Loading'
 
 import './Signin.scss'
 
 const Signin = () => {
   const { handleAuth } = useContext(AuthContext)
-  const { login } = useLogin()
+  const { login, loading } = useLogin()
 
   const history = useHistory()
 
@@ -25,6 +26,8 @@ const Signin = () => {
       .email('E-mail inválido')
       .required('El e-mail es requerido')
   })
+
+  if (loading) return <Loading />
 
   return (
     <div className='signin--container'>

@@ -9,12 +9,13 @@ import Button from '../../components/Button'
 
 import useSignup from '../../hooks/useSignupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
+import Loading from '../../components/Loading'
 
 import './Signup.scss'
 
 const Signup = () => {
   const { handleAuth } = useContext(AuthContext)
-  const { signup } = useSignup()
+  const { signup, loading } = useSignup()
 
   const history = useHistory()
 
@@ -30,6 +31,8 @@ const Signup = () => {
     lastName: Yup.string()
       .required('El apellido es requerido')
   })
+
+  if (loading) return <Loading />
 
   return (
     <div className='signup--container'>

@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import useGroupQuery from '../../hooks/useGroupQuery'
 import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
+import Loading from '../../components/Loading'
 
 import { useParams, Redirect, useHistory } from 'react-router-dom'
 
@@ -15,9 +16,11 @@ const ProductDetail = () => {
   const { status: isLogged, currentUser } = useContext(AuthContext)
   const { groupId } = useParams()
   const { group, loading } = useGroupQuery(groupId)
-  const { subscribeToGroup } = useSubscribeToGroup()
+  const { subscribeToGroup, loading: subscribeLoading } = useSubscribeToGroup()
   const [endCheckout, setEndCheckout] = useState(false)
   const history = useHistory()
+
+  if (loading || subscribeLoading) return <Loading />
 
   if (!group && !loading) return <Redirect to='/' />
 
@@ -45,14 +48,6 @@ const ProductDetail = () => {
   }
 
   if (endCheckout) return <EndCheckout group={group} />
-
-  if (loading) {
-    return (
-      <div>
-        <h1>... Loading</h1>
-      </div>
-    )
-  }
 
   const {
     name = '',
