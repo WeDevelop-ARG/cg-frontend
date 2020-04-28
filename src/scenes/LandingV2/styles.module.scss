@@ -29,7 +29,7 @@
       color: #ffffff;
       font-weight: normal;
       font-size: 3.2vmin;
-      line-height: 38px;
+      line-height: 3.5vmin;
       text-align: center;
     }
 
@@ -94,10 +94,11 @@
       padding-top: 5%;
       & > .step {
         display: flex;
+        justify-content: space-between;
         margin: 0;
         padding: 0px 30px;
         & > .stepInfo {
-          padding: 0 5%;
+          width: 38vw;
           margin-top: auto;
           margin-bottom: auto;
         }
