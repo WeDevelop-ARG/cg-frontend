@@ -5,6 +5,7 @@ import Signin from './scenes/Signin'
 import Signup from './scenes/Signup'
 import ProductDetail from './scenes/ProductDetail'
 import WannaSell from './scenes/WannaSell'
+import WannaSellV2 from './scenes/WannaSellV2'
 import NavBar from './components/Navbar'
 import PublishProduct from './scenes/PublishProduct'
 import MyProducts from './scenes/MyProducts'
@@ -36,6 +37,9 @@ function App () {
           </Route>
           <Route path='/quiero-vender' exact>
             <WannaSell />
+          </Route>
+          <Route path='/quiero-vender-b' exact>
+            <WannaSellV2 />
           </Route>
           <Route path='/mis-productos' exact>
             <MyProducts />
