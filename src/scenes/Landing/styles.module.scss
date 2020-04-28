@@ -1,0 +1,157 @@
+.landingContainer {
+  width: 100%;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 750.3px;
+  background-color: #3561D1;
+  overflow: hidden;
+
+  &Waves {
+    position: absolute;
+    width: 100%;
+    top: 68%;
+  }
+
+  &Messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 113px 366px 0 366px;
+  }
+}
+
+.title {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 47px;
+  line-height: 61px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 43px;
+}
+
+.subtitle {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 34px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.cards {
+  display: grid;
+  grid-gap: 71px;
+  grid-template-columns: repeat(3, 1fr);
+
+  &Container {
+    margin-top: 83px;
+    padding: 0px 105px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.card {
+  z-index: 2;
+  background: #FFFFFF;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  height: 274px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32px;
+
+  &Icon {
+    margin-bottom: 13px;
+  }
+
+  &Text {
+    margin-bottom: 16px;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #3561D1;
+  }
+
+  &Message {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #1A2224;
+  }
+}
+
+.steps {
+  margin-top: 110px;
+  position: relative;
+}
+
+.firstFourthSteps, .lastSteps {
+  padding: 0 175.32px;
+}
+
+.shapes {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 158px;
+}
+
+.firstStep {
+  margin-top: 128px;
+}
+
+.secondStep {
+  margin-top: 255px;
+}
+
+.thirdStep {
+  margin-top: 244px;
+}
+
+.fourthStep {
+  margin-top: 255px;
+}
+
+.fifthStep {
+  margin-top: 170px;
+}
+
+.sixthStep {
+  margin-top: 297px;
+}
+
+.seventhStep {
+  margin-top: 297px;
+}
+
+.howItWorks {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 55px;
+  text-align: center;
+  color: #1A2224;
+  text-align: center;
+}

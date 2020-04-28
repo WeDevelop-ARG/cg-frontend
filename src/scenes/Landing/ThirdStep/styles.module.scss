@@ -1,0 +1,37 @@
+.thirdStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 186px;
+  width: 526px;
+  justify-content: space-between;
+}
+
+.buyers {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  color: #A0ACAF;
+}
+
+.choice {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 52px;
+  color: #3561D1;
+}
+
+.register {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 34px;
+  color: #1A2224;
+}

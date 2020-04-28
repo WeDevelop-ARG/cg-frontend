@@ -4,8 +4,8 @@ import Checkout from './scenes/Checkout'
 import Signin from './scenes/Signin'
 import Signup from './scenes/Signup'
 import ProductDetail from './scenes/ProductDetail'
-import WannaSell from './scenes/WannaSell'
 import WannaSellV2 from './scenes/WannaSellV2'
+import Landing from './scenes/Landing'
 import NavBar from './components/Navbar'
 import PublishProduct from './scenes/PublishProduct'
 import MyProducts from './scenes/MyProducts'
@@ -36,7 +36,7 @@ function App () {
             <ProductDetail />
           </Route>
           <Route path='/quiero-vender' exact>
-            <WannaSell />
+            <Landing />
           </Route>
           <Route path='/quiero-vender-b' exact>
             <WannaSellV2 />

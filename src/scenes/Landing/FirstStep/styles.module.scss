@@ -1,0 +1,40 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 172px;
+  justify-content: space-between;
+}
+
+.you {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  color: #A0ACAF;
+}
+
+.loadProducts {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 36px;
+  color: #3561D1;
+}
+
+.register {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  color: #1A2224;
+  width: 528px;
+
+  &Red {
+    @extend .register;
+    color: #EB5433 !important;
+  }
+}

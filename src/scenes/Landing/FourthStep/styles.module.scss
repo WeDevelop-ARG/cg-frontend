@@ -1,0 +1,40 @@
+.fourthStep {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 525px;
+  height: 221px;
+
+  &Container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
+.buyers {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  color: #A0ACAF;
+}
+
+.group {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 36px;
+  color: #3561D1;
+}
+
+.add {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  color: #1A2224;
+}
