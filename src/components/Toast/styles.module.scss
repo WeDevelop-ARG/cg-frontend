@@ -1,0 +1,20 @@
+.toast {
+  display: flex;
+  max-height: 80px;
+  min-height: 70px;
+  padding: 20px;
+  margin: 40px;
+  font-family: DM Sans;
+  font-size: 16px;
+  line-height: 22px;
+  background: #ffffff;
+  justify-content: center;
+
+  button {
+    margin-left: 32px;
+    font-size: 22px;
+    border: none;
+    background: transparent;
+  }
+}
+
