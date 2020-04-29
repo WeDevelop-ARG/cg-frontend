@@ -1,5 +1,5 @@
 import React from 'react'
-import Home from './scenes/Home'
+// import Home from './scenes/Home'
 import Checkout from './scenes/Checkout'
 import Signin from './scenes/Signin'
 import Signup from './scenes/Signup'
@@ -28,9 +28,11 @@ function App () {
         <AuthContextProvider>
           <NavBar />
           <Switch>
-            <Route path='/' exact>
+            {/*
+            <Route path='/home' exact>
               <Home />
             </Route>
+            */}
             <Route path='/checkout/:groupId' exact>
               <Checkout />
             </Route>
@@ -58,7 +60,7 @@ function App () {
             <Route path='/mis-compras' exact>
               <MyPurchases />
             </Route>
-            <Route path='/coming-soon' exact>
+            <Route path='/' exact>
               <ComingSoon />
             </Route>
           </Switch>
