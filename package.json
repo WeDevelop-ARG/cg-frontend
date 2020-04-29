@@ -29,6 +29,7 @@
     "classnames": "^2.2.6",
     "components": "^0.1.0",
     "dayjs": "^1.8.23",
+    "firebase": "^7.14.2",
     "formik": "^2.1.4",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",

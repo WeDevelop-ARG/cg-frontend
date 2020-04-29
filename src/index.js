@@ -4,6 +4,7 @@ import './fonts/DMSans-Regular.ttf'
 import './index.scss'
 import App from './App'
 import { initialize as initializeMercadoPago } from './MercadoPago'
+import './firebase.js'
 
 import { ApolloProvider } from 'react-apollo'
 import client from './apollo/configurations/client'
