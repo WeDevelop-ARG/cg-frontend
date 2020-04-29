@@ -1,3 +1,5 @@
+@import '../../../styles/mixin/media-screen.scss';
+
 .seventhStep {
   position: relative;
   display: flex;
@@ -5,6 +7,11 @@
   height: 186px;
   width: 526px;
   justify-content: space-between;
+
+  @include for-phone-only {
+    width: 265px;
+    height: 99px;
+  }
 }
 
 .you {
@@ -16,6 +23,11 @@
   display: flex;
   align-items: center;
   color: #A0ACAF;
+
+  @include for-phone-only {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 
 .money {
@@ -25,6 +37,11 @@
   font-size: 36px;
   line-height: 52px;
   color: #3561D1;
+
+  @include for-phone-only {
+    font-size: 22px;
+    line-height: 25px;
+  }
 }
 
 .finished {
@@ -34,4 +51,9 @@
   font-size: 24px;
   line-height: 34px;
   color: #1A2224;
+
+  @include for-phone-only {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }

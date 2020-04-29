@@ -16,15 +16,23 @@ import FifthStep from './FifthStep'
 import SixthStep from './SixthStep'
 import SeventhStep from './SeventhStep'
 import RegisterCard from './RegisterCard'
+import useMediaQuery from '../../hooks/useMediaQuery'
+import Mobile from './Mobile'
+
+const BREAK_POINT = '(max-device-width: 576px)'
 
 const Landing = () => {
+  const isMobile = useMediaQuery(BREAK_POINT)
+
+  if (isMobile) return <Mobile />
+
   return (
     <div className={classes.landingContainer}>
       <div className={classes.header}>
         <div className={classes.headerMessages}>
           <Icon src={LandingWaves} className={classes.headerWaves} />
           <h1 className={classes.title}>Vendé en grande</h1>
-          <h3 className={classes.subtitle}>Eu sit nulla aliquam tristique cras pretium velit in. Congue placerat nulla quis auctor.</h3>
+          <h3 className={classes.subtitle} />
         </div>
         <div className={classes.cardsContainer}>
           <div className={classes.cards}>

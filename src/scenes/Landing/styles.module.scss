@@ -1,3 +1,5 @@
+@import '../../styles/mixin/media-screen.scss';
+
 .landingContainer {
   width: 100%;
 }
@@ -73,6 +75,12 @@
   justify-content: center;
   align-items: center;
   padding: 0 32px;
+
+  @include for-phone-only {
+    width: 320px;
+    height: 237px;
+    margin-bottom: 24px;
+  }
 
   &Icon {
     margin-bottom: 13px;

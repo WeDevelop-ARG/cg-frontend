@@ -1,3 +1,5 @@
+@import '../../../styles/mixin/media-screen.scss';
+
 .card {
   background: #FFFFFF;
   border-radius: 10px;
@@ -8,6 +10,13 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 235px;
+
+  @include for-phone-only {
+    height: 150px;
+    max-width: 319.87px;
+    margin-top: 78px;
+    padding: 50px 20.69px;
+  }
 }
 
 .text {
@@ -17,6 +26,14 @@
   font-size: 44px;
   line-height: 57px;
   color: #1A2224;
+
+  @include for-phone-only {
+    width: 90.83px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 23px;
+    display:block;
+  }
 }
 
 .image {
