@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, Formik } from 'formik'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import Icon from '../../components/Icon'
 
 import classes from './styles.module.scss'
 import cart from '../../assets/img/LandingV2/fast-cart.svg'
@@ -10,6 +11,7 @@ import smallPeople from '../../assets/img/LandingV2/small-people.svg'
 import step1 from '../../assets/img/LandingV2/step1.svg'
 import step2 from '../../assets/img/LandingV2/step2.svg'
 import step3 from '../../assets/img/LandingV2/step3.svg'
+import LandingWaves from '../../assets/img/LandingV2/background.svg'
 
 const LandingV2 = () => {
   return (
@@ -35,6 +37,7 @@ const LandingV2 = () => {
             <p>A partir de la venta mayorista aumentás visibilidad, tus productos se difunden en redes sociales y llegás a más gente</p>
           </div>
         </div>
+        <Icon src={LandingWaves} className={classes.waves} />
       </div>
 
       <div className={classes.content}>

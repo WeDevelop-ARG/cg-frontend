@@ -4,11 +4,8 @@
   height: 100vh;
 
   & > .top {
+    z-index: -1;
     background-color:#3561D1;
-    background-image: url('../../assets/img/LandingV2/background.svg');
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: 101%;
     min-height: 550px;
     padding-top: 5%;
 
@@ -20,7 +17,7 @@
       margin: 0 auto 26px auto;
       color: #ffffff;
       font-weight: bold;
-      font-size: 6vmin;
+      font-size: 47px;
       line-height: 61px;
     }
 
@@ -28,14 +25,21 @@
       margin: 0;
       color: #ffffff;
       font-weight: normal;
-      font-size: 3.2vmin;
-      line-height: 3.5vmin;
+      font-size: 26px;
+      line-height: 30px;
       text-align: center;
     }
 
-    & > .boxes {
+    & > .waves {
+      position: absolute;
       width: 100%;
-      padding: 100px 7% 80px 7%;
+      top: 450px;
+    }
+
+    & > .boxes {
+      z-index: 1;
+      width: 100%;
+      padding: 100px 7% 12px 7%;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-column-gap: 7%;
@@ -54,14 +58,14 @@
         h1 {
           margin-bottom: 0;
           font-weight: 500;
-          font-size: 2.5vmin;
-          line-height: 3vmin;
+          font-size: 20px;
+          line-height: 36px;
           color: #3561D1;
         }
         p {
           text-align: center;
           font-weight: normal;
-          font-size: 2vh;
+          font-size: 16px;
           line-height: 22px;
         }
       }
@@ -69,6 +73,7 @@
   }
 
   & > .content {
+    padding-top: 115px;
     background: #F7F8FA;
     h1 {
       margin: 0;
@@ -79,12 +84,12 @@
     }
     h2 {
       font-weight: normal;
-      font-size: 4vmin;
+      font-size: 36px;
       line-height: 36px;
       color: #3561D1;
     }
     p {
-      font-size: 2.7vmin;
+      font-size: 24px;
       line-height: 34px;
       color: #1A2224;
     }
@@ -98,7 +103,7 @@
         margin: 0;
         padding: 0px 30px;
         & > .stepInfo {
-          width: 38vw;
+          width: 500px;
           margin-top: auto;
           margin-bottom: auto;
         }

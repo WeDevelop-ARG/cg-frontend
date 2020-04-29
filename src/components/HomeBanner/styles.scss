@@ -38,7 +38,7 @@
     font-family: DM Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 2vmin;
+    font-size: 16px;
     line-height: 20px;   
     color: #5C6163;
   }
@@ -57,7 +57,6 @@
 
     &--item {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
       padding-top: 40px;
       margin-right: 12px;
@@ -66,7 +65,7 @@
         width: auto;
       }
       p {
-        margin-left: 2vmin;
+        margin-left: 16px;
       }
     }
   }
