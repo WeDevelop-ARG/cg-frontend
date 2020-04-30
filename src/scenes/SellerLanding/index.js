@@ -6,13 +6,11 @@ import firebase from 'firebase/app'
 import 'firebase/analytics'
 import 'firebase/remote-config'
 
-const queryParams = () => {
-  return new URLSearchParams(useLocation().search)
-}
-
 const SellerLanding = () => {
   const [Landing, setLanding] = useState()
-  const redirect = queryParams().get('useLanding')
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const redirect = queryParams.get('useLanding')
 
   useEffect(() => {
     if (redirect) {
