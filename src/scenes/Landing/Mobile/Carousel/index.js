@@ -35,12 +35,23 @@ const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const changeIndex = (nextIndex) => {
-    if (nextIndex !== currentIndex) setCurrentIndex(nextIndex)
+    if (Math.floor(nextIndex) !== currentIndex) setCurrentIndex(nextIndex)
   }
 
   return (
     <div className={classes.carousel}>
-      <SwipeableViews onSwitching={changeIndex} containerStyle={{ width: '414px' }} style={{ width: '78.5%' }}>
+      <SwipeableViews
+        onSwitching={changeIndex}
+        containerStyle={{ width: '340px' }}
+        style={{
+          width: '100%',
+          position: 'absolute',
+          left: '50%',
+          top: '0',
+          transform: 'translateX(-160px)',
+          overflowX: 'visible'
+        }}
+      >
         {cards}
       </SwipeableViews>
       <Slider currentIndex={currentIndex} maxLength={3} />
