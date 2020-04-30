@@ -3,6 +3,7 @@ import { Form, Formik } from 'formik'
 import Input from '../../../components/Input'
 import Button from '../../../components/Button'
 import useMediaQuery from '../../../hooks/useMediaQuery'
+import { logGAEvent } from '../../../firebase.js'
 
 import classes from './styles.module.scss'
 import sendImg from '../../../vectors/send.svg'
@@ -18,6 +19,9 @@ const EmailForm = () => {
       <Formik
         initialValues={{
           email: ''
+        }}
+        onSubmit={async (email) => {
+          logGAEvent('seller_landing_cta', { seller_landing_version: 'B' })
         }}
       >
         <Form>

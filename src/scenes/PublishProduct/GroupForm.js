@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import './PublishProduct.scss'
 import createGroupHandler from './createGroupHandler'
 import Loading from '../../components/Loading'
+import { logGAEvent } from '../../firebase.js'
 
 const ProductForm = (props) => {
   const [type, setType] = useState('GROUP')
@@ -21,6 +22,7 @@ const ProductForm = (props) => {
 
     try {
       await createGroupHandler({ product, discount, expiresAt, maxParticipants, minParticipants, type })
+      logGAEvent('seller_product_create', { size: minParticipants })
 
       setIsLoading(false)
 

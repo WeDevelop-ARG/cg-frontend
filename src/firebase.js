@@ -1,5 +1,6 @@
-import * as firebase from 'firebase/app'
+import firebase from 'firebase/app'
 import 'firebase/analytics'
+import 'firebase/remote-config'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA-4usxxlhMPx_sUECQVami7W2XtE2LWik',
@@ -16,4 +17,10 @@ if (process.env.NODE_ENV === 'production') {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig)
   firebase.analytics()
+}
+
+export const logGAEvent = (eventName, payload) => {
+  if (process.env.NODE_ENV === 'production') {
+    firebase.analytics().logEvent(eventName, payload)
+  }
 }
