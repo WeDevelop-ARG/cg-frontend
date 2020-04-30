@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className={classes.header}>
       <h1 className={classes.title}>Vendé en grande</h1>
-      <h2 className={classes.subtitle} />
+      <h2 className={classes.subtitle}>Conocé los beneficios de Compras Grupales y empezá a vender</h2>
       <Icon className={classes.waves} icon={wavesShape} />
     </div>
   )

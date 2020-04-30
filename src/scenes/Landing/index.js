@@ -29,11 +29,9 @@ const Landing = () => {
   return (
     <div className={classes.landingContainer}>
       <div className={classes.header}>
-        <div className={classes.headerMessages}>
-          <Icon src={LandingWaves} className={classes.headerWaves} />
-          <h1 className={classes.title}>Vendé en grande</h1>
-          <h3 className={classes.subtitle} />
-        </div>
+        <Icon src={LandingWaves} className={classes.headerWaves} />
+        <h1 className={classes.title}>Vendé en grande</h1>
+        <h3 className={classes.subtitle}>Conocé los beneficios de Compras Grupales y empezá a vender</h3>
         <div className={classes.cardsContainer}>
           <div className={classes.cards}>
             <Card
