@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Card from '../../Card'
 import ShoppingCardIcon from '../../../../vectors/shopping-card.svg'
 import MoneyIcon from '../../../../vectors/money.svg'
 import GroupCardIcon from '../../../../vectors/group.svg'
 import classes from './styles.module.scss'
 import Slider from './Slider'
+import SwipeableViews from 'react-swipeable-views'
 
 const cards = [
   <Card
@@ -33,23 +34,15 @@ const cards = [
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const nextCard = () => {
-    if (currentIndex >= 2) {
-      return setCurrentIndex(0)
-    }
-
-    return setCurrentIndex(currentIndex + 1)
+  const changeIndex = (nextIndex) => {
+    if (nextIndex !== currentIndex) setCurrentIndex(nextIndex)
   }
-
-  useEffect(() => {
-    const time = setTimeout(nextCard, 4000)
-
-    return () => clearTimeout(time)
-  }, [currentIndex])
 
   return (
     <div className={classes.carousel}>
-      {cards[currentIndex]}
+      <SwipeableViews onSwitching={changeIndex} containerStyle={{ width: '414px' }} style={{ width: '78.5%' }}>
+        {cards}
+      </SwipeableViews>
       <Slider currentIndex={currentIndex} maxLength={3} />
     </div>
   )
