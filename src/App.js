@@ -5,7 +5,6 @@ import Signin from './scenes/Signin'
 import Signup from './scenes/Signup'
 import ProductDetail from './scenes/ProductDetail'
 import SellerLanding from './scenes/SellerLanding'
-import NavBar from './components/Navbar'
 import PublishProduct from './scenes/PublishProduct'
 import MyProducts from './scenes/MyProducts'
 import MyPurchases from './scenes/MyPurchases'
@@ -13,6 +12,7 @@ import ComingSoon from './scenes/ComingSoon'
 import AuthContextProvider from './Contexts/AuthContext/provider'
 import { ToastProvider } from 'react-toast-notifications'
 import Toast from './components/Toast'
+import withNavbar from './HOCs/withNavbar'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -25,7 +25,6 @@ function App () {
         placement='bottom-right'
       >
         <AuthContextProvider>
-          <NavBar />
           <Switch>
             {/*
             <Route path='/home' exact>
@@ -33,31 +32,31 @@ function App () {
             </Route>
             */}
             <Route path='/checkout/:groupId' exact>
-              <Checkout />
+              {withNavbar(<Checkout />)}
             </Route>
             <Route path='/auth/signin' exact>
-              <Signin />
+              {withNavbar(<Signin />)}
             </Route>
             <Route path='/auth/signup' exact>
-              <Signup />
+              {withNavbar(<Signup />)}
             </Route>
             <Route path='/product-detail/:groupId' exact>
-              <ProductDetail />
+              {withNavbar(<ProductDetail />)}
             </Route>
             <Route path='/quiero-vender' exact>
               <SellerLanding />
             </Route>
             <Route path='/mis-productos' exact>
-              <MyProducts />
+              {withNavbar(<MyProducts />)}
             </Route>
             <Route path='/mis-productos/nuevo' exact>
-              <PublishProduct />
+              {withNavbar(<PublishProduct />)}
             </Route>
             <Route path='/mis-compras' exact>
-              <MyPurchases />
+              {withNavbar(<MyPurchases />)}
             </Route>
             <Route path='/' exact>
-              <ComingSoon />
+              {withNavbar(<ComingSoon />)}
             </Route>
           </Switch>
         </AuthContextProvider>

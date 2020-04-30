@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import useSubscribedGroupsQuery from '../../hooks/useSubscribedGroupsQuery'
+import Loading from '../../components/Loading'
 
 import EmptyProductList from './NoPurchases'
 import PurchasesDisplay from './PurchasesDisplay'
@@ -9,13 +10,7 @@ import classes from './styles.module.scss'
 const MyPurchases = () => {
   const { loading, currentUser } = useSubscribedGroupsQuery()
 
-  if (loading) {
-    return (
-      <div>
-        <h1>... Loading</h1>
-      </div>
-    )
-  }
+  if (loading) return <Loading />
 
   if (!currentUser) return <Redirect to='/' />
   const { subscribedGroups } = currentUser

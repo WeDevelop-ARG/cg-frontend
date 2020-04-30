@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect, Link, useHistory } from 'react-router-dom'
 import usePublishedGroupsQuery from '../../hooks/usePublishedGroupsQuery'
 import Button from '../../components/Button/Default/Orange'
+import Loading from '../../components/Loading'
 
 import ProductList from './ProductList'
 import EmptyProductList from './NoProducts'
@@ -11,13 +12,7 @@ const MyProducts = () => {
   const { loading, currentUser, refetch } = usePublishedGroupsQuery()
   const history = useHistory()
 
-  if (loading) {
-    return (
-      <div>
-        <h1>... Loading</h1>
-      </div>
-    )
-  }
+  if (loading) return <Loading />
 
   if (!currentUser) return <Redirect to='/' />
   const { publishedGroups } = currentUser
