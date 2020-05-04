@@ -18,7 +18,7 @@ const MobileSteps = () => {
       </div>
 
       <div className={classes.step}>
-        <img src={step2} alt='Paso 2' style={{ height: '180px' }} />
+        <img src={step2} alt='Paso 2' style={{ height: '180px', background: 'transparent' }} />
         <div className={classes.stepInfo}>
           <h2>Cargá tus productos</h2>
           <p>Subí varias imágenes y añadí la descripción para los productos que querés vender</p>

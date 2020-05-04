@@ -2,8 +2,9 @@
   padding-top: 115px;
   background: #F7F8FA;
   h1 {
+    position: relative;
     margin: 0;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 42px;
     line-height: 55px;
     text-align: center;
@@ -41,7 +42,8 @@
   background: #F7F8FA url('../../../assets/img/LandingV2/lines.svg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 90%;
+  background-size: 375px;
+  margin-bottom: 40px;
   h1 {
     margin: 0;
     margin-bottom: 40px;
@@ -72,7 +74,11 @@
     & > .stepInfo {
       width: inherit;
       max-width: 255px;
-      margin:auto
+      margin: 14px auto;
+    }
+    img {
+      margin: auto;
+      width: 150px;
     }
   }  
 }
