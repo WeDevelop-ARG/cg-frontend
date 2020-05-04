@@ -2,21 +2,25 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Form, Formik } from 'formik'
 import { useToasts } from 'react-toast-notifications'
+import useMediaQuery from '../../hooks/useMediaQuery'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 
 import classes from './styles.module.scss'
 import send from '../../vectors/send.svg'
+const BREAK_POINT = '(max-device-width: 576px)'
 
 const ComingSoon = () => {
   const { addToast } = useToasts()
   const history = useHistory()
+  const isMobile = useMediaQuery(BREAK_POINT)
+  const container = isMobile ? classes.mobileContainer : classes.container
   const goToLanding = () => {
     history.push('/quiero-vender')
   }
 
   return (
-    <div className={classes.container}>
+    <div className={container}>
       <div className={classes.data}>
         <div>
           <h1>¡Estamos en camino!</h1>

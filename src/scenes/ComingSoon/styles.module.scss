@@ -58,3 +58,66 @@
     }
   }
 }
+
+.mobileContainer {
+  min-height: calc(100vh - 87px);
+  font-family: DM Sans;
+  background: url('../../vectors/coming-soon-wave.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 200%;
+  background-size: 100% 80%;
+
+  h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 26px;
+    line-height: 36px;
+  }
+  h2 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  h3 {
+    margin: 12px 0 30px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  p {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  & > .data {
+    height: 85vh;
+    width: inherit;
+    padding: 20% 22px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    Button {
+      height: 45px;
+      padding-top: 12px;
+      margin: 0 auto;
+    }
+
+    Form {
+      display: flex;
+      padding-top: 12px;
+      Input {
+        width: 76vw;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      Button {
+        margin: 0;
+        padding: 0px 16px 0px 14px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
