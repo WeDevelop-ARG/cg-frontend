@@ -1,8 +1,9 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { useHistory, Redirect } from 'react-router-dom'
 import { Form, Formik } from 'formik'
 import { useToasts } from 'react-toast-notifications'
 import useMediaQuery from '../../hooks/useMediaQuery'
+import AuthContext from '../../Contexts/AuthContext/context'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 
@@ -13,6 +14,9 @@ const BREAK_POINT = '(max-device-width: 576px)'
 const ComingSoon = () => {
   const { addToast } = useToasts()
   const history = useHistory()
+  const { status } = useContext(AuthContext)
+  if (status) return (<Redirect to='/mis-productos' />)
+
   const isMobile = useMediaQuery(BREAK_POINT)
   const container = isMobile ? classes.mobileContainer : classes.container
   const goToLanding = () => {
