@@ -6,12 +6,13 @@ import useMediaQuery from '../../hooks/useMediaQuery'
 import AuthContext from '../../Contexts/AuthContext/context'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
-
+import useSubscribeToNewsletterMutation from '../../hooks/useSubscribeToNewsletterMutation'
 import classes from './styles.module.scss'
 import send from '../../vectors/send.svg'
 const BREAK_POINT = '(max-device-width: 576px)'
 
 const ComingSoon = () => {
+  const { subscribeToNewsletters } = useSubscribeToNewsletterMutation()
   const { addToast } = useToasts()
   const history = useHistory()
   const { status } = useContext(AuthContext)
@@ -38,8 +39,9 @@ const ComingSoon = () => {
             initialValues={{
               email: ''
             }}
-            onSubmit={() => {
-              addToast('Servidor de email no establecido aún', { autoDismiss: true })
+            onSubmit={async ({ email }) => {
+              await subscribeToNewsletters({ email })
+              addToast('Tu suscripción se realizó correctamente.', { autoDismiss: true })
             }}
           >
             <Form>

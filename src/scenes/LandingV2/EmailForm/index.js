@@ -3,6 +3,7 @@ import { Form, Formik } from 'formik'
 import Input from '../../../components/Input/normal'
 import Button from '../../../components/Button'
 import useMediaQuery from '../../../hooks/useMediaQuery'
+import useSubscribeToNewsletterMutation from '../../../hooks/useSubscribeToNewsletterMutation'
 import { logGAEvent } from '../../../firebase.js'
 
 import classes from './styles.module.scss'
@@ -10,6 +11,7 @@ import sendImg from '../../../vectors/send.svg'
 const BREAK_POINT = '(max-device-width: 576px)'
 
 const EmailForm = () => {
+  const { subscribeToNewsletters } = useSubscribeToNewsletterMutation()
   const isMobile = useMediaQuery(BREAK_POINT)
   const send = isMobile ? <img src={sendImg} /> : 'Enviar'
   return (
@@ -20,7 +22,8 @@ const EmailForm = () => {
         initialValues={{
           email: ''
         }}
-        onSubmit={async (email) => {
+        onSubmit={async ({ email }) => {
+          await subscribeToNewsletters({ email })
           logGAEvent('seller_landing_cta', { seller_landing_version: 'B' })
         }}
       >
