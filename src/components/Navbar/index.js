@@ -54,16 +54,16 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
       <ul className='navbar__nav-links'>
-        <li className='navbar__nav-links--item'>
-          <Link to='/quiero-vender'>
-            <button type='button'>
-              Quiero vender
-            </button>
-          </Link>
-        </li>
         {
           !status ? (
             <>
+              <li className='navbar__nav-links--item'>
+                <Link to='/quiero-vender'>
+                  <button type='button'>
+                    Quiero vender
+                  </button>
+                </Link>
+              </li>
               <li className='navbar__nav-links--item'>
                 <button type='button' name='signup' onClick={() => goToSignup()}>
                   Creá tu cuenta
@@ -92,7 +92,9 @@ const Navbar = () => {
               {
                 isDropdownOpened && (
                   <div className='navbar__dropdown' ref={dropdownRef}>
-                    <span onClick={() => goTo('/mis-compras')} className='navbar__dropdown--item'>Mis compras</span>
+                    {/* Hide mis-compras navbar item
+                      <span onClick={() => goTo('/mis-compras')} className='navbar__dropdown--item'>Mis compras</span>
+                    */}
                     <span onClick={() => goTo('/mis-productos')} className='navbar__dropdown--item'>Mis publicaciones</span>
                     <span onClick={logout} className='navbar__dropdown--item'>Salir</span>
                   </div>
