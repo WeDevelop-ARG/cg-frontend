@@ -5,6 +5,7 @@ module.exports = {
       globalModulePaths: [
         /(?<!\.module)\.scss$/
       ]
-    }
+    },
+    autoprefixer: true
   }
 }

@@ -54,7 +54,7 @@
       }
     }
 
-    .input__normal, .input__normal--focused, .input__normal--error {
+    input {
       width: 100%;
     }
 
@@ -99,7 +99,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        .input__normal, .input__normal--focused, .input__normal--error {
+        input {
           width: 100%;
         }
       }

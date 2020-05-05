@@ -5,7 +5,7 @@ import EyeOff from '../../../vectors/eye-off.svg'
 
 import classNames from 'classnames'
 
-import './styles.scss'
+import classes from './styles.module.scss'
 
 const InputNormal = ({ type = 'text', ...props }) => {
   const [field, meta] = useField(props)
@@ -20,14 +20,14 @@ const InputNormal = ({ type = 'text', ...props }) => {
   const isPassword = type === 'password'
 
   const inputClass = classNames({
-    'input__normal--error': meta.error,
-    'input__normal--focused': !meta.error && meta.touched,
-    input__normal: !meta.error
+    [classes.inputError]: meta.error,
+    [classes.inputFocused]: !meta.error && meta.touched,
+    [classes.input]: !meta.error
   })
 
   const containerClass = classNames({
-    'input__normal--container': !meta.error,
-    'input__normal--container--error': meta.error
+    [classes.container]: !meta.error,
+    [classes.containerError]: meta.error
   })
 
   return (
@@ -38,8 +38,8 @@ const InputNormal = ({ type = 'text', ...props }) => {
         {...field}
         {...props}
       />
-      {isPassword && <img onClick={() => setIsHidePassword(!isHidePassword)} className='input__normal__eye' src={isHidePassword ? EyeOff : EyeOpen} alt='' />}
-      {meta.error && meta.touched && <div className='input__normal__error-text'>{meta.error}</div>}
+      {isPassword && <img onClick={() => setIsHidePassword(!isHidePassword)} className={classes.eye} src={isHidePassword ? EyeOff : EyeOpen} alt='' />}
+      {meta.error && meta.touched && <div className={classes.errorText}>{meta.error}</div>}
     </div>
   )
 }
