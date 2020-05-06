@@ -1,0 +1,81 @@
+.steps {
+  width: 100%;
+  height: 88px;
+  display: flex;
+  align-items: center;
+}
+
+.firstStep {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-right: 1px solid #F1F3F3;
+  padding-right: 40px;
+  margin-right: 38px;
+}
+
+.secondStep {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+
+  &Selected {
+    @extend .circle;
+    background: #EB5433;
+  }
+
+  &Unselected {
+    @extend .circle;
+    background: #A0ACAF;
+  }
+}
+
+.number {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+
+.textSelected {
+  margin-left: 12px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #1A2224;
+}
+
+.textUnselected {
+  margin-left: 12px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #1A2224;
+}

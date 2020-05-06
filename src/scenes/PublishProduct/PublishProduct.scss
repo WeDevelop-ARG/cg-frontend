@@ -25,29 +25,6 @@
     margin-bottom: 35px;
   }
 
-  form {
-    width: 70%;
-    padding: 4rem 4rem;
-    background-color:#FFFFFF;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  input {
-    outline: none;
-    width: 100%;
-    padding: 22px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    margin-bottom: 2rem;
-    font-size: large;
-
-    &:focus{
-      border: 3px solid rgb(153, 153, 153);
-    }
-  }
-
   &--group-select {
     display: flex;
     font-size: large;
