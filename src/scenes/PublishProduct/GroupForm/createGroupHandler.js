@@ -1,5 +1,5 @@
-import apolloClient from '../../apollo/configurations/client'
-import createGroup from '../../apollo/mutations/createGroup'
+import apolloClient from '../../../apollo/configurations/client'
+import createGroup from '../../../apollo/mutations/createGroup'
 import uploadPhotosHandler from './uploadPhotosHandler'
 
 export default async ({

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import dayjs from 'dayjs'
-import createSignedFileUploadURL from '../../apollo/mutations/createSignedFileUploadURL'
-import apolloClient from '../../apollo/configurations/client'
+import createSignedFileUploadURL from '../../../apollo/mutations/createSignedFileUploadURL'
+import apolloClient from '../../../apollo/configurations/client'
 
 const uploadToS3 = async (file, signedRequest) => {
   const options = {
