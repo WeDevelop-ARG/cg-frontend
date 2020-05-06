@@ -16,13 +16,14 @@ const ComingSoon = () => {
   const { addToast } = useToasts()
   const history = useHistory()
   const { status } = useContext(AuthContext)
-  if (status) return (<Redirect to='/mis-productos' />)
 
   const isMobile = useMediaQuery(BREAK_POINT)
   const container = isMobile ? classes.mobileContainer : classes.container
   const goToLanding = () => {
     history.push('/quiero-vender')
   }
+
+  if (status) return (<Redirect to='/mis-productos' />)
 
   return (
     <div className={container}>
