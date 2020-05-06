@@ -1,8 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
 import classes from './styles.module.scss'
+import useMediaQuery from '../../../hooks/useMediaQuery'
+
+const BREAK_POINT = '(max-device-width: 576px)'
 
 const CurrentStep = ({ currentStep = 1 }) => {
+  const isMobile = useMediaQuery(BREAK_POINT)
+
   const firstCircleClass = classNames({
     [classes.circleSelected]: currentStep === 1,
     [classes.circleUnselected]: currentStep === 2
@@ -25,13 +30,19 @@ const CurrentStep = ({ currentStep = 1 }) => {
 
   return (
     <div className={classes.steps}>
-      <div className={classes.firstStep}>
+      <div
+        className={classes.firstStep}
+        style={{ display: isMobile && currentStep === 2 ? 'none' : 'flex' }}
+      >
         <div className={firstCircleClass}>
           <span className={classes.number}>1</span>
         </div>
         <span className={productTextClass}>Información del producto</span>
       </div>
-      <div className={classes.secondStep}>
+      <div
+        className={classes.secondStep}
+        style={{ display: isMobile && currentStep === 1 ? 'none' : 'flex' }}
+      >
         <div className={secondCircleClass}>
           <span className={classes.number}>2</span>
         </div>

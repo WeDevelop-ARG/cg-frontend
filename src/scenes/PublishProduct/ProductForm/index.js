@@ -10,9 +10,13 @@ import calculatePercentage from '../../../utils/calculatePercentage'
 import Icon from '../../../components/Icon'
 import UploadShape from '../../../vectors/load-images.svg'
 import AddShape from '../../../vectors/add.svg'
+import useMediaQuery from '../../../hooks/useMediaQuery'
+
+const BREAK_POINT = '(max-device-width: 576px)'
 
 const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
   const [photos, setPhotos] = useState([])
+  const isMobile = useMediaQuery(BREAK_POINT)
 
   const productInfoSchema = Yup.object().shape({
     title: Yup.string()
@@ -43,6 +47,13 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
 
       setPhotos(photosToAdd)
     }
+  }
+
+  const removePhotoByIndex = (index) => {
+    const photosToChange = [...photos]
+    photosToChange.splice(index, 1)
+
+    setPhotos(photosToChange)
   }
 
   return (
@@ -112,36 +123,63 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
                     </span>
                   </div>
                 </Form>
-                <div>
+                <div className={classes.imagesArea}>
                   <label className={classes.label}>Imágenes del producto</label>
-                  <label htmlFor='upload-button' className={classes.dropzone}>
-                    <div className={classes.uploadInstructions}>
-                      <Icon icon={UploadShape} />
-                      <div className={classes.instructionsDetail}>
-                        <span className={classes.attach}>Adjuntá imágenes de tu producto</span>
-                        <span className={classes.limit}>Subí hasta 5 fotos</span>
-                      </div>
-                      <input
-                        type='file'
-                        id='upload-button'
-                        style={{ display: 'none' }}
-                        onChange={handleUploadFile}
-                        accept='image/*'
-                        multiple
-                      />
-                      <Icon icon={AddShape} />
-                    </div>
+                  <label htmlFor='upload-button'>
+                    {
+                      isMobile && !!photos.length ? (
+                        photos.map(({ preview }, key) => (
+                          <img
+                            src={preview}
+                            key={`product-photo${key}`}
+                            className={classes.photo}
+                            onClick={() => removePhotoByIndex(key)}
+                          />
+                        ))
+                      ) : (
+                        <div className={classes.dropzone}>
+                          <div className={classes.uploadInstructions}>
+                            <Icon icon={UploadShape} />
+                            <div className={classes.instructionsDetail}>
+                              <span className={classes.attach}>Adjuntá imágenes de tu producto</span>
+                              <span className={classes.limit}>Subí hasta 5 fotos</span>
+                            </div>
+                            <input
+                              type='file'
+                              id='upload-button'
+                              style={{ display: 'none' }}
+                              onChange={handleUploadFile}
+                              accept='image/*'
+                              multiple
+                            />
+                            <Icon icon={AddShape} />
+                          </div>
+                        </div>
+                      )
+                    }
                   </label>
                   <div className={classes.photos}>
                     {
-                      photos.map(({ preview }, key) => (
-                        <img src={preview} key={`product-photo${key}`} className={classes.photo} />
-                      ))
+                      !isMobile && (
+                        photos.map(({ preview }, key) => (
+                          <img
+                            src={preview}
+                            key={`product-photo${key}`}
+                            className={classes.photo}
+                            onClick={() => removePhotoByIndex(key)}
+                          />
+                        ))
+                      )
                     }
                   </div>
                 </div>
+                <div className={classes.continueMobile} onClick={handleSubmit}>
+                  <span>
+                    Continuar &rsaquo;
+                  </span>
+                </div>
               </div>
-              <span className={classes.continue} onClick={handleSubmit}>Continuar &rsaquo;</span>
+              <span className={classes.continueFloating} onClick={handleSubmit}>Continuar &rsaquo;</span>
             </>
           )
         }
