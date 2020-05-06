@@ -1,6 +1,7 @@
 .container {
   font-family: DM Sans;
   width: 100%;
+  padding: 0 30px;
 }
 
 .FormContainer {  
@@ -82,11 +83,14 @@
 
   & > .formButtons {
     margin-top: auto;
+    margin-bottom: 36px;
     display: flex;
     justify-content: space-between;
     font-size: 16px;
     line-height: 21px;
     & > .linkBtn {
+      font-family: Font Awesome 5 Pro;
+      font-size: 18px;
       border: none;
       outline: none;
       background: none;

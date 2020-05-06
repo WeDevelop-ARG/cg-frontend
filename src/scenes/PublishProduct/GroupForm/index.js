@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Select from 'react-select'
 import DatePicker, { registerLocale } from 'react-datepicker'
+import CurrentStep from '../CurrentStep'
 import createGroupHandler from './createGroupHandler'
 import Loading from '../../../components/Loading'
 import { logGAEvent } from '../../../firebase.js'
@@ -78,6 +79,7 @@ const GroupForm = (props) => {
 
   return (
     <div className={classes.container}>
+      <CurrentStep currentStep={2} />
       <form onSubmit={handleSubmit}>
         <div className={classes.FormContainer}>
           <div className={classes.groupForm}>
@@ -131,7 +133,7 @@ const GroupForm = (props) => {
           </div>
 
           <div className={classes.formButtons}>
-            <button className={classes.linkBtn} onClick={() => props.prevStep()}>&lt; Volver</button>
+            <button className={classes.linkBtn} onClick={() => props.prevStep()}>&lsaquo; Volver</button>
             <Button className={classes.publishBtn} type='submit'>Publicar</Button>
           </div>
         </div>
