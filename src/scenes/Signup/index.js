@@ -6,14 +6,18 @@ import ShapeAuth from '../../vectors/shape-auth.svg'
 import ManShape from '../../vectors/man.svg'
 import { Link, useHistory } from 'react-router-dom'
 import Button from '../../components/Button'
-
+import { logGAEvent } from '../../firebase.js'
+import Icon from '../../components/Icon'
 import useSignup from '../../hooks/useSignupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
 import Loading from '../../components/Loading'
+import useMediaQuery from '../../hooks/useMediaQuery'
 
-import './Signup.scss'
+import classes from './styles.module.scss'
+const BREAK_POINT = '(max-device-width: 576px)'
 
 const Signup = () => {
+  const isMobile = useMediaQuery(BREAK_POINT)
   const { handleAuth } = useContext(AuthContext)
   const { signup, loading } = useSignup()
 
@@ -35,9 +39,10 @@ const Signup = () => {
   if (loading) return <Loading />
 
   return (
-    <div className='signup--container'>
-      <div className='signup__form--container'>
-        <h2 className='signup--greetings'>Creá tu cuenta</h2>
+    <div className={classes.container}>
+      {isMobile && <Icon className={classes.mobileShape} icon={ShapeAuth} />}
+      <div className={classes.formContainer}>
+        <h2 className={classes.greetings}>Creá tu cuenta</h2>
         <Formik
           initialValues={{
             email: '',
@@ -54,49 +59,49 @@ const Signup = () => {
           }}
           validationSchema={SignupSchema}
         >
-          <Form className='signup__form'>
-            <div className='signup__form--inline'>
+          <Form className={classes.form}>
+            <div className={classes.formInline}>
               <div>
-                <label className='signup__form--labels'>Nombre</label>
+                <label className={classes.labels}>Nombre</label>
                 <Input
                   name='firstName'
                   placeholder='Ingresá tu nombre'
                 />
               </div>
               <div>
-                <label className='signup__form--labels'>Apellido</label>
+                <label className={classes.labels}>Apellido</label>
                 <Input
                   name='lastName'
                   placeholder='Ingresá tu apellido'
                 />
               </div>
             </div>
-            <label className='signup__form--labels'>Email</label>
+            <label className={classes.labels}>Email</label>
             <Input
               name='email'
               placeholder='Ingresá tu email'
             />
-            <label className='signup__form--labels'>Contraseña</label>
+            <label className={classes.labels}>Contraseña</label>
             <Input
               name='password'
               type='password'
               placeholder='Ingresá al menos 8 caracteres'
             />
             <Button type='submit'>Ingresar</Button>
-            <span className='signup__form__terms'>
+            <span className={classes.terms}>
               Al registrarme, declaro que soy mayor de edad y acepto los Términos y condiciones y las Políticas de privacidad.
             </span>
-            <span className='signup__form__new'>
+            <span className={classes.news}>
               ¿Ya tenés una cuenta?
-              <Link className='signup__form__links' to='/auth/signin'>
-                Ingresá
+              <Link className={classes.links} to='/auth/signin'>
+                Crear mi cuenta
               </Link>
             </span>
           </Form>
         </Formik>
       </div>
-      <div className='signup__shape' style={{ backgroundImage: `url(${ShapeAuth})` }}>
-        <img src={ManShape} className='signup__shape__man-shape' />
+      <div className={classes.shape} style={{ backgroundImage: `url(${ShapeAuth})` }}>
+        <img src={ManShape} className={classes.manShape} />
       </div>
     </div>
   )
