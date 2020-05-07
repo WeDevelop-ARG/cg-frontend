@@ -22,9 +22,9 @@ const TimeSelect = ({ setTimeString }) => {
 
   return (
     <div className={classes.container}>
-      <input type='text' placeholder='11' name='hours' onInput={handleChange} onKeyPress={dontSubmit} />
+      <input type='number' autoComplete='off' placeholder='11' name='hours' onInput={handleChange} onKeyPress={dontSubmit} />
       :
-      <input type='text' placeholder='59' name='minutes' onInput={handleChange} onKeyPress={dontSubmit} />
+      <input type='number' autoComplete='off' placeholder='59' name='minutes' onInput={handleChange} onKeyPress={dontSubmit} />
       <button className={buttonClass('AM')} name='zone' value='AM' onClick={handleChange} type='button'>AM</button>
       <button className={buttonClass('PM')} name='zone' value='PM' onClick={handleChange} type='button'>PM</button>
     </div>

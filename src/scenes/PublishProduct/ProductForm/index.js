@@ -74,7 +74,8 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
             name: title,
             description,
             price,
-            marketPrice
+            marketPrice,
+            discount: calculatePercentage(marketPrice, price)
           })
 
           nextStep()
