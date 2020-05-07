@@ -3,6 +3,16 @@
   width: 100%;
   font-family: DM Sans;
   background:#F7F8FA;
+
+  &__go-home {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #1A2224;
+    cursor: pointer;
+  }
   
   &--container {
     background:#FFFFFF;
