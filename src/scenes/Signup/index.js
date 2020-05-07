@@ -59,7 +59,10 @@ const Signup = () => {
           }}
           validationSchema={SignupSchema}
         >
-          <Form className={classes.form}>
+          <Form
+            id='signup_form'
+            className={classes.form}
+          >
             <div className={classes.formInline}>
               <div>
                 <label className={classes.labels}>Nombre</label>
@@ -87,14 +90,16 @@ const Signup = () => {
               type='password'
               placeholder='Ingresá al menos 8 caracteres'
             />
-            <Button type='submit'>Ingresar</Button>
+            <Button type='submit'>
+              Crear mi cuenta
+            </Button>
             <span className={classes.terms}>
               Al registrarme, declaro que soy mayor de edad y acepto los Términos y condiciones y las Políticas de privacidad.
             </span>
             <span className={classes.news}>
               ¿Ya tenés una cuenta?
               <Link className={classes.links} to='/auth/signin'>
-                Crear mi cuenta
+                Ingresar
               </Link>
             </span>
           </Form>

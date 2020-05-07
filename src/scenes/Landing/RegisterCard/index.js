@@ -21,7 +21,12 @@ const RegisterCard = () => {
   return (
     <div className={classes.card}>
       <span className={classes.text}>¿Querés formar parte de nuestra comunidad de venta?</span>
-      <Button onClick={goToRegister}>Registrate</Button>
+      <Button
+        id='seller_landing_cta_button_banner_bottom'
+        onClick={goToRegister}
+      >
+        Registrate
+      </Button>
       <Icon icon={icon} className={classes.shape} />
     </div>
   )

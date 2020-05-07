@@ -6,12 +6,14 @@ import Steps from './Steps'
 import MobileSteps from './Steps/MobileSteps'
 import EmailForm from './EmailForm'
 import useMediaQuery from '../../hooks/useMediaQuery'
+import { useSetAnalyticsABPageExperimentTag } from '../../utils/abTesting'
 
 import classes from './styles.module.scss'
 const BREAK_POINT = '(max-device-width: 576px)'
 
 const LandingV2 = () => {
   const isMobile = useMediaQuery(BREAK_POINT)
+  useSetAnalyticsABPageExperimentTag('SELLER_LANDING_B')
 
   if (isMobile) {
     return (

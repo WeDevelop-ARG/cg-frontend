@@ -78,7 +78,10 @@ const GroupForm = (props) => {
   return (
     <div className={classes.container}>
       <CurrentStep currentStep={2} />
-      <form onSubmit={handleSubmit}>
+      <form
+        id='create_product_form'
+        onSubmit={handleSubmit}
+      >
         <div className={classes.FormContainer}>
           <div className={classes.groupForm}>
             <div>
