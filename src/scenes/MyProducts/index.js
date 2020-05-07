@@ -38,11 +38,16 @@ const MyProducts = () => {
                   <div className='MyProducts__data--status'>
                     <p>{publishedGroups.length} Publicaciones activas</p>
                     <Button onClick={goPublishProducts}>
-                    Publicá tu producto
+                      Publicá tu producto
                     </Button>
                   </div>
                 </div>
                 <ProductList groups={publishedGroups} />
+                <div className='MyProducts__data--mobileBtn'>
+                  <Button onClick={goPublishProducts}>
+                    Publicá tu producto
+                  </Button>
+                </div>
               </>
             ) : <EmptyProductList />
           }

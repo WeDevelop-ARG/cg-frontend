@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
+import currency from '../../utils/currency'
 
 import './MyProducts.scss'
 import more from '../../vectors/more-vertical.svg'
@@ -50,24 +51,29 @@ const ProductItem = ({ group }) => {
           }}
         />
         <div className='MyProducts__List__item--info'>
-          <span>#{product.id.slice(0, 8)}</span>
+          <span className='MyProducts__List__item--info--id'>#{product.id.slice(0, 8)}</span>
           <p>{product.name}</p>
           <span>45 visitas | 2 ventas</span>
         </div>
       </div>
+
       <div className='MyProducts__List__item--price'>
-        <span>${product.marketPrice}</span>
-        <p>${product.price}</p>
+        <span>{currency.ARS(product.marketPrice)}</span>
+        <p>{currency.ARS(product.price)}</p>
       </div>
+
       <div className='MyProducts__List__item--discount'>
         <p>{group.discount}%</p>
       </div>
+
       <div className='MyProducts__List__item--participants'>
-        <p>{group.minParticipants} - {group.maxParticipants}</p>
+        <p>{group.minParticipants} personas</p>
       </div>
+
       <div className='MyProducts__List__item--expireDate'>
         <p>{expireDate.slice(0, -3)} hs</p>
       </div>
+
       <div className='MyProducts__List__item--more'>
         <button onClick={() => setIsToggle(!isToggle)} ref={dropdownButtonRef}>
           <img src={more} alt=':' />

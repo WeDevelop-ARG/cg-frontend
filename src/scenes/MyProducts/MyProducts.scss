@@ -1,3 +1,5 @@
+@import '../../styles/mixin/media-screen.scss';
+
 @mixin flex-center () {
   display: flex;
   flex-direction: column;
@@ -7,6 +9,10 @@
 
 .MyProducts {
   padding: 35px 5%;
+  height: auto;
+  @include for-phone-only {
+    padding: 15px;
+  }
   font-family: DM Sans;
   background:#F7F8FA;
   
@@ -16,6 +22,11 @@
     line-height: 34px;
     margin-top: 24px;
     margin-bottom: 35px;
+    @include for-phone-only {
+      font-size: 20px;
+      margin-top: 9px;
+      margin-bottom: 14px;
+    }
   }
 
   p {
@@ -32,7 +43,10 @@
   li {
     padding: 0;
     border-top: 1px solid #F1F3F3; 
-    border-bottom: 1px solid #F1F3F3; 
+    border-bottom: 1px solid #F1F3F3;
+    @include for-phone-only {
+      border: none;
+    }
   }
 
   &__go-home {
@@ -44,11 +58,17 @@
     &:hover{
       color: rgb(82, 102, 102); 
     }
+    @include for-phone-only {
+      display: none;
+    }
   }
   
   &__data {
     background:#FFFFFF;
     padding: 30px 30px 5px 30px;
+    @include for-phone-only {
+      background: none;
+    }
     &--status {
       max-height: 45px;
       display: flex;
@@ -62,6 +82,21 @@
       button {
         padding-top: 12px;
         height: 45px;
+        @include for-phone-only {
+          display: none;
+        }
+      }
+    }
+    &--mobileBtn {
+      display: none;
+      @include for-phone-only {
+        width: 100%;
+        display: block;
+        button {
+          height: 45px;
+          padding-top: 12px;
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -69,9 +104,14 @@
   &__List {   
     &--container {
       background: #FFFFFF;
-      margin-bottom: 70px;
+      @include for-phone-only {
+        background: none;
+      }
     }
     &--headers {
+      @include for-phone-only {
+        display: none;
+      }
       padding-left: 30px;
       display: grid;
       grid-template-columns: 2.5fr repeat(3,1fr) 1.5fr 0.5fr;
@@ -93,7 +133,6 @@
       height: 150px;
       display: grid;
       grid-template-columns: 2.5fr repeat(3,1fr)  1.5fr 0.5fr;
-
       &--description {
         display: flex;
         span{
@@ -162,26 +201,157 @@
         }
       }
 
+      @include for-phone-only {
+        margin-bottom: 14px;
+        padding: 14px;
+        background-color: white;
+        box-shadow: 0px 4px 15px rgba(160, 172, 175, 0.15);
+        height: 210px;
+        display: grid;
+        grid-template-areas: "info info" "price discount" "expire group";
+        grid-template-columns: 1.7fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        p {
+          font-size: 15px;
+          line-height: 20px;
+          margin-top: 2px;
+          margin-bottom: 0px !important;
+        }
+        span {
+          font-size: 12px;
+          line-height: 16px;
+        }
+        &--description {
+          grid-area: info;
+          border-bottom: 1px solid #F1F3F3;
+          height: 70px;
+          display: flex;
+          span{
+            color: #A0ACAF;
+          }
+        }
+        &--image {
+          width: 60px;
+          max-height: 55px;
+          margin: 0 !important;
+          border-radius: 4px;
+        }
+        &--info {
+          display: flex;
+          height: 80px;
+          max-width: 70vw;
+          padding: 0;
+          flex-direction: column-reverse;
+          justify-content: flex-end;
+          &--id {
+            display: none;
+          }
+        }
+        &--price {
+          padding-top: 12px;
+          padding-left: 8px;
+          grid-area: price;
+          align-items: flex-start;
+          justify-content: flex-start;
+          span{
+            display: none;
+          }
+          &::before {
+            font-size: 13px;
+            line-height: 16px;
+            content: 'Precio';
+            color: #A0ACAF;
+          }
+        }
+        &--discount {
+          grid-area: discount;
+          padding-top: 12px;
+          align-items: flex-start;
+          justify-content: flex-start;
+          span{
+            display: none;
+          }
+          &::before {
+            font-size: 13px;
+            line-height: 16px;
+            content: 'Descuento';
+            color: #A0ACAF;
+          }
+        }
+        &--participants {
+          grid-area: group;
+          align-items: flex-start;
+          justify-content: flex-end;
+          span{
+            display: none;
+          }
+          &::before {
+            font-size: 13px;
+            line-height: 16px;
+            content: 'Grupo';
+            color: #A0ACAF;
+          }
+        }
+        &--expireDate {
+          grid-area: expire;
+          padding-left: 8px;
+          align-items: flex-start;
+          justify-content: flex-end;
+          span{
+            display: none;
+          }
+          &::before {
+            font-size: 13px;
+            line-height: 16px;
+            content: 'Expiracion';
+            color: #A0ACAF;
+          }
+        }
+        &--more{
+          grid-area: info;
+          position: relative;
+          bottom:30%;
+          left: 50%;
+        }
+      }
+
+
     }
   }
+
+
   &__empty {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 65vh;
-    margin-bottom: 10vh;
+    @include for-phone-only {
+      height: 70vh;
+      padding: 40px;
+    }
     background: #FFFFFF;
     h2 {
       font-weight: 500;
       font-size: 26px;
       line-height: 26px;
       margin-bottom: 0px;
+      text-align: center;
+      @include for-phone-only {
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 28px;
+      }
     }
     p {
       font-size: 18px;
       line-height: 20px;
       margin-bottom: 50px;
+      text-align: center;
+      @include for-phone-only {
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
   }
 }
