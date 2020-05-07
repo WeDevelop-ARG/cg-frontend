@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Select from 'react-select'
 import DatePicker, { registerLocale } from 'react-datepicker'
-import { Formik, Form } from 'formik'
 import CurrentStep from '../CurrentStep'
 import createGroupHandler from './createGroupHandler'
 import Loading from '../../../components/Loading'
@@ -76,71 +75,67 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
   return (
     <div className={classes.container}>
       <CurrentStep currentStep={2} />
-      <Formik
-        onSubmit={handleSubmit}
-      >
-        <Form id='create_product_form'>
-          <div className={classes.FormContainer}>
-            <div className={classes.groupForm}>
-              <div>
-                <p>Tamaño del grupo</p>
-                <Select
-                  required
-                  styles={customStyles}
-                  options={options}
-                  onChange={({ value }) => { setMinParticipants(value) }}
-                  placeholder='Seleccioná la cantidad'
-                  isSearchable={false}
-                  components={{
-                    IndicatorSeparator: () => null
-                  }}
+      <form id='create_product_form' onSubmit={handleSubmit}>
+        <div className={classes.FormContainer}>
+          <div className={classes.groupForm}>
+            <div>
+              <p>Tamaño del grupo</p>
+              <Select
+                required
+                styles={customStyles}
+                options={options}
+                onChange={({ value }) => { setMinParticipants(value) }}
+                placeholder='Seleccioná la cantidad'
+                isSearchable={false}
+                components={{
+                  IndicatorSeparator: () => null
+                }}
+              />
+              <span>La cantidad de personas de un grupo deberá ser la misma que tus unidades a vender</span>
+            </div>
+            <div>
+              <p>Fecha de expiración</p>
+              <div className={classes.dateInput}>
+                <img src={calendar} />
+                <DatePicker
+                  inputProps={{ readOnly: true }}
+                  onFocus={e => e.target.blur()}
+                  locale='es'
+                  dateFormat='dd/MM/yyyy'
+                  showPopperArrow={false}
+                  selected={expireDate}
+                  onChange={date => setExpireDate(date)}
                 />
-                <span>La cantidad de personas de un grupo deberá ser la misma que tus unidades a vender</span>
-              </div>
-              <div>
-                <p>Fecha de expiración</p>
-                <div className={classes.dateInput}>
-                  <img src={calendar} />
-                  <DatePicker
-                    inputProps={{ readOnly: true }}
-                    onFocus={e => e.target.blur()}
-                    locale='es'
-                    dateFormat='dd/MM/yyyy'
-                    showPopperArrow={false}
-                    selected={expireDate}
-                    onChange={date => setExpireDate(date)}
-                  />
-                </div>
-              </div>
-              <div>
-                <p>Hora de expiración</p>
-                <div className={classes.timeInput}>
-                  <img src={clock} />
-                  <input
-                    onClick={() => setIsDropdownOpened(!isDropdownOpened)}
-                    ref={dropdownButtonRef}
-                    value={expireTime}
-                    onChange={() => null}
-                    readOnly
-                  />
-                </div>
-                {
-                  isDropdownOpened && (
-                    <div className={classes.dropdown} ref={dropdownRef}>
-                      <TimePicker setTimeString={(val) => setExpireTime(val)} />
-                    </div>
-                  )
-                }
               </div>
             </div>
-
-            <div className={classes.formButtons}>
-              <button className={classes.linkBtn} onClick={() => prevStep()}>&lsaquo; Volver</button>
-              <Button className={classes.publishBtn} type='submit'>Publicar</Button>
+            <div>
+              <p>Hora de expiración</p>
+              <div className={classes.timeInput}>
+                <img src={clock} />
+                <input
+                  onClick={() => setIsDropdownOpened(!isDropdownOpened)}
+                  ref={dropdownButtonRef}
+                  value={expireTime}
+                  onChange={() => null}
+                  readOnly
+                />
+              </div>
+              {
+                isDropdownOpened && (
+                  <div className={classes.dropdown} ref={dropdownRef}>
+                    <TimePicker setTimeString={(val) => setExpireTime(val)} />
+                  </div>
+                )
+              }
             </div>
           </div>
-        </Form>
-      </Formik>
+
+          <div className={classes.formButtons}>
+            <button className={classes.linkBtn} onClick={() => prevStep()}>&lsaquo; Volver</button>
+            <Button className={classes.publishBtn} type='submit'>Publicar</Button>
+          </div>
+        </div>
+      </form>
     </div>
   )
 }
