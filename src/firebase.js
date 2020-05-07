@@ -16,11 +16,4 @@ const firebaseConfig = {
 if (process.env.NODE_ENV === 'production') {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig)
-  firebase.analytics()
-}
-
-export const logGAEvent = (eventName, payload) => {
-  if (process.env.NODE_ENV === 'production') {
-    firebase.analytics().logEvent(eventName, payload)
-  }
 }

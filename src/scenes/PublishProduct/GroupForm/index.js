@@ -4,7 +4,6 @@ import DatePicker, { registerLocale } from 'react-datepicker'
 import CurrentStep from '../CurrentStep'
 import createGroupHandler from './createGroupHandler'
 import Loading from '../../../components/Loading'
-import { logGAEvent } from '../../../firebase.js'
 import TimePicker from './TimeSelect'
 import { options, customStyles } from './groupOptions'
 import Button from '../../../components/Button/Default/Orange'
@@ -67,7 +66,6 @@ const GroupForm = (props) => {
       setIsLoading(false)
       return error
     }
-    logGAEvent('seller_product_create', { size: minParticipants })
 
     setIsLoading(false)
 

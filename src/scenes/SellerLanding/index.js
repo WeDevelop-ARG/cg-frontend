@@ -20,7 +20,6 @@ const SellerLanding = () => {
       remote.fetchAndActivate().then(() => {
         const whichLanding = remote.getString('seller_landing_page')
         setLanding(whichLanding)
-        firebase.analytics().setUserProperties({ seller_landing_page: whichLanding })
       })
     } else {
       setLanding('A')

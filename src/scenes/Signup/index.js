@@ -6,7 +6,6 @@ import ShapeAuth from '../../vectors/shape-auth.svg'
 import ManShape from '../../vectors/man.svg'
 import { Link, useHistory } from 'react-router-dom'
 import Button from '../../components/Button'
-import { logGAEvent } from '../../firebase.js'
 
 import useSignup from '../../hooks/useSignupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
@@ -51,7 +50,6 @@ const Signup = () => {
 
             handleAuth(token)
 
-            logGAEvent('sign_up', { method: 'email' })
             await history.push('/')
           }}
           validationSchema={SignupSchema}
