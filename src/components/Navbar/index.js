@@ -3,10 +3,14 @@ import { useHistory, Link } from 'react-router-dom'
 import AuthContext from '../../Contexts/AuthContext/context'
 import AngleUp from '../../vectors/angle-up.svg'
 import AngleDown from '../../vectors/angle-down.svg'
+import useMediaQuery from '../../hooks/useMediaQuery'
+import Mobile from './Mobile'
+import classes from './styles.module.scss'
 
-import './Navbar.scss'
+const BREAK_POINT = '(max-device-width: 576px)'
 
 const Navbar = () => {
+  const isMobile = useMediaQuery(BREAK_POINT)
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   const { status, handleLogout, currentUser } = useContext(AuthContext)
 
@@ -51,32 +55,34 @@ const Navbar = () => {
     history.push(path)
   }
 
+  if (isMobile) return <Mobile onSignin={goToSignin} onSignup={goToSignup} goTo={goTo} />
+
   return (
-    <nav className='navbar'>
-      <ul className='navbar__nav-links'>
+    <nav className={classes.navbar}>
+      <ul className={classes.navbarLinks}>
         {
           !status ? (
             <>
-              <li className='navbar__nav-links--item'>
+              <li className={classes.navbarLinksItem}>
                 <Link to='/quiero-vender'>
                   <button type='button'>
                     Quiero vender
                   </button>
                 </Link>
               </li>
-              <li className='navbar__nav-links--item'>
+              <li className={classes.navbarLinksItem}>
                 <button type='button' name='signup' onClick={() => goToSignup()}>
                   Creá tu cuenta
                 </button>
               </li>
-              <li className='navbar__nav-links--item'>
+              <li className={classes.navbarLinksItem}>
                 <button type='button' name='signup' onClick={() => goToSignin()}>
                   Ingresá
                 </button>
               </li>
             </>
           ) : (
-            <li className='navbar__nav-links--item'>
+            <li className={classes.navbarLinksItem}>
               <button
                 type='button'
                 onClick={() => setIsDropdownOpened(!isDropdownOpened)}
@@ -84,19 +90,19 @@ const Navbar = () => {
               >
                 {currentUser && (currentUser.name || currentUser.email)}
                 <img
-                  className='navbar__nav-links--item--arrow'
+                  className={classes.navbarLinksArrow}
                   src={isDropdownOpened ? AngleUp : AngleDown}
                   alt=''
                 />
               </button>
               {
                 isDropdownOpened && (
-                  <div className='navbar__dropdown' ref={dropdownRef}>
+                  <div className={classes.dropdown} ref={dropdownRef}>
                     {/* Hide mis-compras navbar item
                       <span onClick={() => goTo('/mis-compras')} className='navbar__dropdown--item'>Mis compras</span>
                     */}
-                    <span onClick={() => goTo('/mis-productos')} className='navbar__dropdown--item'>Mis publicaciones</span>
-                    <span onClick={logout} className='navbar__dropdown--item'>Salir</span>
+                    <span onClick={() => goTo('/mis-productos')} className={classes.item}>Mis publicaciones</span>
+                    <span onClick={logout} className={classes.item}>Salir</span>
                   </div>
                 )
               }
