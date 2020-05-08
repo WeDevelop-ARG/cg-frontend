@@ -11,6 +11,7 @@ import useSignup from '../../hooks/useSignupMutation'
 import AuthContext from '../../Contexts/AuthContext/context'
 import Loading from '../../components/Loading'
 import useMediaQuery from '../../hooks/useMediaQuery'
+import { logFormSubmit } from '../../utils/analytics'
 
 import classes from './styles.module.scss'
 const BREAK_POINT = '(max-device-width: 576px)'
@@ -52,16 +53,15 @@ const Signup = () => {
           onSubmit={async ({ email, password, firstName, lastName }) => {
             const { token } = await signup({ email, password, name: `${firstName} ${lastName}` })
 
+            await logFormSubmit('signup_form')
+
             handleAuth(token)
 
             await history.push('/')
           }}
           validationSchema={SignupSchema}
         >
-          <Form
-            id='signup_form'
-            className={classes.form}
-          >
+          <Form className={classes.form}>
             <div className={classes.formInline}>
               <div>
                 <label className={classes.labels}>Nombre</label>

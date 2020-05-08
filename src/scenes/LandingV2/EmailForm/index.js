@@ -5,6 +5,7 @@ import Button from '../../../components/Button'
 import useMediaQuery from '../../../hooks/useMediaQuery'
 import useSubscribeToNewsletterMutation from '../../../hooks/useSubscribeToNewsletterMutation'
 import { useToasts } from 'react-toast-notifications'
+import { logFormSubmit } from '../../../utils/analytics'
 
 import classes from './styles.module.scss'
 import sendImg from '../../../vectors/send.svg'
@@ -25,10 +26,11 @@ const EmailForm = () => {
         }}
         onSubmit={async ({ email }) => {
           await subscribeToNewsletters({ email })
+          await logFormSubmit('seller_landing_cta_subscribe_form')
           addToast('Tu suscripción se realizó correctamente.', { autoDismiss: true })
         }}
       >
-        <Form id='seller_landing_cta_subscribe_form'>
+        <Form>
           <Input name='email' placeholder='email@email.com' />
           <Button type='submit'>{send}</Button>
         </Form>

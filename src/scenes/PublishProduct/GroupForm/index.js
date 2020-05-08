@@ -16,6 +16,7 @@ import clock from '../../../vectors/clock-white.svg'
 import 'react-datepicker/dist/react-datepicker.css'
 import './datepicker.scss'
 import es from 'date-fns/locale/es'
+import { logFormSubmit } from '../../../utils/analytics'
 registerLocale('es', es)
 
 const GroupForm = ({ product, group, nextStep, prevStep }) => {
@@ -61,6 +62,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
     setIsLoading(true)
     try {
       await createGroupHandler({ product: productData, discount, expiresAt, maxParticipants, minParticipants, type })
+      await logFormSubmit('create_product_form')
     } catch (error) {
       setIsLoading(false)
       return error
@@ -77,7 +79,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
   return (
     <div className={classes.container}>
       <CurrentStep currentStep={2} />
-      <form id='create_product_form' onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className={classes.FormContainer}>
           <div className={classes.groupForm}>
             <div>
