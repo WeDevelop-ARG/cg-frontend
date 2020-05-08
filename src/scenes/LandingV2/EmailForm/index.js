@@ -24,10 +24,14 @@ const EmailForm = () => {
         initialValues={{
           email: ''
         }}
-        onSubmit={async ({ email }) => {
-          await subscribeToNewsletters({ email })
-          await logFormSubmit('seller_landing_cta_subscribe_form')
-          addToast('Tu suscripción se realizó correctamente.', { autoDismiss: true })
+        onSubmit={async ({ email }, { resetForm }) => {
+          try {
+            await subscribeToNewsletters({ email })
+          } finally {
+            addToast('Tu suscripción se realizó correctamente.', { autoDismiss: true })
+            await logFormSubmit('seller_landing_cta_subscribe_form')
+            resetForm()
+          }
         }}
       >
         <Form>

@@ -40,9 +40,13 @@ const ComingSoon = () => {
             initialValues={{
               email: ''
             }}
-            onSubmit={async ({ email }) => {
-              await subscribeToNewsletters({ email })
-              addToast('Tu suscripción se realizó correctamente.', { autoDismiss: true })
+            onSubmit={async ({ email }, { resetForm }) => {
+              try {
+                await subscribeToNewsletters({ email })
+              } finally {
+                addToast('Tu suscripción se realizó correctamente.', { autoDismiss: true })
+                resetForm()
+              }
             }}
           >
             <Form>
