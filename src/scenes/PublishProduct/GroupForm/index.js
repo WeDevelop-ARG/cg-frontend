@@ -8,6 +8,7 @@ import TimePicker from './TimeSelect'
 import { options, customStyles } from './groupOptions'
 import Button from '../../../components/Button/Default/Orange'
 import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 import classes from './styles.module.scss'
 import calendar from '../../../vectors/calendar.svg'
@@ -18,6 +19,7 @@ import es from 'date-fns/locale/es'
 registerLocale('es', es)
 
 const GroupForm = ({ product, group, nextStep, prevStep }) => {
+  dayjs.extend(customParseFormat)
   const [minParticipants, setMinParticipants] = useState()
   const [expireDate, setExpireDate] = useState(new Date())
   const [expireTime, setExpireTime] = useState('11:59 PM')
@@ -47,7 +49,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
 
   const getDate = (date, time) => {
     const dateStr = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()} ${time}`
-    return dayjs(dateStr, 'M-D-YYYY hh:mm A', true).toDate()
+    return dayjs(dateStr, 'M-D-YYYY hh:mm A', true).toISOString()
   }
 
   const handleSubmit = async () => {

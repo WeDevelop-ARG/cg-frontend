@@ -25,7 +25,7 @@ const EmailForm = () => {
           await subscribeToNewsletters({ email })
         }}
       >
-        <Form id='seller_landing_cta_subscribe_form' >
+        <Form id='seller_landing_cta_subscribe_form'>
           <Input name='email' placeholder='email@email.com' />
           <Button type='submit'>{send}</Button>
         </Form>
