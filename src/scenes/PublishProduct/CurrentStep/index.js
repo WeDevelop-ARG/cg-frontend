@@ -2,10 +2,12 @@ import React from 'react'
 import classNames from 'classnames'
 import classes from './styles.module.scss'
 import useMediaQuery from '../../../hooks/useMediaQuery'
+import Icon from '../../../components/Icon'
+import LeftShape from '../../../vectors/angle-left.svg'
 
 const BREAK_POINT = '(max-device-width: 576px)'
 
-const CurrentStep = ({ currentStep = 1 }) => {
+const CurrentStep = ({ currentStep = 1, onBackButton }) => {
   const isMobile = useMediaQuery(BREAK_POINT)
 
   const firstCircleClass = classNames({
@@ -30,6 +32,7 @@ const CurrentStep = ({ currentStep = 1 }) => {
 
   return (
     <div className={classes.steps}>
+      <Icon onClick={onBackButton} className={classes.back} icon={LeftShape} style={{ display: isMobile ? 'block' : 'none' }} />
       <div
         className={classes.firstStep}
         style={{ display: isMobile && currentStep === 2 ? 'none' : 'flex' }}

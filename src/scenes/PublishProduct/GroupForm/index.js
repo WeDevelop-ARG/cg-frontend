@@ -89,7 +89,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
 
   return (
     <div className={classes.container}>
-      <CurrentStep currentStep={2} />
+      <CurrentStep currentStep={2} onBackButton={prevStep} />
       <form onSubmit={handleSubmit}>
         <div className={classes.FormContainer}>
           <div className={classes.groupForm}>

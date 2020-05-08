@@ -5,6 +5,23 @@
   height: 88px;
   display: flex;
   align-items: center;
+  background: #FFFFFF;
+
+  @include for-phone-only {
+    z-index: 9999;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 4px 15px rgba(160, 172, 175, 0.15);
+    top: 0;
+    left: 0;
+  }
+}
+
+.back {
+  margin-left: 24px;
+  width: 27px;
+  height: 12px;
 }
 
 .firstStep {
@@ -15,6 +32,10 @@
   border-right: 1px solid #F1F3F3;
   padding-right: 40px;
   margin-right: 38px;
+
+  @include for-phone-only {
+    border: none;
+  }
 }
 
 .secondStep {

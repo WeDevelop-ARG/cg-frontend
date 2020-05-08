@@ -8,6 +8,8 @@
 
   @include for-phone-only {
     height: auto;
+    padding-top: 24px;
+    position: initial;
   }
 }
 
@@ -114,8 +116,7 @@
   flex-direction: column;
 
   img {
-    max-width: 25%;
-    max-height: 25%;
+    max-width: 20%;
   }
 }
 

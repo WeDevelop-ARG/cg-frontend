@@ -3,6 +3,10 @@
   font-family: DM Sans;
   width: 100%;
   padding: 0 30px;
+
+  @include for-phone-only {
+    padding-top: 24px;
+  }
 }
 
 .FormContainer {

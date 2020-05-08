@@ -6,6 +6,13 @@
   font-family: DM Sans;
   background:#F7F8FA;
 
+  &__title {
+    display: block;
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
   &__go-home {
     font-family: DM Sans;
     font-style: normal;
@@ -14,6 +21,15 @@
     line-height: 18px;
     color: #1A2224;
     cursor: pointer;
+    display: block;
+
+    @include for-phone-only {
+      display: none;
+    }
+  }
+
+  @include for-phone-only {
+    padding: 0;
   }
   
   &--container {

@@ -32,7 +32,7 @@ const PublishProduct = () => {
         <a onClick={() => setIsModalOpen(true)} className='Publish__go-home'>
           &#60;  Volver a la pagina principal
         </a>
-        <h1>Publicar Producto</h1>
+        <h1 className='Publish__title'>Publicar Producto</h1>
         <div className='Publish--container'>
           <MultiStepForm className='Publish__ms-form' />
         </div>
