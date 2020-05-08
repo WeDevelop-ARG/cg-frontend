@@ -237,10 +237,10 @@
           border-radius: 4px;
         }
         &--info {
+          padding: 0px 0px 0px 8px;
           display: flex;
           height: 80px;
           max-width: 70vw;
-          padding: 0;
           flex-direction: column-reverse;
           justify-content: flex-end;
           &--id {
@@ -310,15 +310,13 @@
         &--more{
           grid-area: info;
           position: relative;
-          bottom:30%;
-          left: 50%;
+          width: 40px;
+          bottom: 30%;
+          left: 94%;
         }
       }
-
-
     }
   }
-
 
   &__empty {
     display: flex;
