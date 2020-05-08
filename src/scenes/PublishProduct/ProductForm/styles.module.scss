@@ -51,6 +51,12 @@
 
 .prices {
   display: flex;
+
+  flex-direction: row;
+
+  @include for-phone-only {
+    flex-direction: column;
+  };
 }
 
 .price{
@@ -97,7 +103,19 @@
   @include for-phone-only {
     grid-row-start: 1;
     grid-row-end: 2;
-    overflow-x: scroll;
+  }
+}
+
+.imagesAreaHidden {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    max-width: 25%;
+    max-height: 25%;
   }
 }
 

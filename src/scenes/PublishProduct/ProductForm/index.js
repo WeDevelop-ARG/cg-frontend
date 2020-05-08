@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import classes from './styles.module.scss'
+import classNames from 'classnames'
 import CurrentStep from '../CurrentStep'
 import { Form, Formik } from 'formik'
 import {
@@ -55,6 +56,11 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
 
     setPhotos(photosToChange)
   }
+
+  const imagesAreaClass = classNames({
+    [classes.imagesArea]: !isMobile || !photos.length,
+    [classes.imagesAreaHidden]: isMobile && photos.length
+  })
 
   return (
     <div className={classes.container}>
@@ -124,7 +130,7 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
                     </span>
                   </div>
                 </Form>
-                <div className={classes.imagesArea}>
+                <div className={imagesAreaClass}>
                   <label className={classes.label}>Imágenes del producto</label>
                   <label htmlFor='upload-button'>
                     {
