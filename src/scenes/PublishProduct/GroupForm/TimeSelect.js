@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef } from 'react'
 
 import classes from './time.module.scss'
 
-const TimeSelect = ({ setTimeString }) => {
+const TimeSelect = ({ setTimeString }, ref) => {
   const [time, setTime] = useState({ hours: '11', minutes: '59', zone: 'PM' })
   useEffect(() => {
     const timeString = time.hours + ':' + time.minutes + ' ' + time.zone
@@ -40,7 +40,7 @@ const TimeSelect = ({ setTimeString }) => {
   }
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} ref={ref}>
       <input type='number' autoComplete='off' placeholder='11' name='hours' onInput={handleChange} onBlur={handleBlur} onKeyPress={dontSubmit} />
       :
       <input type='number' autoComplete='off' placeholder='59' name='minutes' onInput={handleChange} onBlur={handleBlur} onKeyPress={dontSubmit} />
@@ -50,4 +50,4 @@ const TimeSelect = ({ setTimeString }) => {
   )
 }
 
-export default TimeSelect
+export default forwardRef(TimeSelect)

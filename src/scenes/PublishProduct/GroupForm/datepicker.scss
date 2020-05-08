@@ -5,7 +5,7 @@
   border: none;
   right: 13%;
   @include for-phone-only {
-    right: 19%;
+    right: 0%;
   }
 
   &__header {
@@ -69,8 +69,7 @@
       height: 15px;
       border: none;
       @include for-phone-only {
-        width: 40px;
-        height: 30px;
+        background: none;
       }
     }
     &--next {
@@ -79,8 +78,7 @@
       height: 15px;
       border: none;
       @include for-phone-only {
-        width: 40px;
-        height: 30px;
+        background: none;
       }
     }
   }

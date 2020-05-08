@@ -11,7 +11,7 @@ export const options = [
 export const customStyles = {
   container: (provided) => ({
     ...provided,
-    width: '300px',
+    width: 'auto',
     minHeight: '1px',
     fontSize: '16px',
     marginBottom: '16px'

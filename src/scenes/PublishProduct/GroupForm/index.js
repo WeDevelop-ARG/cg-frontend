@@ -9,6 +9,7 @@ import { options, customStyles } from './groupOptions'
 import Button from '../../../components/Button/Default/Orange'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import useMediaQuery from '../../../hooks/useMediaQuery'
 
 import classes from './styles.module.scss'
 import calendar from '../../../vectors/calendar.svg'
@@ -18,9 +19,11 @@ import './datepicker.scss'
 import es from 'date-fns/locale/es'
 import { logFormSubmit } from '../../../utils/analytics'
 registerLocale('es', es)
+const BREAK_POINT = '(max-device-width: 576px)'
 
 const GroupForm = ({ product, group, nextStep, prevStep }) => {
   dayjs.extend(customParseFormat)
+  const isMobile = useMediaQuery(BREAK_POINT)
   const [minParticipants, setMinParticipants] = useState()
   const [expireDate, setExpireDate] = useState(new Date())
   const [expireTime, setExpireTime] = useState('11:59 PM')
@@ -31,7 +34,15 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
   const dropdownButtonRef = useRef(null)
 
   const verifyClick = (e) => {
-    if (dropdownRef && dropdownButtonRef) {
+    if (isMobile) {
+      if (dropdownRef && dropdownButtonRef) {
+        if (!dropdownRef.current || !dropdownButtonRef.current) {
+          setIsDropdownOpened(false)
+        } else if (!dropdownRef.current.contains(e.target) && !dropdownButtonRef.current.contains(e.target)) {
+          setIsDropdownOpened(false)
+        }
+      }
+    } else if (dropdownRef && dropdownButtonRef) {
       if (!dropdownRef.current || !dropdownButtonRef.current) {
         setIsDropdownOpened(false)
       } else if (!dropdownRef.current.contains(e.target) && !dropdownButtonRef.current.contains(e.target)) {
@@ -109,6 +120,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
                   showPopperArrow={false}
                   selected={expireDate}
                   onChange={date => setExpireDate(date)}
+                  withPortal={isMobile ? 1 : 0}
                 />
               </div>
             </div>
@@ -126,8 +138,8 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
               </div>
               {
                 isDropdownOpened && (
-                  <div className={classes.dropdown} ref={dropdownRef}>
-                    <TimePicker setTimeString={(val) => setExpireTime(val)} />
+                  <div className={classes.dropdown}>
+                    <TimePicker setTimeString={(val) => setExpireTime(val)} ref={dropdownRef} />
                   </div>
                 )
               }
