@@ -5,8 +5,8 @@ import GroupForm from './GroupForm'
 import EndPublish from './EndPublish'
 import './PublishProduct.scss'
 
-const MultiStepForm = () => {
-  const [step, setStep] = useState(1)
+const MultiStepForm = ({ setTimeString }) => {
+  const [step, setStep] = useState(2)
   const [product, setProduct] = useState({})
   const [group, setGroup] = useState({})
 
