@@ -52,7 +52,7 @@ const Signin = () => {
 
             handleAuth(token)
 
-            await history.push('/')
+            await history.push('/mis-productos')
           }}
         >
           <Form
