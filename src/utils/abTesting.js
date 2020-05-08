@@ -1,13 +1,11 @@
+/* global dataLayer */
 import { useEffect } from 'react'
 
-export const useSetAnalyticsABPageExperimentTag = (tag) => {
+export const useFireAnalyticsABPageExperimentEvent = (version) => {
   useEffect(() => {
-    const meta = document.createElement('meta')
-    meta.setAttribute('itemprop', 'A/B Experiment')
-    meta.setAttribute('content', tag)
-    document.head.appendChild(meta)
-    return () => {
-      document.head.removeChild(meta)
-    }
+    dataLayer.push({
+      event: 'ABPageExperiment',
+      eventABPageExperimentVersion: version
+    })
   }, [])
 }

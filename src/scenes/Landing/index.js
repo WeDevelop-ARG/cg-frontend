@@ -18,13 +18,13 @@ import SeventhStep from './SeventhStep'
 import RegisterCard from './RegisterCard'
 import useMediaQuery from '../../hooks/useMediaQuery'
 import Mobile from './Mobile'
-import { useSetAnalyticsABPageExperimentTag } from '../../utils/abTesting'
+import { useFireAnalyticsABPageExperimentEvent } from '../../utils/abTesting'
 
 const BREAK_POINT = '(max-device-width: 576px)'
 
 const Landing = () => {
   const isMobile = useMediaQuery(BREAK_POINT)
-  useSetAnalyticsABPageExperimentTag('SELLER_LANDING_A')
+  useFireAnalyticsABPageExperimentEvent('SELLER_LANDING_A')
 
   if (isMobile) return <Mobile />
 

@@ -1,5 +1,4 @@
 import firebase from 'firebase/app'
-import 'firebase/analytics'
 import 'firebase/remote-config'
 
 const firebaseConfig = {
