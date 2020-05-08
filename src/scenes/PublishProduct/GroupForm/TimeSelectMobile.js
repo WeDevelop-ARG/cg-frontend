@@ -1,20 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, forwardRef, useEffect } from 'react'
 import Picker from 'react-mobile-picker-scroll'
 
-function generateNumberArray(begin, end) {
-  const array = []
+function generateNumberArray (begin, end) {
+  let array = []
   for (let i = begin; i <= end; i++) {
     array.push((i < 10 ? '0' : '') + i)
   }
   return array
 }
 
-const TimePicker = () => {
-  const [valueGroups, setValueGroups] = useState({title: 'Mr.', firstName: 'Micheal', secondName: 'Jordan'})
+const TimePicker = ({ setTimeString }, ref) => {
+  const [valueGroups, setValueGroups] = useState({ hour: '01', minute: '00', zone: 'PM' })
+  useEffect(() => {
+    const timeString = valueGroups.hour + ':' + valueGroups.minute + ' ' + valueGroups.zone
+    setTimeString(timeString)
+  })
   const optionGroups = {
-    title: ['Mr.', 'Mrs.', 'Ms.', 'Dr.'],
-    firstName: ['John', 'Micheal', 'Elizabeth'],
-    secondName: ['Lennon', 'Jackson', 'Jordan', 'Legend', 'Taylor']
+    hour: generateNumberArray(0, 12),
+    minute: generateNumberArray(0, 59),
+    zone: ['AM', 'PM']
   }
 
   // Update the value in response to user picking event
@@ -23,12 +27,14 @@ const TimePicker = () => {
   }
 
   return (
-    <Picker
-      optionGroups={optionGroups}
-      valueGroups={valueGroups}
-      onChange={handleChange}
-    />
+    <div ref={ref}>
+      <Picker
+        optionGroups={optionGroups}
+        valueGroups={valueGroups}
+        onChange={handleChange}
+      />
+    </div>
   )
 }
 
-export default TimePicker
+export default forwardRef(TimePicker)
