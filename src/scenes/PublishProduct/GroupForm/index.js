@@ -140,6 +140,9 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
                 isDropdownOpened && (
                   <div className={classes.dropdown}>
                     <TimePicker setTimeString={(val) => setExpireTime(val)} ref={dropdownRef} />
+                    <div className={classes.dropBtn}>
+                      <Button type='button' onClick={() => setIsDropdownOpened(false)}>Aplicar</Button>
+                    </div>
                   </div>
                 )
               }
