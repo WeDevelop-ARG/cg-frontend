@@ -4,6 +4,7 @@ import Input from '../../../components/Input/normal'
 import Button from '../../../components/Button'
 import useMediaQuery from '../../../hooks/useMediaQuery'
 import useSubscribeToNewsletterMutation from '../../../hooks/useSubscribeToNewsletterMutation'
+import { useToasts } from 'react-toast-notifications'
 
 import classes from './styles.module.scss'
 import sendImg from '../../../vectors/send.svg'
@@ -11,6 +12,7 @@ const BREAK_POINT = '(max-device-width: 576px)'
 
 const EmailForm = () => {
   const { subscribeToNewsletters } = useSubscribeToNewsletterMutation()
+  const { addToast } = useToasts()
   const isMobile = useMediaQuery(BREAK_POINT)
   const send = isMobile ? <img src={sendImg} /> : 'Enviar'
   return (
@@ -23,6 +25,7 @@ const EmailForm = () => {
         }}
         onSubmit={async ({ email }) => {
           await subscribeToNewsletters({ email })
+          addToast('Tu suscripción se realizó correctamente.', { autoDismiss: true })
         }}
       >
         <Form id='seller_landing_cta_subscribe_form'>
