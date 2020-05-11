@@ -4,7 +4,7 @@ import Carousel from '../Landing/Mobile/Carousel'
 import Header from '../Landing/Mobile/Header'
 import Steps from './Steps'
 import MobileSteps from './Steps/MobileSteps'
-import EmailForm from './EmailForm'
+import Register from '../Landing/RegisterCard'
 import useMediaQuery from '../../hooks/useMediaQuery'
 import { useFireAnalyticsABPageExperimentEvent } from '../../utils/abTesting'
 
@@ -21,7 +21,7 @@ const LandingV2 = () => {
         <Header />
         <Carousel />
         <MobileSteps />
-        <EmailForm />
+        <Register />
       </div>
     )
   }
@@ -30,7 +30,7 @@ const LandingV2 = () => {
     <div className={classes.container}>
       <Banner />
       <Steps />
-      <EmailForm />
+      <Register />
     </div>
   )
 }
