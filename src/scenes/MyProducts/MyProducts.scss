@@ -80,7 +80,6 @@
         font-size: 19px;
       }
       button {
-        padding-top: 12px;
         height: 45px;
         @include for-phone-only {
           display: none;
@@ -94,7 +93,6 @@
         display: block;
         button {
           height: 45px;
-          padding-top: 12px;
           margin: 0 auto;
         }
       }
