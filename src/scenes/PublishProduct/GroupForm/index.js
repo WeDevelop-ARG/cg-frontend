@@ -64,7 +64,9 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
     return dayjs(dateStr, 'M-D-YYYY hh:mm A', true).toISOString()
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
     const { discount, ...productData } = product
     const type = minParticipants === 2 ? 'PAIR' : 'GROUP'
     const maxParticipants = minParticipants
@@ -90,7 +92,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
   return (
     <div className={classes.container}>
       <CurrentStep currentStep={2} onBackButton={prevStep} />
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className={classes.FormContainer}>
           <div className={classes.groupForm}>
             <div>
@@ -151,7 +153,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
 
           <div className={classes.formButtons}>
             <button className={classes.linkBtn} onClick={() => prevStep()}>&lsaquo; Volver</button>
-            <Button className={classes.publishBtn} type='submit'>Publicar</Button>
+            <Button className={classes.publishBtn} onClick={handleSubmit} type='button'>Publicar</Button>
           </div>
         </div>
       </form>
