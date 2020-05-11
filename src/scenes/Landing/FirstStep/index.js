@@ -8,7 +8,9 @@ const FirstStep = (props) => {
         <span className={classes.you}>VOS</span>
         <span className={classes.loadProducts}>Cargá tus productos</span>
         <span className={classes.register}>
-          <span className={classes.registerRed}>Registrate</span> con tu email y comenzá a cargar tus productos en nuestra plataforma
+          <a id='seller_landing_a_cta_top' href='/auth/signup' className={classes.registerRed}>
+            Registrate
+          </a> con tu email y comenzá a cargar tus productos en nuestra plataforma
         </span>
       </div>
     </div>
