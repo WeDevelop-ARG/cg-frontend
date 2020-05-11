@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import classes from './styles.module.scss'
 import Icon from '../../../components/Icon'
 import finishedShape from '../../../vectors/finished-card.svg'
@@ -15,13 +16,13 @@ const RegisterCard = ({ registerLinkId }) => {
   return (
     <div className={classes.card}>
       <span className={classes.text}>¿Querés formar parte de nuestra comunidad de venta?</span>
-      <a
+      <Link
         id={registerLinkId}
-        href='/auth/signup'
+        to='/auth/signup'
         className={classes.link}
       >
         Registrate
-      </a>
+      </Link>
       <Icon icon={icon} className={classes.shape} />
     </div>
   )
