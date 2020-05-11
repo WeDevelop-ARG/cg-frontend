@@ -73,7 +73,7 @@ const Landing = () => {
           <SixthStep className={classes.sixthStep} />
           <SeventhStep className={classes.seventhStep} />
         </div>
-        <RegisterCard />
+        <RegisterCard registerLinkId='seller_landing_a_cta_bottom' />
       </div>
     </div>
   )

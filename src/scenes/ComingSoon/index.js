@@ -9,6 +9,7 @@ import Input from '../../components/Input'
 import useSubscribeToNewsletterMutation from '../../hooks/useSubscribeToNewsletterMutation'
 import classes from './styles.module.scss'
 import send from '../../vectors/send.svg'
+import { logFormSubmit } from '../../utils/analytics'
 const BREAK_POINT = '(max-device-width: 576px)'
 
 const ComingSoon = () => {
@@ -43,6 +44,7 @@ const ComingSoon = () => {
             onSubmit={async ({ email }, { resetForm }) => {
               try {
                 await subscribeToNewsletters({ email })
+                await logFormSubmit('NEWSLETTER_SUBSCRIBE_FORM')
               } finally {
                 addToast('Tu suscripción se realizó correctamente.', { autoDismiss: true })
                 resetForm()

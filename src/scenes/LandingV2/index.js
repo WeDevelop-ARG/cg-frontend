@@ -30,7 +30,7 @@ const LandingV2 = () => {
     <div className={classes.container}>
       <Banner />
       <Steps />
-      <Register />
+      <Register registerLinkId='seller_landing_b_cta_bottom' />
     </div>
   )
 }
