@@ -65,6 +65,14 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
     return history.push('/')
   }
 
+  const handleShowModal = ({ title, description, marketPrice, price }) => {
+    if (title || description || marketPrice || price || photos.length) {
+      return setIsShowModal(true)
+    }
+
+    return goToMain()
+  }
+
   const imagesAreaClass = classNames({
     [classes.imagesArea]: !isMobile || !photos.length,
     [classes.imagesAreaHidden]: isMobile && photos.length
@@ -112,7 +120,7 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
           {
             ({ values, handleSubmit }) => (
               <>
-                <CurrentStep currentStep={currentStep} onBackButton={() => setIsShowModal(true)} />
+                <CurrentStep currentStep={currentStep} onBackButton={() => handleShowModal(values)} />
                 <div className={classes.forms}>
                   <Form className={classes.productInfo}>
                     <label className={classes.label}>Título</label>
