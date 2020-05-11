@@ -59,12 +59,13 @@
 }
 
 .mobileContainer {
-  min-height: calc(100vh - 87px);
+  position: absolute;
+  height: 100%;
   font-family: DM Sans;
   background: url('../../vectors/coming-soon-wave.svg');
   background-repeat: no-repeat;
-  background-position: 50% 200%;
-  background-size: 100% 80%;
+  background-position: bottom;
+  background-size: contain;
 
   h1 {
     margin: 0;
@@ -91,9 +92,9 @@
   }
 
   & > .data {
-    height: 85vh;
+    height: 97%;
     width: inherit;
-    padding: 20% 22px 0px;
+    padding: 30% 22px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
