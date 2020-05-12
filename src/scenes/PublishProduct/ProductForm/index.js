@@ -93,33 +93,33 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
           />
         )
       }
-      <div className={classes.container}>
-        <Formik
-          initialValues={{
-            title: '',
-            description: '',
-            marketPrice: 0,
-            price: 0
-          }}
-          validationSchema={productInfoSchema}
-          onSubmit={async ({ title, description, marketPrice, price }) => {
-            if (!photos.length) return null
+      <Formik
+        initialValues={{
+          title: '',
+          description: '',
+          marketPrice: 0,
+          price: 0
+        }}
+        validationSchema={productInfoSchema}
+        onSubmit={async ({ title, description, marketPrice, price }) => {
+          if (!photos.length) return null
 
-            product({
-              productPhotosUrls: photos.map(({ raw }) => raw),
-              name: title,
-              description,
-              price,
-              marketPrice,
-              discount: calculatePercentage(marketPrice, price)
-            })
+          product({
+            productPhotosUrls: photos.map(({ raw }) => raw),
+            name: title,
+            description,
+            price,
+            marketPrice,
+            discount: calculatePercentage(marketPrice, price)
+          })
 
-            nextStep()
-          }}
-        >
-          {
-            ({ values, handleSubmit }) => (
-              <>
+          nextStep()
+        }}
+      >
+        {
+          ({ values, handleSubmit }) => (
+            <>
+              <div className={classes.container}>
                 <CurrentStep currentStep={currentStep} onBackButton={() => handleShowModal(values)} />
                 <div className={classes.forms}>
                   <Form className={classes.productInfo}>
@@ -156,7 +156,7 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
                       <span className={classes.discountText}>El descuento que ofrecés es de un</span>
                       <span className={classes.discountPercentage}>
                         {calculatePercentage(values.marketPrice, values.price)}
-                        %
+                          %
                       </span>
                     </div>
                   </Form>
@@ -210,18 +210,14 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
                       }
                     </div>
                   </div>
-                  <div className={classes.continueMobile} onClick={handleSubmit}>
-                    <span>
-                      Continuar &rsaquo;
-                    </span>
-                  </div>
                 </div>
-                <span className={classes.continueFloating} onClick={handleSubmit}>Continuar &rsaquo;</span>
-              </>
-            )
-          }
-        </Formik>
-      </div>
+                <span className={classes.continueDesktop} onClick={handleSubmit}>Continuar &rsaquo;</span>
+              </div>
+              <button type='button' className={classes.continueMobile} onClick={handleSubmit}>Continuar &rsaquo;</button>
+            </>
+          )
+        }
+      </Formik>
     </>
   )
 }

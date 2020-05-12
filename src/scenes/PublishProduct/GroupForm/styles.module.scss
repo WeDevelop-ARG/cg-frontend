@@ -152,21 +152,7 @@
     font-size: 16px;
     line-height: 21px;
     @include for-phone-only {
-      height: 50px;
-      width: 121%;
-      display: flex;
-      background: #FFFFFF;
-      box-shadow: 0px -2px 20px rgba(160, 172, 175, 0.2);
-      justify-content: space-evenly;
-      align-items: center;
-      font-size: 16px;
-      line-height: 21px;
-      color: #EB5433;
-      flex: none;
-      order: 0;
-      align-self: center;
-      margin: 12px 0px;
-      cursor: pointer;
+      display: none;
     }
     & > .linkBtn {
       font-family: Font Awesome 5 Pro;
@@ -204,4 +190,63 @@
     }
   }
 
+}
+
+.formButtonsMobile {
+  height: 50px;
+  width: 100%;
+  display: none;
+  background: #FFFFFF;
+  box-shadow: 0px -2px 20px rgba(160, 172, 175, 0.2);
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 16px;
+  line-height: 21px;
+  color: #EB5433;
+  flex: none;
+  order: 0;
+  align-self: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  @include for-phone-only {
+    display: flex;
+  }
+
+  & > .linkBtn {
+    font-family: Font Awesome 5 Pro;
+    font-weight: 400;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background: none;
+    color: #EB5433;
+    cursor: pointer;
+    @include for-phone-only {
+      &::after {
+        content: "";
+      }
+    }
+  }    
+  button {
+    height: 45px;
+    cursor: pointer;
+    @include for-phone-only {
+      padding: 0;
+      font-family: Font Awesome 5 Pro;
+      font-weight: 500;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background: none;
+      color: #EB5433;
+      &::after {
+        padding-top: 1px;
+        padding-left: 4px;
+        content: '>';
+      }
+    }
+  }
 }

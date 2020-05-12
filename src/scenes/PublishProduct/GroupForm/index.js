@@ -90,74 +90,79 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
   if (isLoading) return <Loading />
 
   return (
-    <div className={classes.container}>
-      <CurrentStep currentStep={2} onBackButton={prevStep} />
-      <form>
-        <div className={classes.FormContainer}>
-          <div className={classes.groupForm}>
-            <div>
-              <p>Tamaño del grupo</p>
-              <Select
-                required
-                styles={customStyles}
-                options={options}
-                onChange={({ value }) => { setMinParticipants(value) }}
-                placeholder='Seleccioná la cantidad'
-                isSearchable={false}
-                components={{
-                  IndicatorSeparator: () => null
-                }}
-              />
-              <span>La cantidad de personas de un grupo deberá ser la misma que tus unidades a vender</span>
-            </div>
-            <div>
-              <p>Fecha de expiración</p>
-              <div className={classes.dateInput}>
-                <img src={calendar} />
-                <DatePicker
-                  inputProps={{ readOnly: true }}
-                  onFocus={e => e.target.blur()}
-                  locale='es'
-                  dateFormat='dd/MM/yyyy'
-                  showPopperArrow={false}
-                  selected={expireDate}
-                  onChange={date => setExpireDate(date)}
-                  withPortal={isMobile ? 1 : 0}
+    <>
+      <div className={classes.container}>
+        <CurrentStep currentStep={2} onBackButton={prevStep} />
+        <form>
+          <div className={classes.FormContainer}>
+            <div className={classes.groupForm}>
+              <div>
+                <p>Tamaño del grupo</p>
+                <Select
+                  required
+                  styles={customStyles}
+                  options={options}
+                  onChange={({ value }) => { setMinParticipants(value) }}
+                  placeholder='Seleccioná la cantidad'
+                  isSearchable={false}
+                  components={{
+                    IndicatorSeparator: () => null
+                  }}
                 />
+                <span>La cantidad de personas de un grupo deberá ser la misma que tus unidades a vender</span>
               </div>
-            </div>
-            <div>
-              <p>Hora de expiración</p>
-              <div className={classes.timeInput}>
-                <img src={clock} />
-                <input
-                  onClick={() => setIsDropdownOpened(!isDropdownOpened)}
-                  ref={dropdownButtonRef}
-                  value={expireTime}
-                  onChange={() => null}
-                  readOnly
-                />
+              <div>
+                <p>Fecha de expiración</p>
+                <div className={classes.dateInput}>
+                  <img src={calendar} />
+                  <DatePicker
+                    inputProps={{ readOnly: true }}
+                    onFocus={e => e.target.blur()}
+                    locale='es'
+                    dateFormat='dd/MM/yyyy'
+                    showPopperArrow={false}
+                    selected={expireDate}
+                    onChange={date => setExpireDate(date)}
+                    withPortal={isMobile ? 1 : 0}
+                  />
+                </div>
               </div>
-              {
-                isDropdownOpened && (
-                  <div className={classes.dropdown}>
-                    <TimePicker setTimeString={(val) => setExpireTime(val)} ref={dropdownRef} />
-                    <div className={classes.dropBtn}>
-                      <Button type='button' onClick={() => setIsDropdownOpened(false)}>Aplicar</Button>
+              <div>
+                <p>Hora de expiración</p>
+                <div className={classes.timeInput}>
+                  <img src={clock} />
+                  <input
+                    onClick={() => setIsDropdownOpened(!isDropdownOpened)}
+                    ref={dropdownButtonRef}
+                    value={expireTime}
+                    onChange={() => null}
+                    readOnly
+                  />
+                </div>
+                {
+                  isDropdownOpened && (
+                    <div className={classes.dropdown}>
+                      <TimePicker setTimeString={(val) => setExpireTime(val)} ref={dropdownRef} />
+                      <div className={classes.dropBtn}>
+                        <Button type='button' onClick={() => setIsDropdownOpened(false)}>Aplicar</Button>
+                      </div>
                     </div>
-                  </div>
-                )
-              }
+                  )
+                }
+              </div>
+            </div>
+            <div className={classes.formButtons}>
+              <button className={classes.linkBtn} onClick={() => prevStep()}>&lsaquo; Volver</button>
+              <Button className={classes.publishBtn} onClick={handleSubmit} type='button'>Publicar</Button>
             </div>
           </div>
-
-          <div className={classes.formButtons}>
-            <button className={classes.linkBtn} onClick={() => prevStep()}>&lsaquo; Volver</button>
-            <Button className={classes.publishBtn} onClick={handleSubmit} type='button'>Publicar</Button>
-          </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+      <div className={classes.formButtonsMobile}>
+        <button className={classes.linkBtn} onClick={() => prevStep()}>&lsaquo; Volver</button>
+        <Button className={classes.publishBtn} onClick={handleSubmit} type='button'>Publicar</Button>
+      </div>
+    </>
   )
 }
 
