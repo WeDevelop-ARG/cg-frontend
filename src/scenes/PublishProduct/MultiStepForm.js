@@ -16,6 +16,7 @@ const MultiStepForm = () => {
         <ProductForm
           currentStep={step}
           nextStep={() => setStep(step + 1)}
+          currentProduct={product}
           product={(product) => setProduct(product)}
         />
       )

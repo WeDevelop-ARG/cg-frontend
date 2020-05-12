@@ -17,8 +17,15 @@ import { useHistory } from 'react-router-dom'
 
 const BREAK_POINT = '(max-device-width: 576px)'
 
-const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
-  const [photos, setPhotos] = useState([])
+const getImageDetail = (file) => ({
+  preview: URL.createObjectURL(file),
+  raw: file
+})
+
+const ProductForm = ({ nextStep, product, currentStep = 0, currentProduct = {} }) => {
+  const [photos, setPhotos] = useState(
+    (currentProduct.productPhotosUrls && currentProduct.productPhotosUrls.map(getImageDetail)) || []
+  )
   const [isShowModal, setIsShowModal] = useState(false)
   const isMobile = useMediaQuery(BREAK_POINT)
   const history = useHistory()
@@ -44,10 +51,7 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
         if (i === 5) break
 
         const file = e.target.files[i]
-        photosToAdd.push({
-          preview: URL.createObjectURL(file),
-          raw: file
-        })
+        photosToAdd.push(getImageDetail(file))
       }
 
       setPhotos(photosToAdd)
@@ -95,10 +99,10 @@ const ProductForm = ({ nextStep, product, currentStep = 0 }) => {
       }
       <Formik
         initialValues={{
-          title: '',
-          description: '',
-          marketPrice: 0,
-          price: 0
+          title: currentProduct.name || '',
+          description: currentProduct.description || '',
+          marketPrice: currentProduct.marketPrice || 0,
+          price: currentProduct.price || 0
         }}
         validationSchema={productInfoSchema}
         onSubmit={async ({ title, description, marketPrice, price }) => {
