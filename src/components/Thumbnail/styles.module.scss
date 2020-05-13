@@ -8,8 +8,8 @@
   height: 117px;
 
   @include for-phone-only {
-    width: 84px;
-    height: 84px;
+    width: 86px;
+    height: 89px;
   }
 }
 
@@ -17,6 +17,7 @@
   position: absolute;
   top: 8.74px;
   right: 8.74px;
+  cursor: pointer;
 
   @include for-phone-only {
     top: 7.08px;

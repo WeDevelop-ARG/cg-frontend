@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import classes from './styles.module.scss'
-import classNames from 'classnames'
 import CurrentStep from '../CurrentStep'
 import { Form, Formik } from 'formik'
 import {
@@ -8,12 +7,11 @@ import {
 } from '../../../components/Input'
 import * as Yup from 'yup'
 import calculatePercentage from '../../../utils/calculatePercentage'
-import Icon from '../../../components/Icon'
-import UploadShape from '../../../vectors/load-images.svg'
-import AddShape from '../../../vectors/add.svg'
 import useMediaQuery from '../../../hooks/useMediaQuery'
 import ConfirmModal from '../../../components/ConfirmModal'
 import { useHistory } from 'react-router-dom'
+import UploadImageDesktop from './UploadImageDesktop'
+import UploadImageMobile from './UploadImageMobile'
 
 const BREAK_POINT = '(max-device-width: 576px)'
 
@@ -45,10 +43,12 @@ const ProductForm = ({ nextStep, product, currentStep = 0, currentProduct = {} }
 
   const handleUploadFile = (e) => {
     if (e.target.files.length) {
-      const photosToAdd = []
+      const photosToAdd = [...photos]
+
+      const PHOTO_LIMIT = 5 - photosToAdd.length
 
       for (let i = 0; i < e.target.files.length; i += 1) {
-        if (i === 5) break
+        if (i === PHOTO_LIMIT) break
 
         const file = e.target.files[i]
         photosToAdd.push(getImageDetail(file))
@@ -76,11 +76,6 @@ const ProductForm = ({ nextStep, product, currentStep = 0, currentProduct = {} }
 
     return goToMain()
   }
-
-  const imagesAreaClass = classNames({
-    [classes.imagesArea]: !isMobile || !photos.length,
-    [classes.imagesAreaHidden]: isMobile && photos.length
-  })
 
   return (
     <>
@@ -164,56 +159,21 @@ const ProductForm = ({ nextStep, product, currentStep = 0, currentProduct = {} }
                       </span>
                     </div>
                   </Form>
-                  <div className={imagesAreaClass}>
-                    <label className={classes.label}>Imágenes del producto</label>
-                    <label htmlFor='upload-button'>
-                      {
-                        isMobile && !!photos.length ? (
-                          photos.map(({ preview }, key) => (
-                            <img
-                              src={preview}
-                              key={`product-photo${key}`}
-                              className={classes.photo}
-                              onClick={() => removePhotoByIndex(key)}
-                            />
-                          ))
-                        ) : (
-                          <div className={classes.dropzone}>
-                            <div className={classes.uploadInstructions}>
-                              <Icon icon={UploadShape} />
-                              <div className={classes.instructionsDetail}>
-                                <span className={classes.attach}>Adjuntá imágenes de tu producto</span>
-                                <span className={classes.limit}>Subí hasta 5 fotos</span>
-                              </div>
-                              <input
-                                type='file'
-                                id='upload-button'
-                                style={{ display: 'none' }}
-                                onChange={handleUploadFile}
-                                accept='image/*'
-                                multiple
-                              />
-                              <Icon icon={AddShape} />
-                            </div>
-                          </div>
-                        )
-                      }
-                    </label>
-                    <div className={classes.photos}>
-                      {
-                        !isMobile && (
-                          photos.map(({ preview }, key) => (
-                            <img
-                              src={preview}
-                              key={`product-photo${key}`}
-                              className={classes.photo}
-                              onClick={() => removePhotoByIndex(key)}
-                            />
-                          ))
-                        )
-                      }
-                    </div>
-                  </div>
+                  {
+                    !isMobile ? (
+                      <UploadImageDesktop
+                        handleUploadFile={handleUploadFile}
+                        photos={photos}
+                        removePhotoByIndex={removePhotoByIndex}
+                      />
+                    ) : (
+                      <UploadImageMobile
+                        handleUploadFile={handleUploadFile}
+                        photos={photos}
+                        removePhotoByIndex={removePhotoByIndex}
+                      />
+                    )
+                  }
                 </div>
                 <span className={classes.continueDesktop} onClick={handleSubmit}>Continuar &rsaquo;</span>
               </div>
