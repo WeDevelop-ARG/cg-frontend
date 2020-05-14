@@ -32,6 +32,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
 
   const dropdownRef = useRef(null)
   const dropdownButtonRef = useRef(null)
+  const timeRef = useRef(null)
 
   const verifyClick = (e) => {
     if (isMobile) {
@@ -62,6 +63,13 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
   const getDate = (date, time) => {
     const dateStr = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()} ${time}`
     return dayjs(dateStr, 'M-D-YYYY hh:mm A', true).toISOString()
+  }
+
+  const formatHour = (hour) => {
+    const dateStr = `${expireDate.getMonth() + 1}-${expireDate.getDate()}-${expireDate.getFullYear()} ${hour}`
+    const hourFormated = dayjs(dateStr, 'M-D-YYYY HH:mm').format('hh:mm A')
+
+    return setExpireTime(hourFormated)
   }
 
   const handleSubmit = async (e) => {
@@ -111,7 +119,7 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
                 />
                 <span>La cantidad de personas de un grupo deberá ser la misma que tus unidades a vender</span>
               </div>
-              <div>
+              <div className={classes.expire}>
                 <p>Fecha de expiración</p>
                 <div className={classes.dateInput}>
                   <img src={calendar} />
@@ -127,17 +135,36 @@ const GroupForm = ({ product, group, nextStep, prevStep }) => {
                   />
                 </div>
               </div>
-              <div>
+              <div className={classes.expire}>
                 <p>Hora de expiración</p>
                 <div className={classes.timeInput}>
                   <img src={clock} />
-                  <input
-                    onClick={() => setIsDropdownOpened(!isDropdownOpened)}
-                    ref={dropdownButtonRef}
-                    value={expireTime}
-                    onChange={() => null}
-                    readOnly
-                  />
+                  {
+                    !isMobile ? (
+                      <input
+                        onClick={() => setIsDropdownOpened(!isDropdownOpened)}
+                        ref={dropdownButtonRef}
+                        value={expireTime}
+                        onChange={() => null}
+                        readOnly
+                      />
+                    ) : (
+                      <>
+                        <div
+                          className={classes.timeMobileInput}
+                          onClick={() => timeRef.current.click()}
+                        >
+                          {expireTime}
+                        </div>
+                        <input
+                          ref={timeRef}
+                          style={{ visibility: 'hidden', width: 0, height: 0, position: 'absolute' }}
+                          onChange={({ target }) => formatHour(target.value)}
+                          type='time'
+                        />
+                      </>
+                    )
+                  }
                 </div>
                 {
                   isDropdownOpened && (
