@@ -1,10 +1,16 @@
-<svg viewBox="0 40 350 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 -180 350 1180" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path opacity="0.3" d="M 150 10 
-  C 150 10 380 78.5 276 226.5 
-  C 268.833 237.167 252.3 260.5 243.5 268.5 
+  C 150 10 380 78 276 226 
+  C 268 237 252 260 243 268 
   M 120.5 318.5
   C 95 313 22 345 13 416
   C 7 475 11 598 77 617
   C 160 641 115 634 131 645" 
+  stroke="#A0ACAF" stroke-dasharray="6 6"/>
+  <path opacity="0.3" d="M178 674  
+  C 232 723 317 714 323 788
+  C 339 872 312 894 268 913
+  C 196 954 139 899 114 936
+  C 94 966 102 1023 102 1045" 
   stroke="#A0ACAF" stroke-dasharray="6 6"/>
 </svg>

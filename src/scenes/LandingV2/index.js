@@ -21,7 +21,10 @@ const LandingV2 = () => {
         <Header />
         <Carousel />
         <MobileSteps />
-        <Register />
+        <Register
+          registerLinkId='seller_landing_b_cta_bottom'
+          buttonText='Vender más'
+        />
       </div>
     )
   }
@@ -30,7 +33,10 @@ const LandingV2 = () => {
     <div className={classes.container}>
       <Banner />
       <Steps />
-      <Register registerLinkId='seller_landing_b_cta_bottom' />
+      <Register
+        registerLinkId='seller_landing_b_cta_bottom'
+        buttonText='Vender más'
+      />
     </div>
   )
 }

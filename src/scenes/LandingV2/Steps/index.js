@@ -1,4 +1,5 @@
 import React from 'react'
+import { StepOne, StepTwo, StepThree } from './StepsInfo'
 
 import classes from './styles.module.scss'
 import step1 from '../../../assets/img/LandingV2/step1.svg'
@@ -11,10 +12,7 @@ const Steps = () => {
       <h1>¿Cómo funciona?</h1>
       <div className={classes.howTo}>
         <div className={classes.step}>
-          <div className={classes.stepInfo}>
-            <h2>Registrate</h2>
-            <p>Ingresá todos tus datos en el sistema y seguí paso a paso las indicaciones para comenzar </p>
-          </div>
+          <StepOne />
           <img src={step1} alt='Paso 1' style={{ height: '308px' }} />
         </div>
 
@@ -24,10 +22,7 @@ const Steps = () => {
 
         <div className={classes.step}>
           <img src={step2} alt='Paso 2' style={{ height: '256px' }} />
-          <div className={classes.stepInfo}>
-            <h2>Cargá tus productos</h2>
-            <p>Subí varias imágenes y añadí la descripción para los productos que querés vender</p>
-          </div>
+          <StepTwo />
         </div>
 
         <svg viewBox='-100 0 1000 168' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -35,12 +30,13 @@ const Steps = () => {
         </svg>
 
         <div className={classes.step}>
-          <div className={classes.stepInfo}>
-            <h2>Definí el stock y el tiempo</h2>
-            <p>Determiná la cantidad de unidades a vender de cada producto, así como el tiempo que dura la publicación.</p>
-          </div>
+          <StepThree />
           <img src={step3} alt='Paso 3' style={{ height: '265px' }} />
         </div>
+
+        <svg viewBox='-50 0 1000 180' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path opacity='0.3' d='M758 1C764.5 40.8333 733.361 153.159 624.561 133.959C488.561 109.959 245.561 15.9594 145.561 84.9594C65.5608 140.159 14.5 224.167 1 224' stroke='#A0ACAF' strokeWidth='3' strokeDasharray='12 12' />
+        </svg>
       </div>
     </div>
   )

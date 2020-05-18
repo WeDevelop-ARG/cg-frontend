@@ -22,8 +22,7 @@
   }
 
   & > .howTo {
-    padding: 10%;
-    padding-top: 5%;
+    padding: 5% 10% 0 10%;
     & > .step {
       display: flex;
       justify-content: space-between;
@@ -38,12 +37,17 @@
   }
 }
 
+.registerRed {
+  color: #EB5433 !important;
+  text-decoration: none;
+}
+
 .mobileContent {
   background: #F7F8FA url('../../../assets/img/LandingV2/lines.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 375px;
-  margin-bottom: 40px;
+  padding-bottom: 77px;
   h1 {
     margin: 0;
     margin-bottom: 40px;

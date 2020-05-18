@@ -8,7 +8,7 @@ import useMediaQuery from '../../../hooks/useMediaQuery'
 
 const BREAK_POINT = '(max-device-width: 576px)'
 
-const RegisterCard = ({ registerLinkId }) => {
+const RegisterCard = ({ registerLinkId, buttonText = 'Registrate' }) => {
   const isMobile = useMediaQuery(BREAK_POINT)
 
   const icon = isMobile ? finishedShapeMobile : finishedShape
@@ -21,7 +21,7 @@ const RegisterCard = ({ registerLinkId }) => {
         to='/auth/signup'
         className={classes.link}
       >
-        Registrate
+        {buttonText}
       </Link>
       <Icon icon={icon} className={classes.shape} />
     </div>

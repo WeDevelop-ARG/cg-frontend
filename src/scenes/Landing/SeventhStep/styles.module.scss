@@ -6,11 +6,13 @@
   flex-direction: column;
   height: 186px;
   width: 526px;
-  justify-content: space-between;
+  justify-content: space-between;  
+  padding-bottom: 450px;
 
   @include for-phone-only {
     width: 265px;
-    height: 99px;
+    height: 99px;    
+    padding-bottom: 177px;
   }
 }
 
