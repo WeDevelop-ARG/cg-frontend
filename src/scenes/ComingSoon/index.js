@@ -9,6 +9,7 @@ import Input from '../../components/Input'
 import useSubscribeToNewsletterMutation from '../../hooks/useSubscribeToNewsletterMutation'
 import classes from './styles.module.scss'
 import send from '../../vectors/send.svg'
+import mobileWave from '../../vectors/coming-soon-wave.svg'
 import { logFormSubmit } from '../../utils/analytics'
 const BREAK_POINT = '(max-device-width: 576px)'
 
@@ -58,6 +59,7 @@ const ComingSoon = () => {
           </Formik>
         </div>
       </div>
+      {isMobile && <img src={mobileWave} className={classes.wave} />}
     </div>
   )
 }
