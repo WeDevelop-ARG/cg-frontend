@@ -1,5 +1,5 @@
 import React, { useContext, useState, useRef, useEffect } from 'react'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory, useLocation, Link } from 'react-router-dom'
 import AuthContext from '../../Contexts/AuthContext/context'
 import AngleUp from '../../vectors/angle-up.svg'
 import AngleDown from '../../vectors/angle-down.svg'
@@ -10,9 +10,15 @@ import classes from './styles.module.scss'
 const BREAK_POINT = '(max-device-width: 576px)'
 
 const Navbar = () => {
+  const location = useLocation()
   const isMobile = useMediaQuery(BREAK_POINT)
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
+  const [inQuieroVender, setInQuieroVender] = useState(false)
   const { status, handleLogout, currentUser } = useContext(AuthContext)
+
+  useEffect(() => {
+    setInQuieroVender(location.pathname.includes('quiero-vender'))
+  }, [location])
 
   const dropdownRef = useRef(null)
   const dropdownButtonRef = useRef(null)
@@ -42,13 +48,9 @@ const Navbar = () => {
     handleLogout()
   }
 
-  const goToSignin = () => {
-    history.push('/auth/signin')
-  }
+  const goToSignin = () => history.push('/auth/signin')
 
-  const goToSignup = () => {
-    history.push('/auth/signup')
-  }
+  const goToSignup = () => history.push('/auth/signup')
 
   const goTo = (path) => {
     setIsDropdownOpened(false)
@@ -63,22 +65,30 @@ const Navbar = () => {
         {
           !status ? (
             <>
+              {
+                inQuieroVender ? (
+                  <li className={classes.navbarLinksItem}>
+                    <Link id='navbar_products_link'>
+                      Productos
+                    </Link>
+                  </li>
+                ) : (
+                  <li className={classes.navbarLinksItem}>
+                    <Link to='/quiero-vender'>
+                      Quiero vender
+                    </Link>
+                  </li>
+                )
+              }
               <li className={classes.navbarLinksItem}>
-                <Link to='/quiero-vender'>
-                  <button type='button'>
-                    Quiero vender
-                  </button>
+                <Link to='/auth/signup'>
+                  Creá tu cuenta
                 </Link>
               </li>
               <li className={classes.navbarLinksItem}>
-                <button type='button' name='signup' onClick={() => goToSignup()}>
-                  Creá tu cuenta
-                </button>
-              </li>
-              <li className={classes.navbarLinksItem}>
-                <button type='button' name='signup' onClick={() => goToSignin()}>
+                <Link to='/auth/signin'>
                   Ingresá
-                </button>
+                </Link>
               </li>
             </>
           ) : (
@@ -101,8 +111,8 @@ const Navbar = () => {
                     {/* Hide mis-compras navbar item
                       <span onClick={() => goTo('/mis-compras')} className='navbar__dropdown--item'>Mis compras</span>
                     */}
-                    <span onClick={() => goTo('/mis-productos')} className={classes.item}>Mis publicaciones</span>
-                    <span onClick={logout} className={classes.item}>Salir</span>
+                    <button onClick={() => goTo('/mis-productos')} className={classes.item}>Mis publicaciones</button>
+                    <button onClick={logout} className={classes.item}>Salir</button>
                   </div>
                 )
               }

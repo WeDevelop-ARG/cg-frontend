@@ -1,10 +1,12 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import classes from './styles.module.scss'
 import LandingWaves from '../../vectors/landing-waves.svg'
 import ShoppingCardIcon from '../../vectors/shopping-card.svg'
 import MoneyIcon from '../../vectors/money.svg'
 import GroupCardIcon from '../../vectors/group.svg'
 import LandingShapes from '../../vectors/landingv1-shapes.svg'
+import Button from '../../components/Button/Default/Orange'
 import Icon from '../../components/Icon'
 import Card from './Card'
 import FirstStep from './FirstStep'
@@ -23,8 +25,10 @@ import { useFireAnalyticsABPageExperimentEvent } from '../../utils/abTesting'
 const BREAK_POINT = '(max-device-width: 576px)'
 
 const Landing = () => {
+  const history = useHistory()
   const isMobile = useMediaQuery(BREAK_POINT)
   useFireAnalyticsABPageExperimentEvent('SELLER_LANDING_A')
+  const goToSignUp = () => history.push('/auth/signup')
 
   if (isMobile) return <Mobile />
 
@@ -33,7 +37,8 @@ const Landing = () => {
       <div className={classes.header}>
         <Icon src={LandingWaves} className={classes.headerWaves} />
         <h1 className={classes.title}>Vendé en grande</h1>
-        <h3 className={classes.subtitle}>Conocé los beneficios de Compras Grupales y empezá a vender</h3>
+        <h3 className={classes.subtitle}>Promocioná tus productos y llegá a más gente sin tener que invertir tiempo ni pagar comisiones.</h3>
+        <Button id='seller_landing_a_header_cta' onClick={goToSignUp}>Quiero vender más</Button>
         <div className={classes.cardsContainer}>
           <div className={classes.cards}>
             <Card

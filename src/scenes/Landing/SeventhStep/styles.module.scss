@@ -28,7 +28,7 @@
 
   @include for-phone-only {
     font-size: 14px;
-    line-height: 18px;
+    line-height: 18px !important;
   }
 }
 
@@ -42,7 +42,7 @@
 
   @include for-phone-only {
     font-size: 22px;
-    line-height: 25px;
+    line-height: 40px;
   }
 }
 

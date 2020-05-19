@@ -18,12 +18,11 @@ const LandingV2 = () => {
   if (isMobile) {
     return (
       <div className={classes.mobileContainer}>
-        <Header />
+        <Header schemeColor='blue' />
         <Carousel />
         <MobileSteps />
         <Register
           registerLinkId='seller_landing_b_cta_bottom'
-          buttonText='Vender más'
         />
       </div>
     )
@@ -35,7 +34,6 @@ const LandingV2 = () => {
       <Steps />
       <Register
         registerLinkId='seller_landing_b_cta_bottom'
-        buttonText='Vender más'
       />
     </div>
   )

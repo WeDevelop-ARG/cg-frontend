@@ -44,7 +44,7 @@ function App () {
               {withNavbar(<ProductDetail />)}
             </Route>
             <Route path='/quiero-vender' exact>
-              <SellerLanding />
+              {withNavbar(<SellerLanding />)}
             </Route>
             <Route path='/mis-productos' exact>
               {withNavbar(<MyProducts />)}

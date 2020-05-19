@@ -6,7 +6,7 @@
 
 .header {
   z-index: -1;
-  background-color:#3561D1;
+  background-color:#FFFFFF;
   min-height: 550px;
   padding-top: 5%;
 
@@ -26,6 +26,10 @@
     align-items: center;
     width: 100%;
   }
+
+  button {
+    margin-top: 60px;
+  }
 }
 
 .title {
@@ -37,7 +41,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #FFFFFF;
+  color: #3561D1;
   margin: 0 auto 26px auto;
 }
 
@@ -50,8 +54,8 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #FFFFFF;
-  width: 706px;
+  color: #1A2224;
+  width: 845px;
   margin: 0;
 }
 

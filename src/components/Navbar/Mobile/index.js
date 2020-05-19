@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import { useLocation, Link } from 'react-router-dom'
 import AuthContext from '../../../Contexts/AuthContext/context'
 import Icon from '../../Icon'
 import MenuShape from '../../../vectors/menu.svg'
@@ -6,8 +7,14 @@ import MenuShape from '../../../vectors/menu.svg'
 import classes from './styles.module.scss'
 
 const Mobile = ({ onSignin, onSignup, goTo }) => {
+  const location = useLocation()
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   const { status, handleLogout } = useContext(AuthContext)
+  const [inQuieroVender, setInQuieroVender] = useState(false)
+
+  useEffect(() => {
+    setInQuieroVender(location.pathname.includes('quiero-vender'))
+  }, [location])
 
   const handleDropdown = () => setIsDropdownOpened(!isDropdownOpened)
 
@@ -40,20 +47,28 @@ const Mobile = ({ onSignin, onSignup, goTo }) => {
             {
               !status ? (
                 <div className={classes.options}>
-                  <span onClick={() => goToHandler('/quiero-vender')}>
-                    Quiero vender
-                  </span>
-                  <span onClick={signUp}>
+                  {
+                    inQuieroVender ? (
+                      <button id='navbar_products_link'>
+                        Productos
+                      </button>
+                    ) : (
+                      <button onClick={() => goToHandler('/quiero-vender')}>
+                        Quiero vender
+                      </button>
+                    )
+                  }
+                  <button onClick={signUp}>
                     Creá tu cuenta
-                  </span>
-                  <span onClick={signIn}>
+                  </button>
+                  <button onClick={signIn}>
                     Ingresá
-                  </span>
+                  </button>
                 </div>
               ) : (
                 <div className={classes.options}>
-                  <span onClick={() => goToHandler('/mis-productos')} className={classes.item}>Mis publicaciones</span>
-                  <span onClick={logout} className={classes.item}>Salir</span>
+                  <button onClick={() => goToHandler('/mis-productos')} className={classes.item}>Mis publicaciones</button>
+                  <button onClick={logout} className={classes.item}>Salir</button>
                 </div>
               )
             }
