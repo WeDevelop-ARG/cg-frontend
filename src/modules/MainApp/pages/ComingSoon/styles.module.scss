@@ -7,7 +7,7 @@
   justify-content: space-between;
   padding: 150px 100px;
 
-  background: url('../../vectors/coming-soon.svg');
+  background: url('~vectors/coming-soon.svg');
   background-repeat: no-repeat;
   background-position: top right;
   background-size: contain;
@@ -35,7 +35,7 @@
   }
 
   @include for-large-tablet-only {
-    background: url('../../vectors/coming-soon-wave.svg');
+    background: url('~vectors/coming-soon-wave.svg');
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: contain;

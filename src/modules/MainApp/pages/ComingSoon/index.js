@@ -1,26 +1,22 @@
-import React, { useContext } from 'react'
-import { useHistory, Redirect } from 'react-router-dom'
+import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { Form, Formik } from 'formik'
 import { useToasts } from 'react-toast-notifications'
-import AuthContext from '../../Contexts/AuthContext/context'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 import useSubscribeToNewsletterMutation from '../../hooks/useSubscribeToNewsletterMutation'
 import classes from './styles.module.scss'
-import send from '../../vectors/send.svg'
-import { logFormSubmit } from '../../utils/analytics'
+import send from '~/src/vectors/send.svg'
+import { logFormSubmit } from '~/src/utils/analytics'
 
 const ComingSoon = () => {
   const { subscribeToNewsletters } = useSubscribeToNewsletterMutation()
   const { addToast } = useToasts()
   const history = useHistory()
-  const { status } = useContext(AuthContext)
 
   const goToLanding = () => {
     history.push('/quiero-vender')
   }
-
-  if (status) return (<Redirect to='/mis-productos' />)
 
   return (
     <div className={classes.container}>

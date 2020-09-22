@@ -1,0 +1,47 @@
+.button-default {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  color: #FFFFFF;
+
+  &--reset {
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    @extend .button-default--reset;
+  }
+
+  &:active {
+    @extend .button-default--reset;
+  }
+
+  &__orange {
+    @extend .button-default;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 45px;
+    position: relative;
+    background: #EB5433;
+    border-radius: 4px;
+    min-height: 45px;
+  }
+
+  &__black {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 45px;
+    position: relative;
+    width: 122px;
+    height: 45px;
+    background: #1A2224;
+    border-radius: 4px;
+  }
+}

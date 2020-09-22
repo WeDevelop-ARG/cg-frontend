@@ -8,7 +8,7 @@ import SellerLanding from './scenes/SellerLanding'
 import PublishProduct from './scenes/PublishProduct'
 import MyProducts from './scenes/MyProducts'
 import MyPurchases from './scenes/MyPurchases'
-import ComingSoon from './scenes/ComingSoon'
+import MainApp from './modules/MainApp'
 import AuthContextProvider from './Contexts/AuthContext/provider'
 import { ToastProvider } from 'react-toast-notifications'
 import Toast from './components/Toast'
@@ -55,9 +55,7 @@ function App () {
             <Route path='/mis-compras' exact>
               {withNavbar(<MyPurchases />)}
             </Route>
-            <Route path='/' exact>
-              {withNavbar(<ComingSoon />)}
-            </Route>
+            <MainApp />
           </Switch>
         </AuthContextProvider>
       </ToastProvider>

@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik'
 import Input from '../../../components/Input/normal'
 import Button from '../../../components/Button'
 import useMediaQuery from '../../../hooks/useMediaQuery'
-import useSubscribeToNewsletterMutation from '../../../hooks/useSubscribeToNewsletterMutation'
+import useSubscribeToNewsletterMutation from '~/src/modules/MainApp/hooks/useSubscribeToNewsletterMutation'
 import { useToasts } from 'react-toast-notifications'
 import { logFormSubmit } from '../../../utils/analytics'
 

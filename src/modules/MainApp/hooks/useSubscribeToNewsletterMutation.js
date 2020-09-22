@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/react-hooks'
 
-import subscribeToNewsletterMutation from '../apollo/mutations/subscribeToNewsletter'
+import subscribeToNewsletterMutation from '~/src/apollo/mutations/subscribeToNewsletter'
 
 function useSubscribeToNewsletterMutation () {
   const [mutate, { loading, error, called, data }] = useMutation(subscribeToNewsletterMutation)
