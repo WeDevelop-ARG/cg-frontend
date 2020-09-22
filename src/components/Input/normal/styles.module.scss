@@ -54,6 +54,7 @@
 .container {
   position: relative;
   margin-bottom: 22px;
+  width: inherit;
 
   &Error {
     position: relative;

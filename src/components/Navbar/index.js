@@ -7,7 +7,7 @@ import useMediaQuery from '../../hooks/useMediaQuery'
 import Mobile from './Mobile'
 import classes from './styles.module.scss'
 
-const BREAK_POINT = '(max-device-width: 576px)'
+const BREAK_POINT = '(max-device-width: 768px)'
 
 const Navbar = () => {
   const location = useLocation()

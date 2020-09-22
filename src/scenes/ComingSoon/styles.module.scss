@@ -1,6 +1,12 @@
+@import '~src/styles/mixin/media-screen.scss';
+
 .container {
-  min-height: calc(100vh - 70px);
-  font-family: DM Sans;
+  min-height: calc(100% - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 150px 100px;
+
   background: url('../../vectors/coming-soon.svg');
   background-repeat: no-repeat;
   background-position: top right;
@@ -28,102 +34,94 @@
     line-height: 30px;
   }
 
-  & > .data {
-    width: 50%;
-    height: 80vh;
-    padding: 10% 0 0 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  @include for-large-tablet-only {
+    background: url('../../vectors/coming-soon-wave.svg');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+  }
 
-    Button {
-      height: 45px;
+  @include for-small-tablet-only {
+    min-height: calc(100% - 50px);
+    padding: 35px 22px;
+
+    h1 {
+      text-align: center;
     }
+    h3 {
+      text-align: center;
+    }
+  }
 
-    Form {
-      display: flex;
-      padding-top: 12px;
-      Input {
-        min-width: 350px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      Button {
-        padding-left: 14px;
-        padding-right: 16px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
+  @include for-phone-only {
+    h1 {
+      font-size: 26px;
+      line-height: 36px;
+    }
+    h2 {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    h3 {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 22px;
     }
   }
 }
 
-.mobileContainer {  
-  font-family: DM Sans;
+.top {
+  max-width: 600px;
 
-  h1 {
-    margin: 0;
-    text-align: center;
-    font-size: 26px;
-    line-height: 36px;
+  @include for-small-tablet-only {
+    margin: auto;
+    padding-bottom: 40px;
+
+    button {
+      margin: 0 auto;
+    }
   }
-  h2 {
-    margin: 0;
-    padding: 0px 22px 0px;
-    font-size: 16px;
-    line-height: 22px;
+}
+
+.bottom {
+  max-width: 570px;
+  @include for-small-tablet-only {
+    max-width: none;
   }
-  h3 {
-    padding: 0px 22px 0px;
-    margin: 12px 0 30px;
-    text-align: center;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-  }
-  p {    
-    padding: 0px 22px 0px;
-    margin: 10px 0;
-    font-size: 14px;
-    line-height: 22px;
-  }
-  
-  .wave {
-    position: fixed;
-    bottom: 0px;
+}
+
+.inputButton {
+  display: flex;
+  height: 45px;
+
+  @include for-small-tablet-only {
     width: 100%;
   }
 
-  & > .data {
-    z-index: 5;
-    position: absolute;
-    height: calc(101% - 50px);
-    width: inherit;
-    padding: 20% 0px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 20px;
+  input {
+    min-width: 350px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 
-    Button {
-      height: 45px;
-      margin: 0 auto;
+    &:focus {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
-    Form {
-      display: flex;
-      padding: 12px 22px 0px;
-      Input {
-        width: 76vw;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      Button {
-        margin: 0;
-        padding: 0px 16px 0px 14px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
+    @include for-small-tablet-only {
+      min-width: 100px;
+      width: 100%;
     }
+  }
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 15px 18px;
+    padding-right: 20px;
   }
 }
