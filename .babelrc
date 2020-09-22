@@ -1,3 +1,21 @@
 {
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    [
+      "babel-plugin-root-import",
+      {
+        "paths": [
+          {
+            "rootPathSuffix": "./src",
+            "rootPathPrefix": "/"
+          },
+          {
+            "rootPathSuffix": "./",
+            "rootPathPrefix": "~/"
+          }
+        ]
+      },
+      "custom-root-import"
+    ]
+  ]
 }
