@@ -1,7 +1,7 @@
 @import '~src/styles/mixin/media-screen.scss';
 
 .container {
-  height: calc(100% - 70px);
+  min-height: calc(100% - 70px);
   padding-left: 75px;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   background-size: contain;
 
   @include for-small-tablet-only {
-    height: calc(100% - 50px);
+    min-height: calc(100% - 50px);
     padding: 0 19px;
     margin: 0;
 

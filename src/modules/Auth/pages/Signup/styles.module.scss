@@ -1,27 +1,31 @@
 @import '~src/styles/mixin/media-screen.scss';
 
 .container {
-  width: 100%;
-  flex: 1 1 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background-color: #F7F8FA;
+  min-height: calc(100% - 70px);
+  padding-left: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 
-  @include for-phone-only {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    position: relative;
-    overflow: hidden;
+  background: url('~assets/img/backgrounds/signup_desktop.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+
+  @include for-small-tablet-only {
+    min-height: calc(100% - 50px);
+    padding: 0 19px;
+    margin: 0;
+
+    background: url('~assets/img/backgrounds/signup_mobile.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
   }
 }
 
-.mobileShape {
-  position: absolute;
-  top: -225px;
-}
-
 .greetings {
-  z-index: 50;
   width: 325px;
   height: 56px;
   font-family: DM Sans;
@@ -30,151 +34,9 @@
   font-size: 42px;
   line-height: 56px;
   color: #1A2224;
-}
-
-.form {
-  width: 526px;
-  display: flex;
-  flex-direction: column;
-  z-index: 50;
-
-  input {
-    width: 100%;
-  }
-
-  .button-default__orange {
-    margin-top: 28px;
-  }
 
   @include for-phone-only {
-    width: 100%;
-
-    div {
-      width: 100%;
-    }
+    width: auto;
+    font-size: 32px;
   }
-}
-
-.formInline {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-column-gap: 16px;
-  width: 100%;
-
-  @include for-phone-only {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
-
-.formContainer {
-  padding-left: 75px;
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  @include for-phone-only {
-    padding: 0 19px;
-    margin: 0;
-  }
-}
-
-.links {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  color: #3561D1;
-  text-decoration: none;
-  margin-bottom: 50px;
-
-  &:active, &::selection {
-    color: #3561D1;
-    text-decoration: none;
-  }
-}
-
-.news {
-  text-align: center;
-  margin-top: 20px;
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  color: #1A2224;
-  margin-bottom: 102px;
-
-  a {
-    margin-left: 8px;
-  }
-}
-
-.labels {
-  width: 45px;
-  height: 18px;
-  margin-bottom: 16px;
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 18px;
-  color: #1A2224;
-}
-
-.labelsInline {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 16px;
-  width: 100%;
-
-  .signup__form--labels {
-    @extend .labels;
-  }
-
-  div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    input {
-      width: 100%;
-    }
-  }
-}
-
-.terms {
-  height: 36px;
-  margin-top: 16px;
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 18px;
-  color: #A0ACAF;
-}
-
-.shape {
-  display: block;
-  position: relative;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-
-  @include for-phone-only {
-    display: none;
-  }
-}
-
-.manShape {
-  top: 25%;
-  right: 350px;
-  height: 48%;
-  position: absolute;
 }
