@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.html --port 3000",
+    "dev": "parcel src/index.html --port ${WEB_SERVER_PORT:-3000} --hmr-port ${HOT_MODULE_RELOADING_PORT:-3003}",
     "smart_install": "sh smart_install.sh",
     "dev:smart": "npm run smart_install && npm run dev",
     "build": "parcel build --no-cache src/index.html",

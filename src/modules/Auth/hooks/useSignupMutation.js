@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/react-hooks'
 
-import signupMutation from '../apollo/mutations/signup'
+import signupMutation from '~/src/apollo/mutations/signup'
 
 function useSignupMutation () {
   const [mutate, { loading, error, called, data }] = useMutation(signupMutation)

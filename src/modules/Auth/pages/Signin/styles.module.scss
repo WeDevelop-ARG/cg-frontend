@@ -1,4 +1,4 @@
-@import '../../styles/mixin/media-screen.scss';
+@import '~src/styles/mixin/media-screen.scss';
 
 .container {
   width: 100%;
@@ -17,12 +17,11 @@
 
 .mobileShape {
   position: absolute;
-  top: -225px;
+  top: -225px
 }
 
 .greetings {
-  z-index: 50;
-  width: 325px;
+  width: 116px;
   height: 56px;
   font-family: DM Sans;
   font-style: normal;
@@ -30,21 +29,13 @@
   font-size: 42px;
   line-height: 56px;
   color: #1A2224;
+  z-index: 23;
 }
 
 .form {
-  width: 526px;
   display: flex;
   flex-direction: column;
   z-index: 50;
-
-  input {
-    width: 100%;
-  }
-
-  .button-default__orange {
-    margin-top: 28px;
-  }
 
   @include for-phone-only {
     width: 100%;
@@ -53,18 +44,13 @@
       width: 100%;
     }
   }
-}
 
-.formInline {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-column-gap: 16px;
-  width: 100%;
+  input {
+    width: 526px;
 
-  @include for-phone-only {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include for-phone-only {
+      width: 100%;
+    }
   }
 }
 
@@ -102,17 +88,21 @@
 
 .news {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 32px;
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
   color: #1A2224;
-  margin-bottom: 102px;
+  margin-bottom: 185px;
 
   a {
     margin-left: 8px;
+  }
+
+  @include for-phone-only {
+    margin-bottom: 75px;
   }
 }
 
@@ -120,43 +110,13 @@
   width: 45px;
   height: 18px;
   margin-bottom: 16px;
+
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 18px;
   color: #1A2224;
-}
-
-.labelsInline {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 16px;
-  width: 100%;
-
-  .signup__form--labels {
-    @extend .labels;
-  }
-
-  div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    input {
-      width: 100%;
-    }
-  }
-}
-
-.terms {
-  height: 36px;
-  margin-top: 16px;
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 18px;
-  color: #A0ACAF;
 }
 
 .shape {
@@ -172,9 +132,9 @@
   }
 }
 
-.manShape {
-  top: 25%;
-  right: 350px;
-  height: 48%;
+.womanShape {
+  top: 33%;
+  right: 175px;
+  height: 30%;
   position: absolute;
 }
