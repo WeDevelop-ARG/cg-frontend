@@ -1,23 +1,28 @@
 @import '~src/styles/mixin/media-screen.scss';
 
 .container {
-  width: 100%;
-  flex: 1 1 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background-color: #F7F8FA;
+  height: calc(100% - 70px);
+  padding-left: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 
-  @include for-phone-only {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    position: relative;
-    overflow: hidden;
+  background: url('~assets/img/backgrounds/login_desktop.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+
+  @include for-small-tablet-only {
+    height: calc(100% - 50px);
+    padding: 0 19px;
+    margin: 0;
+
+    background: url('~assets/img/backgrounds/login_mobile.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
   }
-}
-
-.mobileShape {
-  position: absolute;
-  top: -225px
 }
 
 .greetings {
@@ -30,111 +35,4 @@
   line-height: 56px;
   color: #1A2224;
   z-index: 23;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  z-index: 50;
-
-  @include for-phone-only {
-    width: 100%;
-
-    div {
-      width: 100%;
-    }
-  }
-
-  input {
-    width: 526px;
-
-    @include for-phone-only {
-      width: 100%;
-    }
-  }
-}
-
-.formContainer {
-  padding-left: 75px;
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  @include for-phone-only {
-    padding: 0 19px;
-    margin: 0;
-  }
-}
-
-.links {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  color: #3561D1;
-  text-decoration: none;
-  margin-bottom: 50px;
-
-  &:active, &::selection {
-    color: #3561D1;
-    text-decoration: none;
-  }
-}
-
-.news {
-  text-align: center;
-  margin-top: 32px;
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  color: #1A2224;
-  margin-bottom: 185px;
-
-  a {
-    margin-left: 8px;
-  }
-
-  @include for-phone-only {
-    margin-bottom: 75px;
-  }
-}
-
-.labels {
-  width: 45px;
-  height: 18px;
-  margin-bottom: 16px;
-
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 18px;
-  color: #1A2224;
-}
-
-.shape {
-  display: block;
-  position: relative;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-
-  @include for-phone-only {
-    display: none;
-  }
-}
-
-.womanShape {
-  top: 33%;
-  right: 175px;
-  height: 30%;
-  position: absolute;
 }
