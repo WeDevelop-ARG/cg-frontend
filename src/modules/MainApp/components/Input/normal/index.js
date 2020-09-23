@@ -19,10 +19,9 @@ const InputNormal = ({ type = 'text', ...props }) => {
 
   const isPassword = type === 'password'
 
-  const inputClass = classNames({
-    [classes.inputError]: meta.error,
-    [classes.inputFocused]: !meta.error && meta.touched,
-    [classes.input]: !meta.error
+  const inputClass = classNames(classes.input, {
+    [classes.inputError]: meta.touched && meta.error,
+    [classes.inputFocused]: meta.touched && !meta.error
   })
 
   const containerClass = classNames({
