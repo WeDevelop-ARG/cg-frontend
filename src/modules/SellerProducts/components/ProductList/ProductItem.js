@@ -1,88 +1,49 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
 import currency from '~/src/utils/currency'
 
-import './MyProducts.scss'
-import more from '~/src/vectors/more-vertical.svg'
-import useDeleteGroupMutation from '../../hooks/useDeleteGroupMutation'
+import classes from './styles.module.scss'
+import ItemDropdown from './ItemDropdown'
+import ImageAsBackround from '~/src/modules/MainApp/components/ImageAsBackground'
 
 const ProductItem = ({ group }) => {
-  const { deleteGroup } = useDeleteGroupMutation()
-  const [isToggle, setIsToggle] = useState(false)
   const product = group.product
   const expireDate = new Date(group.expiresAt).toLocaleString('es-AR')
 
-  const dropdownButtonRef = useRef(null)
-
-  const verifyClickProduct = (e) => {
-    if (dropdownButtonRef) {
-      if (!dropdownButtonRef.current) {
-        setIsToggle(false)
-      } else if (!dropdownButtonRef.current.contains(e.target)) {
-        setIsToggle(false)
-      }
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener('click', verifyClickProduct, false)
-
-    return () => {
-      document.removeEventListener('click', verifyClickProduct, false)
-    }
-  }, [])
-
-  const deleteGroupHandler = async () => {
-    await deleteGroup(group.id)
-  }
-
   return (
-    <div className='MyProducts__List__item'>
-      <div className='MyProducts__List__item--description'>
-        <div
-          className='MyProducts__List__item--image'
-          style={{
-            backgroundImage: `url(${product.photos[0].url})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center center'
-          }}
-        />
-        <div className='MyProducts__List__item--info'>
-          <span className='MyProducts__List__item--info--id'>#{product.id.slice(0, 8)}</span>
-          <p>{product.name}</p>
+    <div className={classes.product}>
+      <div className={classes.description}>
+        <ImageAsBackround imageUrl={product.photos[0].url} className={classes.productPhoto} />
+        <div className={classes.info}>
+          <div>
+            <span className={classes.productId}>#{product.id.slice(0, 8)}</span>
+            <p>{product.name}</p>
+          </div>
           <span>45 visitas | 2 ventas</span>
         </div>
       </div>
 
-      <div className='MyProducts__List__item--price'>
+      <div className={classes.item}>
+        <span className={classes.onlyMobile}>Precio</span>
         <span>{currency.ARS(product.marketPrice)}</span>
         <p>{currency.ARS(product.price)}</p>
       </div>
 
-      <div className='MyProducts__List__item--discount'>
+      <div className={classes.item}>
+        <span className={classes.onlyMobile}>% Descuento</span>
         <p>{group.discount}%</p>
       </div>
 
-      <div className='MyProducts__List__item--participants'>
+      <div className={classes.item}>
+        <span className={classes.onlyMobile}>Grupo</span>
         <p>{group.minParticipants} personas</p>
       </div>
 
-      <div className='MyProducts__List__item--expireDate'>
+      <div className={classes.item}>
+        <span className={classes.onlyMobile}>Expiración</span>
         <p>{expireDate.slice(0, -3)} hs</p>
       </div>
 
-      <div className='MyProducts__List__item--more'>
-        <button onClick={() => setIsToggle(!isToggle)} ref={dropdownButtonRef}>
-          <img src={more} alt=':' />
-          {
-            isToggle && (
-              <div className='MyProducts__List__item--more__dropdown'>
-                <span onClick={deleteGroupHandler}>Eliminar</span>
-              </div>
-            )
-          }
-        </button>
-      </div>
+      <ItemDropdown groupId={group.id} />
     </div>
   )
 }

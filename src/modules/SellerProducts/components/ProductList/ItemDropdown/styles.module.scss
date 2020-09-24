@@ -1,0 +1,48 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.moreButton{
+  margin: auto 0;
+
+  button {
+    position: relative;
+    bottom: 5px;
+    right: 5px;
+    font-size: 26px;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  @include for-large-tablet-only {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    width: 20px;
+
+    img {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.dropdown {
+  top: 27px;
+  right: 34%;
+  z-index: 999;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 15px rgba(160, 172, 175, 0.15);
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: #1A2224;
+}
