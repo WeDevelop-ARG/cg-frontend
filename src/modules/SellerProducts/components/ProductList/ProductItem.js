@@ -1,14 +1,12 @@
-import React, { useState, useRef, useEffect, useContext } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import currency from '~/src/utils/currency'
 
 import './MyProducts.scss'
 import more from '~/src/vectors/more-vertical.svg'
-import myProductContext from './myProductContext'
 import useDeleteGroupMutation from '../../hooks/useDeleteGroupMutation'
 
 const ProductItem = ({ group }) => {
   const { deleteGroup } = useDeleteGroupMutation()
-  const { refetchProducts } = useContext(myProductContext)
   const [isToggle, setIsToggle] = useState(false)
   const product = group.product
   const expireDate = new Date(group.expiresAt).toLocaleString('es-AR')
@@ -35,7 +33,6 @@ const ProductItem = ({ group }) => {
 
   const deleteGroupHandler = async () => {
     await deleteGroup(group.id)
-    return refetchProducts()
   }
 
   return (

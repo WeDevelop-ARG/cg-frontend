@@ -8,7 +8,7 @@ function usePublishedGroupsQuery () {
     refetch,
     loading,
     error,
-    currentUser: data && data.currentUser
+    publishedGroups: data?.currentUser?.publishedGroups
   }
 }
 

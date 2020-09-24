@@ -1,10 +1,17 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import './styles.scss'
 
-const ButtonDefaultOrange = ({ children, ...props }) => {
+const ButtonDefaultOrange = ({ children, className, ...props }) => {
   return (
-    <button type='button' {...props} className='button-default__orange'>{children}</button>
+    <button
+      type='button'
+      {...props}
+      className={classnames('button-default__orange', className)}
+    >
+      {children}
+    </button>
   )
 }
 

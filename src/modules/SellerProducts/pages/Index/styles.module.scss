@@ -1,0 +1,139 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% - 70px);
+  padding: 35px 75px 80px;
+
+  @include for-small-tablet-only {
+    min-height: calc(100% - 50px);
+    padding: 12px 14px 14px;
+  }
+}
+
+.title {
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 34px;
+  margin-top: 24px;
+  margin-bottom: 35px;
+  @include for-phone-only {
+    font-size: 20px;
+    margin-top: 9px;
+    margin-bottom: 14px;
+  }
+}
+
+.homeLink {
+  text-decoration: none;
+  font-family: 'DM Sans';
+  font-size: 16px;
+  line-height: 18px;
+  color: #1A2224;
+  &:hover{
+    color: rgb(82, 102, 102);
+  }
+  @include for-small-tablet-only {
+    display: none;
+  }
+}
+
+.onlyMobile {
+  display: none;
+  @include for-small-tablet-only {
+    display: block;
+  }
+}
+
+.onlyDesktop {
+  display: block;
+  @include for-small-tablet-only {
+    display: none;
+  }
+}
+
+.listHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 25px 30px 15px;
+
+  p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  @include for-small-tablet-only {
+    padding: 0 0 20px;
+
+    p {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+}
+
+.productsContainer {
+  background:#FFFFFF;
+  @include for-small-tablet-only {
+    background: none;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none
+  }
+
+  li {
+    padding: 0;
+    border-top: 1px solid #F1F3F3;
+    @include for-phone-only {
+      border: none;
+    }
+  }
+
+  button {
+    height: 45px;
+    @include for-small-tablet-only {
+      margin: 0 auto;
+    }
+  }
+}
+
+.noProducts {
+  background: #FFFFFF;
+  padding: 45px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 26px;
+    margin-bottom: 0px;
+    text-align: center;
+    @include for-phone-only {
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+    @include for-phone-only {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
