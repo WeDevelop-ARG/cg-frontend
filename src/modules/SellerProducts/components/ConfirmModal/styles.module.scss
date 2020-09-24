@@ -1,0 +1,93 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1a22249e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  width: 560px;
+  min-height: 249px;
+  opacity: 1 !important;
+
+  @include for-phone-only {
+    height: 311px;
+  }
+}
+
+.header {
+  position: absolute;
+  top: 22px;
+  right: 17px;
+  cursor: pointer;
+}
+
+.title {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: #1A2224;
+}
+
+.descriptionContainer {
+  flex: auto;
+  width: 100%;
+  padding-top: 14px;
+}
+
+.description {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #1A2224;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  @include for-phone-only {
+    flex-direction: column-reverse;
+    align-items: center;
+    max-width: 261px;
+    margin: 0 auto;
+  }
+}
+
+.reject {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #EB5433;
+  flex: none;
+  order: 0;
+  align-self: center;
+  margin: 12px 0px;
+  text-align: center;
+  cursor: pointer;
+}

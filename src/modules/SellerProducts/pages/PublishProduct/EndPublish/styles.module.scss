@@ -1,0 +1,219 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+@mixin item {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+
+  font-size: 18px;
+  line-height: 21px;
+
+  p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1% 3%;
+  @include for-phone-only {
+    background: #F7F8FA;
+  }
+  h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 26px;
+    margin-bottom: 0px !important;
+  }
+
+  h2 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+  }
+  
+  @include for-phone-only {
+    padding: 0px;
+    h1 {
+      font-weight: bold !important;
+      font-size: 20px !important;
+      line-height: 26px;
+      margin-top: 0px !important;
+    }
+    h2 {
+      font-size: 14px !important;
+      line-height: 20px;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  & > .info {
+    margin: 40px 0px;
+    padding: 30px 12px 25px 0px;
+    
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1.5fr;
+    grid-column-gap: 5px;
+    border-top: 1px solid #F1F3F3; 
+    border-bottom: 1px solid #F1F3F3; 
+
+    & > .price {
+      @include item();
+      display: none;
+    }
+    & > .discount {
+      @include item();
+    }
+    & > .persons {
+      @include item();
+    }
+    & > .expiresAt {
+      @include item();
+    }
+
+    & > .bigItem {
+      display: flex;
+      
+      & > .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        span {
+          color: #A0ACAF;
+          text-decoration: line-through;
+          margin-bottom: 4px;
+        }
+
+        p {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 19px;
+          line-height: 20px;
+          margin-top: 3%;
+          margin-bottom: 25px;
+        }
+      }
+    }
+
+    .image {
+      min-width: 140px;
+      height: 130px;
+      margin-right: 26px;
+      border-radius: 4px;
+    }
+
+
+    @include for-phone-only {
+      height: auto;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 15px rgba(160, 172, 175, 0.15);
+      padding: 14px;
+      margin: 30px 0;
+      
+      display: grid;
+      grid-template-areas: "info info" "price discount" "expire group";
+      grid-template-columns: 1.7fr 1fr;
+      grid-template-rows: 80px 80px 80px;
+
+      p {
+        font-size: 12px;
+        line-height: 16px;
+        color: #A0ACAF;
+      }
+      & > .bigItem {
+        grid-area: info;
+        border-bottom: 1px solid #F1F3F3;
+        height: 70px;
+        display: flex;
+        .price {
+          display: none;
+        }
+        span{
+          color: #A0ACAF;
+        }
+        p {
+          color: black;
+          font-size: 16px !important;
+          margin-left: 10px;
+        }
+      }
+      .image {
+        min-width: 60px !important;
+        height: 55px !important;
+        margin: 0;
+        border-radius: 4px;
+      }
+      & > .price {
+        display: block;
+        flex-direction: column;
+        grid-area: price;
+        padding-left: 8px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 15px;
+      }
+      & > .discount {
+        grid-area: discount;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 15px;
+      }
+      & > .persons {
+        grid-area: group;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 15px;
+      }
+      & > .expiresAt {
+        grid-area: expire;
+        padding-left: 8px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 15px;
+      }
+    }
+  }
+
+  & > .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 5%;
+    button {
+      height: 45px;
+      margin-right: 35px;
+      margin-bottom: 22px;
+      @include for-phone-only {
+        margin: 0px auto 10px;
+      }
+    }
+    p {
+      padding-right: 37px;
+      @include for-phone-only {
+        padding: 0;
+      }
+    }
+    a {
+      margin-left: 16px;
+      color: #EB5433;
+      text-decoration: none;
+      @include for-phone-only {
+        margin: 0px auto;
+      }
+    }
+  }
+}

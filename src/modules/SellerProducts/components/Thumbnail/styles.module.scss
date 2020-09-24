@@ -1,0 +1,26 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.thumbnail {
+  position: relative;
+  background-size: cover;
+  border-radius: 4px;
+  width: 112px;
+  height: 117px;
+
+  @include for-phone-only {
+    width: 86px;
+    height: 89px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 8.74px;
+  right: 8.74px;
+  cursor: pointer;
+
+  @include for-phone-only {
+    top: 7.08px;
+    right: 7.08px;
+  }
+}
