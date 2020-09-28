@@ -1,8 +1,3 @@
-.imagesArea {
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
 .container {
   overflow-x: scroll;
   ::-webkit-scrollbar {
@@ -33,6 +28,7 @@
   display: grid;
   grid-gap: 7px;
   grid-template-columns: repeat(5, 86px);
+  margin-top: 12px;
 }
 
 .label {

@@ -3,8 +3,8 @@ import Icon from '~/src/modules/MainApp/components/Icon'
 import UploadShape from '~/src/vectors/load-images.svg'
 import AddShape from '~/src/vectors/add.svg'
 import classes from './styles.module.scss'
-import AddPhotoButton from '../../../../components/AddPhotoButton'
-import ImageThumbnail from '../../../../components/Thumbnail'
+import AddPhotoButton from '../../AddPhotoButton'
+import ImageThumbnail from '../../Thumbnail'
 
 const UploadImageMobile = ({ photos = [], removePhotoByIndex, handleUploadFile }) => {
   if (!photos.length) {

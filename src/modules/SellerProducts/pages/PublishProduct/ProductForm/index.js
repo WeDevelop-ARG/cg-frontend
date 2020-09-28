@@ -10,7 +10,7 @@ import calculatePercentage from '~/src/utils/calculatePercentage'
 import useMediaQuery from '~/src/hooks/useMediaQuery'
 import ConfirmModal from '../../../components/ConfirmModal'
 import { useHistory } from 'react-router-dom'
-import UploadImageDesktop from './UploadImageDesktop'
+import UploadImageDesktop from '../../../components/ImagesToUploadSelector/UploadImageDesktop'
 import UploadImageMobile from './UploadImageMobile'
 
 const BREAK_POINT = '(max-device-width: 576px)'
@@ -119,7 +119,6 @@ const ProductForm = ({ nextStep, product, currentStep = 0, currentProduct = {} }
           ({ values, handleSubmit }) => (
             <>
               <div className={classes.container}>
-                <CurrentStep currentStep={currentStep} onBackButton={() => handleShowModal(values)} />
                 <div className={classes.forms}>
                   <Form className={classes.productInfo}>
                     <label className={classes.label}>Título</label>

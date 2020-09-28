@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Select from 'react-select'
 import DatePicker, { registerLocale } from 'react-datepicker'
-import CurrentStep from '../CurrentStep'
+import CurrentStep from '../../../components/CurrentStep'
 import createGroupHandler from './createGroupHandler'
 import Loading from '~/src/modules/MainApp/components/Loading'
 import TimePicker from './TimeSelect'

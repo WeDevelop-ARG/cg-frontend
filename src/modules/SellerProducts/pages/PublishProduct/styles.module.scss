@@ -1,0 +1,72 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.publishProduct {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% - 70px);
+  padding: 35px 75px 80px;
+
+  @include for-small-desktop-only {
+    padding: 20px 35px 30px;
+  }
+
+  @include for-large-tablet-only {
+    min-height: calc(100% - 50px);
+    padding: 12px 14px 14px;
+  }
+
+  @include for-phone-only {
+    padding: 0;
+  }
+}
+
+.homeLink {
+  text-decoration: none;
+  font-family: 'DM Sans';
+  font-size: 16px;
+  line-height: 18px;
+  color: #1A2224;
+  cursor: pointer;
+  display: block;
+
+  @include for-large-tablet-only {
+    display: none;
+  }
+}
+
+.title {
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 34px;
+  margin-top: 24px;
+  margin-bottom: 35px;
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.publishFormContainer {
+  background:#FFFFFF;
+  padding: 0 30px 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1 1 auto;
+
+  @include for-phone-only {
+    padding: 0;
+  }
+}
+
+.fullHeight {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  & > div {
+    flex: 1 1 auto;
+    display: flex;
+    height: 100%;
+  }
+}

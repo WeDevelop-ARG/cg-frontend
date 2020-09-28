@@ -1,10 +1,9 @@
 @import '~src/styles/mixin/media-screen.scss';
 
 .imagesArea {
-  @include for-phone-only {
-    grid-row-start: 1;
-    grid-row-end: 2;
-  }
+  width: inherit;
+  height: 350px;
+  overflow-x: hidden;
 }
 
 .label {
@@ -17,7 +16,6 @@
 }
 
 .dropzone {
-  max-width: 622px;
   height: 112px;
   background: #F7F8FA;
   border: 1px dashed #A0ACAF;
@@ -67,11 +65,12 @@
 }
 
 .photos {
+  overflow-y: visible;
+  overflow-x: auto;
   margin-top: 17px;
-  height: 119px;
-  max-width: 622px;
+  height: 150px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(110px, 120px));
   grid-gap: 13px;
 }
 

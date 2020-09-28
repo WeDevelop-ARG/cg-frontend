@@ -6,10 +6,8 @@ import Icon from '~/src/modules/MainApp/components/Icon'
 
 const Thumbnail = ({ src = '', onDelete, ...props }) => {
   return (
-    <div {...props}>
-      <div className={classes.thumbnail} style={{ backgroundImage: `url(${src})` }}>
-        {onDelete && <Icon onClick={onDelete} icon={CloseShape} className={classes.close} />}
-      </div>
+    <div {...props} className={classes.thumbnail} style={{ backgroundImage: `url(${src})` }}>
+      {onDelete && <Icon onClick={onDelete} icon={CloseShape} className={classes.close} />}
     </div>
   )
 }
