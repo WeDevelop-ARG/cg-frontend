@@ -33,8 +33,8 @@ const GroupForm = ({ ...stepWizardProps }) => {
         <HourPicker />
       </div>
       <div className={classes.formButtons}>
-        <button className={classes.linkBtn} onClick={() => stepWizardProps.previousStep()}>Volver</button>
-        <Button className={classes.publishBtn}>Publicar</Button>
+        <button className={classes.linkBtn} onClick={() => stepWizardProps.previousStep()} type='button'>Volver</button>
+        <Button className={classes.publishBtn} type='submit'>Publicar</Button>
       </div>
     </div>
   )

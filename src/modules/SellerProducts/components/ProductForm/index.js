@@ -25,23 +25,26 @@ const ProductForm = ({ ...stepWizardProps }) => {
     <div className={classes.container}>
       <div className={classes.forms}>
         <div className={classes.productInfo}>
-          <label className={classes.label}>Título</label>
-          <Input
-            name='title'
-            placeholder='Dale un título a tu producto'
-          />
-          <label className={classes.label}>Descripción</label>
-          <InputMultiLine
-            name='description'
-            placeholder='Dale una descripción a tu producto'
-          />
+          <div className={classes.field}>
+            <label className={classes.label}>Título</label>
+            <Input
+              name='title'
+              placeholder='Dale un título a tu producto'
+            />
+          </div>
+          <div className={classes.field}>
+            <label className={classes.label}>Descripción</label>
+            <InputMultiLine
+              name='description'
+              placeholder='Dale una descripción a tu producto'
+            />
+          </div>
           <PricesInput />
           <DiscountDisplay />
         </div>
         <ImageSelector />
       </div>
-      <span className={classes.continueDesktop} onClick={handleContinue}>Continuar &rsaquo;</span>
-      <button type='button' className={classes.continueMobile} onClick={handleContinue}>Continuar &rsaquo;</button>
+      <button type='button' className={classes.continue} onClick={handleContinue}>Continuar &rsaquo;</button>
     </div>
   )
 }

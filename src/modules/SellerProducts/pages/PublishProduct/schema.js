@@ -37,9 +37,9 @@ const schema = [
   Yup.object().shape({
     maxParticipants: Yup.number()
       .required('Se requiere un tipo de grupo'),
-    expiresAtDay: Yup.string()
+    dayExpiresAt: Yup.string()
       .required('Se requiere una dia de expiración del grupo'),
-    expiresAtHour: Yup.string()
+    hourExpiresAt: Yup.string()
       .required('Se requiere una hora de expiración del grupo')
   })
 ]

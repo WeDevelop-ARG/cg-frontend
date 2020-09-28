@@ -4,7 +4,7 @@ import { useFormikContext } from 'formik'
 import calculatePercentage from '~/src/utils/calculatePercentage'
 import classes from './styles.module.scss'
 
-const ProductForm = () => {
+const DiscountDisplay = () => {
   const { values, setFieldValue } = useFormikContext()
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const ProductForm = () => {
   }, [values?.marketPrice, values?.price])
 
   return (
-    <>
+    <div className={classes.field}>
       <label className={classes.label}>Descuento ofrecido</label>
       <div className={classes.discountArea}>
         <span className={classes.discountText}>El descuento que ofrecés es de un</span>
@@ -20,8 +20,8 @@ const ProductForm = () => {
           {values?.discount}%
         </span>
       </div>
-    </>
+    </div>
   )
 }
 
-export default ProductForm
+export default DiscountDisplay

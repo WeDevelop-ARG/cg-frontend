@@ -14,7 +14,7 @@
   top: 50px;
   left: 0;
   width: 90%;
-  height: 100%;
+  height: calc(100% - 50px);
   background: #FFFFFF;
   z-index: 99999;
   padding: 18px;
@@ -23,7 +23,6 @@
 .options {
   display: flex;
   flex-direction: column;
-  height: 100%;
 
   span, button {
     cursor: pointer;

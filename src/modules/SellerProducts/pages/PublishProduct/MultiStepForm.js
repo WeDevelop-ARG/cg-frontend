@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react'
 import { Formik, Form } from 'formik'
 import { schema, initialValues } from './schema'
 import StepWizard from 'react-step-wizard'
+import useCreateGroupMutation from '../../hooks/useCreateGroupMutation'
+import getCreateGroupMutationInput from './parseInput'
 
 import ProductForm from '../../components/ProductForm'
 import GroupForm from '../../components/GroupForm'
@@ -10,12 +12,15 @@ import './PublishProduct.scss'
 import classes from './styles.module.scss'
 import CurrentStep from '../../components/CurrentStep'
 
+const initialStep = 1
+
 const MultiStepForm = ({ openConfirmModal }) => {
-  const initialStep = 2
   const [step, setStep] = useState(initialStep)
+  const { createGroup } = useCreateGroupMutation()
 
   const handleSubmit = useCallback(async (data) => {
-    console.log(data)
+    const groupInput = await getCreateGroupMutationInput(data)
+    const response = await createGroup(groupInput)
   }, [])
 
   return (

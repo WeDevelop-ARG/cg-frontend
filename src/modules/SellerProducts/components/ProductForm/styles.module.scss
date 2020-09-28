@@ -2,6 +2,7 @@
 
 .container {
   height: 100%;
+  padding-bottom: 50px;
 }
 
 .forms {
@@ -41,7 +42,13 @@
   font-weight: normal;
   font-size: 14px;
   color: #1A2224;
-  margin-bottom: 10px !important;
+  margin-bottom: 10px;
+}
+
+.field {
+  & > * {
+    margin-top: 10px;
+  }
 }
 
 .prices {
@@ -92,8 +99,9 @@
   color: #1A2224;
 }
 
-.continueDesktop {
+.continue {
   border: none;
+  background: none;
   font-family: Font Awesome 5 Pro;
   font-style: normal;
   font-weight: normal;
@@ -111,25 +119,15 @@
   display: block;
 
   @include for-phone-only {
-    display: none;
-  }
-}
-
-.continueMobile {
-  @extend .continueDesktop;
-  display: none;
-  position: relative;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 50px;
-  background-color: #FFFFFF;
-  margin: 0;
-  background: #FFFFFF;
-  box-shadow: 0px -2px 20px rgba(160, 172, 175, 0.2);
-  vertical-align: middle;
-
-  @include for-phone-only {
-    display: block;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: #FFFFFF;
+    margin: 0;
+    margin-top: 100px;
+    background: #FFFFFF;
+    box-shadow: 0px -2px 20px rgba(160, 172, 175, 0.2);
+    vertical-align: middle;
   }
 }
