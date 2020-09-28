@@ -4,14 +4,14 @@ import { schema, initialValues } from './schema'
 import StepWizard from 'react-step-wizard'
 
 import ProductForm from '../../components/ProductForm'
-import GroupForm from './GroupForm'
+import GroupForm from '../../components/GroupForm'
 import EndPublish from './EndPublish'
 import './PublishProduct.scss'
 import classes from './styles.module.scss'
 import CurrentStep from '../../components/CurrentStep'
 
-const MultiStepForm = () => {
-  const initialStep = 0
+const MultiStepForm = ({ openConfirmModal }) => {
+  const initialStep = 2
   const [step, setStep] = useState(initialStep)
 
   const handleSubmit = useCallback(async (data) => {
@@ -22,7 +22,7 @@ const MultiStepForm = () => {
     <div className={classes.publishFormContainer}>
       <Formik
         initialValues={initialValues}
-        validationSchema={schema[step]}
+        validationSchema={schema[step - 1]}
         onSubmit={handleSubmit}
         validateOnMount
       >
@@ -32,10 +32,10 @@ const MultiStepForm = () => {
             initialStep={initialStep}
             onStepChange={(stepChanged) => setStep(stepChanged)}
             transitions={{}}
-            nav={<CurrentStep currentStep={step} />}
+            nav={<CurrentStep currentStep={step} openConfirmModal={openConfirmModal} />}
           >
             <ProductForm />
-            <h1>Second form</h1>
+            <GroupForm />
           </StepWizard>
         </Form>
       </Formik>

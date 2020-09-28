@@ -21,7 +21,7 @@ const PublishProduct = () => {
           &#60;  Volver a la pagina principal
         </a>
         <h1 className={classes.title}>Publicar Producto</h1>
-        <MultiStepForm />
+        <MultiStepForm openConfirmModal={() => setIsModalOpen(true)} />
       </div>
       {isModalOpen && (
         <ConfirmModal

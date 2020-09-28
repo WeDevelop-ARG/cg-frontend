@@ -1,7 +1,9 @@
 @import '~src/styles/mixin/media-screen.scss';
 
 .container {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: #1a22249e;

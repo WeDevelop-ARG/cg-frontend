@@ -1,0 +1,41 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.dateInput {
+  display: flex;
+  input {
+    width: 230px;
+    font-size: 16px;
+    line-height: 14px;
+    background: #FFFFFF;
+    height: 45px;
+    padding-left: 16px;
+    box-sizing: border-box;
+    border: 1px solid #F1F3F3;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    &:focus {
+      outline: none !important;
+      border-color: #719ECE;
+      box-shadow: 0 0 1px #719ECE;
+    }
+  }
+  img {
+    height: 45px;
+    padding: 11px;
+    background-color:#3561D1;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+}
+
+.expire {
+  margin-right: 20px;
+  @include for-phone-only {
+    margin-right: 0;
+    width: 100%;
+    div, input {
+      width: 100%;
+      box-shadow: none;
+    }
+  }
+}

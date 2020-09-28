@@ -1,6 +1,6 @@
 import React, { useState, useEffect, forwardRef } from 'react'
 
-import classes from './time.module.scss'
+import classes from './styles.module.scss'
 
 const TimeSelect = ({ setTimeString }, ref) => {
   const [time, setTime] = useState({ hours: '11', minutes: '59', zone: 'PM' })

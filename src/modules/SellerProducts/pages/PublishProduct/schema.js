@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import * as Yup from 'yup'
 
 const productInitialValues = {
@@ -10,9 +11,9 @@ const productInitialValues = {
 }
 
 const groupInitialValues = {
-  maxParticipants: '',
-  dayExpiresAt: '',
-  hourExpiresAt: ''
+  groupSize: '',
+  dayExpiresAt: dayjs().toISOString(),
+  hourExpiresAt: '11:59 PM'
 }
 
 const initialValues = {
