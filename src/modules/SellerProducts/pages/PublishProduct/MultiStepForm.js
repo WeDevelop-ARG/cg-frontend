@@ -9,7 +9,6 @@ import { logFormSubmit } from '~/src/utils/analytics'
 
 import ProductForm from '../../components/ProductForm'
 import GroupForm from '../../components/GroupForm'
-import './PublishProduct.scss'
 import classes from './styles.module.scss'
 import CurrentStep from '../../components/CurrentStep'
 

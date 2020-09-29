@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom'
 import ConfirmModal from '../../components/ConfirmModal'
 
 import MultiStepForm from './MultiStepForm'
-import './PublishProduct.scss'
 import classes from './styles.module.scss'
 
 const PublishProduct = () => {

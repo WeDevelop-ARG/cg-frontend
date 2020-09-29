@@ -2,7 +2,9 @@
 
 .container {
   height: 100%;
-  padding-bottom: 50px;
+  @include for-phone-only {
+    padding-bottom: 50px;
+  }
 }
 
 .forms {
