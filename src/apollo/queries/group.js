@@ -9,6 +9,7 @@ export default gql`
         ...product
       }
       type
+      discount
       minParticipants
       maxParticipants
       participantsCount

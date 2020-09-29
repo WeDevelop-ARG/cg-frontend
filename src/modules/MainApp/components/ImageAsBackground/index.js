@@ -17,7 +17,7 @@ const ImageAsBackround = ({ imageUrl, className }) => {
 
 ImageAsBackround.propTypes = {
   imageUrl: PropTypes.string.isRequired,
-  className: PropTypes.object
+  className: PropTypes.string
 }
 
 export default ImageAsBackround
