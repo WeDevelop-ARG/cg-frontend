@@ -2,11 +2,11 @@ import React from 'react'
 // import Home from './scenes/Home'
 import Checkout from './scenes/Checkout'
 import ProductDetail from './scenes/ProductDetail'
-import SellerLanding from './scenes/SellerLanding'
 import MyPurchases from './scenes/MyPurchases'
 import MainApp from './modules/MainApp'
 import Auth from './modules/Auth'
 import SellerProducts from './modules/SellerProducts'
+import SellerLanding from './modules/SellerLanding'
 import AuthContextProvider from './Contexts/AuthContext/provider'
 import { ToastProvider } from 'react-toast-notifications'
 import Toast from './components/Toast'
@@ -35,14 +35,12 @@ function App () {
             <Route path='/product-detail/:groupId' exact>
               {withNavbar(<ProductDetail />)}
             </Route>
-            <Route path='/quiero-vender' exact>
-              {withNavbar(<SellerLanding />)}
-            </Route>
             <Route path='/mis-compras' exact>
               {withNavbar(<MyPurchases />)}
             </Route>
             <Route path='/auth' component={Auth} />
             <Route path='/mis-productos' component={SellerProducts} />
+            <Route path='/quiero-vender' component={SellerLanding} />
             <MainApp />
           </Switch>
         </AuthContextProvider>

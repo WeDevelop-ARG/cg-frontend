@@ -1,0 +1,37 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.cardsContainer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-top: 60px;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.waves {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.cardsMobile {
+  height: auto;
+  width: 100%;
+}
+
+.onlyDesktop {
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.onlyMobile {
+  display: none;
+  @include for-phone-only {
+    display: initial;
+  }
+}
