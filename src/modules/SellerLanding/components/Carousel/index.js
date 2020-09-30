@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import classnames from 'classnames'
 import classes from './styles.module.scss'
 import Slider from './Slider'
 import SwipeableViews from 'react-swipeable-views'
 
-const Carousel = ({ items }) => {
+const Carousel = ({ items, className = '' }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const changeIndex = (nextIndex) => {
@@ -11,7 +12,7 @@ const Carousel = ({ items }) => {
   }
 
   return (
-    <div className={classes.carousel}>
+    <div className={classnames(classes.carousel, className)}>
       <SwipeableViews
         onSwitching={changeIndex}
         style={{

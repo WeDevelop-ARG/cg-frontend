@@ -4,7 +4,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  margin-top: 60px;
+  margin-top: 40px;
   padding: 20px 30px;
   display: flex;
   justify-content: space-evenly;
@@ -18,9 +18,23 @@
   left: 0;
 }
 
+.mobileWave {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 .cardsMobile {
+  position: relative;
+  padding-top: 60px;
   height: auto;
   width: 100%;
+}
+
+.carousel {
+  background:#F7F8FA;
 }
 
 .onlyDesktop {
