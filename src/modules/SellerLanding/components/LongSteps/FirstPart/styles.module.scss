@@ -1,0 +1,52 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.firstFourthSteps {
+  padding: 0 175.32px;
+  @include for-phone-only {
+    padding: 0 47px;
+  }
+}
+
+.howItWorks {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 55px;
+  text-align: center;
+  color: #1A2224;
+  text-align: center;
+
+  @include for-phone-only {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+.firstStep {
+  margin-top: 128px;
+  @include for-phone-only {
+    margin-top: 184px;
+  }
+}
+
+.secondStep {
+  margin-top: 255px;
+  @include for-phone-only {
+    margin-top: 204px;
+  }
+}
+
+.thirdStep {
+  margin-top: 244px;
+  @include for-phone-only {
+    margin-top: 212px;
+  }
+}
+
+.fourthStep {
+  margin-top: 255px;
+  @include for-phone-only {
+    margin-top: 219px;
+  }
+}

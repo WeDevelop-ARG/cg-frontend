@@ -2,8 +2,8 @@ import React from 'react'
 
 import classes from './styles.module.scss'
 
-const SixthStep = (props) => (
-  <div {...props}>
+const SixthStep = ({ className }) => (
+  <div className={className}>
     <div className={classes.sixthStepContainer}>
       <div className={classes.sixthStep}>
         <span className={classes.you}>VOS</span>

@@ -7,11 +7,11 @@ import FirstStep from '../FirstStep'
 import SecondStep from '../SecondStep'
 import ThirdStep from '../ThirdStep'
 import FourthStep from '../FourthStep'
-import GroupComplete from '../GroupComplete'
+import GroupComplete from '../../../components/GroupComplete'
 import FifthStep from '../FifthStep'
 import SixthStep from '../SixthStep'
 import SeventhStep from '../SeventhStep'
-import RegisterCard from '../RegisterCard'
+import RegisterCard from '../../../components/RegisterCard'
 import Carousel from '../../../components/Carousel'
 
 const Mobile = () => {

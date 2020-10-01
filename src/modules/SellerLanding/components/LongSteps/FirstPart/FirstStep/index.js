@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import classes from './styles.module.scss'
 
-const FirstStep = (props) => {
+const FirstStep = ({ className }) => {
   return (
-    <div {...props}>
+    <div className={className}>
       <div className={classes.container}>
         <span className={classes.you}>VOS</span>
         <span className={classes.loadProducts}>Cargá tus productos</span>

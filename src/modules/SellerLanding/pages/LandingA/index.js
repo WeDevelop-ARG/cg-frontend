@@ -1,18 +1,16 @@
 import React from 'react'
-import classes from './styles.module.scss'
-import LandingShapes from '~/src/vectors/landingv1-shapes.svg'
-import Banner from '../../components/BannerA'
 import Icon from '~/src/modules/MainApp/components/Icon'
-import FirstStep from './FirstStep'
-import SecondStep from './SecondStep'
-import ThirdStep from './ThirdStep'
-import FourthStep from './FourthStep'
-import GroupComplete from './GroupComplete'
-import FifthStep from './FifthStep'
-import SixthStep from './SixthStep'
-import SeventhStep from './SeventhStep'
-import RegisterCard from './RegisterCard'
+import Banner from '../../components/BannerA'
+import LongStepsFirstPart from '../../components/LongSteps/FirstPart'
+import LongStepsLastPart from '../../components/LongSteps/LastPart'
+import GroupComplete from '../../components/GroupComplete'
+import RegisterCard from '../../components/RegisterCard'
 import { useFireAnalyticsABPageExperimentEvent } from '~/src/utils/abTesting'
+
+import LandingShapes from '~/src/vectors/landingv1-shapes.svg'
+import LandingShapesMobile from '~/src/vectors/landing-shape-m.svg'
+import classnames from 'classnames'
+import classes from './styles.module.scss'
 
 const Landing = () => {
   useFireAnalyticsABPageExperimentEvent('SELLER_LANDING_A')
@@ -21,20 +19,11 @@ const Landing = () => {
     <div className={classes.landingContainer}>
       <Banner />
       <div className={classes.steps}>
-        <div className={classes.firstFourthSteps}>
-          <Icon className={classes.shapes} icon={LandingShapes} />
-          <h2 className={classes.howItWorks}>¿Cómo funciona?</h2>
-          <FirstStep className={classes.firstStep} />
-          <SecondStep className={classes.secondStep} />
-          <ThirdStep className={classes.thirdStep} />
-          <FourthStep className={classes.fourthStep} />
-        </div>
+        <Icon className={classnames(classes.shapes, classes.onlyDesktop)} icon={LandingShapes} />
+        <Icon className={classnames(classes.shapes, classes.onlyMobile)} icon={LandingShapesMobile} />
+        <LongStepsFirstPart />
         <GroupComplete />
-        <div className={classes.lastSteps}>
-          <FifthStep className={classes.fifthStep} />
-          <SixthStep className={classes.sixthStep} />
-          <SeventhStep className={classes.seventhStep} />
-        </div>
+        <LongStepsLastPart />
         <RegisterCard registerLinkId='seller_landing_a_cta_bottom' />
       </div>
     </div>

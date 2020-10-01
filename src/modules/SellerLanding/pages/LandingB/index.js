@@ -4,7 +4,7 @@ import Carousel from '../../components/Carousel'
 import Header from '../LandingA/Mobile/Header'
 import Steps from './Steps'
 import MobileSteps from './Steps/MobileSteps'
-import Register from '../LandingA/RegisterCard'
+import Register from '../../components/RegisterCard'
 import useMediaQuery from '~/src/hooks/useMediaQuery'
 import { useFireAnalyticsABPageExperimentEvent } from '~/src/utils/abTesting'
 

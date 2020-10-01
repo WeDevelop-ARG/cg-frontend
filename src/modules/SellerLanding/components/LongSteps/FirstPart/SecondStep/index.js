@@ -1,8 +1,8 @@
 import React from 'react'
 import classes from './styles.module.scss'
 
-const SecondStep = (props) => (
-  <div {...props}>
+const SecondStep = ({ className }) => (
+  <div className={className}>
     <div className={classes.secondStepContainer}>
       <div className={classes.secondStep}>
         <span className={classes.you}>VOS</span>

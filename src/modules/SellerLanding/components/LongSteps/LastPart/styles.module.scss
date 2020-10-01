@@ -1,0 +1,29 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.lastSteps {
+  padding: 0 175.32px;
+  @include for-phone-only {
+    padding: 0 47px;
+  }
+}
+
+.fifthStep {
+  margin-top: 170px;
+  @include for-phone-only {
+    margin-top: 207px;
+  }
+}
+
+.sixthStep {
+  margin-top: 297px;
+  @include for-phone-only {
+    margin-top: 265px;
+  }
+}
+
+.seventhStep {
+  margin-top: 297px;
+  @include for-phone-only {
+    margin-top: 248px;
+  }
+}

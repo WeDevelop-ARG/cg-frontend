@@ -1,8 +1,8 @@
 import React from 'react'
 import classes from './styles.module.scss'
 
-const ThirdStep = (props) => (
-  <div {...props}>
+const ThirdStep = ({ className }) => (
+  <div className={className}>
     <div className={classes.thirdStep}>
       <span className={classes.buyers}>LOS COMPRADORES</span>
       <span className={classes.choice}>Eligen el producto</span>

@@ -1,8 +1,8 @@
 import React from 'react'
 import classes from './styles.module.scss'
 
-const FifthStep = (props) => (
-  <div {...props}>
+const FifthStep = ({ className }) => (
+  <div className={className}>
     <div className={classes.fifthStep}>
       <span className={classes.you}>VOS</span>
       <span className={classes.notifications}>Recibí notificaciones</span>
