@@ -4,7 +4,7 @@ import FifthStep from './FifthStep'
 import SixthStep from './SixthStep'
 import SeventhStep from './SeventhStep'
 
-const Landing = () => {
+const LastPart = () => {
   return (
     <div className={classes.lastSteps}>
       <FifthStep className={classes.fifthStep} />
@@ -14,4 +14,4 @@ const Landing = () => {
   )
 }
 
-export default Landing
+export default LastPart

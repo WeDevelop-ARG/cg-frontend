@@ -1,42 +1,29 @@
 import React from 'react'
-import Banner from './Banner'
-import Carousel from '../../components/Carousel'
-import Header from '../LandingA/Mobile/Header'
-import Steps from './Steps'
-import MobileSteps from './Steps/MobileSteps'
+import Icon from '~/src/modules/MainApp/components/Icon'
+import Banner from '../../components/BannerB'
+import Steps from '../../components/ShortSteps'
 import Register from '../../components/RegisterCard'
-import useMediaQuery from '~/src/hooks/useMediaQuery'
 import { useFireAnalyticsABPageExperimentEvent } from '~/src/utils/abTesting'
 
+import LandingShapes from '~/src/vectors/landingB-desktop.svg'
+import LandingShapesMobile from '~/src/vectors/landingB-mobile.svg'
+import classnames from 'classnames'
 import classes from './styles.module.scss'
-const BREAK_POINT = '(max-device-width: 576px)'
 
-const LandingV2 = () => {
-  const isMobile = useMediaQuery(BREAK_POINT)
+const LandingB = () => {
   useFireAnalyticsABPageExperimentEvent('SELLER_LANDING_B')
-
-  if (isMobile) {
-    return (
-      <div className={classes.mobileContainer}>
-        <Header schemeColor='blue' />
-        <Carousel />
-        <MobileSteps />
-        <Register
-          registerLinkId='seller_landing_b_cta_bottom'
-        />
-      </div>
-    )
-  }
 
   return (
     <div className={classes.container}>
       <Banner />
-      <Steps />
-      <Register
-        registerLinkId='seller_landing_b_cta_bottom'
-      />
+      <div className={classes.steps}>
+        <Icon className={classnames(classes.shapes, classes.onlyDesktop)} icon={LandingShapes} />
+        <Icon className={classnames(classes.shapes, classes.onlyMobile)} icon={LandingShapesMobile} />
+        <Steps />
+        <Register registerLinkId='seller_landing_b_cta_bottom' />
+      </div>
     </div>
   )
 }
 
-export default LandingV2
+export default LandingB
