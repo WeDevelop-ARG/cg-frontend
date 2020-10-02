@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
-import AuthContext from '../../../Contexts/AuthContext/context'
-import Icon from '../../Icon'
-import MenuShape from '../../../vectors/menu.svg'
+import AuthContext from '~/src/Contexts/AuthContext/context'
+import Icon from '~/src/components/Icon'
+import MenuShape from '~/src/vectors/menu.svg'
 
 import classes from './styles.module.scss'
 

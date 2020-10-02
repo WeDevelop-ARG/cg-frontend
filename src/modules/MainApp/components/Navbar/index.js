@@ -1,9 +1,9 @@
 import React, { useContext, useState, useRef, useEffect } from 'react'
 import { useHistory, useLocation, Link } from 'react-router-dom'
-import AuthContext from '../../Contexts/AuthContext/context'
-import AngleUp from '../../vectors/angle-up.svg'
-import AngleDown from '../../vectors/angle-down.svg'
-import useMediaQuery from '../../hooks/useMediaQuery'
+import AuthContext from '~/src/Contexts/AuthContext/context'
+import AngleUp from '~/src/vectors/angle-up.svg'
+import AngleDown from '~/src/vectors/angle-down.svg'
+import useMediaQuery from '~/src/hooks/useMediaQuery'
 import Mobile from './Mobile'
 import classes from './styles.module.scss'
 
