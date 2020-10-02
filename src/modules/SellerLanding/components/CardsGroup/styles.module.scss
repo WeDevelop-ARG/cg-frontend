@@ -38,14 +38,14 @@
 }
 
 .onlyDesktop {
-  @include for-phone-only {
+  @include for-small-tablet-only {
     display: none;
   }
 }
 
 .onlyMobile {
   display: none;
-  @include for-phone-only {
+  @include for-small-tablet-only {
     display: initial;
   }
 }

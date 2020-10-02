@@ -2,13 +2,32 @@
 
 .lastSteps {
   padding: 0 175.32px;
+
+  @include for-small-desktop-only {
+    padding: 0 80px;
+  }
+
+  @include for-large-tablet-only {
+    padding: 0 40px;
+  }
+
   @include for-phone-only {
-    padding: 0 47px;
+    padding: 0 20px;
   }
 }
 
 .fifthStep {
   margin-top: 170px;
+
+  @include for-small-desktop-only {
+    margin-top: 100px;
+  }
+
+  @include for-small-tablet-only {
+    margin: 0 auto;
+    margin-top: 500px;
+  }
+
   @include for-phone-only {
     margin-top: 207px;
   }
@@ -16,14 +35,47 @@
 
 .sixthStep {
   margin-top: 297px;
+  margin-left: auto;
+
+  @include for-small-desktop-only {
+    margin-top: 240px;
+  }
+
+  @include for-large-tablet-only {
+    margin-top: 200px;
+  }
+
+  @include for-small-tablet-only {
+    margin: 0 auto;
+    margin-top: 520px;
+  }
+
   @include for-phone-only {
-    margin-top: 265px;
+    margin-top: 250px;
   }
 }
 
 .seventhStep {
-  margin-top: 297px;
+  margin-top: 310px;
+  padding-bottom: 280px;
+
+  @include for-small-desktop-only {
+    margin-top: 245px;
+    padding-bottom: 160px;
+  }
+
+  @include for-large-tablet-only {
+    margin-top: 190px;
+  }
+
+  @include for-small-tablet-only {
+    margin: 0 auto;
+    padding-bottom: 195px;
+    margin-top: 500px;
+  }
+
   @include for-phone-only {
-    margin-top: 248px;
+    margin-top: 225px;
+    padding-bottom: 80px;
   }
 }

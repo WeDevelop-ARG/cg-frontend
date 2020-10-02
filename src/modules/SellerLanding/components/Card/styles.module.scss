@@ -12,7 +12,11 @@
   display: flex;
   flex-direction: column;
 
-  @include for-phone-only {
+  @include for-large-tablet-only {
+    padding: 25px 20px;
+  }
+
+  @include for-small-tablet-only {
     height: 230px;
     max-width: unset;
     width: calc(100% - 40px);

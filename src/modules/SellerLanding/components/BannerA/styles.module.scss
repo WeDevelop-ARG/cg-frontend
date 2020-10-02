@@ -13,14 +13,17 @@
     margin: 60px auto 0;
   }
 
+  @include for-large-tablet-only {
+    button {
+      margin: 30px auto 10px;
+    }
+  }
+
   @include for-phone-only {
     min-height: auto;
     position: relative;
     padding-top: 30px;
     text-align: center;
-    button {
-      margin: 30px auto 10px;
-    }
   }
 }
 
@@ -35,6 +38,11 @@
   text-align: center;
   color: #3561D1;
   margin: 0 auto 26px auto;
+
+  @include for-large-tablet-only {
+    font-size: 40px;
+    line-height: 42px;
+  }
 
   @include for-phone-only {
     font-size: 22px;
@@ -55,8 +63,13 @@
   max-width: 845px;
   margin: 0;
 
-  @include for-phone-only {
+  @include for-large-tablet-only {
     padding: 0 20px;
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  @include for-phone-only {
     font-size: 16px;
     line-height: 21px;
   }
