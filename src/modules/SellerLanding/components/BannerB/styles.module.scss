@@ -50,8 +50,11 @@
   max-width: 845px;
   margin: 0 0 20px;
 
-  @include for-phone-only {
+  @include for-small-tablet-only {
     padding: 0 20px;
+  }
+
+  @include for-phone-only {
     font-size: 16px;
     line-height: 21px;
   }

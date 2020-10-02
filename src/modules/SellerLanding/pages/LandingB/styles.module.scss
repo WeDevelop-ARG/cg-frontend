@@ -1,7 +1,7 @@
 @import '~src/styles/mixin/media-screen.scss';
 
 .container {
-  height: 100%;
+  width: 100%;
 
   @include for-phone-only {
     padding-bottom: 62px;
@@ -9,9 +9,17 @@
 }
 
 .steps {
-  margin-top: 90px;
+  margin-top: 110px;
+  max-width: 1600px;
+  margin: 0 auto;
   position: relative;
+
+  @include for-small-tablet-only {
+    margin-bottom: 40px;
+  }
+
   @include for-phone-only {
+    margin-bottom: 0;
     margin-top: 20px;
   }
 }
@@ -22,20 +30,34 @@
   left: 50%;
   top: 158px;
 
+  @include for-small-desktop-only {
+    width: 992px;
+  }
+
+  @include for-large-tablet-only {
+    width: 768px;
+  }
+
+  @include for-small-tablet-only {
+    width: 570px;
+    top: 90px;
+  }
+
   @include for-phone-only {
+    width: unset;
     top: 58px;
   }
 }
 
 .onlyDesktop {
-  @include for-phone-only {
+  @include for-small-tablet-only {
     display: none;
   }
 }
 
 .onlyMobile {
   display: none;
-  @include for-phone-only {
+  @include for-small-tablet-only {
     display: initial;
   }
 }

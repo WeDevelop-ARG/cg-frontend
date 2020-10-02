@@ -1,13 +1,22 @@
 @import '~src/styles/mixin/media-screen.scss';
 
 .shortSteps {
-  margin: 0 auto;
-  max-width: 1600px;
   padding: 0 175.32px;
-  margin-bottom: 300px;
+  margin-bottom: 280px;
+
+  @include for-small-desktop-only {
+    margin-bottom: 240px;
+    padding: 0 80px;
+  }
+
+  @include for-large-tablet-only {
+    margin-bottom: 175px;
+    padding: 0 40px;
+  }
+
   @include for-phone-only {
     margin-bottom: 90px;
-    padding: 0 47px;
+    padding: 0 20px;
   }
 }
 
@@ -28,22 +37,61 @@
 }
 
 .firstStep {
-  margin-top: 184px;
+  margin-top: 140px;
+
+  @include for-small-desktop-only {
+    margin-top: 140px;
+  }
+
+  @include for-small-tablet-only {
+    margin: 0 auto;
+    margin-top: 320px;
+  }
+
   @include for-phone-only {
-    margin-top: 200px;
+    margin-top: 180px;
   }
 }
 
 .secondStep {
-  margin-top: 295px;
+  margin-top: 300px;
+  margin-left: auto;
+
+  @include for-small-desktop-only {
+    margin-top: 260px;
+  }
+
+  @include for-large-tablet-only {
+    margin-top: 190px;
+  }
+
+  @include for-small-tablet-only {
+    margin: 0 auto;
+    margin-top: 500px;
+  }
+
   @include for-phone-only {
-    margin-top: 204px;
+    margin-top: 215px;
   }
 }
 
 .thirdStep {
-  margin-top: 305px;
+  margin-top: 320px;
+
+  @include for-small-desktop-only {
+    margin-top: 300px;
+  }
+
+  @include for-large-tablet-only {
+    margin-top: 240px;
+  }
+
+  @include for-small-tablet-only {
+    margin: 0 auto;
+    margin-top: 500px;
+  }
+
   @include for-phone-only {
-    margin-top: 250px;
+    margin-top: 230px;
   }
 }
