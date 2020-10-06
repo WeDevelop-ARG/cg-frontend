@@ -1,0 +1,64 @@
+@import '~src/styles/mixin/media-screen.scss';
+@import '~src/styles/base/_fonts.scss';
+@import '~src/styles/base/_colors.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 34, 36, 0.4);
+  z-index: 99;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: $white;
+  border-radius: 6px;
+
+  @include for-phone-only {
+    height: 311px;
+  }
+}
+
+.overlay {
+  display: flex;
+  z-index: 100;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 100px;
+  margin: 6px 0 16px 0;
+}
+
+.title {
+ @extend .DMSansMedium;
+ color: $black;
+ font-size: 22px;
+ line-height: 26px;
+}
+
+.close {
+  position: relative;
+  margin-top: 3px;
+  cursor: pointer;
+
+  & > img {
+    filter: opacity(0.6);
+  }
+
+  &:hover > img {
+    filter: opacity(1);
+  }
+}
