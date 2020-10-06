@@ -1,13 +1,13 @@
 import React from 'react'
 
-import useGroupsQuery from '../../hooks/useGroupsQuery'
+import useGroupsQuery from '~/src/hooks/useGroupsQuery'
+import Banner from '~/src/components/HomeBanner'
+import CategoryDisplay from '~/src/components/CategoryDisplay'
+import Loading from '~/src/components/Loading'
 
-import Banner from '../../components/HomeBanner'
-import CategoryDisplay from '../../components/CategoryDisplay'
+import categories from './categories'
 
 import classes from './styles.module.scss'
-import categories from './categories'
-import Loading from '../../components/Loading'
 
 const Landing = () => {
   const { groups, loading } = useGroupsQuery()
