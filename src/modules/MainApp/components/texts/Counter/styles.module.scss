@@ -1,0 +1,6 @@
+@import '~src/styles/base/_fonts.scss';
+
+.counter {
+  @extend .DMSansMedium;
+  font-size: 16px;
+}

@@ -1,0 +1,6 @@
+@import '~src/styles/base/_fonts.scss';
+
+.title {
+  @extend .DMSansRegular;
+  font-size: 30px;
+}

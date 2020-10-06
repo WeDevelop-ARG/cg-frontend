@@ -1,0 +1,6 @@
+@import '~src/styles/base/_fonts.scss';
+
+.button {
+  @extend .DMSansMedium;
+  font-size: 18px;
+}

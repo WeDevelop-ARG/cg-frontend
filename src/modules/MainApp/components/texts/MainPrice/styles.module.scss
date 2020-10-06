@@ -1,0 +1,6 @@
+@import '~src/styles/base/_fonts.scss';
+
+.mainPrice {
+  @extend .DMSansBold;
+  font-size: 16px;
+}
