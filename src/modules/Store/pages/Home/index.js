@@ -9,7 +9,7 @@ import categories from './categories'
 
 import classes from './styles.module.scss'
 
-const Landing = () => {
+const Home = () => {
   const { groups, loading } = useGroupsQuery()
 
   if (!groups) return undefined
@@ -34,4 +34,4 @@ const Landing = () => {
   )
 }
 
-export default Landing
+export default Home
