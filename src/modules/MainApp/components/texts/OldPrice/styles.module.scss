@@ -4,6 +4,7 @@
 .oldPrice {
   @extend .DMSansRegular;
   font-size: 16px;
+  line-height: 22px;
   text-decoration: line-through;
   color: $gray;
 }

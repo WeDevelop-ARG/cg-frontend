@@ -1,7 +1,7 @@
 @import '~src/styles/base/_fonts.scss';
 
-.mainPrice {
-  @extend .DMSansBold;
+.subtitle {
+  @extend .DMSansMedium;
   font-size: 26px;
   line-height: 34px;
 }
