@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import useSubscribedGroupsQuery from '../../hooks/useSubscribedGroupsQuery'
-import Loading from '../../components/Loading'
+import useSubscribedGroupsQuery from '~/src/hooks/useSubscribedGroupsQuery'
+import Loading from '~/src/modules/MainApp/components/Loading'
+import Subtitle from '~/src/modules/MainApp/components/Subtitle'
 
 import EmptyProductList from './NoPurchases'
 import PurchasesDisplay from './PurchasesDisplay'
@@ -17,10 +18,10 @@ const MyPurchases = () => {
 
   return (
     <div className={classes.purchases}>
-      <Link to='/' className={classes.goHome}>
+      <Link className={classes.goHome} to='/'>
         &#60;  Volver a la pagina principal
       </Link>
-      <h1>Mis compras</h1>
+      <Subtitle className={classes.title}>Mis compras</Subtitle>
       <div className={classes.container}>
         {
           subscribedGroups.length ? (

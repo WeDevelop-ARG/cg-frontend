@@ -1,0 +1,27 @@
+@import '~src/styles/base/_fonts.scss';
+@import '~src/styles/base/_colors.scss';
+@import './mixins';
+
+.purchases {
+  padding: 35px 5%;
+  width: 100%;
+  background: $gray-lightest;
+}
+
+.container {
+  width: 100%;
+  height: fill;
+  background: $white;
+}
+
+.goHome {
+  text-decoration: none;
+  color: $black;
+  &:hover{
+    color: rgb(82, 102, 102);
+  }
+}
+
+.title {
+  margin: 24px 0 35px 0;
+}

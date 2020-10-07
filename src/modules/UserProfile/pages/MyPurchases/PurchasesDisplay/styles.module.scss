@@ -1,0 +1,43 @@
+@import '~src/styles/base/_colors.scss';
+
+.displayContainer {
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    padding: 0;
+    list-style: none
+  }
+
+  li {
+    padding: 0;
+  }
+
+  button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+.statusHeaders {
+  ul {
+    display: flex;
+    justify-items: flex-start;
+    border-bottom: 2px solid $gray-light;
+  }
+
+  li {
+    position: relative;
+    bottom: -2px;
+    padding: 5px 45px 12px;
+    &:first-child {
+      border-bottom: 3px solid $primary-red;
+    }
+  }
+}
+
+.listContainer {
+  padding: 0;
+}

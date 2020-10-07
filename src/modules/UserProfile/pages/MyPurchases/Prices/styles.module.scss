@@ -1,0 +1,16 @@
+@import '~src/styles/base/_colors.scss';
+
+.prices {
+  align-self: center;
+  margin-left: 3px;
+}
+
+.oldPrice {
+  color: $gray;
+  text-decoration: line-through;
+  line-height: 22px;
+}
+
+.newPrice {
+  margin-top: 10px;
+}

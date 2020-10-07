@@ -1,0 +1,40 @@
+@import '/styles/base/_fonts.scss';
+@import '/styles/base/_colors.scss';
+
+.groupProgress {
+  width: 155px;
+  height: 42px;
+}
+
+.img {
+  margin-right: 5px;
+}
+
+.groupProgressUnits {
+  width: 100%;
+  margin: 8px 0px 9px 0;
+  display: flex;
+}
+
+.groupProgressPercentDetail {
+  width: 100%;
+  display: flex;
+  margin: 8px 0px;
+}
+
+.discount {
+  color: $primary-red;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.info {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.howMuchPeopleStillRequired {
+  margin: 6px 0px;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PurchaseList from './PurchasedList'
+import PurchaseList from '../PurchasedList'
 import classes from './styles.module.scss'
 
 const PurchasesDisplay = ({ groups }) => {

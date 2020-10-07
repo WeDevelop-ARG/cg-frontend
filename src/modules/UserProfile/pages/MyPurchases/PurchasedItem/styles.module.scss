@@ -1,0 +1,24 @@
+@import '~src/styles/base/_fonts.scss';
+@import '~src/styles/base/_colors.scss';
+@import '../mixins';
+
+.container {
+  width: 100%;
+  height: fill;
+  background: $white;
+}
+
+.item {
+  @include listGrid();
+  height: 130px;
+  padding: 12px 30px;
+  border-top: 1px solid $gray-light;
+  border-bottom: 1px solid $gray-light;
+}
+
+.expiresAt {
+  margin-top: 20px;
+  max-width: 100px;
+  position: relative;
+  left: 15px;
+}

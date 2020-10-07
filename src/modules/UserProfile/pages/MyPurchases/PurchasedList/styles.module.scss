@@ -1,0 +1,10 @@
+@import '~src/styles/base/_colors.scss';
+@import '../mixins';
+
+.listHeaders {
+  @include listGrid();
+  padding: 0px 30px;
+  font-size: 14px;
+  line-height: 22px;
+  color: $gray
+}
