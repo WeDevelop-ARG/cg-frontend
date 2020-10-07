@@ -3,7 +3,9 @@
 
 .textLink {
   @extend .DMSansMedium;
+  display: inline;
   color: $accent-blue;
   font-size: 16px;
   cursor: pointer;
+  text-decoration: none;
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Text = ({ className, children, ...restProps }) => {
   return (
-    <span className={className} {...restProps}>{children}</span>
+    <div className={className} {...restProps}>{children}</div>
   )
 }
 
