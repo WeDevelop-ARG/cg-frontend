@@ -1,3 +1,5 @@
+@import './styles/base/colors.scss';
+
 @font-face {
   font-family: 'DM Sans';
   font-style: normal;
@@ -8,7 +10,14 @@
 @font-face {
   font-family: 'DM Sans';
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
+  src: local('DM Sans'), url(./fonts/DMSans-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
   src: local('DM Sans'), url(./fonts/DMSans-Bold.ttf) format('truetype');
 }
 
@@ -20,10 +29,17 @@ html, body, #root {
   font-family: DM Sans, sans-serif;
   box-sizing:  border-box;
   outline: none;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+a {
+  line-height: 18px;
+  text-decoration: none;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #F7F8FA;
+  background-color: $gray-lightest;
 };
