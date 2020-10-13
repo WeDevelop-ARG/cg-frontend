@@ -1,0 +1,78 @@
+.container {
+  margin:  85px 0 65px 0;
+  grid-column: 8 / 13;
+}
+
+.title {
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 30px;
+  line-height: 39px;
+  margin-bottom: 27px;
+}
+
+.labelLineContainer {
+  display: flex;
+}
+
+.label{
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.labelTitle {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.labelLineLabel {
+  @extend .label;
+  margin-right: 8px;
+}
+
+.labelLineTitle {
+  @extend .labelTitle;
+  margin-bottom: 10px;
+}
+
+.button {
+  width: 370px;
+  height: 45px;
+  margin: 30px 0 43px 0;
+}
+
+.restParticipants {
+  margin-top: 9px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.shareCTA {
+  margin: 3px 15px 8px 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.howManyLeft {
+  width: 315px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.socialMedia {
+  display: flex;
+  justify-content: space-around;
+  min-width: 120px;
+}
+
+.advertise {
+  font-size: 12px;
+  line-height: 18px;
+  opacity: 0.7;
+}

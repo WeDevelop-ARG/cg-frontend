@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { Orange as Button } from '../../../components/Button/Default'
-import GroupProgress from '../../../components/GroupProgress'
+import { Orange as Button } from '~/src/components/Button/Default'
+import GroupProgress from '~/src/components/GroupProgress'
 
-import Banner from './Banner'
-import Costs from './Costs'
+import Banner from '../Banner'
+import Costs from '../Costs'
 
-import { FaceBook, Instagram, Twitter } from '../../../components/SocialMediaIcons'
+import { FaceBook, Instagram, Twitter } from '~/src/components/SocialMediaIcons'
 
-import './styles.scss'
+import classes from './styles.module.scss'
 
 const Descriptions = ({
   title = '',
@@ -25,58 +25,58 @@ const Descriptions = ({
   const restOfParticipants = minParticipants - currentParticipants
 
   return (
-    <div className='product-detail__descriptions'>
+    <div className={classes.container}>
       <Banner expiresAt={expiresAt} />
-      <div className='product-detail__descriptions__title'>
+      <div className={classes.title}>
         <span>{title}</span>
       </div>
       <Costs price={price} oldPrice={oldPrice} />
-      <div className='product-detail__descriptions__label-line'>
-        <span className='product-detail__descriptions__label-line--label'>
+      <div className={classes.labelLineContainer}>
+        <span className={classes.labelLineLabel}>
           Marca:
         </span>
-        <span className='product-detail__descriptions__label-line--title'>
+        <span className={classes.labelLineTitle}>
           {brand}
         </span>
       </div>
-      <div className='product-detail__descriptions__label-line'>
-        <span className='product-detail__descriptions__label-line--label'>
+      <div className={classes.labelLineContainer}>
+        <span className={classes.labelLineLabel}>
           Color:
         </span>
-        <span className='product-detail__descriptions__label-line--title'>
+        <span className={classes.labelLineTitle}>
           {colors.join(', ')}
         </span>
       </div>
-      <div className='product-detail__descriptions__label'>
+      <div className={classes.label}>
         Descripción:
       </div>
-      <p className='product-detail__descriptions__label--title'>
+      <p className={classes.labelTitle}>
         {description}
       </p>
-      <div className='product-detail__descriptions--button'>
+      <div className={classes.button}>
         <Button onClick={() => onBuy()}>
           ¡Lo quiero!
         </Button>
       </div>
       <GroupProgress currentParticipants={currentParticipants} minParticipants={minParticipants} />
       {restOfParticipants > 0 && (
-        <div className='product-detail__descriptions__rest-participants'>
+        <div className={classes.restParticipants}>
           <div>
-            <span className='product-detail__descriptions__rest-participants--rest'>
+            <span className={classes.howManyLeft}>
               {`¡Faltan ${restOfParticipants} compradores para completar el grupo!`}
             </span>
-            <p>
+            <p className={classes.shareCTA}>
               Compartí y sumá gente para acceder más rapido a tu producto
             </p>
           </div>
-          <div className='product-detail__descriptions__rest-participants--socialmedia'>
+          <div className={classes.socialMedia}>
             <FaceBook />
             <Instagram />
             <Twitter />
           </div>
         </div>
       )}
-      <p className='product-detail__descriptions__advertise'>
+      <p className={classes.advertise}>
         Tu compra se hará efectiva una vez que el grupo se complete. En el caso de que esto no ocurra, te devolvemos el total de tu dinero.
       </p>
     </div>

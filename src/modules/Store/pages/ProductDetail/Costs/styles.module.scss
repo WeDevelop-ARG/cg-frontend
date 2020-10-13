@@ -1,0 +1,55 @@
+@import '~src/styles/base/_colors.scss';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2px;
+  margin-bottom: 12px;
+  border-bottom: 0.5px solid $gray;
+}
+
+.prices {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.oldPrice {
+  margin-right: 16px;
+  font-size: 20px;
+  line-height: 22px;
+  text-decoration-line: line-through;
+  color: $gray;
+}
+
+.currentPrice {
+  height: 42px;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 42px;
+  color: $black;
+}
+
+.delivery {
+  display: flex;
+  flex: none;
+  justify-content: space-between;
+  padding: 1px 16px;
+  margin: 12px 0px;
+  border: 1px solid $accent-blue;
+  border-radius: 34px;
+
+  img {
+    margin-right: 10px;
+  }
+}
+
+.deliveryText {
+  color: $accent-blue;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 12px 0px;
+  text-align: center;
+}

@@ -1,16 +1,17 @@
 import React, { useState, useContext } from 'react'
-import useGroupQuery from '../../hooks/useGroupQuery'
-import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
-import AuthContext from '../../Contexts/AuthContext/context'
-import Loading from '../../components/Loading'
+import useGroupQuery from '~/src/hooks/useGroupQuery'
+import useSubscribeToGroup from '~/src/hooks/useSubscribeToGroupMutation'
+import AuthContext from '~/src/Contexts/AuthContext/context'
+import Loading from '~/src/components/Loading'
 
 import { useParams, Redirect, useHistory } from 'react-router-dom'
 
-import EndCheckout from '../Checkout/EndCheckout'
+import EndCheckout from '~/src/scenes/Checkout/EndCheckout'
 
-import './ProductDetail.scss'
 import Descriptions from './Descriptions'
 import Pictures from './Pictures'
+
+import classes from './styles.module.scss'
 
 const ProductDetail = () => {
   const { status: isLogged, currentUser } = useContext(AuthContext)
@@ -50,13 +51,13 @@ const ProductDetail = () => {
   if (endCheckout) return <EndCheckout group={group} />
 
   const {
-    name = '',
-    marketPrice: oldPrice = 0,
-    price = 0,
-    brand = 'Best brand',
-    colors = ['Rojo', 'Azul', 'Blancos'],
-    description = '',
-    photos = []
+    name = product.name || '',
+    marketPrice: oldPrice = product.oldPrice || 0,
+    price = product.price || 0,
+    brand = product.brand || 'Desconocida',
+    colors = product.colors || ['Rojo', 'Azul', 'Blanco'],
+    description = product.description || '',
+    photos = product.photos || []
   } = product
 
   const {
@@ -69,8 +70,8 @@ const ProductDetail = () => {
   const photosUrls = photos.map(getUrls)
 
   return (
-    <div className='product-detail--container'>
-      <div className='product-detail'>
+    <div className={classes.container}>
+      <div className={classes.productDetail}>
         <Pictures oldPrice={oldPrice} price={price} photoUrls={photosUrls} />
         <Descriptions
           title={name}

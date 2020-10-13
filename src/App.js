@@ -1,7 +1,7 @@
 import React from 'react'
 // import Home from './scenes/Home'
 import Checkout from './scenes/Checkout'
-import ProductDetail from './scenes/ProductDetail'
+import ProductDetail from './modules/Store/pages/ProductDetail'
 import MyPurchases from './modules/UserProfile/pages/MyPurchases'
 import MainApp from './modules/MainApp'
 import Auth from './modules/Auth'
