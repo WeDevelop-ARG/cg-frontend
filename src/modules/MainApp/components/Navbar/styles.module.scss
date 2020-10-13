@@ -15,6 +15,7 @@
   line-height: 16px;
 
   @include for-small-tablet-only {
+    justify-content: flex-start;
     padding: 0 18px;
     height: 50px;
     max-height: 50px;
@@ -29,8 +30,44 @@
   color: #1A2224;
   padding-left: 40px;
   text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+  line-height: 16px;
 
   &:hover{
     color: rgb(82, 102, 102);
+  }
+
+  @include for-small-tablet-only {
+    padding-left: 12px;
+    padding-bottom: 25px;
+  }
+}
+
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: calc(100% - 50px);
+  width: 90%;
+  max-width: 400px;
+  background: #FFFFFF;
+  z-index: 99;
+  padding: 18px;
+}
+
+.mobileOnly {
+  display: none;
+  @include for-small-tablet-only {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.desktopOnly {
+  @include for-small-tablet-only {
+    display: none;
   }
 }

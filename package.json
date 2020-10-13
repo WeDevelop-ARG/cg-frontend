@@ -33,6 +33,7 @@
     "components": "^0.1.0",
     "date-fns": "^2.16.1",
     "dayjs": "^1.8.36",
+    "disable-scroll": "^0.5.1",
     "firebase": "^7.21.0",
     "formik": "^2.1.5",
     "graphql": "^14.7.0",
