@@ -1,125 +1,56 @@
-import React, { useContext, useState, useRef, useEffect } from 'react'
-import { useHistory, useLocation, Link } from 'react-router-dom'
+import React, { useContext, useState, useEffect } from 'react'
+import { useLocation, Link } from 'react-router-dom'
 import AuthContext from '~/src/Contexts/AuthContext/context'
-import AngleUp from '~/src/vectors/angle-up.svg'
-import AngleDown from '~/src/vectors/angle-down.svg'
-import useMediaQuery from '~/src/hooks/useMediaQuery'
-import Mobile from './Mobile'
+import UserDropdown from './UserDropdown'
 import classes from './styles.module.scss'
 
-const BREAK_POINT = '(max-device-width: 768px)'
-
-const Navbar = () => {
+const UnregisteredItems = () => {
   const location = useLocation()
-  const isMobile = useMediaQuery(BREAK_POINT)
-  const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   const [inQuieroVender, setInQuieroVender] = useState(false)
-  const { status, handleLogout, currentUser } = useContext(AuthContext)
 
   useEffect(() => {
     setInQuieroVender(location.pathname.includes('quiero-vender'))
   }, [location])
 
-  const dropdownRef = useRef(null)
-  const dropdownButtonRef = useRef(null)
-
-  const verifyClick = (e) => {
-    if (dropdownRef && dropdownButtonRef) {
-      if (!dropdownRef.current || !dropdownButtonRef.current) {
-        setIsDropdownOpened(false)
-      } else if (!dropdownRef.current.contains(e.target) && !dropdownButtonRef.current.contains(e.target)) {
-        setIsDropdownOpened(false)
+  return (
+    <>
+      {
+        inQuieroVender ? (
+          <Link id='navbar_products_link' className={classes.navItem}>
+            Productos
+          </Link>
+        ) : (
+          <Link to='/quiero-vender' className={classes.navItem}>
+            Quiero vender
+          </Link>
+        )
       }
-    }
-  }
+      <Link to='/auth/signup' className={classes.navItem}>
+        Creá tu cuenta
+      </Link>
+      <Link to='/auth/signin' className={classes.navItem}>
+        Ingresá
+      </Link>
+    </>
+  )
+}
 
-  useEffect(() => {
-    document.addEventListener('click', verifyClick, false)
+const RegisteredItems = () => {
+  return (
+    <>
+      <UserDropdown />
+    </>
+  )
+}
 
-    return () => {
-      document.removeEventListener('click', verifyClick, false)
-    }
-  }, [])
-
-  const history = useHistory()
-
-  const logout = () => {
-    setIsDropdownOpened(false)
-    handleLogout()
-  }
-
-  const goToSignin = () => history.push('/auth/signin')
-
-  const goToSignup = () => history.push('/auth/signup')
-
-  const goTo = (path) => {
-    setIsDropdownOpened(false)
-    history.push(path)
-  }
-
-  if (isMobile) return <Mobile onSignin={goToSignin} onSignup={goToSignup} goTo={goTo} />
+const Navbar = () => {
+  const { status } = useContext(AuthContext)
 
   return (
     <nav className={classes.navbar}>
-      <ul className={classes.navbarLinks}>
-        {
-          !status ? (
-            <>
-              {
-                inQuieroVender ? (
-                  <li className={classes.navbarLinksItem}>
-                    <Link id='navbar_products_link'>
-                      Productos
-                    </Link>
-                  </li>
-                ) : (
-                  <li className={classes.navbarLinksItem}>
-                    <Link to='/quiero-vender'>
-                      Quiero vender
-                    </Link>
-                  </li>
-                )
-              }
-              <li className={classes.navbarLinksItem}>
-                <Link to='/auth/signup'>
-                  Creá tu cuenta
-                </Link>
-              </li>
-              <li className={classes.navbarLinksItem}>
-                <Link to='/auth/signin'>
-                  Ingresá
-                </Link>
-              </li>
-            </>
-          ) : (
-            <li className={classes.navbarLinksItem}>
-              <button
-                type='button'
-                onClick={() => setIsDropdownOpened(!isDropdownOpened)}
-                ref={dropdownButtonRef}
-              >
-                {currentUser && (currentUser.name || currentUser.email)}
-                <img
-                  className={classes.navbarLinksArrow}
-                  src={isDropdownOpened ? AngleUp : AngleDown}
-                  alt=''
-                />
-              </button>
-              {
-                isDropdownOpened && (
-                  <div className={classes.dropdown} ref={dropdownRef}>
-                    {/* Hide mis-compras navbar item
-                      <span onClick={() => goTo('/mis-compras')} className='navbar__dropdown--item'>Mis compras</span>
-                    */}
-                    <button onClick={() => goTo('/mis-productos')} className={classes.item}>Mis publicaciones</button>
-                    <button onClick={logout} className={classes.item}>Salir</button>
-                  </div>
-                )
-              }
-            </li>
-          )
-        }
-      </ul>
+      {!status
+        ? <UnregisteredItems />
+        : <RegisteredItems />}
     </nav>
   )
 }
