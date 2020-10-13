@@ -1,18 +1,18 @@
 import React from 'react'
 
 import DotSelected from './DotSelected'
-import DotUnSelected from './DotUnSelected'
+import DotUnselected from './DotUnselected'
 
 import classes from './styles.module.scss'
 
 const Slider = ({ currentIndex, maxLength }) => {
   const dotInstance = {
-    DotSelected, DotUnSelected
+    DotSelected, DotUnselected
   }
 
   const dots = []
   for (let i = 0; i < maxLength; i += 1) {
-    dots.push(currentIndex === i ? 'DotSelected' : 'DotUnSelected')
+    dots.push(currentIndex === i ? 'DotSelected' : 'DotUnselected')
   }
 
   return (

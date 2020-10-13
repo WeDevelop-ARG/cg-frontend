@@ -40,7 +40,7 @@
   border: 1px solid $accent-blue;
   border-radius: 34px;
 
-  img {
+  & > img {
     margin-right: 10px;
   }
 }

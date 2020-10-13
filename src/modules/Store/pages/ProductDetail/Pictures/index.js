@@ -61,18 +61,16 @@ const Pictures = ({ oldPrice = 0, price = 0, photoUrls = [] }) => {
         </div>
       </div>
       <div className={classes.thumbnailContainer}>
-        {
-          photoUrls.map((value, index) => {
-            return (
-              <img
-                onClick={() => handleGoToIndex(index)}
-                className={isImageSelected(index)}
-                src={value}
-                key={`photoUrl-${index}`}
-              />
-            )
-          })
-        }
+        {photoUrls.map((value, index) => {
+          return (
+            <img
+              onClick={() => handleGoToIndex(index)}
+              className={isImageSelected(index)}
+              src={value}
+              key={`photoUrl-${index}`}
+            />
+          )
+        })}
       </div>
     </div>
   )

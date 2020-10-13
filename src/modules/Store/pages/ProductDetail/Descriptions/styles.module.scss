@@ -16,14 +16,14 @@
   display: flex;
 }
 
-.label{
+.label {
   font-weight: bold;
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 10px;
 }
 
-.labelTitle {
+.labelContent {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 30px;
@@ -35,8 +35,8 @@
   margin-right: 8px;
 }
 
-.labelLineTitle {
-  @extend .labelTitle;
+.labelLineContent {
+  @extend .labelContent;
   margin-bottom: 10px;
 }
 

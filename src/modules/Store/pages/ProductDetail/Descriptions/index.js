@@ -35,7 +35,7 @@ const Descriptions = ({
         <span className={classes.labelLineLabel}>
           Marca:
         </span>
-        <span className={classes.labelLineTitle}>
+        <span className={classes.labelLineContent}>
           {brand}
         </span>
       </div>
@@ -43,14 +43,14 @@ const Descriptions = ({
         <span className={classes.labelLineLabel}>
           Color:
         </span>
-        <span className={classes.labelLineTitle}>
+        <span className={classes.labelLineContent}>
           {colors.join(', ')}
         </span>
       </div>
       <div className={classes.label}>
         Descripción:
       </div>
-      <p className={classes.labelTitle}>
+      <p className={classes.labelContent}>
         {description}
       </p>
       <div className={classes.button}>

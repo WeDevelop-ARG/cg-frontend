@@ -1,7 +1,6 @@
 @import '~src/styles/base/_colors.scss';
 
 .banner {
-  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   width: 384px;
@@ -18,11 +17,11 @@
   align-items: center;
   text-align: center;
   align-self: center;
+  margin: 8px 0px;
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.01em;
   color: $primary-red;
-  margin: 8px 0px;
 }
 
 .time {
@@ -31,10 +30,10 @@
   text-align: center;
   align-self: center;
   width: 70px;
+  margin: 8px 0px;
   font-size: 18px;
   line-height: 22px;
   font-weight: bold;
   letter-spacing: 0.01em;
   color: $primary-red;
-  margin: 8px 0px;
 }
