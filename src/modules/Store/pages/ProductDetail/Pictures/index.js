@@ -41,7 +41,7 @@ const Pictures = ({ oldPrice = 0, price = 0, photoUrls = [] }) => {
         topPosition='116px'
         leftPosition='-18px'
       />
-      <Link to='/' className={classes.homeLink}>
+      <Link to='/store' className={classes.homeLink}>
         <span>{'<'}</span>
         <span>Volver a la página principal</span>
       </Link>

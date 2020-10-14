@@ -29,7 +29,7 @@ const ProductDetail = () => {
 
   const onSubmit = async () => {
     if (!isLogged) {
-      return history.push(`/auth/signup?redirectTo=/product-detail/${groupId}`)
+      return history.push(`/auth/signup?redirectTo=/store/product-detail/${groupId}`)
     }
 
     const paymentMethod = {

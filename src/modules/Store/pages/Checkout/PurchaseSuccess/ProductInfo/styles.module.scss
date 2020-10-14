@@ -1,0 +1,104 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.product {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #F1F3F3;
+  margin: 24px 0;
+  padding-top: 24px;
+
+  @include for-small-tablet-only {
+    flex-wrap: wrap;
+    border-bottom: 1px solid #F1F3F3;
+    padding-bottom: 24px;
+  }
+}
+
+.productData {
+  display: flex;
+  width: 100%;
+  @include for-small-tablet-only {
+    flex-direction: row-reverse;
+  }
+}
+
+.image {
+  margin-right: 24px;
+  min-width: 130px;
+  min-height: 100px;
+  border-radius: 4px;
+
+  @include for-small-tablet-only {
+    margin-right: 0;
+    min-width: 80px;
+    min-height: 86px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.title {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #A0ACAF;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 24px;
+
+  @include for-small-tablet-only {
+    font-size: 13px;
+  }
+}
+
+.productName {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 0;
+  margin-bottom: 12px;
+
+  @include for-small-tablet-only {
+    margin-bottom: 6px;
+  }
+}
+
+.discountTag {
+  display: flex;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #EB5433;
+
+  img {
+    height: 14px;
+    margin-top: 4px;
+    margin-right: 4px;
+  }
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+  margin-top: 12px;
+  @include for-small-tablet-only {
+    margin-top: 6px;
+    min-width: 100%;
+  }
+}
+
+.marketPrice {
+  font-weight: normal;
+  font-size: 20px !important;
+  text-decoration: line-through;
+  margin-right: 20px;
+  color: #A0ACAF;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 26px !important;
+}

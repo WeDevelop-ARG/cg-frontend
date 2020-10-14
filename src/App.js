@@ -1,5 +1,4 @@
 import React from 'react'
-// import Home from './scenes/Home'
 import Store from './modules/Store'
 import MyPurchases from './modules/UserProfile/pages/MyPurchases'
 import MainApp from './modules/MainApp'
@@ -24,17 +23,6 @@ function App () {
       >
         <AuthContextProvider>
           <Switch>
-            {/*
-            <Route path='/home' exact>
-              <Home />
-            </Route>
-            <Route path='/checkout/:groupId' exact>
-              {withNavbar(<Checkout />)}
-            </Route>
-            <Route path='/product-detail/:groupId' exact>
-              {withNavbar(<ProductDetail />)}
-            </Route>
-            */}
             <Route path='/mis-compras' exact>
               {withNavbar(<MyPurchases />)}
             </Route>

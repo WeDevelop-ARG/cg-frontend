@@ -1,0 +1,76 @@
+@import '~src/styles/mixin/media-screen.scss';
+
+.container {
+  max-width: 1200px;
+  margin: 100px auto 0;
+  padding: 65px 110px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #FFFFFF;
+
+  p {
+    margin: initial;
+  }
+
+  h1 {
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 31px;
+  }
+
+  @include for-small-desktop-only {
+    padding: 35px 40px 30px;
+  }
+
+  @include for-small-tablet-only {
+    margin: 30px 16px;
+    padding: 20px;
+
+    h1 {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    span {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
+
+.leftParticipants {
+  margin: 22px 0 18px;
+
+  p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  @include for-small-tablet-only {
+    p {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+}
+
+.redirect {
+  position: absolute;
+  left: 90px;
+  top: 110px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #1A2224;
+
+  &:hover{
+    color: rgb(82, 102, 102);
+  }
+
+  @include for-small-tablet-only {
+    display: none;
+  }
+}
+
