@@ -6,7 +6,7 @@ import Loading from '~/src/components/Loading'
 
 import { useParams, Redirect, useHistory } from 'react-router-dom'
 
-import EndCheckout from '~/src/scenes/Checkout/EndCheckout'
+import EndCheckout from '../Checkout/PurchaseSuccess'
 
 import Descriptions from './Descriptions'
 import Pictures from './Pictures'

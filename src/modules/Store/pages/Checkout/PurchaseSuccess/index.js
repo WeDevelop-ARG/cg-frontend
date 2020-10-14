@@ -2,11 +2,11 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 import './EndCheckout.scss'
-import PriceTag from '../../vectors/price-tag.svg'
-import CopyLink from '../../vectors/copy-link.svg'
+import PriceTag from '~/src/vectors/price-tag.svg'
+import CopyLink from '~/src/vectors/copy-link.svg'
 
-import GroupProgress from '../../components/GroupProgress'
-import getDiscount from '../../components/DiscountBadget/getPercent'
+import GroupProgress from '~/src/components/GroupProgress'
+import getDiscount from '~/src/components/DiscountBadget/getPercent'
 
 const EndCheckout = ({ group: { product, ...group } } = {}) => {
   const history = useHistory()

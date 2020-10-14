@@ -5,7 +5,7 @@ import GroupProgress from '../../GroupProgress'
 import Button from '../../Button'
 import { CardTimerBig } from '../../Timer'
 import { Medium as DiscountBadget } from '../../DiscountBadget'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 
 const HightLighted = ({
   productPictureURL,
@@ -20,9 +20,10 @@ const HightLighted = ({
   description = '',
   colors = []
 }) => {
+  const { path } = useRouteMatch()
   const history = useHistory()
 
-  const goToProductHandler = () => history.push(`/product-detail/${groupId}`)
+  const goToProductHandler = () => history.push(`${path}/product-detail/${groupId}`)
   return (
     <div className={classes.container}>
       <CardTimerBig expiresAt={expiresAt} />

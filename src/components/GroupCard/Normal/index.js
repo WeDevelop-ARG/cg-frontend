@@ -3,7 +3,7 @@ import React from 'react'
 import GroupProgress from '../../GroupProgress'
 import currency from '../../../utils/currency'
 import { CardTimer } from '../../Timer'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import { Small as DiscountBadget } from '../../DiscountBadget'
 
 import classes from './styles.module.scss'
@@ -22,10 +22,11 @@ const GroupCard = ({
   description = '',
   colors = []
 }) => {
+  const { path } = useRouteMatch()
   const history = useHistory()
 
   const goToCheckout = () => {
-    history.push(`/product-detail/${groupId}`)
+    history.push(`${path}/product-detail/${groupId}`)
   }
 
   return (

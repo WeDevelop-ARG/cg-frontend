@@ -1,7 +1,6 @@
 import React from 'react'
 // import Home from './scenes/Home'
-import Checkout from './scenes/Checkout'
-import ProductDetail from './modules/Store/pages/ProductDetail'
+import Store from './modules/Store'
 import MyPurchases from './modules/UserProfile/pages/MyPurchases'
 import MainApp from './modules/MainApp'
 import Auth from './modules/Auth'
@@ -25,20 +24,21 @@ function App () {
       >
         <AuthContextProvider>
           <Switch>
-            {
-              <Route path='/home' exact>
-                <Home />
-              </Route>
-            }
+            {/*
+            <Route path='/home' exact>
+              <Home />
+            </Route>
             <Route path='/checkout/:groupId' exact>
               {withNavbar(<Checkout />)}
             </Route>
             <Route path='/product-detail/:groupId' exact>
               {withNavbar(<ProductDetail />)}
             </Route>
+            */}
             <Route path='/mis-compras' exact>
               {withNavbar(<MyPurchases />)}
             </Route>
+            <Route path='/store' component={Store} />
             <Route path='/auth' component={Auth} />
             <Route path='/mis-productos' component={SellerProducts} />
             <Route path='/quiero-vender' component={SellerLanding} />

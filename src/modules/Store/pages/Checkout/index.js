@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import useGroupQuery from '../../hooks/useGroupQuery'
-import useSubscribeToGroup from '../../hooks/useSubscribeToGroupMutation'
-import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '../../MercadoPago'
+import useGroupQuery from '~/src/hooks/useGroupQuery'
+import useSubscribeToGroup from '~/src/hooks/useSubscribeToGroupMutation'
+import MercadoPago, { getPaymentMethodPromise, createTokenByDOM } from '~/src/MercadoPago'
 import { useParams, Redirect } from 'react-router-dom'
 
-import EndCheckout from './EndCheckout'
+import EndCheckout from './PurchaseSuccess'
 
 import './Checkout.scss'
 
