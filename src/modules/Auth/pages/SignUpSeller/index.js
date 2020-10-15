@@ -21,7 +21,7 @@ const SignUpSeller = () => {
     await logFormSubmit('seller_signup_form')
 
     handleAuth(token)
-    await history.push('/')
+    await history.push('/home')
   }, [])
 
   if (loading) return <Loading />
