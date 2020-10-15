@@ -9,8 +9,7 @@ export const initialValues = {
   streetNumber: '',
   city: '',
   state: '',
-  flat: '',
-  phoneNumber: ''
+  flat: ''
 }
 
 export const schema = Yup.object().shape({
@@ -33,7 +32,5 @@ export const schema = Yup.object().shape({
     .required('La ciudad es requerida'),
   state: Yup.string()
     .required('La provincia es requerida'),
-  flat: Yup.string(),
-  phoneNumber: Yup.string()
-    .required('El numero de teléfono es requerido')
+  flat: Yup.string()
 })

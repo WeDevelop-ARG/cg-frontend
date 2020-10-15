@@ -26,7 +26,7 @@ const UnregisteredItems = ({ handleCloseMenu }) => {
       <Link to='/auth/registro-comprador' onClick={handleCloseMenu} className={classes.navItem}>
         Creá tu cuenta
       </Link>
-      <Link to='/auth/signin' onClick={handleCloseMenu} className={classes.navItem}>
+      <Link to='/auth/ingresar' onClick={handleCloseMenu} className={classes.navItem}>
         Ingresá
       </Link>
     </>
