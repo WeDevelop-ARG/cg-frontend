@@ -7,7 +7,8 @@ const productInitialValues = {
   marketPrice: 0,
   price: 0,
   discount: 0,
-  photos: []
+  photos: [],
+  photoURLs: ''
 }
 
 const groupInitialValues = {
@@ -32,7 +33,8 @@ const schema = [
       .positive('Debe ser mayor que 0'),
     price: Yup.number().required('Se require un precio mayorista')
       .typeError('Debe ser un número')
-      .positive('Debe ser mayor que 0')
+      .positive('Debe ser mayor que 0'),
+    photoURLs: Yup.string()
   }),
   Yup.object().shape({
     maxParticipants: Yup.number()

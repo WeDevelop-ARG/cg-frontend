@@ -1,4 +1,5 @@
 import React from 'react'
+import { isEmpty } from 'lodash'
 
 import classes from './styles.module.scss'
 import ImageThumbnail from '../../Thumbnail'
@@ -32,17 +33,19 @@ const UploadImageDesktop = ({ handleUploadFile, photos, removePhotoByIndex }) =>
           </div>
         </label>
       </div>
-      <div className={classes.photos}>
-        {
-          photos.map(({ preview }, key) => (
-            <ImageThumbnail
-              key={`product-photo${key}`}
-              src={preview}
-              onDelete={() => removePhotoByIndex(key)}
-            />
-          ))
-        }
-      </div>
+      {!isEmpty(photos) && (
+        <div className={classes.photos}>
+          {
+            photos.map(({ preview }, key) => (
+              <ImageThumbnail
+                key={`product-photo${key}`}
+                src={preview}
+                onDelete={() => removePhotoByIndex(key)}
+              />
+            ))
+          }
+        </div>
+      )}
     </div>
   )
 }

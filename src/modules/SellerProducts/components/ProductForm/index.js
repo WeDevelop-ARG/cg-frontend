@@ -42,7 +42,16 @@ const ProductForm = ({ ...stepWizardProps }) => {
           <PricesInput />
           <DiscountDisplay />
         </div>
-        <ImageSelector />
+        <div className={classes.productPhotos}>
+          <ImageSelector />
+          <div className={classes.imageField}>
+            <label className={classes.label}>o ingresa las URL de tus imagenes separadas por comas</label>
+            <InputMultiLine
+              name='photoURLs'
+              placeholder='Ejemplo: http://imagenes.com/imagen-1, http://imagenes.com/imagen-2'
+            />
+          </div>
+        </div>
       </div>
       <button type='button' className={classes.continue} onClick={handleContinue}>Continuar &rsaquo;</button>
     </div>

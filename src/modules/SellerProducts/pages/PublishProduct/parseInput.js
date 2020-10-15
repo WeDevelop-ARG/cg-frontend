@@ -3,6 +3,8 @@ import uploadPhotosHandler from '../../hooks/uploadPhotosHandler'
 
 const getFiles = (array) => array.map((item) => item.raw)
 
+const getURLs = (string) => string.trim().split(',')
+
 const parseDate = ({ dayExpiresAt, hourExpiresAt: hour }) => {
   const day = dayjs(dayExpiresAt)
   const expiresAtString = `${day.date()}/${day.month() + 1}/${day.year()} ${hour}`
@@ -12,7 +14,10 @@ const parseDate = ({ dayExpiresAt, hourExpiresAt: hour }) => {
 }
 
 const parseInputAndUploadPhotos = async (data) => {
-  const productPhotosUrls = await uploadPhotosHandler(getFiles(data.photos))
+  const parsedURLs = getURLs(data.photoURLs)
+  const amazonPhotoURLs = await uploadPhotosHandler(getFiles(data.photos))
+  const productPhotosUrls = amazonPhotoURLs.concat(parsedURLs).slice(0, 5)
+
   const product = {
     name: data.title,
     description: data.description,
