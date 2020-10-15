@@ -12,7 +12,7 @@ const RegisterCard = ({ registerLinkId, buttonText = 'Registrate' }) => {
       <span className={classes.text}>¿Querés formar parte de nuestra comunidad de venta?</span>
       <Link
         id={registerLinkId}
-        to='/auth/signup'
+        to='/auth/registro-vendedor'
         className={classes.link}
       >
         {buttonText}

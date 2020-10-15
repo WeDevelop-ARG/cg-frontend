@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Formik } from 'formik'
 import { schema, initialValues } from './schema'
-import SignupForm from '../../components/SignupForm'
+import SignUpSellerForm from '../../components/SignUpSellerForm'
 import AuthContext from '~/src/Contexts/AuthContext/context'
 import Loading from '~/src/modules/MainApp/components/Loading'
 import useSignup from '../../hooks/useSignupMutation'
@@ -10,15 +10,15 @@ import { logFormSubmit } from '~/src/utils/analytics'
 
 import classes from './styles.module.scss'
 
-const Signup = () => {
+const SignUpSeller = () => {
   const { handleAuth } = useContext(AuthContext)
   const { signup, loading } = useSignup()
   const history = useHistory()
 
-  const handleSubmit = useCallback(async ({ email, password, firstName, lastName }) => {
-    const { token } = await signup({ email, password, name: `${firstName} ${lastName}` })
+  const handleSubmit = useCallback(async (values) => {
+    const { token } = await signup(values)
 
-    await logFormSubmit('signup_form')
+    await logFormSubmit('seller_signup_form')
 
     handleAuth(token)
     await history.push('/')
@@ -34,10 +34,10 @@ const Signup = () => {
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
-        <SignupForm />
+        <SignUpSellerForm />
       </Formik>
     </div>
   )
 }
 
-export default Signup
+export default SignUpSeller

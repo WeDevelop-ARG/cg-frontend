@@ -33,7 +33,7 @@ const InputNormal = ({ type = 'text', ...props }) => {
     <div className={containerClass}>
       <input
         className={inputClass}
-        type={isPassword ? isShowPassword() : 'text'}
+        type={isPassword ? isShowPassword() : type}
         {...field}
         {...props}
       />

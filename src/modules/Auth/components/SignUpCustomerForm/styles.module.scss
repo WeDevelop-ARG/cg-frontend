@@ -1,4 +1,5 @@
 @import '~src/styles/mixin/media-screen.scss';
+@import '~src/styles/base/_colors.scss';
 
 .form {
   width: 526px;
@@ -10,13 +11,13 @@
     width: 100%;
   }
 
-  .button-default__orange {
-    margin-top: 28px;
-  }
-
   @include for-small-tablet-only {
     width: 100%;
   }
+}
+
+.button {
+  margin-top: 28px;
 }
 
 .formInline {
@@ -33,17 +34,15 @@
 }
 
 .links {
-  font-family: DM Sans;
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
-  color: #3561D1;
+  color: $accent-blue;
   text-decoration: none;
   margin-bottom: 20px;
 
   &:active, &::selection {
-    color: #3561D1;
+    color: $accent-blue;
     text-decoration: none;
   }
 }
@@ -51,23 +50,15 @@
 .terms {
   height: 36px;
   margin-top: 16px;
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 18px;
-  color: #A0ACAF;
+  color: $gray;
 }
 
 .news {
   text-align: center;
   margin-top: 20px;
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  color: #1A2224;
+  color:$black;
   margin-bottom: 102px;
 
   a {
@@ -79,10 +70,13 @@
   width: 45px;
   height: 18px;
   margin-bottom: 16px;
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: 18px;
   line-height: 18px;
-  color: #1A2224;
+  color:$black;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

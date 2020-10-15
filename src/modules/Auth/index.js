@@ -1,7 +1,8 @@
 import React from 'react'
 import withNavbar from '~/src/HOCs/withNavbar'
 import Signin from './pages/Signin'
-import Signup from './pages/Signup'
+import SignUpCustomer from './pages/SignUpCustomer'
+import SignUpSeller from './pages/SignUpSeller'
 
 import { Switch, Route, useRouteMatch, withRouter } from 'react-router-dom'
 
@@ -10,11 +11,14 @@ function Auth () {
 
   return (
     <Switch>
-      <Route path={`${path}/signin`} exact>
+      <Route path={`${path}/ingresar`} exact>
         {withNavbar(<Signin />)}
       </Route>
-      <Route path={`${path}/signup`} exact>
-        {withNavbar(<Signup />)}
+      <Route path={`${path}/registro-comprador`} exact>
+        {withNavbar(<SignUpCustomer />)}
+      </Route>
+      <Route path={`${path}/registro-vendedor`} exact>
+        {withNavbar(<SignUpSeller />)}
       </Route>
     </Switch>
   )

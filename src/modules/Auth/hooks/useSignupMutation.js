@@ -10,8 +10,8 @@ function useSignupMutation () {
     error,
     called,
     response: data,
-    signup: async ({ name, email, password }) => {
-      const { data } = await mutate({ variables: { userInput: { name, email, password } } })
+    signup: async (values) => {
+      const { data } = await mutate({ variables: { userInput: values } })
 
       return data && data.signup
     }

@@ -26,7 +26,7 @@ const SigninForm = () => {
       <Button type='submit'>Ingresar</Button>
       <span className={classes.news}>
         ¿Sos un usuario nuevo?
-        <Link className={classes.links} to='/auth/signup'>
+        <Link className={classes.links} to='/auth/registro-comprador'>
           Registrate
         </Link>
       </span>

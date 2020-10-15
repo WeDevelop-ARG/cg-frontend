@@ -1,0 +1,49 @@
+@import '~src/styles/base/_colors.scss';
+
+.selectContainer {
+  position: relative;
+  cursor: pointer;
+}
+
+.select {
+  position: relative;
+  background: $white;
+  border: none;
+  border: 1px solid $gray-lightest;
+  padding-left: 16px;
+  height: 45px;
+  border-radius: 6px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.selectError {
+  @extend .select;
+  border: 1px solid $error;
+}
+
+.selectFocus {
+  @extend .select;
+  border: 1px solid $accent-blue;
+}
+
+.arrow {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 16px;
+  top: calc(50% - 8px);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.errorText {
+  left: 0px;
+  margin: 6px 0px 6px 0px;
+  font-size: 13px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: $error;
+}

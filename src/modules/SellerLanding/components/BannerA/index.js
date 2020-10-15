@@ -7,7 +7,7 @@ import classes from './styles.module.scss'
 
 const Banner = () => {
   const history = useHistory()
-  const goToSignUp = () => history.push('/auth/signup')
+  const goToSignUp = () => history.push('/auth/registro-vendedor')
 
   return (
     <div className={classes.header}>

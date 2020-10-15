@@ -1,0 +1,86 @@
+@import '~src/styles/mixin/media-screen.scss';
+@import '~src/styles/base/_colors.scss';
+
+.form {
+  width: 526px;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+
+  input {
+    width: 100%;
+  }
+
+  @include for-small-tablet-only {
+    width: 100%;
+  }
+}
+
+.button {
+  margin-top: 28px;
+}
+
+.formInline {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 16px;
+  width: 100%;
+
+  @include for-small-tablet-only {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.links {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: $accent-blue;
+  text-decoration: none;
+  margin-bottom: 20px;
+
+  &:active, &::selection {
+    color: $accent-blue;
+    text-decoration: none;
+  }
+}
+
+.terms {
+  height: 36px;
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 18px;
+  color: $gray;
+}
+
+.news {
+  text-align: center;
+  margin-top: 20px;
+  color:$black;
+  margin-bottom: 102px;
+
+  a {
+    margin-left: 8px;
+  }
+}
+
+.labels {
+  width: 45px;
+  height: 18px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 18px;
+  color:$black;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.afipConditionSelect {
+  width: 100%;
+}
