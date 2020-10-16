@@ -1,13 +1,18 @@
 import React from 'react'
+import { FacebookShareButton } from 'react-share'
 import FacebookVector from '../../../vectors/facebook-f.svg'
 
 import '../SocialMediaIcons.scss'
 
-const Facebook = () => {
+const Facebook = ({ url, title = 'Mira esta oferta y sumate al grupo!' }) => {
   return (
-    <div className='SocialMediaIcons--container'>
+    <FacebookShareButton
+      url={url || window.location.href}
+      quote={title}
+      className='SocialMediaIcons--container'
+    >
       <img src={FacebookVector} alt='Facebook icon' />
-    </div>
+    </FacebookShareButton>
   )
 }
 

@@ -2,15 +2,17 @@
   &--container {
     width: 35px;
     height: 35px;
-    background: #1A2224;
+    background: #1A2224 !important;
     border-radius: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    border: none;
+
     img {
-      width: 12.28px;
-      height: 12.28px;
+      width: 13px;
+      height: 13px;
     }
   }
 }

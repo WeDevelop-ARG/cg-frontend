@@ -1,13 +1,18 @@
 import React from 'react'
+import { TwitterShareButton } from 'react-share'
 import TwitterIcon from '../../../vectors/twitter.svg'
 
 import '../SocialMediaIcons.scss'
 
-const Twitter = () => {
+const Twitter = ({ url, title = 'Mira esta oferta y sumate al grupo!' }) => {
   return (
-    <div className='SocialMediaIcons--container'>
+    <TwitterShareButton
+      url={url || window.location.href}
+      title={title}
+      className='SocialMediaIcons--container'
+    >
       <img src={TwitterIcon} alt='Twitter icon' />
-    </div>
+    </TwitterShareButton>
   )
 }
 

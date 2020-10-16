@@ -6,7 +6,7 @@ import GroupProgress from '~/src/modules/MainApp/components/GroupProgress'
 import Banner from '../Banner'
 import Costs from '../Costs'
 
-import { FaceBook, Instagram, Twitter } from '~/src/components/SocialMediaIcons'
+import { FaceBook, Instagram, Twitter, Whatsapp } from '~/src/components/SocialMediaIcons'
 
 import classes from './styles.module.scss'
 
@@ -73,6 +73,7 @@ const Descriptions = ({
             <FaceBook />
             <Instagram />
             <Twitter />
+            <Whatsapp />
           </div>
         </div>
       )}
