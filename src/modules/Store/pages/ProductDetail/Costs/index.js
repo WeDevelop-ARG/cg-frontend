@@ -16,7 +16,7 @@ const Costs = ({ oldPrice, price }) => {
         </span>
       </div>
       <div className={classes.delivery}>
-        <img src={ShippingIcon} alt='shipping-icon' />
+        <img src={ShippingIcon} alt='Shipping icon' />
         <span className={classes.deliveryText}>Envío gratis</span>
       </div>
     </div>

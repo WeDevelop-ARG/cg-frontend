@@ -1,26 +1,20 @@
 import React from 'react'
 
-import DotSelected from './DotSelected'
-import DotUnselected from './DotUnselected'
+import Dot from './Dot'
 
 import classes from './styles.module.scss'
 
 const Slider = ({ currentIndex, maxLength }) => {
-  const dotInstance = {
-    DotSelected, DotUnselected
-  }
-
-  const dots = []
+  const dotsClasses = []
   for (let i = 0; i < maxLength; i += 1) {
-    dots.push(currentIndex === i ? 'DotSelected' : 'DotUnselected')
+    dotsClasses.push(currentIndex === i ? 'dotSelected' : 'dotUnselected')
   }
 
   return (
     <div className={classes.slider}>
       {
-        dots.map((objectKey, index) => {
-          const Dot = dotInstance[objectKey]
-          return <Dot key={`dot-${index}`} />
+        dotsClasses.map((dotClass, index) => {
+          return <Dot key={`dot-${index}`} className={classes[dotClass]} />
         })
       }
     </div>

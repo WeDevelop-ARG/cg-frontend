@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import ArrowLeftBlack from '~/src/vectors/arrow-left.svg'
 import ArrowLeftYellow from '~/src/vectors/arrow-left-y.svg'
@@ -10,25 +11,21 @@ import classes from './styles.module.scss'
 
 const getDirection = (color, direction) => {
   if (color === 'yellow') {
-    if (direction === 'left') return ArrowLeftBlack
+    if (direction === 'left') return ArrowLeftYellow
 
-    return ArrowRightBlack
+    return ArrowRightYellow
   }
 
-  if (direction === 'left') return ArrowLeftYellow
+  if (direction === 'left') return ArrowLeftBlack
 
-  return ArrowRightYellow
+  return ArrowRightBlack
 }
 
 const Arrow = ({ color, direction, ...props }) => {
-  const styles = useMemo(() => {
-    if (color === 'yellow') return { className: classes.yellowArrow, vector: getDirection(color, direction) }
-
-    return {
-      className: classes.blackArrow,
-      vector: getDirection(color, direction)
-    }
-  }, [color, direction])
+  const styles = useMemo(() => ({
+    className: classnames(classes[`${color}Arrow`]),
+    vector: getDirection(color, direction)
+  }), [color, direction])
 
   return (
     <button type='button' {...props} className={styles.className}>

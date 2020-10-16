@@ -19,10 +19,10 @@
 
 .yellowArrow {
   @extend .Arrow;
-  background: $accent-yellow;
+  background: $black;
 }
 
 .blackArrow {
   @extend .Arrow;
-  background: $black;
+  background: $accent-yellow;
 }

@@ -2,8 +2,12 @@ import React from 'react'
 
 import Arrow from './Arrow'
 
-const Left = ({ isBlack = false, ...props }) => (
-  <Arrow {...props} color={isBlack ? 'black' : 'yellow'} direction='left' />
+const Left = (props) => (
+  <Arrow {...props} direction='left' />
 )
+
+Left.propTypes = {
+  ...Arrow.propTypes
+}
 
 export default Left

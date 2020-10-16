@@ -54,10 +54,10 @@ const Pictures = ({ oldPrice = 0, price = 0, photoUrls = [] }) => {
           <Slider currentIndex={currentIndex} maxLength={photoUrls.length} />
         </div>
         <div className={classes.arrowLeft}>
-          <Left isBlack onClick={handleBack} />
+          <Left color='yellow' onClick={handleBack} />
         </div>
         <div className={classes.arrowRight}>
-          <Right isBlack onClick={handleNext} />
+          <Right color='yellow' onClick={handleNext} />
         </div>
       </div>
       <div className={classes.thumbnailContainer}>
