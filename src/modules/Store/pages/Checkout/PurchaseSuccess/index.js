@@ -35,7 +35,7 @@ const EndCheckout = ({ group: { product, ...group } } = {}) => {
           <p><b>Faltan {leftParticipants} compradores para completar el grupo!</b></p>
           <p>Compartí y suma gente para acceder más rápido a tu producto</p>
         </div>
-        <ProductShare productName={product.name} />
+        <ProductShare groupId={group.id} />
       </div>
     </>
   )
