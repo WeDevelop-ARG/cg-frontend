@@ -3,7 +3,7 @@ import uploadPhotosHandler from '../../hooks/uploadPhotosHandler'
 
 const getFiles = (array) => array.map((item) => item.raw)
 
-const getURLs = (string) => string.trim().split(',')
+const getURLs = (string) => string.trim().split('\n')
 
 const parseDate = ({ dayExpiresAt, hourExpiresAt: hour }) => {
   const day = dayjs(dayExpiresAt)

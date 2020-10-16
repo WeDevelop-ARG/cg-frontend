@@ -45,10 +45,10 @@ const ProductForm = ({ ...stepWizardProps }) => {
         <div className={classes.productPhotos}>
           <ImageSelector />
           <div className={classes.imageField}>
-            <label className={classes.label}>o ingresa las URL de tus imagenes separadas por comas</label>
+            <label className={classes.label}>o ingresa las URL de tus imagenes</label>
             <InputMultiLine
               name='photoURLs'
-              placeholder='Ejemplo: http://imagenes.com/imagen-1, http://imagenes.com/imagen-2'
+              placeholder={'Ejemplo:\n' + 'http://imagenes.com/imagen-1\n' + 'http://imagenes.com/imagen-2'}
             />
           </div>
         </div>
