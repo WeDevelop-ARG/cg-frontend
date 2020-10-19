@@ -8,7 +8,7 @@ const Dot = ({ className, ...props }) => {
 }
 
 Dot.propTypes = {
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+  className: PropTypes.string
 }
 
 export default Dot
