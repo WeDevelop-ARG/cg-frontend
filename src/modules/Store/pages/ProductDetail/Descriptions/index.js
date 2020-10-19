@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Orange as Button } from '~/src/components/Button/Default'
-import GroupProgress from '~/src/components/GroupProgress'
+import { Orange as Button } from '~/src/modules/MainApp/components/Button/Default'
+import GroupProgress from '~/src/modules/MainApp/components/GroupProgress'
 
 import Banner from '../Banner'
 import Costs from '../Costs'

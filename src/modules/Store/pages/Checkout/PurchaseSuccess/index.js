@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import GroupProgress from '~/src/components/GroupProgress'
+import GroupProgress from '~/src/modules/MainApp/components/GroupProgress'
 import getDiscount from '~/src/components/DiscountBadget/getPercent'
 import ProductInfo from './ProductInfo'
 import ProductShare from './ProductShare'
@@ -19,8 +19,8 @@ const EndCheckout = ({ group: { product, ...group } } = {}) => {
 
   return (
     <>
-      <button className={classes.redirect} onClick={() => goToHome()}>
-        &#60;  Volver a la pagina principal
+      <button className={classes.redirect} onClick={goToHome}>
+        &#60;  Volver a la página principal
       </button>
       <div className={classes.container}>
         <h1>¡Ya sos parte del grupo de compra!</h1>
@@ -33,7 +33,7 @@ const EndCheckout = ({ group: { product, ...group } } = {}) => {
         />
         <div className={classes.leftParticipants}>
           <p><b>Faltan {leftParticipants} compradores para completar el grupo!</b></p>
-          <p>Compartí y suma gente para acceder más rápido a tu producto</p>
+          <p>Compartí y sumá gente para acceder más rápido a tu producto</p>
         </div>
         <ProductShare groupId={group.id} />
       </div>

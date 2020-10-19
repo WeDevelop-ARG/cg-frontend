@@ -19,11 +19,9 @@ const GroupProgress = ({ minParticipants = 0, currentParticipants = 0, type }) =
   }, [isGroup, percent, currentParticipants])
 
   const maxUnits = isGroup ? 10 : 2
-  const personsLeft = minParticipants - currentParticipants
 
   return (
     <div className={classes.groupProgress}>
-      <div className={classes.howMuchPeopleStillRequired}>Faltan {personsLeft} personas</div>
       <Units maxUnits={maxUnits} filledUnits={fulledUnitQuantity} />
       <div className={classes.groupProgressPercentDetail}>
         <div className={classes.discount}>{percent}%</div>
