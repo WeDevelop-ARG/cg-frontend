@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { Form } from 'formik'
 import Button from '~/src/modules/MainApp/components/Button'
 import Input from '~/src/modules/MainApp/components/Input'
-import Select, { Option } from '~/src/modules/MainApp/components/Select'
+import Select from '~/src/modules/MainApp/components/Select'
 
-import { AFIP_CONDITIONS, AFIP_CONDITIONS_TEXT } from './constants'
+import { AFIP_CONDITIONS_OPTIONS } from './constants'
 import classes from './styles.module.scss'
 
 const SignUpSellerForm = () => {
@@ -38,11 +38,12 @@ const SignUpSellerForm = () => {
         </div>
         <div>
           <label className={classes.labels}>Condicion frente al AFIP</label>
-          <Select name='AFIPCondition' className={classes.afipConditionSelect}>
-            {AFIP_CONDITIONS.map((condition, index) => (
-              <Option key={condition} value={condition}>{AFIP_CONDITIONS_TEXT[index]}</Option>
-            ))}
-          </Select>
+          <Select
+            name='AFIPCondition'
+            placeholder='Seleccioná condición'
+            options={AFIP_CONDITIONS_OPTIONS}
+            className={classes.afipConditionSelect}
+          />
         </div>
       </div>
       <label className={classes.labels}>Dirección</label>

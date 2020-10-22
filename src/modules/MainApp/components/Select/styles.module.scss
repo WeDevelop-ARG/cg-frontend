@@ -5,7 +5,21 @@
   cursor: pointer;
 }
 
-.select {
+.errorText {
+  left: 0px;
+  margin: 6px 0px 6px 0px;
+  font-size: 13px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: $error;
+}
+
+.error {
+  border: 0.9px solid $error;
+  border-radius: 4px;
+}
+
+:global .react-select__control {
   position: relative;
   background: $white;
   border: none;
@@ -19,31 +33,6 @@
   cursor: pointer;
 }
 
-.selectError {
-  @extend .select;
-  border: 1px solid $error;
-}
-
-.selectFocus {
-  @extend .select;
-  border: 1px solid $accent-blue;
-}
-
-.arrow {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  right: 16px;
-  top: 16px;
-  z-index: 100;
-  pointer-events: none;
-}
-
-.errorText {
-  left: 0px;
-  margin: 6px 0px 6px 0px;
-  font-size: 13px;
-  line-height: 14px;
-  letter-spacing: 0.01em;
-  color: $error;
+:global .react-select__value-container {
+  padding: 0 !important;
 }

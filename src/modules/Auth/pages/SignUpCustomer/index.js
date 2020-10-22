@@ -18,7 +18,7 @@ const SignUpCustomer = () => {
   const handleSubmit = useCallback(async ({ email, password, firstName, lastName, ...restValues }) => {
     const { token } = await signup({ name: `${firstName} ${lastName}`, ...restValues })
 
-    await logFormSubmit('customer_signup_form')
+    await logFormSubmit('signup_form')
 
     handleAuth(token)
     await history.push('/home')

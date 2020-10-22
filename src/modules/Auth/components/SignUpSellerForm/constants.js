@@ -1,2 +1,4 @@
-export const AFIP_CONDITIONS = ['ENROLLED_RESPONSIBLE', 'FINAL_CONSUMER']
-export const AFIP_CONDITIONS_TEXT = ['Responsable Inscripto', 'Consumidor Final']
+export const AFIP_CONDITIONS_OPTIONS = [
+  { value: 'ENROLLED_RESPONSIBLE', label: 'Responsable Inscripto' },
+  { value: 'FINAL_CONSUMER', label: 'Consumidor Final' }
+]
