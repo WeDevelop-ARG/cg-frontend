@@ -19,20 +19,24 @@
   border-radius: 4px;
 }
 
-:global .react-select__control {
-  position: relative;
-  background: $white;
-  border: none;
-  border: 1px solid $gray-lightest;
-  padding-left: 16px;
-  height: 45px;
-  border-radius: 6px;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  cursor: pointer;
+.selectContainer {
+  [class^='react-select__control'] {
+    position: relative;
+    background: $white;
+    border: none;
+    border: 1px solid $gray-lightest;
+    padding-left: 16px;
+    height: 45px;
+    border-radius: 6px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
 }
 
-:global .react-select__value-container {
-  padding: 0 !important;
+.selectContainer {
+  [class^='react-select__value-container'] {
+    padding: 0 !important;
+  }
 }
