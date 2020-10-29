@@ -4,7 +4,6 @@ export default gql`
   query {
     currentUser {
       id
-      name
       email
     }
   }

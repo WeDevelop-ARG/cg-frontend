@@ -9,22 +9,48 @@ import useSignup from '../../hooks/useSignupMutation'
 import { logFormSubmit } from '~/src/utils/analytics'
 
 import classes from './styles.module.scss'
+import useSetPersonalInformationMutation from '~/src/modules/MainApp/hooks/useSetPersonalInformationMutation'
 
 const SignUpCustomer = () => {
   const { handleAuth } = useContext(AuthContext)
-  const { signup, loading } = useSignup()
+  const { signup, loading: loadingSignup } = useSignup()
+  const { setPersonalInformation, loading: loadingPersonalInformation } = useSetPersonalInformationMutation()
   const history = useHistory()
 
-  const handleSubmit = useCallback(async ({ email, password, firstName, lastName, ...restValues }) => {
-    const { token } = await signup({ name: `${firstName} ${lastName}`, ...restValues })
+  const handleSubmit = useCallback(async (values) => {
+    const {
+      email,
+      password,
+      firstName,
+      lastName,
+      street,
+      streetNumber,
+      city,
+      state,
+      flat
+    } = values
+    const { id, token } = await signup({ email, password })
 
     await logFormSubmit('signup_form')
 
     handleAuth(token)
+
+    await setPersonalInformation(id, {
+      firstName,
+      lastName,
+      address: {
+        street,
+        streetNumber,
+        city,
+        state,
+        apartment: flat
+      }
+    })
+
     await history.push('/home')
   }, [])
 
-  if (loading) return <Loading />
+  if (loadingSignup || loadingPersonalInformation) return <Loading />
 
   return (
     <div className={classes.container}>

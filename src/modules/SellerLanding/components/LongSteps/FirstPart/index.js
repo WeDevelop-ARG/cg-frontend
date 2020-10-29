@@ -8,7 +8,7 @@ const FirstPart = () => {
     <div className={classes.firstFourthSteps}>
       <h2 className={classes.howItWorks}>¿Cómo funciona?</h2>
       <StepInfo header='VOS' title='Cargá tus productos' className={classes.firstStep}>
-        <Link id='seller_landing_a_cta_top' to='/auth/signup'>
+        <Link id='seller_landing_a_cta_top' to='/auth/registro-vendedor'>
           Registrate
         </Link> con tu email y comenzá a cargar tus productos en nuestra plataforma
       </StepInfo>

@@ -7,24 +7,55 @@ import AuthContext from '~/src/Contexts/AuthContext/context'
 import Loading from '~/src/modules/MainApp/components/Loading'
 import useSignup from '../../hooks/useSignupMutation'
 import { logFormSubmit } from '~/src/utils/analytics'
+import useCreateBusinessMutation from '~/src/modules/MainApp/hooks/useCreateBusinessMutation'
 
 import classes from './styles.module.scss'
 
 const SignUpSeller = () => {
   const { handleAuth } = useContext(AuthContext)
-  const { signup, loading } = useSignup()
+  const { signup, loading: loadingSignup } = useSignup()
+  const { createBusiness, loading: loadingBusiness } = useCreateBusinessMutation()
   const history = useHistory()
 
   const handleSubmit = useCallback(async (values) => {
-    const { token } = await signup(values)
+    const {
+      name,
+      email,
+      password,
+      street,
+      streetNumber,
+      city,
+      state,
+      flat,
+      CUIT,
+      businessVertical,
+      AFIPCondition
+    } = values
+    const { id: userId, token } = await signup({ email, password })
 
     await logFormSubmit('signup_form')
 
     handleAuth(token)
+
+    await createBusiness(userId, {
+      fantasyName: name,
+      realName: name,
+      vertical: businessVertical,
+      AFIPCondition,
+      CUIT,
+      address: {
+        street,
+        streetNumber,
+        city,
+        state,
+        apartment: flat
+      }
+    })
+
     await history.push('/home')
   }, [])
 
-  if (loading) return <Loading />
+  if (loadingSignup || loadingBusiness) return <Loading />
 
   return (
     <div className={classes.container}>
